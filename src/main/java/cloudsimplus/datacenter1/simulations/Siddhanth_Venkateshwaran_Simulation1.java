@@ -8,6 +8,7 @@ import org.cloudbus.cloudsim.core.CloudSim;
 import org.cloudbus.cloudsim.datacenters.Datacenter;
 import org.cloudbus.cloudsim.datacenters.network.NetworkDatacenter;
 import org.cloudbus.cloudsim.hosts.network.NetworkHost;
+import org.cloudbus.cloudsim.network.switches.AggregateSwitch;
 import org.cloudbus.cloudsim.network.switches.EdgeSwitch;
 import org.cloudbus.cloudsim.provisioners.PeProvisionerSimple;
 import org.cloudbus.cloudsim.provisioners.ResourceProvisionerSimple;
@@ -71,29 +72,60 @@ public class Siddhanth_Venkateshwaran_Simulation1 {
     }
 
     /**
-     * This will set up 2 edge switches and connect 10 hosts to each one.
-     * First 10 hosts will be connected to the 1st edge switch
-     * and the next 10 hosts to the 2nd edge switch
+     * A functional interface which will take the following arguments:
+     *      - Edge Switch
+     *      - HostList
+     *      - Lower id bound
+     *      - Upper id bound
+     * Filter out hosts whose IDs fall in that range
+     * Connect those hosts to the edge switch
+     * */
+    @FunctionalInterface
+    interface HostConnector {
+        void apply(EdgeSwitch edgeSwitch, List<NetworkHost> hostList, int lowerIdBound, int upperIdBound);
+    }
+
+    /**
+     * This will set up 10 edge switches and connect each set of 10 hosts to each one.
+     * First 10 hosts will be connected to the 1st edge switch,
+     * next 10 hosts to the 2nd edge switch and so on.
+     * Each edge switch has a default downlink bandwidth of 800 Mbps,
+     * which is the same as the uplink bandwidth of hosts.
+     * 1 aggregate switch is created for processing packets from edge switches for other edge switches
      */
     private void createNetwork(final CloudSim cloudSim, final NetworkDatacenter datacenter) {
-        EdgeSwitch[] edgeSwitches = new EdgeSwitch[]
-                {new EdgeSwitch(cloudSim, datacenter), new EdgeSwitch(cloudSim, datacenter)};
-        datacenter.addSwitch(edgeSwitches[0]);
-        datacenter.addSwitch(edgeSwitches[1]);
+        EdgeSwitch[] edgeSwitches = new EdgeSwitch[10];
+        for (int i = 0; i < 10; i++) {
+            edgeSwitches[i] = new EdgeSwitch(cloudSim, datacenter);
+            datacenter.addSwitch(edgeSwitches[i]);
+            edgeSwitches[i].setPorts(10);
+        }
 
-        edgeSwitches[0].setPorts(10);
-        edgeSwitches[1].setPorts(10);
+        /*
+        * Implement the host connector here
+        * */
+        HostConnector myConnector = (mySwitch, hostList, lower, upper) ->
+                hostList
+                .stream()
+                .filter(host -> host.getId() >= lower && host.getId() < upper)
+                .forEach(mySwitch::connectHost);
 
-        datacenter
-                .<NetworkHost>getHostList()
-                .stream()
-                .filter(host -> host.getId() <= 9)
-                .forEach(host -> edgeSwitches[0].connectHost(host));
-        datacenter
-                .<NetworkHost>getHostList()
-                .stream()
-                .filter(host -> host.getId() > 9)
-                .forEach(host -> edgeSwitches[1].connectHost(host));
+        /*
+         * Iterate through the switches array to ensure that each set of 10 hosts get connected
+         * to the proper edge switch
+         */
+        for (int i = 0; i < 10; i++)
+            myConnector.apply(edgeSwitches[i], datacenter.getHostList(), 10*i, 10*i+10);
+
+        /*
+        * Create an aggregate switch and add it to the datacenter
+        * Default downlink bandwidth is 800 Mbps
+        * Switching delay is 0.002 milliseconds
+        * How will an edge switch actually forward packet to its aggregate switch ?
+        *   - It internally accesses the abstract switch's uplink switches list but
+        *     not sure when this aggregate switch is added to that uplink switches list
+        * */
+        AggregateSwitch aggregateSwitch = new AggregateSwitch(cloudSim, datacenter);
     }
 
     /**
