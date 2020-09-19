@@ -1,9 +1,17 @@
 package cloudsimplus.datacenter1.simulations;
 
+import ch.qos.logback.classic.Level;
+import org.cloudbus.cloudsim.allocationpolicies.VmAllocationPolicy;
+import org.cloudbus.cloudsim.allocationpolicies.VmAllocationPolicyWorstFit;
+import org.cloudbus.cloudsim.cloudlets.Cloudlet;
+import org.cloudbus.cloudsim.cloudlets.CloudletSimple;
+import org.cloudbus.cloudsim.hosts.Host;
+import org.cloudbus.cloudsim.schedulers.cloudlet.CloudletSchedulerSpaceShared;
+import org.cloudsimplus.util.Log;
+
 import org.cloudbus.cloudsim.allocationpolicies.VmAllocationPolicyBestFit;
 import org.cloudbus.cloudsim.brokers.DatacenterBroker;
 import org.cloudbus.cloudsim.brokers.DatacenterBrokerSimple;
-import org.cloudbus.cloudsim.cloudlets.network.NetworkCloudlet;
 import org.cloudbus.cloudsim.core.CloudSim;
 import org.cloudbus.cloudsim.datacenters.Datacenter;
 import org.cloudbus.cloudsim.datacenters.network.NetworkDatacenter;
@@ -30,8 +38,10 @@ public class Siddhanth_Venkateshwaran_Simulation1 {
      * <p>
      *      This simulation will use the network datacenter1 having 20 hosts
      *      Hosts are connected using an edge switch
-     *      It will use the best-fit policy for allocating VMs to hosts.
-     *      The best-fit policy will always choose the host having the most number of PEs in use.
+     *      This datacenter will use the best-fit policy for allocating VMs to hosts.
+     *      The best-fit policy will always choose the host having the most number of PEs in use to run a given VM.
+     *      Thus every host will be completely utilized and there will be a large number of hosts which will remain
+     *      idle.
      * </p>
      */
     public static void main(String[] args) {
@@ -48,13 +58,23 @@ public class Siddhanth_Venkateshwaran_Simulation1 {
      * </p>
      */
     private Siddhanth_Venkateshwaran_Simulation1() {
+        configureLogs();
         CloudSim cloudSim = new CloudSim();
         Datacenter datacenter = createDatacenter(cloudSim);
         DatacenterBroker datacenterBroker = new DatacenterBrokerSimple(cloudSim);
         createAndSubmitVms(datacenterBroker);
         createAndSubmitCloudlets(datacenterBroker);
         cloudSim.start();
-        printSimulationResults(datacenterBroker);
+        printSimulationResults(datacenter, datacenterBroker);
+    }
+
+    /**
+     * Configure logging levels for specific loggers
+     * */
+    private void configureLogs() {
+        Log.setLevel(Datacenter.LOGGER, Level.WARN);
+        Log.setLevel(DatacenterBroker.LOGGER, Level.WARN);
+        Log.setLevel(VmAllocationPolicy.LOGGER, Level.WARN);
     }
 
     /**
@@ -65,7 +85,7 @@ public class Siddhanth_Venkateshwaran_Simulation1 {
      */
     private NetworkDatacenter createDatacenter(final CloudSim cloudSim) {
         List<NetworkHost> networkHosts = createHosts();
-        NetworkDatacenter networkDatacenter = new NetworkDatacenter(cloudSim, networkHosts, new VmAllocationPolicyBestFit());
+        NetworkDatacenter networkDatacenter = new NetworkDatacenter(cloudSim, networkHosts, new VmAllocationPolicyWorstFit());
         networkDatacenter.setSchedulingInterval(SCHEDULING_INTERVAL);
         createNetwork(cloudSim, networkDatacenter);
         return networkDatacenter;
@@ -140,13 +160,13 @@ public class Siddhanth_Venkateshwaran_Simulation1 {
      */
     private List<NetworkHost> createHosts() {
         List<NetworkHost> networkHosts = new ArrayList<>();
-        List<Pe> peList = createPes();
         for (int i = 0; i < HOSTS; i++) {
-            NetworkHost host = new NetworkHost(HOST_RAM, HOST_BW, HOST_STORAGE, peList);
+            NetworkHost host = new NetworkHost(HOST_RAM, HOST_BW, HOST_STORAGE, createPes());
             host.setId(i);
             host.setRamProvisioner(new ResourceProvisionerSimple());
             host.setBwProvisioner(new ResourceProvisionerSimple());
             host.setVmScheduler(new VmSchedulerTimeShared());
+            host.enableStateHistory();
             networkHosts.add(host);
         }
         return networkHosts;
@@ -178,23 +198,61 @@ public class Siddhanth_Venkateshwaran_Simulation1 {
         for (int i = 0; i < VMS; i++) {
             NetworkVm networkVm = new NetworkVm(i, VMS_MIPS, VMS_PES);
             networkVm.setRam(VMS_RAM).setBw(VMS_BW).setSize(VMS_STORAGE);
-            networkVm.setCloudletScheduler(new CloudletSchedulerTimeShared());
+            networkVm.getUtilizationHistory().enable();
+            networkVm.setCloudletScheduler(new CloudletSchedulerSpaceShared());
             vmList.add(networkVm);
         }
         datacenterBroker.submitVmList(vmList);
     }
 
+    /**
+     * This will create simple cloudlets which are supposed to execute for the specified time duration
+     * Network cloudlets require inter-communication, but that is not required for this simulation
+     * */
     private void createAndSubmitCloudlets(final DatacenterBroker datacenterBroker) {
-        List<NetworkCloudlet> networkCloudlets = new ArrayList<>();
+        List<Cloudlet> cloudletList = new ArrayList<>();
         for (int i = 0; i < CLOUDLETS; i++) {
-            NetworkCloudlet networkCloudlet = new NetworkCloudlet(CLOUDLET_LENGTH, CLOUDLET_PES);
-            networkCloudlet.setBroker(datacenterBroker);
-            networkCloudlets.add(networkCloudlet);
+            Cloudlet cloudlet = new CloudletSimple(i, CLOUDLET_LENGTH, CLOUDLET_PES);
+            cloudletList.add(cloudlet);
         }
-        datacenterBroker.submitCloudletList(networkCloudlets);
+        datacenterBroker.submitCloudletList(cloudletList);
     }
 
-    private void printSimulationResults(final DatacenterBroker datacenterBroker) {
-        new CloudletsTableBuilder(datacenterBroker.getCloudletFinishedList()).build();
+    private void printSimulationResults(final Datacenter datacenter, final DatacenterBroker datacenterBroker) {
+        /*new CloudletsTableBuilder(datacenterBroker.getCloudletFinishedList())
+                .addColumn(5, new TextTableColumn("HOST MIPS", "TOTAL"), c -> c.getVm().getHost().getTotalMipsCapacity())
+                .addColumn(6, new TextTableColumn("VM MIPS", "TOTAL"), c -> c.getVm().getHost().getTotalMipsCapacity())
+                .addColumn(8, new TextTableColumn("VM MIPS  ", "REQUESTED"), this::getVmRequestedMipsCapacity)
+                .addColumn(9, new TextTableColumn("VM MIPS  ", "ALLOCATED"), this::getVmAllocatedMipsCapacity)
+                .build();*/
+        datacenter.getHostList().forEach(this::printHostStateHistory);
+    }
+
+    private double getVmRequestedMipsCapacity(Cloudlet cloudlet) {
+        if (cloudlet.getVm().getStateHistory().isEmpty())
+            return 0;
+        return cloudlet.getVm().getStateHistory().get(cloudlet.getVm().getStateHistory().size()-1).getRequestedMips();
+    }
+
+    private double getVmAllocatedMipsCapacity(Cloudlet cloudlet) {
+        if (cloudlet.getVm().getStateHistory().isEmpty())
+            return 0;
+        return cloudlet.getVm().getStateHistory().get(cloudlet.getVm().getStateHistory().size()-1).getAllocatedMips();
+    }
+
+    private void printHostStateHistory(Host host) {
+        System.out.printf("Host: %d%n", host.getId());
+        System.out.println("-----------------------------------------------------------------------------------------------------");
+        host.getStateHistory().forEach(System.out::print);
+
+        System.out.println("CPU Utilization: Time in seconds(since start of simulation)    %Utilization");
+        host.getUtilizationHistorySum().forEach((k, v) -> System.out.printf("%s\t%s%n", k, (100*v)));
+
+        System.out.println("RAM Utilization:");
+        System.out.println(host.getRamUtilization());
+
+        System.out.println("BW Utilization:");
+        System.out.println(host.getBwUtilization());
+        System.out.println();
     }
 }
