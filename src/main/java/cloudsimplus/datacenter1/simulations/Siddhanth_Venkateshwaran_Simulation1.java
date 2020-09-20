@@ -1,12 +1,20 @@
 package cloudsimplus.datacenter1.simulations;
 
 import ch.qos.logback.classic.Level;
+import cloudsimplus.datacenter1.MyCloudletsTableBuilder;
 import org.cloudbus.cloudsim.allocationpolicies.VmAllocationPolicy;
+import org.cloudbus.cloudsim.allocationpolicies.VmAllocationPolicyRandom;
 import org.cloudbus.cloudsim.allocationpolicies.VmAllocationPolicyWorstFit;
 import org.cloudbus.cloudsim.cloudlets.Cloudlet;
 import org.cloudbus.cloudsim.cloudlets.CloudletSimple;
+import org.cloudbus.cloudsim.core.Identifiable;
+import org.cloudbus.cloudsim.distributions.UniformDistr;
 import org.cloudbus.cloudsim.hosts.Host;
+import org.cloudbus.cloudsim.provisioners.ResourceProvisioner;
+import org.cloudbus.cloudsim.resources.*;
 import org.cloudbus.cloudsim.schedulers.cloudlet.CloudletSchedulerSpaceShared;
+import org.cloudbus.cloudsim.utilizationmodels.UtilizationModelStochastic;
+import org.cloudsimplus.listeners.EventInfo;
 import org.cloudsimplus.util.Log;
 
 import org.cloudbus.cloudsim.allocationpolicies.VmAllocationPolicyBestFit;
@@ -20,16 +28,13 @@ import org.cloudbus.cloudsim.network.switches.AggregateSwitch;
 import org.cloudbus.cloudsim.network.switches.EdgeSwitch;
 import org.cloudbus.cloudsim.provisioners.PeProvisionerSimple;
 import org.cloudbus.cloudsim.provisioners.ResourceProvisionerSimple;
-import org.cloudbus.cloudsim.resources.Pe;
-import org.cloudbus.cloudsim.resources.PeSimple;
 import org.cloudbus.cloudsim.schedulers.cloudlet.CloudletSchedulerTimeShared;
 import org.cloudbus.cloudsim.schedulers.vm.VmSchedulerTimeShared;
 import org.cloudbus.cloudsim.vms.Vm;
 import org.cloudbus.cloudsim.vms.network.NetworkVm;
 import org.cloudsimplus.builders.tables.CloudletsTableBuilder;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 import static cloudsimplus.datacenter1.simulations.Constants.*;
 
@@ -44,6 +49,14 @@ public class Siddhanth_Venkateshwaran_Simulation1 {
      *      idle.
      * </p>
      */
+
+    private final CloudSim cloudSim;
+    private final Datacenter datacenter;
+    private final DatacenterBroker datacenterBroker;
+    private final Map<Host, Map<Double, Double>> hostRamUtilizationMap;
+    private final Map<Host, Map<Double, Double>> hostBwUtilizationMap;
+    private final Map<Host, Map<Double, Double>> hostCPUUtilizationMap;
+
     public static void main(String[] args) {
         new Siddhanth_Venkateshwaran_Simulation1();
     }
@@ -59,9 +72,13 @@ public class Siddhanth_Venkateshwaran_Simulation1 {
      */
     private Siddhanth_Venkateshwaran_Simulation1() {
         configureLogs();
-        CloudSim cloudSim = new CloudSim();
-        Datacenter datacenter = createDatacenter(cloudSim);
-        DatacenterBroker datacenterBroker = new DatacenterBrokerSimple(cloudSim);
+        cloudSim = new CloudSim();
+        datacenter = createDatacenter(cloudSim);
+        datacenterBroker = new DatacenterBrokerSimple(cloudSim);
+        hostRamUtilizationMap = initializeUtilizationMaps(datacenter);
+        hostBwUtilizationMap = initializeUtilizationMaps(datacenter);
+        hostCPUUtilizationMap = initializeUtilizationMaps(datacenter);
+        cloudSim.addOnClockTickListener(this::processOnClockTickListener);
         createAndSubmitVms(datacenterBroker);
         createAndSubmitCloudlets(datacenterBroker);
         cloudSim.start();
@@ -69,12 +86,97 @@ public class Siddhanth_Venkateshwaran_Simulation1 {
     }
 
     /**
+     * Getter for the current simulation
+     * */
+    private CloudSim getCloudSim() {
+        return cloudSim;
+    }
+
+    /**
+     * Getter for the datacenter
+     * */
+    private Datacenter getDatacenter() {
+        return datacenter;
+    }
+
+    /**
+     * Getter for the broker
+     * */
+    private DatacenterBroker getDatacenterBroker() {
+        return datacenterBroker;
+    }
+
+    /**
+     * Getter for the cpu utilization map
+     * */
+    public Map<Host, Map<Double, Double>> getHostCPUUtilizationMap() {
+        return hostCPUUtilizationMap;
+    }
+
+    /**
+     * Getter for the ram utilization map
+     * */
+    private Map<Host, Map<Double, Double>> getHostRamUtilizationMap() {
+        return hostRamUtilizationMap;
+    }
+
+    /**
+     * Getter for the bandwidth utilization map
+     * */
+    private Map<Host, Map<Double, Double>> getHostBwUtilizationMap() {
+        return hostBwUtilizationMap;
+    }
+
+    /**
      * Configure logging levels for specific loggers
      * */
     private void configureLogs() {
         Log.setLevel(Datacenter.LOGGER, Level.WARN);
-        Log.setLevel(DatacenterBroker.LOGGER, Level.WARN);
-        Log.setLevel(VmAllocationPolicy.LOGGER, Level.WARN);
+//        Log.setLevel(DatacenterBroker.LOGGER, Level.WARN);
+//        Log.setLevel(VmAllocationPolicy.LOGGER, Level.WARN);
+    }
+
+    /**
+     * This will call the function responsible to collect the RAM and BW metrics when the simulation clock ticks
+     * @param evt This object has data passed with the event between different entities (VM, Host, Broker, Cloudlet)
+     * Data give access to the entity objects (VM, Host, Broker, Datacenter, etc.)
+     * */
+    private void processOnClockTickListener(final EventInfo evt) {
+        collectHostUtilizationMetrics(this.getHostRamUtilizationMap(), Ram.class);
+        collectHostUtilizationMetrics(this.getHostBwUtilizationMap(), Bandwidth.class);
+        collectPeUtilizationMetrics(this.getHostCPUUtilizationMap());
+    }
+
+    /**
+     * Initialize data structure for storing Host BW/RAM utilization over the simulation lifetime
+     * For each resource, it will be a multi-map with host as the key and another map as its value. This inner map
+     * has the simulation time tick as its key and utilization % value at that time tick as the value
+     * */
+    private Map<Host, Map<Double, Double>> initializeUtilizationMaps(final Datacenter datacenter) {
+        Map<Host, Map<Double, Double>> utilizationMap = new HashMap<>();
+        datacenter.getHostList().forEach(host -> utilizationMap.put(host, new TreeMap<>()));
+        return utilizationMap;
+    }
+
+    /**
+     * This function will insert the amount of ram/bw currently being utilized in % for each host in the datacenter
+     * "currently" means the current clock tick of the simulation
+     * @param hostUtilizationMap The utilization map
+     * @param resource Resource whose utilization is required (RAM / Bandwidth)
+     * */
+    private void collectHostUtilizationMetrics(final Map<Host, Map<Double, Double>> hostUtilizationMap,
+                                               final Class<? extends ResourceManageable> resource) {
+        this.getDatacenter().getHostList()
+                .forEach(host ->
+                    hostUtilizationMap.get(host).put(this.cloudSim.clock(),
+                            host.getProvisioner(resource).getResource().getPercentUtilization()));
+    }
+
+    private void collectPeUtilizationMetrics(final Map<Host, Map<Double, Double>> hostCPUUtilizationMap) {
+        this.getDatacenter().getHostList()
+                .forEach(host ->
+                        hostCPUUtilizationMap.get(host).put(this.cloudSim.clock(),
+                                host.getCpuPercentUtilization()));
     }
 
     /**
@@ -85,9 +187,9 @@ public class Siddhanth_Venkateshwaran_Simulation1 {
      */
     private NetworkDatacenter createDatacenter(final CloudSim cloudSim) {
         List<NetworkHost> networkHosts = createHosts();
-        NetworkDatacenter networkDatacenter = new NetworkDatacenter(cloudSim, networkHosts, new VmAllocationPolicyWorstFit());
+        NetworkDatacenter networkDatacenter = new NetworkDatacenter(cloudSim, networkHosts, new VmAllocationPolicyRandom(new UniformDistr()));
         networkDatacenter.setSchedulingInterval(SCHEDULING_INTERVAL);
-        createNetwork(cloudSim, networkDatacenter);
+//        createNetwork(cloudSim, networkDatacenter);
         return networkDatacenter;
     }
 
@@ -102,7 +204,7 @@ public class Siddhanth_Venkateshwaran_Simulation1 {
      * */
     @FunctionalInterface
     interface HostConnector {
-        void apply(EdgeSwitch edgeSwitch, List<NetworkHost> hostList, int lowerIdBound, int upperIdBound);
+        void connect(EdgeSwitch edgeSwitch, List<NetworkHost> hostList, int lowerIdBound, int upperIdBound);
     }
 
     /**
@@ -114,8 +216,8 @@ public class Siddhanth_Venkateshwaran_Simulation1 {
      * 1 aggregate switch is created for processing packets from edge switches for other edge switches
      */
     private void createNetwork(final CloudSim cloudSim, final NetworkDatacenter datacenter) {
-        EdgeSwitch[] edgeSwitches = new EdgeSwitch[10];
-        for (int i = 0; i < 10; i++) {
+        EdgeSwitch[] edgeSwitches = new EdgeSwitch[EDGE_SWITCHES];
+        for (int i = 0; i < EDGE_SWITCHES; i++) {
             edgeSwitches[i] = new EdgeSwitch(cloudSim, datacenter);
             datacenter.addSwitch(edgeSwitches[i]);
             edgeSwitches[i].setPorts(10);
@@ -134,8 +236,9 @@ public class Siddhanth_Venkateshwaran_Simulation1 {
          * Iterate through the switches array to ensure that each set of 10 hosts get connected
          * to the proper edge switch
          */
-        for (int i = 0; i < 10; i++)
-            myConnector.apply(edgeSwitches[i], datacenter.getHostList(), 10*i, 10*i+10);
+        for (int i = 0; i < EDGE_SWITCHES; i++)
+            myConnector.connect(edgeSwitches[i], datacenter.getHostList(),
+                    EDGE_SWITCHES*i, EDGE_SWITCHES*i+EDGE_SWITCHES);
 
         /*
         * Create an aggregate switch and add it to the datacenter
@@ -202,51 +305,62 @@ public class Siddhanth_Venkateshwaran_Simulation1 {
             networkVm.setCloudletScheduler(new CloudletSchedulerSpaceShared());
             vmList.add(networkVm);
         }
+
+        /*for (int i = VMS; i < (VMS+ADDITIONAL_VMS); i++) {
+            NetworkVm networkVm = new NetworkVm(i, ADDITIONAL_VMS_MIPS, ADDITIONAL_VMS_PES);
+            networkVm.setRam(ADDITIONAL_VMS_RAM).setBw(ADDITIONAL_VMS_BW).setSize(ADDITIONAL_VMS_STORAGE);
+            networkVm.getUtilizationHistory().enable();
+            networkVm.setCloudletScheduler(new CloudletSchedulerSpaceShared());
+            networkVm.setSubmissionDelay(20);
+            vmList.add(networkVm);
+        }*/
         datacenterBroker.submitVmList(vmList);
     }
 
     /**
-     * This will create simple cloudlets which are supposed to execute for the specified time duration
-     * Network cloudlets require inter-communication, but that is not required for this simulation
+     * This will create simple cloudlets which are supposed to execute for the specified time duration.
+     * Network cloudlets require inter-communication (send/receive tasks), but that is not required for this simulation.
+     * Additionally 100 more cloudlets will be submitted to the broker with a specific delay to simulate
+     * a stream of cloudlets.
      * */
     private void createAndSubmitCloudlets(final DatacenterBroker datacenterBroker) {
         List<Cloudlet> cloudletList = new ArrayList<>();
         for (int i = 0; i < CLOUDLETS; i++) {
             Cloudlet cloudlet = new CloudletSimple(i, CLOUDLET_LENGTH, CLOUDLET_PES);
+            cloudlet.setUtilizationModel(new UtilizationModelStochastic());
             cloudletList.add(cloudlet);
         }
+
+
         datacenterBroker.submitCloudletList(cloudletList);
     }
 
     private void printSimulationResults(final Datacenter datacenter, final DatacenterBroker datacenterBroker) {
-        /*new CloudletsTableBuilder(datacenterBroker.getCloudletFinishedList())
-                .addColumn(5, new TextTableColumn("HOST MIPS", "TOTAL"), c -> c.getVm().getHost().getTotalMipsCapacity())
-                .addColumn(6, new TextTableColumn("VM MIPS", "TOTAL"), c -> c.getVm().getHost().getTotalMipsCapacity())
-                .addColumn(8, new TextTableColumn("VM MIPS  ", "REQUESTED"), this::getVmRequestedMipsCapacity)
-                .addColumn(9, new TextTableColumn("VM MIPS  ", "ALLOCATED"), this::getVmAllocatedMipsCapacity)
-                .build();*/
-        datacenter.getHostList().forEach(this::printHostStateHistory);
+        List<Cloudlet> finishedCloudletsList = datacenterBroker.getCloudletFinishedList();
+        finishedCloudletsList.sort(Comparator.comparingLong(Identifiable::getId));
+        new MyCloudletsTableBuilder(finishedCloudletsList).build();
+        System.out.println();
+        printHostUtilizationMetrics();
     }
 
-    private double getVmRequestedMipsCapacity(Cloudlet cloudlet) {
-        if (cloudlet.getVm().getStateHistory().isEmpty())
-            return 0;
-        return cloudlet.getVm().getStateHistory().get(cloudlet.getVm().getStateHistory().size()-1).getRequestedMips();
+    private void printHostUtilizationMetrics() {
+        this.getDatacenter().getHostList().forEach(host -> {
+            System.out.printf("--------------------------------HOST %d------------------------------------%n", host.getId());
+                this.getHostRamUtilizationMap().get(host).forEach((clock, ram) ->
+                System.out.printf("TIME - %6.2f\tCPU - %.2f%%\tRAM - %.2f%%\tBandwidth - %.2f%%%n",
+                        clock, 100*this.getHostCPUUtilizationMap().get(host).get(clock), 100*ram, 100*this.getHostBwUtilizationMap().get(host).get(clock)));
+            System.out.println("-------------------------------------------------------------------------");
+        });
+        System.out.println();
     }
 
-    private double getVmAllocatedMipsCapacity(Cloudlet cloudlet) {
-        if (cloudlet.getVm().getStateHistory().isEmpty())
-            return 0;
-        return cloudlet.getVm().getStateHistory().get(cloudlet.getVm().getStateHistory().size()-1).getAllocatedMips();
-    }
-
-    private void printHostStateHistory(Host host) {
+    private void printHostStateHistory(final Host host) {
         System.out.printf("Host: %d%n", host.getId());
         System.out.println("-----------------------------------------------------------------------------------------------------");
         host.getStateHistory().forEach(System.out::print);
 
         System.out.println("CPU Utilization: Time in seconds(since start of simulation)    %Utilization");
-        host.getUtilizationHistorySum().forEach((k, v) -> System.out.printf("%s\t%s%n", k, (100*v)));
+        host.getUtilizationHistorySum().forEach((k, v) -> System.out.printf("%6.2ffs\t\t%6.2f%% %n", k, (100*v)));
 
         System.out.println("RAM Utilization:");
         System.out.println(host.getRamUtilization());

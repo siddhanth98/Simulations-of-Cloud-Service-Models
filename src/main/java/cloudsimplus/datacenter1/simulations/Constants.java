@@ -15,7 +15,7 @@ public class Constants {
     static final Config specsConfig =
             ConfigFactory.parseFile(new File("src/main/resources/configuration/Datacenter1/cloudspecs.conf"));
     static final Config requirementsConfig =
-            ConfigFactory.parseFile(new File("src/main/resources/configuration/Datacenter1/Simulations/Simulation1/cloudlet_and_vm_requirements.conf"));
+            ConfigFactory.parseFile(new File("src/main/resources/configuration/Datacenter1/Simulations/Simulation1/cloudlet_and_vm_requirements.conf")).resolve();
 
     /**
      * <p>Here the specifications for datacenter hosts are defined</p>
@@ -26,7 +26,6 @@ public class Constants {
     static final int HOST_RAM = specsConfig.getInt("conf.HOSTS.RAM");
     static final int HOST_STORAGE = specsConfig.getInt("conf.HOSTS.STORAGE");
     static final int HOST_MIPS = specsConfig.getInt("conf.HOSTS.MIPS");
-
     /**
      * <p>Here the requirements values for VMs and Cloudlets are defined</p>
      */
@@ -37,6 +36,13 @@ public class Constants {
     static final int VMS_STORAGE = requirementsConfig.getInt("conf.VMS.STORAGE");
     static final int VMS_MIPS = requirementsConfig.getInt("conf.VMS.MIPS");
 
+    static final int ADDITIONAL_VMS = VMS;
+    static final int ADDITIONAL_VMS_PES = VMS_PES;
+    static final int ADDITIONAL_VMS_BW = VMS_BW;
+    static final int ADDITIONAL_VMS_RAM = VMS_RAM;
+    static final int ADDITIONAL_VMS_STORAGE = VMS_STORAGE;
+    static final int ADDITIONAL_VMS_MIPS = VMS_MIPS;
+
     static final int CLOUDLETS = requirementsConfig.getInt("conf.CLOUDLETS.COUNT");
     static final int CLOUDLET_LENGTH = requirementsConfig.getInt("conf.CLOUDLETS.LENGTH");
     static final int CLOUDLET_PES = requirementsConfig.getInt("conf.CLOUDLETS.PE_COUNT");
@@ -45,4 +51,5 @@ public class Constants {
      * <p>Define datacenter specific constants here.</p>
      */
     static final int SCHEDULING_INTERVAL = specsConfig.getInt("conf.DATACENTER.SCHEDULING_INTERVAL");
+    static final int EDGE_SWITCHES = specsConfig.getInt("conf.DATACENTER.EDGE_SWITCHES");
 }
