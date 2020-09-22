@@ -80,7 +80,13 @@ public class Siddhanth_Venkateshwaran_Datacenter1 {
         cloudSim.addOnClockTickListener(this::processOnClockTickListener);
 
         createAndSubmitCloudlets(datacenterBroker);
-        cloudSim.start();
+    }
+
+    /**
+     * Function to start the simulation
+     */
+    void start() {
+        this.getCloudSim().start();
     }
 
     /**

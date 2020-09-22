@@ -21,6 +21,7 @@ import org.cloudbus.cloudsim.provisioners.ResourceProvisionerSimple;
 import org.cloudbus.cloudsim.resources.*;
 import org.cloudbus.cloudsim.schedulers.cloudlet.CloudletSchedulerSpaceShared;
 import org.cloudbus.cloudsim.schedulers.vm.VmSchedulerTimeShared;
+import org.cloudbus.cloudsim.utilizationmodels.UtilizationModelDynamic;
 import org.cloudbus.cloudsim.utilizationmodels.UtilizationModelStochastic;
 import org.cloudbus.cloudsim.vms.Vm;
 import org.cloudbus.cloudsim.vms.network.NetworkVm;
@@ -80,69 +81,76 @@ public class Siddhanth_Venkateshwaran_Datacenter1 {
         cloudSim.addOnClockTickListener(this::processOnClockTickListener);
 
         createAndSubmitCloudlets(datacenterBroker);
-        cloudSim.start();
+    }
+
+    /**
+     * Expose a function to start the simulation to let junit access it and pause it if required
+     * without starting it in the constructor itself
+     */
+    void start() {
+        this.getCloudSim().start();
     }
 
     /**
      * Getter for the current simulation
      */
-    private CloudSim getCloudSim() {
+    CloudSim getCloudSim() {
         return cloudSim;
     }
 
     /**
      * Getter for the datacenter
      */
-    private Datacenter getDatacenter() {
+    Datacenter getDatacenter() {
         return datacenter;
     }
 
     /**
      * Getter for the broker
      */
-    private DatacenterBroker getDatacenterBroker() {
+    DatacenterBroker getDatacenterBroker() {
         return datacenterBroker;
     }
 
     /**
      * Getter for the cpu utilization map
      */
-    public Map<Host, Map<Double, Double>> getHostCpuUtilizationMap() {
+    Map<Host, Map<Double, Double>> getHostCpuUtilizationMap() {
         return hostCpuUtilizationMap;
     }
 
     /**
      * Getter for the ram utilization map
      */
-    private Map<Host, Map<Double, Double>> getHostRamUtilizationMap() {
+    Map<Host, Map<Double, Double>> getHostRamUtilizationMap() {
         return hostRamUtilizationMap;
     }
 
     /**
      * Getter for the bandwidth utilization map
      */
-    private Map<Host, Map<Double, Double>> getHostBwUtilizationMap() {
+    Map<Host, Map<Double, Double>> getHostBwUtilizationMap() {
         return hostBwUtilizationMap;
     }
 
     /**
      * Getter for vm ram utilization map
      */
-    public Map<Vm, Map<Double, Double>> getVmRamUtilizationMap() {
+    Map<Vm, Map<Double, Double>> getVmRamUtilizationMap() {
         return vmRamUtilizationMap;
     }
 
     /**
      * Getter for vm cpu utilization map
      */
-    public Map<Vm, Map<Double, Double>> getVmCpuUtilizationMap() {
+    Map<Vm, Map<Double, Double>> getVmCpuUtilizationMap() {
         return vmCpuUtilizationMap;
     }
 
     /**
      * Getter for vm bw utilization map
      */
-    public Map<Vm, Map<Double, Double>> getVmBwUtilizationMap() {
+    Map<Vm, Map<Double, Double>> getVmBwUtilizationMap() {
         return vmBwUtilizationMap;
     }
 
@@ -380,9 +388,9 @@ public class Siddhanth_Venkateshwaran_Datacenter1 {
             networkVm.setRam(VMS_RAM).setBw(VMS_BW).setSize(VMS_STORAGE);
             networkVm.getUtilizationHistory().enable();
             networkVm.setCloudletScheduler(new CloudletSchedulerSpaceShared());
+
             vmList.add(networkVm);
         }
-
         datacenterBroker.submitVmList(vmList);
     }
 

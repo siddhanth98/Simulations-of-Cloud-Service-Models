@@ -4,8 +4,9 @@ import org.cloudbus.cloudsim.allocationpolicies.VmAllocationPolicyBestFit;
 
 public class BestFitVmAllocationSimulation {
     public static void main(String[] args) {
-        Siddhanth_Venkateshwaran_Datacenter1 bestFitVmAllocationSimulation1 =
+        Siddhanth_Venkateshwaran_Datacenter1 bestFitVmAllocationSimulation2 =
                 new Siddhanth_Venkateshwaran_Datacenter1(new VmAllocationPolicyBestFit());
-        bestFitVmAllocationSimulation1.printSimulationResults();
+        bestFitVmAllocationSimulation2.start();
+        bestFitVmAllocationSimulation2.printSimulationResults();
     }
 }

@@ -6,6 +6,7 @@ public class BestFitVmAllocationSimulation {
     public static void main(String[] args) {
         Siddhanth_Venkateshwaran_Datacenter1 bestFitVmAllocationSimulation1 =
                 new Siddhanth_Venkateshwaran_Datacenter1(new VmAllocationPolicyBestFit());
+        bestFitVmAllocationSimulation1.start();
         bestFitVmAllocationSimulation1.printSimulationResults();
     }
 }
