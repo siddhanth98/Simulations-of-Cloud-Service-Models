@@ -1,4 +1,4 @@
-package cloudsimplus.datacenter1.simulations.simulation1;
+package cloudsimplus.datacenter1.simulations;
 
 import ch.qos.logback.classic.Level;
 import cloudsimplus.datacenter1.MyCloudletsTableBuilder;
@@ -19,9 +19,11 @@ import org.cloudbus.cloudsim.network.switches.EdgeSwitch;
 import org.cloudbus.cloudsim.provisioners.PeProvisionerSimple;
 import org.cloudbus.cloudsim.provisioners.ResourceProvisionerSimple;
 import org.cloudbus.cloudsim.resources.*;
+import org.cloudbus.cloudsim.schedulers.cloudlet.CloudletSchedulerAbstract;
+import org.cloudbus.cloudsim.schedulers.cloudlet.CloudletSchedulerCompletelyFair;
 import org.cloudbus.cloudsim.schedulers.cloudlet.CloudletSchedulerSpaceShared;
+import org.cloudbus.cloudsim.schedulers.cloudlet.CloudletSchedulerTimeShared;
 import org.cloudbus.cloudsim.schedulers.vm.VmSchedulerTimeShared;
-import org.cloudbus.cloudsim.utilizationmodels.UtilizationModelDynamic;
 import org.cloudbus.cloudsim.utilizationmodels.UtilizationModelStochastic;
 import org.cloudbus.cloudsim.vms.Vm;
 import org.cloudbus.cloudsim.vms.network.NetworkVm;
@@ -30,7 +32,7 @@ import org.cloudsimplus.util.Log;
 
 import java.util.*;
 
-import static cloudsimplus.datacenter1.simulations.simulation1.Constants.*;
+import static cloudsimplus.datacenter1.simulations.Constants.*;
 
 public class Siddhanth_Venkateshwaran_Datacenter1 {
     /**
@@ -64,7 +66,8 @@ public class Siddhanth_Venkateshwaran_Datacenter1 {
      *     Start the simulation and print the simulation results when it is over.
      * </p>
      */
-    public Siddhanth_Venkateshwaran_Datacenter1(VmAllocationPolicyAbstract vmAllocationPolicy) {
+    public Siddhanth_Venkateshwaran_Datacenter1(final VmAllocationPolicyAbstract vmAllocationPolicy,
+                                                final int VMS_PES, final int ADDITIONAL_CLOUDLETS) {
         configureLogs();
         cloudSim = new CloudSim();
         datacenter = createDatacenter(cloudSim, vmAllocationPolicy);
@@ -73,84 +76,127 @@ public class Siddhanth_Venkateshwaran_Datacenter1 {
         hostBwUtilizationMap = initializeHostUtilizationMaps(datacenter);
         hostCpuUtilizationMap = initializeHostUtilizationMaps(datacenter);
 
-        createAndSubmitVms(datacenterBroker);
+        createAndSubmitVms(datacenterBroker, VMS_PES);
         vmRamUtilizationMap = initializeVmUtilizationMaps(datacenter);
         vmBwUtilizationMap = initializeVmUtilizationMaps(datacenter);
         vmCpuUtilizationMap = initializeVmUtilizationMaps(datacenter);
 
         cloudSim.addOnClockTickListener(this::processOnClockTickListener);
+        createAndSubmitCloudlets(datacenterBroker, ADDITIONAL_CLOUDLETS);
+    }
 
-        createAndSubmitCloudlets(datacenterBroker);
+    /**
+     * This constructor will do the work of setting different cloudlet scheduling policies
+     * specifically for simulations 3 and 4
+     */
+    public Siddhanth_Venkateshwaran_Datacenter1(final VmAllocationPolicyAbstract vmAllocationPolicy,
+                                                final int VMS_PES, final CloudletSchedulerAbstract cloudletScheduler,
+                                                final int ADDITIONAL_CLOUDLETS) {
+        this(vmAllocationPolicy, VMS_PES, ADDITIONAL_CLOUDLETS);
+        this.getDatacenterBroker()
+                .getVmWaitingList()
+                .forEach(vm -> {
+                    if (cloudletScheduler instanceof CloudletSchedulerSpaceShared)
+                        vm.setCloudletScheduler(new CloudletSchedulerSpaceShared());
+                    else if (cloudletScheduler instanceof CloudletSchedulerCompletelyFair)
+                        vm.setCloudletScheduler(new CloudletSchedulerCompletelyFair());
+                    else if (cloudletScheduler instanceof CloudletSchedulerTimeShared)
+                        vm.setCloudletScheduler(new CloudletSchedulerTimeShared());
+                });
+    }
+
+    /**
+     * This constructor is used when no additional additional cloudlets
+     * or submission delays is to be used
+     */
+    public Siddhanth_Venkateshwaran_Datacenter1(final VmAllocationPolicyAbstract vmAllocationPolicy,
+                                                final int VMS_PES, final CloudletSchedulerAbstract cloudletScheduler) {
+        this(vmAllocationPolicy, VMS_PES, cloudletScheduler, 0);
+    }
+
+    /**
+     * This constructor is used when additional cloudlets with specific submission delay
+     * are to be used
+     */
+    public Siddhanth_Venkateshwaran_Datacenter1(final VmAllocationPolicyAbstract vmAllocationPolicy,
+                                                final int VMS_PES, final CloudletSchedulerAbstract cloudletScheduler,
+                                                final int submissionDelay, final int ADDITIONAL_CLOUDLETS) {
+        this(vmAllocationPolicy, VMS_PES, cloudletScheduler, ADDITIONAL_CLOUDLETS);
+        this.getDatacenterBroker()
+                .getCloudletSubmittedList()
+                .stream()
+                .filter(cloudlet -> cloudlet.getId() >= CLOUDLETS)
+                .forEach(cloudlet -> cloudlet.setSubmissionDelay(submissionDelay));
     }
 
     /**
      * Expose a function to start the simulation to let junit access it and pause it if required
      * without starting it in the constructor itself
      */
-    void start() {
+    public void start() {
         this.getCloudSim().start();
     }
 
     /**
      * Getter for the current simulation
      */
-    CloudSim getCloudSim() {
+    public CloudSim getCloudSim() {
         return cloudSim;
     }
 
     /**
      * Getter for the datacenter
      */
-    Datacenter getDatacenter() {
+    public Datacenter getDatacenter() {
         return datacenter;
     }
 
     /**
      * Getter for the broker
      */
-    DatacenterBroker getDatacenterBroker() {
+    public DatacenterBroker getDatacenterBroker() {
         return datacenterBroker;
     }
 
     /**
      * Getter for the cpu utilization map
      */
-    Map<Host, Map<Double, Double>> getHostCpuUtilizationMap() {
+    public Map<Host, Map<Double, Double>> getHostCpuUtilizationMap() {
         return hostCpuUtilizationMap;
     }
 
     /**
      * Getter for the ram utilization map
      */
-    Map<Host, Map<Double, Double>> getHostRamUtilizationMap() {
+    public Map<Host, Map<Double, Double>> getHostRamUtilizationMap() {
         return hostRamUtilizationMap;
     }
 
     /**
      * Getter for the bandwidth utilization map
      */
-    Map<Host, Map<Double, Double>> getHostBwUtilizationMap() {
+    public Map<Host, Map<Double, Double>> getHostBwUtilizationMap() {
         return hostBwUtilizationMap;
     }
 
     /**
      * Getter for vm ram utilization map
      */
-    Map<Vm, Map<Double, Double>> getVmRamUtilizationMap() {
+    public Map<Vm, Map<Double, Double>> getVmRamUtilizationMap() {
         return vmRamUtilizationMap;
     }
 
     /**
      * Getter for vm cpu utilization map
      */
-    Map<Vm, Map<Double, Double>> getVmCpuUtilizationMap() {
+    public Map<Vm, Map<Double, Double>> getVmCpuUtilizationMap() {
         return vmCpuUtilizationMap;
     }
 
     /**
      * Getter for vm bw utilization map
      */
-    Map<Vm, Map<Double, Double>> getVmBwUtilizationMap() {
+    public Map<Vm, Map<Double, Double>> getVmBwUtilizationMap() {
         return vmBwUtilizationMap;
     }
 
@@ -380,7 +426,7 @@ public class Siddhanth_Venkateshwaran_Datacenter1 {
      * Each cloudlet will get a time slice to execute after which it will be preempted
      * by another cloudlet for use of the VM.
      */
-    private void createAndSubmitVms(final DatacenterBroker datacenterBroker) {
+    private void createAndSubmitVms(final DatacenterBroker datacenterBroker, final int VMS_PES) {
         List<Vm> vmList = new ArrayList<>();
 
         for (int i = 0; i < VMS; i++) {
@@ -402,20 +448,14 @@ public class Siddhanth_Venkateshwaran_Datacenter1 {
      * Additionally 100 more cloudlets will be submitted to the broker with a specific delay to simulate
      * a stream of cloudlets.
      * */
-    private void createAndSubmitCloudlets(final DatacenterBroker datacenterBroker) {
+    private void createAndSubmitCloudlets(final DatacenterBroker datacenterBroker, final int ADDITIONAL_CLOUDLETS) {
         List<Cloudlet> cloudletList = new ArrayList<>();
-        for (int i = 0; i < CLOUDLETS; i++) {
+        for (int i = 0; i < CLOUDLETS+ADDITIONAL_CLOUDLETS; i++) {
             Cloudlet cloudlet = new CloudletSimple(i, CLOUDLET_LENGTH, CLOUDLET_PES);
             cloudlet.setUtilizationModel(new UtilizationModelStochastic());
             cloudletList.add(cloudlet);
         }
 
-        for (int i = CLOUDLETS; i < (CLOUDLETS + ADDITIONAL_CLOUDLETS); i++) {
-            Cloudlet cloudlet = new CloudletSimple(i, ADDITIONAL_CLOUDLETS_LENGTH, ADDITIONAL_CLOUDLETS_PES);
-            cloudlet.setUtilizationModel(new UtilizationModelStochastic());
-            cloudlet.setSubmissionDelay(100);
-            cloudletList.add(cloudlet);
-        }
         datacenterBroker.submitCloudletList(cloudletList);
     }
 
@@ -424,12 +464,9 @@ public class Siddhanth_Venkateshwaran_Datacenter1 {
         finishedCloudletsList.sort(Comparator.comparingLong(Identifiable::getId));
         new MyCloudletsTableBuilder(finishedCloudletsList).build();
         System.out.println();
-        printHostUtilizationMetrics();
-        System.out.printf("%n%n%n");
-        printVmUtilizationMetrics();
     }
 
-    private void printVmUtilizationMetrics() {
+    public void printVmUtilizationMetrics() {
         this.getDatacenterBroker().getVmCreatedList()
               .forEach(vm -> {
                   System.out.printf("---------------------------------VM %d---------------------------------%n", vm.getId());
@@ -440,7 +477,7 @@ public class Siddhanth_Venkateshwaran_Datacenter1 {
               });
     }
 
-    private void printHostUtilizationMetrics() {
+    public void printHostUtilizationMetrics() {
         this.getDatacenter().getHostList().forEach(host -> {
             System.out.printf("--------------------------------HOST %d------------------------------------%n", host.getId());
                 this.getHostRamUtilizationMap().get(host).forEach((clock, ram) ->

@@ -1,4 +1,4 @@
-package cloudsimplus.datacenter1.simulations.simulation1;
+package cloudsimplus.datacenter1.simulations;
 
 import com.typesafe.config.Config;
 import com.typesafe.config.ConfigFactory;
@@ -15,7 +15,7 @@ public class Constants {
     static final Config specsConfig =
             ConfigFactory.parseFile(new File("src/main/resources/configuration/Datacenter1/cloudspecs.conf"));
     static final Config requirementsConfig =
-            ConfigFactory.parseFile(new File("src/main/resources/configuration/Datacenter1/Simulations/Simulation1/cloudlet_and_vm_requirements.conf")).resolve();
+            ConfigFactory.parseFile(new File("src/main/resources/configuration/Datacenter1/Simulations/cloudlet_and_vm_requirements.conf")).resolve();
 
     /**
      * <p>Here the specifications for datacenter hosts are defined</p>
@@ -31,7 +31,6 @@ public class Constants {
      * <p>Here the requirements values for VMs and Cloudlets are defined</p>
      */
     public static final int VMS = requirementsConfig.getInt("conf.VMS.COUNT");
-    public static final int VMS_PES = requirementsConfig.getInt("conf.VMS.PE_COUNT");
     public static final int VMS_BW = requirementsConfig.getInt("conf.VMS.BW");
     public static final int VMS_RAM = requirementsConfig.getInt("conf.VMS.RAM");
     public static final int VMS_STORAGE = requirementsConfig.getInt("conf.VMS.STORAGE");
@@ -40,10 +39,6 @@ public class Constants {
     public static final int CLOUDLETS = requirementsConfig.getInt("conf.CLOUDLETS.COUNT");
     public static final int CLOUDLET_LENGTH = requirementsConfig.getInt("conf.CLOUDLETS.LENGTH");
     public static final int CLOUDLET_PES = requirementsConfig.getInt("conf.CLOUDLETS.PE_COUNT");
-
-    public static final int ADDITIONAL_CLOUDLETS = requirementsConfig.getInt("conf.ADDITIONAL_CLOUDLETS.COUNT");
-    public static final int ADDITIONAL_CLOUDLETS_LENGTH = requirementsConfig.getInt("conf.ADDITIONAL_CLOUDLETS.LENGTH");
-    public static final int ADDITIONAL_CLOUDLETS_PES = requirementsConfig.getInt("conf.ADDITIONAL_CLOUDLETS.PE_COUNT");
 
     /**
      * <p>Define datacenter specific constants here.</p>
