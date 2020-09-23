@@ -7,6 +7,7 @@ import org.cloudbus.cloudsim.allocationpolicies.VmAllocationPolicyWorstFit;
 import org.cloudbus.cloudsim.schedulers.cloudlet.CloudletSchedulerSpaceShared;
 
 import java.io.File;
+import java.util.Arrays;
 
 public class WorstFitVmAllocationSimulation {
     /**
@@ -20,10 +21,27 @@ public class WorstFitVmAllocationSimulation {
     public static final int ADDITIONAL_CLOUDLETS = requirementsConfig.getInt("conf.ADDITIONAL_CLOUDLETS.COUNT");
 
     public static void main(String[] args) {
-        Siddhanth_Venkateshwaran_Datacenter1 bestFitVmAllocationSimulation2 =
+        Siddhanth_Venkateshwaran_Datacenter1 simulation =
                 new Siddhanth_Venkateshwaran_Datacenter1(new VmAllocationPolicyWorstFit(), VMS_PES,
                         new CloudletSchedulerSpaceShared(), SUBMISSION_DELAY, ADDITIONAL_CLOUDLETS);
-        bestFitVmAllocationSimulation2.start();
-        bestFitVmAllocationSimulation2.printSimulationResults();
+        simulation.start();
+        if (args.length > 0) {
+            Arrays
+                    .stream(args)
+                    .distinct()
+                    .forEach(arg -> {
+                        switch (arg) {
+                            case "cloudlets":
+                                simulation.printSimulationResults();
+                                break;
+                            case "vms":
+                                simulation.printVmUtilizationMetrics();
+                                break;
+                            case "hosts":
+                                simulation.printHostUtilizationMetrics();
+                                break;
+                        }
+                    });
+        }
     }
 }

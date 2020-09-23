@@ -30,7 +30,7 @@ public class TestSimulation1 {
     static final int ADDITIONAL_CLOUDLETS = requirementsConfig.getInt("conf.ADDITIONAL_CLOUDLETS.COUNT");
 
     /**
-     * Checks if all VMs have been allocated to some host(s)
+     * Tests if all VMs have been allocated to some host(s)
      * Attaches a creation failure listener to all created VMs and adds those VMs to the failed VMs list
      */
     @Test
@@ -49,8 +49,7 @@ public class TestSimulation1 {
     }
 
     /**
-     * Checks to see if all cloudlets executed successfully
-     * Fails otherwise
+     * Tests whether all cloudlets executed successfully
      */
     @Test
     public void testCloudletSubmission() {

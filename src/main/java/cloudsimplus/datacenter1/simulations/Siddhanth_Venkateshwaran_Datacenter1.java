@@ -330,46 +330,40 @@ public class Siddhanth_Venkateshwaran_Datacenter1 {
      *      - HostList
      *      - Lower id bound
      *      - Upper id bound
-     * Filter out hosts whose IDs fall in that range
+     * Filter out hosts whose IDs fall in the specified range
      * Connect those hosts to the edge switch
      * */
     @FunctionalInterface
     private interface HostConnector {
-        void connect(EdgeSwitch edgeSwitch, List<NetworkHost> hostList, int lowerIdBound, int upperIdBound);
+        void connect(final EdgeSwitch edgeSwitch, final List<NetworkHost> hostList, final int lowerIdBound, final int upperIdBound);
     }
 
     /**
-     * This will set up 10 edge switches and connect each set of 10 hosts to each one.
-     * First 10 hosts will be connected to the 1st edge switch,
-     * next 10 hosts to the 2nd edge switch and so on.
+     * This will set up edge switches and connect a set of hosts to each one.
+     * First n hosts will be connected to the 1st edge switch,
+     * next n hosts to the 2nd edge switch and so on.
      * Each edge switch has a default downlink bandwidth of 800 Mbps,
      * which is the same as the uplink bandwidth of hosts.
      * 1 aggregate switch is created for processing packets from edge switches for other edge switches
      */
     private void createNetwork(final CloudSim cloudSim, final NetworkDatacenter datacenter) {
+        /*
+         * Implement the host connector here
+         * */
+        HostConnector myConnector = (mySwitch, hostList, lower, upper) ->
+                hostList
+                        .stream()
+                        .filter(host -> host.getId() >= lower && host.getId() < upper)
+                        .forEach(mySwitch::connectHost);
+
         EdgeSwitch[] edgeSwitches = new EdgeSwitch[EDGE_SWITCHES];
         for (int i = 0; i < EDGE_SWITCHES; i++) {
             edgeSwitches[i] = new EdgeSwitch(cloudSim, datacenter);
-            datacenter.addSwitch(edgeSwitches[i]);
-            edgeSwitches[i].setPorts(10);
-        }
-
-        /*
-        * Implement the host connector here
-        * */
-        HostConnector myConnector = (mySwitch, hostList, lower, upper) ->
-                hostList
-                .stream()
-                .filter(host -> host.getId() >= lower && host.getId() < upper)
-                .forEach(mySwitch::connectHost);
-
-        /*
-         * Iterate through the switches array to ensure that each set of 10 hosts get connected
-         * to the proper edge switch
-         */
-        for (int i = 0; i < EDGE_SWITCHES; i++)
             myConnector.connect(edgeSwitches[i], datacenter.getHostList(),
                     EDGE_SWITCHES*i, EDGE_SWITCHES*i+EDGE_SWITCHES);
+            edgeSwitches[i].setPorts(HOSTS / EDGE_SWITCHES);
+            datacenter.addSwitch(edgeSwitches[i]);
+        }
 
         /*
         * Create an aggregate switch and add it to the datacenter
@@ -378,7 +372,7 @@ public class Siddhanth_Venkateshwaran_Datacenter1 {
         * How will an edge switch actually forward packet to its aggregate switch ?
         *   - It internally accesses the abstract switch's uplink switches list but
         *     not sure when this aggregate switch is added to that uplink switches list
-        * */
+        */
         AggregateSwitch aggregateSwitch = new AggregateSwitch(cloudSim, datacenter);
     }
 
@@ -425,6 +419,8 @@ public class Siddhanth_Venkateshwaran_Datacenter1 {
      * Each VM will use the simple scheduling policy for executing its cloudlets.
      * Each cloudlet will get a time slice to execute after which it will be preempted
      * by another cloudlet for use of the VM.
+     * @param datacenterBroker The broker of the datacenter
+     * @param VMS_PES the number of PEs required for each VM
      */
     private void createAndSubmitVms(final DatacenterBroker datacenterBroker, final int VMS_PES) {
         List<Vm> vmList = new ArrayList<>();
@@ -447,7 +443,9 @@ public class Siddhanth_Venkateshwaran_Datacenter1 {
      * For BW, the utilization model is set to increase by 10% on every clock tick.
      * Additionally 100 more cloudlets will be submitted to the broker with a specific delay to simulate
      * a stream of cloudlets.
-     * */
+     * @param datacenterBroker The broker of the datacenter
+     * @param ADDITIONAL_CLOUDLETS The number of additional cloudlets
+     */
     private void createAndSubmitCloudlets(final DatacenterBroker datacenterBroker, final int ADDITIONAL_CLOUDLETS) {
         List<Cloudlet> cloudletList = new ArrayList<>();
         for (int i = 0; i < CLOUDLETS+ADDITIONAL_CLOUDLETS; i++) {
@@ -459,6 +457,13 @@ public class Siddhanth_Venkateshwaran_Datacenter1 {
         datacenterBroker.submitCloudletList(cloudletList);
     }
 
+    /**
+     * This function will print a table detailing cloudlet execution results like:
+     *  - Cloudlet IDs
+     *  - Assigned VM IDs and Host IDs
+     *  - Length of cloudlet in MI (million instructions)
+     *  - Number of PEs required by each cloudlet, etc.
+     * */
     public void printSimulationResults() {
         List<Cloudlet> finishedCloudletsList = this.getDatacenterBroker().getCloudletFinishedList();
         finishedCloudletsList.sort(Comparator.comparingLong(Identifiable::getId));
@@ -466,6 +471,10 @@ public class Siddhanth_Venkateshwaran_Datacenter1 {
         System.out.println();
     }
 
+    /**
+     * This function will print utilization metrics of each VM at each clock tick
+     *  - PE, RAM and BW in %
+     */
     public void printVmUtilizationMetrics() {
         this.getDatacenterBroker().getVmCreatedList()
               .forEach(vm -> {
@@ -475,8 +484,13 @@ public class Siddhanth_Venkateshwaran_Datacenter1 {
                                   clock, 100 * this.getVmCpuUtilizationMap().get(vm).get(clock), 100 * ram, 100 * this.getVmBwUtilizationMap().get(vm).get(clock)));
                   System.out.println("-----------------------------------------------------------------------------");
               });
+        System.out.printf("%n%n%n");
     }
 
+    /**
+     * This function will print utilization metrics of each host at each clock tick
+     *  - PE, RAM and BW in %
+     */
     public void printHostUtilizationMetrics() {
         this.getDatacenter().getHostList().forEach(host -> {
             System.out.printf("--------------------------------HOST %d------------------------------------%n", host.getId());
@@ -485,7 +499,6 @@ public class Siddhanth_Venkateshwaran_Datacenter1 {
                         clock, 100*this.getHostCpuUtilizationMap().get(host).get(clock), 100*ram, 100*this.getHostBwUtilizationMap().get(host).get(clock)));
             System.out.println("------------------------------------------------------------------------------------");
         });
-        System.out.println();
+        System.out.printf("%n%n%n");
     }
-
 }

@@ -7,6 +7,7 @@ import org.cloudbus.cloudsim.allocationpolicies.VmAllocationPolicyBestFit;
 import org.cloudbus.cloudsim.schedulers.cloudlet.CloudletSchedulerSpaceShared;
 
 import java.io.File;
+import java.util.Arrays;
 
 /**
  * This is the main class of Simulation 2 using 10 PEs per VM
@@ -31,9 +32,23 @@ public class BestFitVmAllocationSimulation {
                         new CloudletSchedulerSpaceShared(), SUBMISSION_DELAY, ADDITIONAL_CLOUDLETS);
 
         simulation.start();
-        simulation.printSimulationResults();
-        simulation.printHostUtilizationMetrics();
-        System.out.printf("%n%n%n");
-        simulation.printVmUtilizationMetrics();
+        if (args.length > 0) {
+            Arrays
+                    .stream(args)
+                    .distinct()
+                    .forEach(arg -> {
+                        switch (arg) {
+                            case "cloudlets":
+                                simulation.printSimulationResults();
+                                break;
+                            case "vms":
+                                simulation.printVmUtilizationMetrics();
+                                break;
+                            case "hosts":
+                                simulation.printHostUtilizationMetrics();
+                                break;
+                        }
+                    });
+        }
     }
 }

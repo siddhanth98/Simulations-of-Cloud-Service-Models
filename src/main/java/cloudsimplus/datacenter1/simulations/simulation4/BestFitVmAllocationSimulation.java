@@ -7,6 +7,7 @@ import org.cloudbus.cloudsim.allocationpolicies.VmAllocationPolicyBestFit;
 import org.cloudbus.cloudsim.schedulers.cloudlet.CloudletSchedulerTimeShared;
 
 import java.io.File;
+import java.util.Arrays;
 
 /**
  * This is the main class for simulation 4
@@ -28,6 +29,23 @@ public class BestFitVmAllocationSimulation {
                         new CloudletSchedulerTimeShared(), SUBMISSION_DELAY, ADDITIONAL_CLOUDLETS);
 
         simulation.start();
-        simulation.printSimulationResults();
+        if (args.length > 0) {
+            Arrays
+                    .stream(args)
+                    .distinct()
+                    .forEach(arg -> {
+                        switch (arg) {
+                            case "cloudlets":
+                                simulation.printSimulationResults();
+                                break;
+                            case "vms":
+                                simulation.printVmUtilizationMetrics();
+                                break;
+                            case "hosts":
+                                simulation.printHostUtilizationMetrics();
+                                break;
+                        }
+                    });
+        }
     }
 }
