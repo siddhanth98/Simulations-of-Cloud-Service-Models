@@ -1,20 +1,23 @@
-package cloudsimplus.datacenter1.simulations.simulation2;
+package cloudsimplus.datacenter1.simulations.simulation4;
 
 import cloudsimplus.datacenter1.simulations.Siddhanth_Venkateshwaran_Datacenter1;
 import com.typesafe.config.Config;
 import com.typesafe.config.ConfigFactory;
-import org.cloudbus.cloudsim.allocationpolicies.VmAllocationPolicyWorstFit;
-import org.cloudbus.cloudsim.schedulers.cloudlet.CloudletSchedulerSpaceShared;
+import org.cloudbus.cloudsim.allocationpolicies.VmAllocationPolicyBestFit;
+import org.cloudbus.cloudsim.schedulers.cloudlet.CloudletSchedulerTimeShared;
 
 import java.io.File;
 import java.util.Arrays;
 
-public class WorstFitVmAllocationSimulation {
+/**
+ * This is the main class for simulation 4
+ */
+public class MainSimulation {
     /**
-     * <p>The configuration files initializing specifications and requirements values are opened here</p>
+     * <p>The configuration file initializing requirement value is opened here</p>
      */
     static final Config requirementsConfig =
-            ConfigFactory.parseFile(new File("src/main/resources/configuration/Datacenter1/Simulations/Simulation2/cloudlet_vm_requirements_overrides.conf")).resolve();
+            ConfigFactory.parseFile(new File("src/main/resources/configuration/Datacenter1/Simulations/cloudlet_and_vm_requirements.conf")).resolve();
 
     public static final int VMS_PES = requirementsConfig.getInt("conf.VMS.PE_COUNT");
     public static final int SUBMISSION_DELAY = requirementsConfig.getInt("conf.ADDITIONAL_CLOUDLETS.DELAY");
@@ -22,8 +25,9 @@ public class WorstFitVmAllocationSimulation {
 
     public static void main(String[] args) {
         Siddhanth_Venkateshwaran_Datacenter1 simulation =
-                new Siddhanth_Venkateshwaran_Datacenter1(new VmAllocationPolicyWorstFit(), VMS_PES,
-                        new CloudletSchedulerSpaceShared(), SUBMISSION_DELAY, ADDITIONAL_CLOUDLETS);
+                new Siddhanth_Venkateshwaran_Datacenter1(new VmAllocationPolicyBestFit(), VMS_PES,
+                        new CloudletSchedulerTimeShared(), SUBMISSION_DELAY, ADDITIONAL_CLOUDLETS);
+
         simulation.start();
         if (args.length > 0) {
             Arrays

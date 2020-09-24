@@ -43,6 +43,7 @@ public class TestSimulation4 {
                     if (evtInfo.getCloudlet().getWaitingTime() > 0)
                         waitingCloudlets.add(evtInfo.getCloudlet());
                 }));
+
         simulation.start();
         simulation.printSimulationResults();
         assertEquals(String.format("Following cloudlets got a delayed start of execution - %s", Arrays.toString(waitingCloudlets.toArray())),

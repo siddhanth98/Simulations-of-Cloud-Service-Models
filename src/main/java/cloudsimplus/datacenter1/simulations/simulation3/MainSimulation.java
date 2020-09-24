@@ -1,18 +1,20 @@
-package cloudsimplus.datacenter1.simulations.simulation4;
+package cloudsimplus.datacenter1.simulations.simulation3;
 
 import cloudsimplus.datacenter1.simulations.Siddhanth_Venkateshwaran_Datacenter1;
 import com.typesafe.config.Config;
 import com.typesafe.config.ConfigFactory;
 import org.cloudbus.cloudsim.allocationpolicies.VmAllocationPolicyBestFit;
-import org.cloudbus.cloudsim.schedulers.cloudlet.CloudletSchedulerTimeShared;
+import org.cloudbus.cloudsim.schedulers.cloudlet.CloudletSchedulerSpaceShared;
 
 import java.io.File;
 import java.util.Arrays;
 
 /**
- * This is the main class for simulation 4
+ * This is the main class for simulation 3 which uses space shared cloudlet
+ * scheduling policy for execution
  */
-public class BestFitVmAllocationSimulation {
+public class MainSimulation {
+
     /**
      * <p>The configuration file initializing requirement value is opened here</p>
      */
@@ -26,7 +28,7 @@ public class BestFitVmAllocationSimulation {
     public static void main(String[] args) {
         Siddhanth_Venkateshwaran_Datacenter1 simulation =
                 new Siddhanth_Venkateshwaran_Datacenter1(new VmAllocationPolicyBestFit(), VMS_PES,
-                        new CloudletSchedulerTimeShared(), SUBMISSION_DELAY, ADDITIONAL_CLOUDLETS);
+                        new CloudletSchedulerSpaceShared(), SUBMISSION_DELAY, ADDITIONAL_CLOUDLETS);
 
         simulation.start();
         if (args.length > 0) {

@@ -1,13 +1,13 @@
-package cloudsimplus.datacenter2.simulations.simulation2;
+package cloudsimplus.datacenter2.simulations.simulation1;
 
-import cloudsimplus.datacenter2.Siddhanth_Venkateshwaran_Datacenter2;
+import cloudsimplus.datacenter2.simulations.Siddhanth_Venkateshwaran_Datacenter2;
 
 import java.util.Arrays;
 
-public class MainSimulationClass {
+public class MainSimulation {
     public static void main(String[] args) {
         Siddhanth_Venkateshwaran_Datacenter2 simulation =
-                new Siddhanth_Venkateshwaran_Datacenter2(vm -> 10.0, vm -> vm.getCpuPercentUtilization() > 0.6);
+                new Siddhanth_Venkateshwaran_Datacenter2();
         simulation.start();
         if (args.length > 0) {
             Arrays

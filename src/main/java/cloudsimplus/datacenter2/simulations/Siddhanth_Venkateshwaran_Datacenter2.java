@@ -1,8 +1,8 @@
-package cloudsimplus.datacenter2;
+package cloudsimplus.datacenter2.simulations;
 
 import ch.qos.logback.classic.Level;
-import cloudsimplus.datacenter1.MyCloudletsTableBuilder;
-import org.cloudbus.cloudsim.allocationpolicies.VmAllocationPolicy;
+import ch.qos.logback.classic.util.ContextInitializer;
+import cloudsimplus.datacenter1.simulations.MyCloudletsTableBuilder;
 import org.cloudbus.cloudsim.allocationpolicies.VmAllocationPolicyBestFit;
 import org.cloudbus.cloudsim.brokers.DatacenterBroker;
 import org.cloudbus.cloudsim.brokers.DatacenterBrokerSimple;
@@ -10,7 +10,6 @@ import org.cloudbus.cloudsim.cloudlets.Cloudlet;
 import org.cloudbus.cloudsim.cloudlets.CloudletSimple;
 import org.cloudbus.cloudsim.cloudlets.network.*;
 import org.cloudbus.cloudsim.core.CloudSim;
-import org.cloudbus.cloudsim.core.Identifiable;
 import org.cloudbus.cloudsim.datacenters.Datacenter;
 import org.cloudbus.cloudsim.datacenters.network.NetworkDatacenter;
 import org.cloudbus.cloudsim.hosts.Host;
@@ -20,6 +19,7 @@ import org.cloudbus.cloudsim.network.switches.EdgeSwitch;
 import org.cloudbus.cloudsim.provisioners.PeProvisionerSimple;
 import org.cloudbus.cloudsim.provisioners.ResourceProvisionerSimple;
 import org.cloudbus.cloudsim.resources.*;
+import org.cloudbus.cloudsim.schedulers.cloudlet.CloudletSchedulerAbstract;
 import org.cloudbus.cloudsim.schedulers.cloudlet.CloudletSchedulerSpaceShared;
 import org.cloudbus.cloudsim.schedulers.vm.VmSchedulerTimeShared;
 import org.cloudbus.cloudsim.utilizationmodels.UtilizationModelStochastic;
@@ -27,14 +27,18 @@ import org.cloudbus.cloudsim.vms.Vm;
 import org.cloudbus.cloudsim.vms.network.NetworkVm;
 import org.cloudsimplus.autoscaling.HorizontalVmScaling;
 import org.cloudsimplus.autoscaling.HorizontalVmScalingSimple;
+import org.cloudsimplus.listeners.CloudletEventInfo;
 import org.cloudsimplus.listeners.EventInfo;
+import org.cloudsimplus.listeners.VmEventInfo;
 import org.cloudsimplus.util.Log;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.*;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
-import static cloudsimplus.datacenter2.Constants.*;
+import static cloudsimplus.datacenter2.simulations.Constants.*;
 
 /**
  * This is the main class used for constructing datacenter 2.
@@ -56,10 +60,14 @@ public class Siddhanth_Venkateshwaran_Datacenter2 {
     private final Map<Vm, Map<Double, Double>> vmBwUtilizationMap;
     private final Map<Vm, Map<Double, Double>> vmCpuUtilizationMap;
 
+    private final Logger myLogger;
+    private final Logger brokerLogger;
+
     /**
      * This constructor will be called when no horizontal scaling is to be used for the current simulation
      */
     public Siddhanth_Venkateshwaran_Datacenter2() {
+        System.setProperty(ContextInitializer.CONFIG_FILE_PROPERTY, "src/main/resources/configuration/logback-test.xml");
         cloudSim = new CloudSim();
         datacenter = createDatacenter();
         datacenterBroker = new DatacenterBrokerSimple(cloudSim);
@@ -73,12 +81,13 @@ public class Siddhanth_Venkateshwaran_Datacenter2 {
         vmRamUtilizationMap = initializeVmUtilizationMaps(datacenter);
         vmBwUtilizationMap = initializeVmUtilizationMaps(datacenter);
 
-        /*
-        * 1. Include custom logs as every cloudlet finishes
-        * 2. Include custom logs as a new VM gets a cloudlet mapped to it
-        */
-//        cloudSim.addOnClockTickListener(this::createAndSubmitNewCloudlets);
+         myLogger = LoggerFactory.getLogger(Siddhanth_Venkateshwaran_Datacenter2.class);
+
+        cloudSim.addOnClockTickListener(this::createAndSubmitNewCloudlets);
         createAndSubmitCloudlets(datacenterBroker);
+
+        brokerLogger = LoggerFactory.getLogger(datacenterBroker.getClass().getSimpleName());
+//        configureLogs();
     }
 
     /**
@@ -144,26 +153,77 @@ public class Siddhanth_Venkateshwaran_Datacenter2 {
 
     /**
      * Configure logging levels for specific loggers
+     * For VM creation success/failure and cloudlet execution start/failure
      */
     private void configureLogs() {
-        Log.setLevel(Datacenter.LOGGER, Level.WARN);
-        Log.setLevel(DatacenterBrokerSimple.LOGGER, Level.WARN);
-        Log.setLevel(VmAllocationPolicy.LOGGER, Level.WARN);
+        Log.setLevel(Level.OFF);
+        Log.setLevel(CloudletSchedulerAbstract.LOGGER, Level.WARN);
+
+        this.getDatacenterBroker().getVmWaitingList().forEach(vm -> {
+            vm.addOnHostAllocationListener(this::logVmAllocationSuccess);
+            vm.addOnCreationFailureListener(this::logVmAllocationFailure);
+        });
+
+        this.getDatacenterBroker().getCloudletSubmittedList().forEach(cloudlet -> {
+            cloudlet.addOnStartListener(this::logCloudletExecutionStart);
+            cloudlet.addOnFinishListener(this::logCloudletExecutionFinish);
+            cloudlet.addOnUpdateProcessingListener(this::logCloudletExecutionUpdate);
+        });
+
+        ((ch.qos.logback.classic.Logger)brokerLogger).setLevel(Level.INFO);
+    }
+
+    public Logger getBrokerLogger() {
+        return brokerLogger;
     }
 
     /**
-     * This will call the function responsible to collect the RAM and BW metrics when the simulation clock ticks
-     * @param evt This object has data passed with the event between different entities (VM, Host, Broker, Cloudlet)
-     * Data give access to the entity objects (VM, Host, Broker, Datacenter, etc.)
+     * This function logs the allocation of hosts to VMs
      */
-    private void processOnClockTickListener(final EventInfo evt) {
-        collectHostUtilizationMetrics(this.getHostRamUtilizationMap(), Ram.class);
-        collectHostUtilizationMetrics(this.getHostBwUtilizationMap(), Bandwidth.class);
-        collectHostPeUtilizationMetrics(this.getHostCpuUtilizationMap());
+    private void logVmAllocationSuccess(VmEventInfo evtInfo) {
+        this.getBrokerLogger().info(String.format("%s:\t\tVM %d allocated to host %d",
+                evtInfo.getVm().getSimulation().clockStr(), evtInfo.getVm().getId(), evtInfo.getVm().getHost().getId()));
+    }
 
-        collectVmUtilizationMetrics(this.getVmRamUtilizationMap(), Ram.class);
-        collectVmUtilizationMetrics(this.getVmBwUtilizationMap(), Bandwidth.class);
-        collectVmPeUtilizationMetrics(this.getVmCpuUtilizationMap());
+    /**
+     * This function logs the failure of VM allocation
+     */
+    private void logVmAllocationFailure(VmEventInfo evtInfo) {
+        this.getBrokerLogger().warn(String.format("%s:\t\tVM %d could not be allocated to any host", evtInfo.getVm().getSimulation().clockStr(), evtInfo.getVm().getId()));
+    }
+
+    /**
+     * This function logs the allocation of VMs to cloudlets
+     */
+    private void logCloudletExecutionStart(CloudletEventInfo evtInfo) {
+        this.getBrokerLogger().info(String.format("%s:\t\tCloudlet %d started executing on VM %d on host %d",
+                evtInfo.getCloudlet().getSimulation().clockStr(), evtInfo.getCloudlet().getId(), evtInfo.getCloudlet().getVm().getId(),
+                evtInfo.getCloudlet().getVm().getHost().getId()));
+    }
+
+    /**
+     * This function logs the cloudlet's execution end
+     */
+    private void logCloudletExecutionFinish(CloudletEventInfo evtInfo) {
+        this.getBrokerLogger().info(String.format("%s:\t\tCloudlet %d finished executing on VM %d on host %d",
+                evtInfo.getCloudlet().getSimulation().clockStr(), evtInfo.getCloudlet().getId(), evtInfo.getCloudlet().getVm().getId(),
+                evtInfo.getCloudlet().getVm().getHost().getId()));
+    }
+
+    /**
+     * This function logs the cloudlet's execution update
+     */
+    private void logCloudletExecutionUpdate(CloudletEventInfo evtInfo) {
+        switch(evtInfo.getCloudlet().getStatus()) {
+            case FAILED_RESOURCE_UNAVAILABLE:
+                brokerLogger.warn(String.format("%s:\t\tCloudlet %d could not be mapped to any VM",
+                        evtInfo.getCloudlet().getSimulation().clockStr(), evtInfo.getCloudlet().getId()));
+                break;
+            case FAILED:
+                brokerLogger.warn(String.format("%s:\t\tCloudlet %d failed to execute",
+                        evtInfo.getCloudlet().getSimulation().clockStr(), evtInfo.getCloudlet().getId()));
+                break;
+        }
     }
 
     /**
@@ -236,15 +296,12 @@ public class Siddhanth_Venkateshwaran_Datacenter2 {
      * Similar to the host function, this will separately collect the Cpu utilization of the VM for the current clock tick
      */
     private void collectVmPeUtilizationMetrics(final Map<Vm, Map<Double, Double>> vmUtilizationMap) {
-        this.getDatacenter()
-                .getHostList()
-                .forEach(host -> host.getVmList()
-                        .forEach(vm -> vmUtilizationMap.get(vm).put(this.getCloudSim().clock(),
-                                vm.getCpuPercentUtilization()
-                                )
-                        )
-                );
+        this.getDatacenterBroker().getVmCreatedList().forEach(
+                vm -> vmUtilizationMap.get(vm).put(this.getCloudSim().clock(),
+                        vm.getCpuPercentUtilization())
+        );
     }
+
     /**
      * Create the datacenter here
      */
@@ -363,6 +420,23 @@ public class Siddhanth_Venkateshwaran_Datacenter2 {
         networkVm.setRam(VMS_RAM).setBw(VMS_BW).setSize(VMS_STORAGE);
         networkVm.setCloudletScheduler(new CloudletSchedulerSpaceShared());
         networkVm.getUtilizationHistory().enable();
+
+        /*
+        * Log when this new VM gets allocated and insert this VM in the utilization maps to collect its utilization metrics
+        */
+        networkVm.addOnHostAllocationListener(evtInfo -> {
+            myLogger.info(String.format("%s:\t\tNew VM %d allocated to host %d",
+                    evtInfo.getVm().getSimulation().clockStr(), networkVm.getId(), networkVm.getHost().getId()));
+            this.getVmCpuUtilizationMap().put(networkVm, new TreeMap<>());
+            this.getVmRamUtilizationMap().put(networkVm, new TreeMap<>());
+            this.getVmBwUtilizationMap().put(networkVm, new TreeMap<>());
+        });
+
+        /*
+        * Log the failure of allocation of this new VM
+        */
+        networkVm.addOnCreationFailureListener(this::logVmAllocationFailure);
+
         return networkVm;
     }
 
@@ -374,6 +448,7 @@ public class Siddhanth_Venkateshwaran_Datacenter2 {
 
         for (int i = 0; i < (CLOUDLETS); i++) {
             NetworkCloudlet networkCloudlet = new NetworkCloudlet(i, CLOUDLET_LENGTH, CLOUDLET_PES);
+//            Cloudlet networkCloudlet = new CloudletSimple(i, CLOUDLET_LENGTH, CLOUDLET_PES);
             networkCloudlet.setUtilizationModel(new UtilizationModelStochastic());
             cloudletList.add(networkCloudlet);
         }
@@ -401,7 +476,7 @@ public class Siddhanth_Venkateshwaran_Datacenter2 {
         */
         cloudletList
                 .stream()
-                .filter(cloudlet -> cloudlet.getId() >= 0 && cloudlet.getId() < CLOUDLETS/2-1)
+                .filter(cloudlet -> cloudlet.getId() >= 0 && cloudlet.getId() < Math.ceil((double)CLOUDLETS/(double)2.0))
                 .forEach(cloudlet -> cloudlet.addOnStartListener(evtInfo -> {
                     addExecutionTask((NetworkCloudlet)evtInfo.getCloudlet());
                     addSendTask(
@@ -464,13 +539,33 @@ public class Siddhanth_Venkateshwaran_Datacenter2 {
     /**
      * This function is called at every clock tick of the simulation and will create additional cloudlets
      * to feed into the VMs, upto the scaling termination time, after which it stops creating additional ones.
+     * Every new cloudlet creation will be logged separately
      * @param evtInfo The event info object which can be used to access event entities and their data
      */
     private void createAndSubmitNewCloudlets(EventInfo evtInfo) {
-        if (evtInfo.getTime() % (SCHEDULING_INTERVAL*2) == 0 && evtInfo.getTime() <= SCALING_TERMINATION_TIME) {
+
+        /*
+         * Metrics are not collected at every time intervals to reduce log size
+         */
+        if ((long)evtInfo.getTime() % (SCHEDULING_INTERVAL*3) == 0) {
+            collectVmUtilizationMetrics(this.getVmRamUtilizationMap(), Ram.class);
+            collectVmUtilizationMetrics(this.getVmBwUtilizationMap(), Bandwidth.class);
+            collectVmPeUtilizationMetrics(this.getVmCpuUtilizationMap());
+
+            collectHostUtilizationMetrics(this.getHostRamUtilizationMap(), Ram.class);
+            collectHostUtilizationMetrics(this.getHostBwUtilizationMap(), Bandwidth.class);
+            collectHostPeUtilizationMetrics(this.getHostCpuUtilizationMap());
+        }
+
+        /*
+        * Cloudlets are created at alternate time intervals instead of at every time interval
+        */
+        if ((long)evtInfo.getTime() % (SCHEDULING_INTERVAL*2) == 0 && evtInfo.getTime() <= STREAM_TERMINATION_TIME) {
             List<Cloudlet> newCloudletList = new ArrayList<>();
             for (int i = 0; i < ADDITIONAL_CLOUDLETS; i++) {
-                Cloudlet cloudlet = new CloudletSimple(CLOUDLET_LENGTH, CLOUDLET_PES, new UtilizationModelStochastic());
+                Cloudlet cloudlet = new CloudletSimple(CLOUDLET_LENGTH, CLOUDLET_PES);
+                cloudlet.setUtilizationModel(new UtilizationModelStochastic());
+                cloudlet.addOnStartListener(evt -> myLogger.info(String.format("New CLOUDLET %d started execution", evt.getCloudlet().getId())));
                 newCloudletList.add(cloudlet);
             }
             this.getDatacenterBroker().submitCloudletList(newCloudletList);
@@ -485,9 +580,16 @@ public class Siddhanth_Venkateshwaran_Datacenter2 {
      *  - Number of PEs required by each cloudlet, etc.
      * */
     public void printSimulationResults() {
+        System.out.printf("%nCLOUDLET EXECUTION RESULTS (SORTED BY ID)");
         List<Cloudlet> finishedCloudletsList = this.getDatacenterBroker().getCloudletFinishedList();
-        finishedCloudletsList.sort(Comparator.comparingDouble(Cloudlet::getExecStartTime));
+        finishedCloudletsList.sort(Comparator.comparingLong(Cloudlet::getId));
         new MyCloudletsTableBuilder(finishedCloudletsList).build();
+        System.out.printf("%n%n%n");
+
+        System.out.printf("%nCLOUDLET EXECUTION RESULTS (SORTED BY EXECUTION START TIME)");
+        finishedCloudletsList = this.getDatacenterBroker().getCloudletFinishedList();
+        finishedCloudletsList.sort(Comparator.comparingDouble(Cloudlet::getExecStartTime));
+        new MyCloudletsTableBuilder((finishedCloudletsList)).build();
         System.out.println();
     }
 

@@ -12,7 +12,7 @@ import java.util.Arrays;
 /**
  * This is the main class of Simulation 2 using 10 PEs per VM
  */
-public class BestFitVmAllocationSimulation {
+public class MainSimulation1 {
     /**
      * <p>The configuration files initializing specifications and requirements values are opened here</p>
      */
