@@ -216,11 +216,11 @@ public class Siddhanth_Venkateshwaran_Datacenter2 {
     private void logCloudletExecutionUpdate(CloudletEventInfo evtInfo) {
         switch(evtInfo.getCloudlet().getStatus()) {
             case FAILED_RESOURCE_UNAVAILABLE:
-                brokerLogger.warn(String.format("%s:\t\tCloudlet %d could not be mapped to any VM",
+                this.getBrokerLogger().warn(String.format("%s:\t\tCloudlet %d could not be mapped to any VM",
                         evtInfo.getCloudlet().getSimulation().clockStr(), evtInfo.getCloudlet().getId()));
                 break;
             case FAILED:
-                brokerLogger.warn(String.format("%s:\t\tCloudlet %d failed to execute",
+                this.getBrokerLogger().warn(String.format("%s:\t\tCloudlet %d failed to execute",
                         evtInfo.getCloudlet().getSimulation().clockStr(), evtInfo.getCloudlet().getId()));
                 break;
         }
@@ -314,7 +314,7 @@ public class Siddhanth_Venkateshwaran_Datacenter2 {
     }
 
     /**
-     * A functional interface which accepts a lambda to connect all hosts within a range to an edge switch
+     * A functional interface which connects all hosts within a range to an edge switch
      */
     @FunctionalInterface
     private interface HostConnector {
@@ -326,7 +326,7 @@ public class Siddhanth_Venkateshwaran_Datacenter2 {
      * It uses the above defined functional interface to connect hosts to edge switches
      * @param datacenter The current datacenter being used
      */
-    private void createNetwork(CloudSim cloudSim, NetworkDatacenter datacenter) {
+    private void createNetwork(final CloudSim cloudSim, final NetworkDatacenter datacenter) {
         /*
         * Implement the host connector here
         */
@@ -387,7 +387,7 @@ public class Siddhanth_Venkateshwaran_Datacenter2 {
      * Each VM requires 20 PEs, 16 GB RAM, 1000 Mbps BW and 10 GB storage.
      * Each VM uses a space shared scheduling policy for executing its cloudlets.
      */
-    private void createAndSubmitVms(DatacenterBroker datacenterBroker) {
+    private void createAndSubmitVms(final DatacenterBroker datacenterBroker) {
         List<Vm> vmList = new ArrayList<>();
 
         for (int i = 0; i < VMS; i++) {
@@ -404,7 +404,7 @@ public class Siddhanth_Venkateshwaran_Datacenter2 {
      * This will attach a horizontal scaling instance with each VM submitted to the broker.
      * It uses an overload predicate and a reference function which creates additional VMs for it.
      */
-    private void attachHorizontalScalingInstance(Vm vm, Predicate<Vm> overloadPredicate) {
+    private void attachHorizontalScalingInstance(final Vm vm, final Predicate<Vm> overloadPredicate) {
         HorizontalVmScaling horizontalVmScaling = new HorizontalVmScalingSimple();
         horizontalVmScaling
                 .setVmSupplier(this::createVm)
