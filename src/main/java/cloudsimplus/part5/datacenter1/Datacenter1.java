@@ -44,6 +44,8 @@ public class Datacenter1 extends MyDatacenterAbstract {
     private final Map<Vm, Map<Double, Double>> vmBwUtilizationMap;
     private final Map<Vm, Map<Double, Double>> vmCpuUtilizationMap;
 
+    private final Map<String, ArrayList<String>> services;
+
     /*
     * These maps are not final as they will only be initialized when cloudlets are
     * submitted to the broker.
@@ -57,6 +59,7 @@ public class Datacenter1 extends MyDatacenterAbstract {
 
     public Datacenter1(final CloudSim cloudSim, final DatacenterBroker datacenterBroker) {
         System.setProperty(ContextInitializer.CONFIG_FILE_PROPERTY, "src/main/resources/configuration/logback-test.xml");
+        this.services = new HashMap<>();
         this.cloudSim = cloudSim;
         datacenter = createDatacenter();
         this.datacenterBroker = datacenterBroker;
@@ -71,12 +74,20 @@ public class Datacenter1 extends MyDatacenterAbstract {
 
         myLogger = LoggerFactory.getLogger(Datacenter1.class.getSimpleName());
         this.cloudSim.addOnClockTickListener(super::processOnClockTickListener);
+
+        initializeServicesMap(FILES);
         configureLogs();
     }
 
     /**
      * Getter for all entities defined here
      */
+
+    @Override
+    public Map<String, ArrayList<String>> getServices() {
+        return services;
+    }
+
     public CloudSim getCloudSim() {
         return cloudSim;
     }
@@ -134,6 +145,10 @@ public class Datacenter1 extends MyDatacenterAbstract {
     @Override
     public void setCloudletBwMap(Map<Long, Map<Double, Double>> cloudletBwMap) {
         this.cloudletBwMap = cloudletBwMap;
+    }
+
+    public ArrayList<String> getOperations(String file) {
+        return (ArrayList<String>)(file.equals("file1") ? FILE1_OPERATIONS : (file.equals("file2") ? FILE2_OPERATIONS : FILE3_OPERATIONS));
     }
 
     /**

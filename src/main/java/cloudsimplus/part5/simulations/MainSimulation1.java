@@ -6,7 +6,7 @@ import cloudsimplus.part5.MyDatacenterAbstract;
 public class MainSimulation1 {
     public static void main(String[] args) {
         Broker broker = new Broker();
-        MyDatacenterAbstract dc1 = broker.selectSaaSDatacenter("write", "file1.txt", 1000000, 10,
+        MyDatacenterAbstract dc1 = broker.selectSaaSDatacenter("open", "file1", 1000000, 10,
                 2, 20);
     }
 }

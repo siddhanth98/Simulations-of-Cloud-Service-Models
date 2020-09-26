@@ -44,6 +44,7 @@ public class Datacenter2 extends MyDatacenterAbstract {
     private final Map<Vm, Map<Double, Double>> vmCpuUtilizationMap;
     private final Logger myLogger;
 
+    private final Map<String, ArrayList<String>> services;
     /*
      * These maps are not final as they will only be initialized when cloudlets are
      * submitted to the broker.
@@ -54,6 +55,7 @@ public class Datacenter2 extends MyDatacenterAbstract {
     private Map<Long, Map<Double, Double>> cloudletStorageMap;
 
     public Datacenter2(final CloudSim cloudSim, final DatacenterBroker datacenterBroker) {
+        this.services = new HashMap<>();
         this.cloudSim = cloudSim;
         this.datacenter = createDatacenter();
         this.datacenterBroker = datacenterBroker;
@@ -68,6 +70,9 @@ public class Datacenter2 extends MyDatacenterAbstract {
 
         myLogger = LoggerFactory.getLogger(Datacenter2.class.getSimpleName());
         this.cloudSim.addOnClockTickListener(super::processOnClockTickListener);
+
+        initializeServicesMap(FILES);
+        configureLogs();
     }
 
     /**
@@ -124,6 +129,11 @@ public class Datacenter2 extends MyDatacenterAbstract {
     }
 
     @Override
+    public Map<String, ArrayList<String>> getServices() {
+        return services;
+    }
+
+    @Override
     public void setCloudletRamMap(Map<Long, Map<Double, Double>> cloudletRamMap) {
         this.cloudletRamMap = cloudletRamMap;
     }
@@ -131,6 +141,10 @@ public class Datacenter2 extends MyDatacenterAbstract {
     @Override
     public void setCloudletBwMap(Map<Long, Map<Double, Double>> cloudletBwMap) {
         this.cloudletBwMap = cloudletBwMap;
+    }
+
+    public ArrayList<String> getOperations(String file) {
+        return (ArrayList<String>)(file.equals("file1") ? FILE1_OPERATIONS : FILE2_OPERATIONS);
     }
 
     /**
@@ -230,7 +244,7 @@ public class Datacenter2 extends MyDatacenterAbstract {
             cloudlet.addRequiredFile(fileName);
 
         this.getDatacenterBroker().submitCloudlet(cloudlet);
-
+        this.fillCloudletMaps(cloudlet);
         /*
          * If there are no waiting VMs currently then allocate a new VM to the new cloudlet
          */

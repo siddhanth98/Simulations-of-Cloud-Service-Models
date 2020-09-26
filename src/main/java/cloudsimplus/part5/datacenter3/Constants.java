@@ -4,12 +4,14 @@ import com.typesafe.config.Config;
 import com.typesafe.config.ConfigFactory;
 
 import java.io.File;
+import java.util.List;
 
 /**
  * Open the specs configuration file here and get the configuration values
  */
 public class Constants {
     private static final Config specsConfig = ConfigFactory.parseFile(new File("src/main/resources/configuration/part5/Datacenter3/cloudspecs.conf"));
+    private static final Config servicesConfig = ConfigFactory.parseFile(new File("src/main/resources/configuration/part5/Datacenter3/services.conf"));
 
     static final int EDGE_SWITCHES = specsConfig.getInt("conf.DATACENTER.EDGE_SWITCHES");
     static final double COST_PER_PE = specsConfig.getDouble("conf.DATACENTER.COST_PER_PE");
@@ -28,4 +30,8 @@ public class Constants {
     static final long VMS_RAM = specsConfig.getLong("conf.VMS.RAM");
     static final long VMS_BW = specsConfig.getLong("conf.VMS.BW");
     static final long VMS_MIPS = specsConfig.getLong("conf.VMS.MIPS");
+
+    static final List<String> FILES = servicesConfig.getStringList("conf.files");
+    static final List<String> FILE2_OPERATIONS = servicesConfig.getStringList("conf.services.file2.operations");
+    static final List<String> FILE3_OPERATIONS = servicesConfig.getStringList("conf.services.file3.operations");
 }

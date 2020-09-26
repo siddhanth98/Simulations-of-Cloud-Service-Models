@@ -43,8 +43,11 @@ public abstract class MyDatacenterAbstract {
     }
 
     /**
-     * Getter for all entities defined here
+     * Getter for all entities, loggers and services defined here
      */
+
+    public abstract Map<String, ArrayList<String>> getServices();
+
     public abstract CloudSim getCloudSim();
 
     public abstract Datacenter getDatacenter();
@@ -73,6 +76,31 @@ public abstract class MyDatacenterAbstract {
 
     public abstract Logger getMyLogger();
 
+
+    /**
+     * This function will initialize the services map from filename to its list of operations allowed
+     */
+    public void initializeServicesMap(List<String> FILES) {
+        FILES.forEach(file -> this.getServices().put(file, this.getOperations(file)));
+    }
+
+    /**
+     * This will simply return the list of operations serviced for a specific file
+     */
+    public abstract ArrayList<String> getOperations(String FILES);
+
+    /**
+     * This function will reveal whether a particular service is offered for a given file or not
+     */
+    public boolean isServiceAvailable(String fileName, String operation) {
+        return (this.getServices().containsKey(fileName) &&
+                this.getServices().get(fileName).contains(operation));
+    }
+
+
+    /**
+     * This will start the simulation for a datacenter
+     */
     public void start() {
         this.getCloudSim().start();
     }
@@ -295,9 +323,6 @@ public abstract class MyDatacenterAbstract {
             networkVm.setRam(RAM).setBw(BW).setSize(STORAGE);
             networkVm.setCloudletScheduler(new CloudletSchedulerSpaceShared());
             networkVm.getUtilizationHistory().enable();
-
-            getMyLogger().info(String.format("VM %d to be submitted to the broker requesting %d MB RAM and %d Mbps BW", i, RAM, BW));
-
             networkVms.add(networkVm);
         }
         this.getDatacenterBroker().submitVmList(networkVms);
