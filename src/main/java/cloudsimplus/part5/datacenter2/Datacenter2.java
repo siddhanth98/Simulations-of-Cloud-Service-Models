@@ -1,6 +1,6 @@
 package cloudsimplus.part5.datacenter2;
 
-import cloudsimplus.part5.MyDatacenter;
+import cloudsimplus.part5.MyDatacenterAbstract;
 import org.cloudbus.cloudsim.allocationpolicies.VmAllocationPolicySimple;
 import org.cloudbus.cloudsim.brokers.DatacenterBroker;
 import org.cloudbus.cloudsim.cloudlets.Cloudlet;
@@ -16,11 +16,9 @@ import org.cloudbus.cloudsim.provisioners.PeProvisionerSimple;
 import org.cloudbus.cloudsim.provisioners.ResourceProvisionerSimple;
 import org.cloudbus.cloudsim.resources.Pe;
 import org.cloudbus.cloudsim.resources.PeSimple;
-import org.cloudbus.cloudsim.schedulers.cloudlet.CloudletSchedulerSpaceShared;
 import org.cloudbus.cloudsim.schedulers.vm.VmSchedulerTimeShared;
 import org.cloudbus.cloudsim.utilizationmodels.UtilizationModelStochastic;
 import org.cloudbus.cloudsim.vms.Vm;
-import org.cloudbus.cloudsim.vms.network.NetworkVm;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -31,7 +29,7 @@ import static cloudsimplus.part5.datacenter2.Constants.*;
 /**
  * This class will construct the 2nd datacenter with specific entities and policies
  */
-public class Datacenter2 extends MyDatacenter {
+public class Datacenter2 extends MyDatacenterAbstract {
     /**
      * Declare simulation entities and other instance variables used here
      */
@@ -45,6 +43,15 @@ public class Datacenter2 extends MyDatacenter {
     private final Map<Vm, Map<Double, Double>> vmBwUtilizationMap;
     private final Map<Vm, Map<Double, Double>> vmCpuUtilizationMap;
     private final Logger myLogger;
+
+    /*
+     * These maps are not final as they will only be initialized when cloudlets are
+     * submitted to the broker.
+     */
+    private Map<Long, Map<Double, Double>> cloudletCpuMap;
+    private Map<Long, Map<Double, Double>> cloudletRamMap;
+    private Map<Long, Map<Double, Double>> cloudletBwMap;
+    private Map<Long, Map<Double, Double>> cloudletStorageMap;
 
     public Datacenter2(final CloudSim cloudSim, final DatacenterBroker datacenterBroker) {
         this.cloudSim = cloudSim;
@@ -60,6 +67,7 @@ public class Datacenter2 extends MyDatacenter {
         this.vmCpuUtilizationMap = initializeVmUtilizationMaps(this.datacenter);
 
         myLogger = LoggerFactory.getLogger(Datacenter2.class.getSimpleName());
+        this.cloudSim.addOnClockTickListener(super::processOnClockTickListener);
     }
 
     /**
@@ -105,6 +113,26 @@ public class Datacenter2 extends MyDatacenter {
         return myLogger;
     }
 
+    @Override
+    public Map<Long, Map<Double, Double>> getCloudletRamMap() {
+        return cloudletRamMap;
+    }
+
+    @Override
+    public Map<Long, Map<Double, Double>> getCloudletBwMap() {
+        return cloudletBwMap;
+    }
+
+    @Override
+    public void setCloudletRamMap(Map<Long, Map<Double, Double>> cloudletRamMap) {
+        this.cloudletRamMap = cloudletRamMap;
+    }
+
+    @Override
+    public void setCloudletBwMap(Map<Long, Map<Double, Double>> cloudletBwMap) {
+        this.cloudletBwMap = cloudletBwMap;
+    }
+
     /**
      * Create a network datacenter here
      * The datacenter costs are set as per the configuration file values
@@ -118,6 +146,7 @@ public class Datacenter2 extends MyDatacenter {
                 .setCostPerMem(COST_PER_RAM)
                 .setCostPerBw(COST_PER_BW)
                 .setCostPerStorage(COST_PER_STORAGE);
+        networkDatacenter.setName("Datacenter2");
         createNetwork(this.getCloudSim(), networkDatacenter);
         return networkDatacenter;
     }
@@ -206,34 +235,9 @@ public class Datacenter2 extends MyDatacenter {
          * If there are no waiting VMs currently then allocate a new VM to the new cloudlet
          */
         if (this.getDatacenterBroker().getVmWaitingList().isEmpty()) {
-            createAndSubmitVmsForSaas(1, PES*2, cloudletLength/2, VMS_RAM,
+            createAndSubmitVmsForSaas(1, PES*2, VMS_MIPS, VMS_RAM,
                     VMS_BW, OUTPUT_SIZE);
         }
-    }
-
-    /**
-     * This function will create VMs depending on the type of SaaS service.
-     * The broker is responsible for getting the type of required service and passing in
-     * relevant arguments to this function - number of VMs, number of PEs/VM, MIPS, RAM, and so on.
-     * @param VMS - number of VMs to create
-     * @param VMS_PES - number of PEs per VM
-     * @param VMS_MIPS - MIPS rating of each PE in VM
-     * @param RAM - RAM of each VM
-     * @param BW - bandwidth of each VM
-     * @param STORAGE - storage size of each VM
-     */
-    private void createAndSubmitVmsForSaas(final int VMS, final int VMS_PES, final int VMS_MIPS, final int RAM,
-                                           final int BW, final int STORAGE) {
-        List<NetworkVm> networkVms = new ArrayList<>();
-        for (int i = 0; i < VMS; i++) {
-            NetworkVm networkVm = new NetworkVm(i, VMS_MIPS, VMS_PES);
-            networkVm.setRam(RAM).setBw(BW).setSize(STORAGE);
-            networkVm.setCloudletScheduler(new CloudletSchedulerSpaceShared());
-            networkVm.getUtilizationHistory().enable();
-
-            networkVms.add(networkVm);
-        }
-        this.getDatacenterBroker().submitVmList(networkVms);
     }
 
 }

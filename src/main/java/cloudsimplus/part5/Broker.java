@@ -5,7 +5,6 @@ import cloudsimplus.part5.datacenter2.Datacenter2;
 import cloudsimplus.part5.datacenter3.Datacenter3;
 import org.cloudbus.cloudsim.brokers.DatacenterBrokerBestFit;
 import org.cloudbus.cloudsim.core.CloudSim;
-import org.cloudbus.cloudsim.datacenters.Datacenter;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -37,22 +36,24 @@ public class Broker {
      * @param FILE_SIZE input file size required by the cloudlet in bytes
      * @param OUTPUT_SIZE output file size required by the cloudlet in bytes
      */
-    public MyDatacenter selectSaaSDatacenter(final String cloudletOperation, final String fileName, final int cloudletLength, final int PES,
-                                           final int FILE_SIZE, final int OUTPUT_SIZE) {
+    public MyDatacenterAbstract selectSaaSDatacenter(final String cloudletOperation, final String fileName, final int cloudletLength, final int PES,
+                                                     final int FILE_SIZE, final int OUTPUT_SIZE) {
         final double[] datacenter1Prices = this.datacenter1.getSaaSPricing();
         final double[] datacenter2Prices = this.datacenter2.getSaaSPricing();
         final double[] datacenter3Prices = this.datacenter3.getSaaSPricing();
 
-        MyDatacenter datacenter = getCheapestDatacenter(datacenter1Prices, datacenter2Prices, datacenter3Prices,
+        MyDatacenterAbstract datacenter = getCheapestDatacenter(datacenter1Prices, datacenter2Prices, datacenter3Prices,
                 cloudletLength, PES, FILE_SIZE, OUTPUT_SIZE);
         submitSaaSCloudlets(datacenter, cloudletOperation, fileName, cloudletLength,
                 PES, FILE_SIZE, OUTPUT_SIZE);
+        datacenter.start();
+        datacenter.printSimulationResults();
         return datacenter;
     }
 
-    private void submitSaaSCloudlets(final Object datacenter, final String cloudletOperation,
-                                           final String fileName, final int cloudletLength,
-                                           final int PES, final int FILE_SIZE, final int OUTPUT_SIZE) {
+    private void submitSaaSCloudlets(final MyDatacenterAbstract datacenter, final String cloudletOperation,
+                                     final String fileName, final int cloudletLength,
+                                     final int PES, final int FILE_SIZE, final int OUTPUT_SIZE) {
         if (datacenter instanceof Datacenter1) {
             ((Datacenter1) datacenter).submitCloudletsForSaaS(cloudletOperation, fileName, cloudletLength,
                     PES, FILE_SIZE, OUTPUT_SIZE);
@@ -82,13 +83,13 @@ public class Broker {
      * @param OUTPUT_SIZE output file size required by the cloudlet in bytes
      * @return A datacenter instance
      */
-    private MyDatacenter getCheapestDatacenter(final double[] datacenter1Prices,
-                                             final double[] datacenter2Prices,
-                                             final double[] datacenter3Prices,
-                                             final int cloudletLength, final int PES,
-                                             final int FILE_SIZE, final int OUTPUT_SIZE) {
+    private MyDatacenterAbstract getCheapestDatacenter(final double[] datacenter1Prices,
+                                                       final double[] datacenter2Prices,
+                                                       final double[] datacenter3Prices,
+                                                       final int cloudletLength, final int PES,
+                                                       final int FILE_SIZE, final int OUTPUT_SIZE) {
 
-        final Map<MyDatacenter, ArrayList<Double>> totalUsageCosts = initializeUsageCostsMap();
+        final Map<MyDatacenterAbstract, ArrayList<Double>> totalUsageCosts = initializeUsageCostsMap();
         /*
         * Maximum execution time is computed using the smallest MIPS rated host of the 3 datacenters
         */
@@ -103,14 +104,16 @@ public class Broker {
         * Maximum RAM usage is assumed to be the output data size
         * Compute and store total estimated RAM costs of executing in all datacenters
         */
-        computeAndStoreResourceCosts(OUTPUT_SIZE, totalUsageCosts, datacenter1Prices[1], datacenter2Prices[1], datacenter3Prices[1]);
+        final long maxRamUsage = OUTPUT_SIZE;
+        computeAndStoreResourceCosts(maxRamUsage, totalUsageCosts, datacenter1Prices[1], datacenter2Prices[1], datacenter3Prices[1]);
 
         /*
         * Maximum BW usage is assumed to occur while obtaining the input file
         * possibly from another VM or host
         * Compute and store total estimated bandwidth costs
         */
-        computeAndStoreResourceCosts(FILE_SIZE, totalUsageCosts, datacenter1Prices[2], datacenter2Prices[2], datacenter3Prices[2]);
+        final long maxBwUsage = FILE_SIZE;
+        computeAndStoreResourceCosts(maxBwUsage, totalUsageCosts, datacenter1Prices[2], datacenter2Prices[2], datacenter3Prices[2]);
 
         /*
         * Maximum storage usage is assumed to be for storing the final output data
@@ -122,15 +125,16 @@ public class Broker {
                     Double.min(totalUsageCosts.get(this.datacenter2).stream().reduce(Double::sum).orElse(Double.MAX_VALUE),
                         totalUsageCosts.get(this.datacenter3).stream().reduce(Double::sum).orElse(Double.MAX_VALUE)));
 
-        return totalUsageCosts
+        MyDatacenterAbstract cheapestDatacenter = totalUsageCosts
                 .keySet()
                 .stream()
                 .filter(dc -> totalUsageCosts.get(dc).stream().reduce(Double::sum).orElse(0.0) == cheapestCost)
                 .findFirst().orElse(null);
-
+        printEstimatedCostsAtCheapestDatacenter(cheapestDatacenter, estimatedExecutionTime, maxRamUsage, maxBwUsage, OUTPUT_SIZE);
+        return cheapestDatacenter;
     }
 
-    private void computeAndStoreResourceCosts(final double estimatedResourceUsage, final Map<MyDatacenter, ArrayList<Double>> usageMap,
+    private void computeAndStoreResourceCosts(final double estimatedResourceUsage, final Map<MyDatacenterAbstract, ArrayList<Double>> usageMap,
                                          final double datacenter1ResourceCost, final double datacenter2ResourceCost, final double datcenter3ResourceCost) {
         usageMap.forEach((dc, list) -> {
             if (dc instanceof Datacenter1)
@@ -144,8 +148,8 @@ public class Broker {
     /**
      * This function creates an empty Map from Datacenter to ArrayList and returns it
      */
-    private Map<MyDatacenter, ArrayList<Double>> initializeUsageCostsMap() {
-        Map<MyDatacenter, ArrayList<Double>> totalUsageCosts = new HashMap<>();
+    private Map<MyDatacenterAbstract, ArrayList<Double>> initializeUsageCostsMap() {
+        Map<MyDatacenterAbstract, ArrayList<Double>> totalUsageCosts = new HashMap<>();
 
         totalUsageCosts.put(this.datacenter1, new ArrayList<>());
         totalUsageCosts.put(this.datacenter2, new ArrayList<>());
@@ -160,4 +164,28 @@ public class Broker {
         );
     }
 
+    /**
+     * This function will print the total estimated costs/usage of executing the cloudlet
+     * in the cheapest datacenter.
+     * @param datacenter The cheapest datacenter selected by the broker
+     * @param estimatedExecutionTime The estimated total CPU execution time of cloudlet
+     * @param estimatedRamUsage The estimated total RAM which will be used by cloudlet
+     * @param estimatedBwUsage The estimated total BW which will be used by cloudlet
+     * @param estimatedStorageUsage The estimated total Storage used by cloudlet
+     */
+    private void printEstimatedCostsAtCheapestDatacenter(MyDatacenterAbstract datacenter,
+                                                         double estimatedExecutionTime,
+                                                         double estimatedRamUsage,
+                                                         double estimatedBwUsage,
+                                                         double estimatedStorageUsage) {
+        System.out.printf("Estimated Costs for selected datacenter: %s%n",datacenter.getDatacenter().getName());
+        System.out.printf("Total CPU Execution Time:%10.2f seconds%n",
+                estimatedExecutionTime);
+        System.out.printf("Total RAM usage:%10.2f MB%n",
+                estimatedRamUsage);
+        System.out.printf("Total BW usage:%10.2f Mb%n",
+                estimatedBwUsage);
+        System.out.printf("Total storage usage:%10.2f MB%n",
+                estimatedStorageUsage);
+    }
 }

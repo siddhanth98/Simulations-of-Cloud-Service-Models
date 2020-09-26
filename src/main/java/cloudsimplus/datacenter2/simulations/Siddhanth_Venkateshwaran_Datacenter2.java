@@ -448,7 +448,6 @@ public class Siddhanth_Venkateshwaran_Datacenter2 {
 
         for (int i = 0; i < (CLOUDLETS); i++) {
             NetworkCloudlet networkCloudlet = new NetworkCloudlet(i, CLOUDLET_LENGTH, CLOUDLET_PES);
-//            Cloudlet networkCloudlet = new CloudletSimple(i, CLOUDLET_LENGTH, CLOUDLET_PES);
             networkCloudlet.setUtilizationModel(new UtilizationModelStochastic());
             cloudletList.add(networkCloudlet);
         }
@@ -545,7 +544,7 @@ public class Siddhanth_Venkateshwaran_Datacenter2 {
     private void createAndSubmitNewCloudlets(EventInfo evtInfo) {
 
         /*
-         * Metrics are not collected at every time intervals to reduce log size
+         * Metrics are not collected at every time interval to reduce log size
          */
         if ((long)evtInfo.getTime() % (SCHEDULING_INTERVAL*3) == 0) {
             collectVmUtilizationMetrics(this.getVmRamUtilizationMap(), Ram.class);

@@ -25,6 +25,7 @@ public class Constants {
     static final long HOST_STORAGE = specsConfig.getLong("conf.HOSTS.STORAGE");
     static final double HOST_MIPS = specsConfig.getDouble("conf.HOSTS.MIPS");
 
-    static final int VMS_RAM = specsConfig.getInt("conf.VMS.RAM");
-    static final int VMS_BW = specsConfig.getInt("conf.VMS.BW");
+    static final long VMS_RAM = specsConfig.getLong("conf.VMS.RAM");
+    static final long VMS_BW = specsConfig.getLong("conf.VMS.BW");
+    static final long VMS_MIPS = specsConfig.getLong("conf.VMS.MIPS");
 }
