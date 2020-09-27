@@ -27,9 +27,15 @@ public class Constants {
     static final long HOST_STORAGE = specsConfig.getLong("conf.HOSTS.STORAGE");
     static final double HOST_MIPS = specsConfig.getDouble("conf.HOSTS.MIPS");
 
+    static final int INITIAL_VM_COUNT = specsConfig.getInt("conf.VMS.INITIAL_COUNT");
+    static final int INITIAL_VM_PES = specsConfig.getInt("conf.VMS.INITIAL_PE_COUNT");
+    static final long INITIAL_VM_MIPS = specsConfig.getLong("conf.VMS.INITIAL_MIPS");
+    static final int VMS = specsConfig.getInt("conf.VMS.COUNT");
     static final long VMS_RAM = specsConfig.getLong("conf.VMS.RAM");
     static final long VMS_BW = specsConfig.getLong("conf.VMS.BW");
-    static final long VMS_MIPS = specsConfig.getLong("conf.VMS.MIPS");
+    static final long VMS_STORAGE = specsConfig.getLong("conf.VMS.STORAGE");
+    static final long VMS_PROCESSING_MIPS = specsConfig.getLong("conf.VMS.PROCESSING_MIPS");
+    static final long VMS_READ_MIPS = specsConfig.getLong("conf.VMS.READ_MIPS");
 
     static final List<String> FILES = servicesConfig.getStringList("conf.files");
     static final List<String> FILE1_OPERATIONS = servicesConfig.getStringList("conf.services.file1.operations");

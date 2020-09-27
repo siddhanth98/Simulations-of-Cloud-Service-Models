@@ -9,6 +9,7 @@ import org.cloudbus.cloudsim.cloudlets.CloudletSimple;
 import org.cloudbus.cloudsim.core.CloudSim;
 import org.cloudbus.cloudsim.datacenters.Datacenter;
 import org.cloudbus.cloudsim.datacenters.network.NetworkDatacenter;
+import org.cloudbus.cloudsim.distributions.UniformDistr;
 import org.cloudbus.cloudsim.hosts.Host;
 import org.cloudbus.cloudsim.hosts.network.NetworkHost;
 import org.cloudbus.cloudsim.network.switches.AggregateSwitch;
@@ -18,6 +19,7 @@ import org.cloudbus.cloudsim.provisioners.ResourceProvisionerSimple;
 import org.cloudbus.cloudsim.resources.Pe;
 import org.cloudbus.cloudsim.resources.PeSimple;
 import org.cloudbus.cloudsim.schedulers.vm.VmSchedulerTimeShared;
+import org.cloudbus.cloudsim.utilizationmodels.UtilizationModel;
 import org.cloudbus.cloudsim.utilizationmodels.UtilizationModelStochastic;
 import org.cloudbus.cloudsim.vms.Vm;
 import org.slf4j.Logger;
@@ -71,6 +73,10 @@ public class Datacenter1 extends MyDatacenterAbstract {
         vmCpuUtilizationMap = initializeVmUtilizationMaps(datacenter);
         vmRamUtilizationMap = initializeVmUtilizationMaps(datacenter);
         vmBwUtilizationMap = initializeVmUtilizationMaps(datacenter);
+
+        createAndSubmitInitialVms(INITIAL_VM_COUNT, INITIAL_VM_PES, INITIAL_VM_MIPS,
+                VMS_RAM, VMS_BW, VMS_STORAGE);
+        createAndSubmitInitialCloudlets();
 
         myLogger = LoggerFactory.getLogger(Datacenter1.class.getSimpleName());
         this.cloudSim.addOnClockTickListener(super::processOnClockTickListener);
@@ -150,6 +156,7 @@ public class Datacenter1 extends MyDatacenterAbstract {
     public ArrayList<String> getOperations(String file) {
         return (ArrayList<String>)(file.equals("file1") ? FILE1_OPERATIONS : (file.equals("file2") ? FILE2_OPERATIONS : FILE3_OPERATIONS));
     }
+
 
     /**
      * Create a network datacenter here
@@ -244,24 +251,29 @@ public class Datacenter1 extends MyDatacenterAbstract {
      * @param FILE_SIZE Input file size of the cloudlet
      * @param OUTPUT_SIZE Output file size of the cloudlet
      */
-    public void submitCloudletsForSaaS (final String operationName, String fileName, final int cloudletLength, final int PES, final int FILE_SIZE,
+    public Cloudlet submitCloudletsForSaaS (final String operationName, String fileName, final int cloudletLength, final int PES, final int FILE_SIZE,
                                  final int OUTPUT_SIZE) {
+        List<Cloudlet> cloudletList = new ArrayList<>();
         Cloudlet cloudlet = new CloudletSimple(cloudletLength, PES);
-        cloudlet.setUtilizationModel(new UtilizationModelStochastic())
+        UtilizationModel ramUtilModel = new UtilizationModelStochastic(UtilizationModel.Unit.ABSOLUTE, new UniformDistr(1, OUTPUT_SIZE*10));
+        UtilizationModel bwUtilModel = new UtilizationModelStochastic(UtilizationModel.Unit.ABSOLUTE, new UniformDistr(1, FILE_SIZE*10));
+
+        cloudlet.setUtilizationModelRam(ramUtilModel)
+                .setUtilizationModelCpu(bwUtilModel)
                 .setFileSize(FILE_SIZE)
                 .setOutputSize(OUTPUT_SIZE);
-        if (operationName.equals("read"))
-            cloudlet.addRequiredFile(fileName);
-
-        this.getDatacenterBroker().submitCloudlet(cloudlet);
-        this.fillCloudletMaps(cloudlet);
 
         /*
         * If there are no waiting VMs currently then allocate a new VM to the new cloudlet
         */
-        if (this.getDatacenterBroker().getVmWaitingList().isEmpty()) {
-            createAndSubmitVmsForSaas(1, PES*2, VMS_MIPS, VMS_RAM,
-                    VMS_BW, OUTPUT_SIZE);
+        if (this.getDatacenterBroker().getVmWaitingList().isEmpty() && this.getDatacenterBroker().getVmCreatedList().isEmpty()) {
+            if (operationName.equals("process"))
+                createAndSubmitVms(VMS, PES, VMS_PROCESSING_MIPS, VMS_RAM, VMS_BW, VMS_STORAGE);
+            else createAndSubmitVms(VMS, PES, VMS_READ_MIPS, VMS_RAM, VMS_BW, VMS_STORAGE);
         }
+        cloudletList.add(cloudlet);
+        this.getDatacenterBroker().submitCloudletList(cloudletList);
+        this.fillCloudletMaps(cloudlet);
+        return cloudlet;
     }
 }

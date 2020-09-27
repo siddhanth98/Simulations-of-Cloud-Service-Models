@@ -1,25 +1,39 @@
 package cloudsimplus.part5;
 
 import ch.qos.logback.classic.Level;
+import com.typesafe.config.Config;
+import com.typesafe.config.ConfigFactory;
 import org.cloudbus.cloudsim.brokers.DatacenterBroker;
 import org.cloudbus.cloudsim.cloudlets.Cloudlet;
+import org.cloudbus.cloudsim.cloudlets.CloudletSimple;
 import org.cloudbus.cloudsim.core.CloudSim;
 import org.cloudbus.cloudsim.datacenters.Datacenter;
 import org.cloudbus.cloudsim.hosts.Host;
 import org.cloudbus.cloudsim.resources.ResourceManageable;
 import org.cloudbus.cloudsim.schedulers.cloudlet.CloudletSchedulerAbstract;
 import org.cloudbus.cloudsim.schedulers.cloudlet.CloudletSchedulerSpaceShared;
+import org.cloudbus.cloudsim.utilizationmodels.UtilizationModelStochastic;
 import org.cloudbus.cloudsim.vms.Vm;
 import org.cloudbus.cloudsim.vms.network.NetworkVm;
-import org.cloudsimplus.listeners.CloudletEventInfo;
-import org.cloudsimplus.listeners.EventInfo;
-import org.cloudsimplus.listeners.VmEventInfo;
+import org.cloudsimplus.listeners.*;
 import org.cloudsimplus.util.Log;
 import org.slf4j.Logger;
 
+import java.io.File;
 import java.util.*;
 
 public abstract class MyDatacenterAbstract {
+
+    /**
+     * This will open the config file and define specifications of initial cloudlets to
+     * deploy in the datacenter to keep some of its VMs busy
+     */
+    private static final Config cloudletSpecsConfig = ConfigFactory.parseFile(new File("src/main/resources/configuration/part5/initialCloudletSpecs.conf"));
+    private static int CLOUDLETS = cloudletSpecsConfig.getInt("conf.CLOUDLETS.COUNT");
+    private static int CLOUDLET_PES = cloudletSpecsConfig.getInt("conf.CLOUDLETS.PES");
+    private static int CLOUDLET_LENGTH = cloudletSpecsConfig.getInt("conf.CLOUDLETS.LENGTH");
+    private static int FILE_SIZE = cloudletSpecsConfig.getInt("conf.CLOUDLETS.FILE_SIZE");
+    private static int OUTPUT_SIZE = cloudletSpecsConfig.getInt("conf.CLOUDLETS.OUTPUT_SIZE");
 
     /**
      * This function will take in the cloudlet specifications and operation name from the broker
@@ -76,7 +90,6 @@ public abstract class MyDatacenterAbstract {
 
     public abstract Logger getMyLogger();
 
-
     /**
      * This function will initialize the services map from filename to its list of operations allowed
      */
@@ -97,7 +110,6 @@ public abstract class MyDatacenterAbstract {
                 this.getServices().get(fileName).contains(operation));
     }
 
-
     /**
      * This will start the simulation for a datacenter
      */
@@ -111,9 +123,11 @@ public abstract class MyDatacenterAbstract {
      */
     public void configureLogs() {
         Log.setLevel(Level.OFF);
-        Log.setLevel(CloudletSchedulerAbstract.LOGGER, Level.WARN);
+        Log.setLevel(DatacenterBroker.LOGGER, Level.WARN);
+        Log.setLevel(CloudletSchedulerAbstract.LOGGER, Level.OFF);
+        Log.setLevel(DatacenterBroker.LOGGER, Level.INFO);
 
-        this.getDatacenterBroker().getVmWaitingList().forEach(vm -> {
+        /*this.getDatacenterBroker().getVmWaitingList().forEach(vm -> {
             vm.addOnHostAllocationListener(this::logVmAllocationSuccess);
             vm.addOnCreationFailureListener(this::logVmAllocationFailure);
         });
@@ -124,15 +138,16 @@ public abstract class MyDatacenterAbstract {
             cloudlet.addOnUpdateProcessingListener(this::logCloudletExecutionUpdate);
         });
 
-        ((ch.qos.logback.classic.Logger)this.getMyLogger()).setLevel(Level.INFO);
+        ((ch.qos.logback.classic.Logger)this.getMyLogger()).setLevel(Level.INFO);*/
     }
 
     /**
      * This function logs the allocation of hosts to VMs
      */
     public void logVmAllocationSuccess(VmEventInfo evtInfo) {
-        this.getMyLogger().info(String.format("%s:\t\tVM %d allocated to host %d",
-                evtInfo.getVm().getSimulation().clockStr(), evtInfo.getVm().getId(), evtInfo.getVm().getHost().getId()));
+        this.getMyLogger().info(String.format("%s:\t\t%s\t\tVM %d (PES - %d, RAM - %d, BW - %d), allocated to host %d",
+                evtInfo.getVm().getSimulation().clockStr(), this.getMyLogger().getName(), evtInfo.getVm().getId(),
+                evtInfo.getVm().getNumberOfPes(), evtInfo.getVm().getRam().getCapacity(), evtInfo.getVm().getBw().getCapacity(), evtInfo.getVm().getHost().getId()));
     }
 
     /**
@@ -282,7 +297,7 @@ public abstract class MyDatacenterAbstract {
     public void collectCloudletRamUtilization(Cloudlet cloudlet) {
         this.getCloudletRamMap()
                 .get(cloudlet.getId())
-                .put(this.getCloudSim().clock(), (cloudlet.getUtilizationOfRam()*cloudlet.getVm().getRam().getCapacity()));
+                .put(this.getCloudSim().clock(), cloudlet.getUtilizationOfRam());
         /*getMyLogger().info(String.format("%7.4f:\tRAM Relative Usage-%10.4f%%,\tAbsolute usage-%10.4f MB,\tVM Total RAM-%5d MB",
                 this.getCloudSim().clock(), cloudlet.getUtilizationOfRam()*100,
                 cloudlet.getUtilizationOfRam()*cloudlet.getVm().getRam().getCapacity(),
@@ -297,11 +312,45 @@ public abstract class MyDatacenterAbstract {
     public void collectCloudletBwUtilization(Cloudlet cloudlet) {
         this.getCloudletBwMap()
                 .get(cloudlet.getId())
-                .put(this.getCloudSim().clock(), cloudlet.getUtilizationOfBw()*cloudlet.getVm().getBw().getCapacity());
+                .put(this.getCloudSim().clock(), cloudlet.getUtilizationOfBw());
         /*getMyLogger().info(String.format("%7.4f:\tBW Relative Usage-%10.4f%%,\tAbsolute Usage-%10.4f Mb,\tVM Total BW-%5d Mbps",
                 this.getCloudSim().clock(), cloudlet.getUtilizationOfBw()*100,
                 cloudlet.getUtilizationOfBw()*cloudlet.getVm().getBw().getCapacity(),
                 cloudlet.getVm().getBw().getCapacity()));*/
+    }
+
+    /**
+     * This will create and submit initial VMs to the broker
+     */
+    public void createAndSubmitInitialVms(final int VMS, final int PES, final long MIPS,
+                                                   final long RAM, final long BW, final long STORAGE) {
+        final List<Vm> vmList = new ArrayList<>(VMS);
+
+        for (int i = 0; i < VMS; i++) {
+            NetworkVm networkVm = new NetworkVm(i, MIPS, PES);
+            networkVm.setRam(RAM).setBw(BW).setSize(STORAGE);
+            networkVm.setCloudletScheduler(new CloudletSchedulerSpaceShared());
+
+            vmList.add(networkVm);
+        }
+        this.getDatacenterBroker().submitVmList(vmList);
+    }
+
+    /**
+     * This will create and submit a set of cloudlets initially before the simulation starts
+     */
+    public void createAndSubmitInitialCloudlets() {
+        List<Cloudlet> cloudletList = new ArrayList<>(CLOUDLETS);
+
+        for (int i = 0; i < CLOUDLETS; i++) {
+            Cloudlet cloudlet = new CloudletSimple(i, CLOUDLET_LENGTH, CLOUDLET_PES);
+            cloudlet.setFileSize(FILE_SIZE);
+            cloudlet.setOutputSize(OUTPUT_SIZE);
+            cloudlet.setUtilizationModel(new UtilizationModelStochastic());
+            cloudletList.add(cloudlet);
+            this.fillCloudletMaps(cloudlet);
+        }
+        this.getDatacenterBroker().submitCloudletList(cloudletList);
     }
 
     /**
@@ -315,8 +364,8 @@ public abstract class MyDatacenterAbstract {
      * @param BW - bandwidth of each VM
      * @param STORAGE - storage size of each VM
      */
-    public void createAndSubmitVmsForSaas(final int VMS, final int VMS_PES, final long VMS_MIPS, final long RAM,
-                                           final long BW, final int STORAGE) {
+    public void createAndSubmitVms(final int VMS, final int VMS_PES, final long VMS_MIPS, final long RAM,
+                                   final long BW, final long STORAGE) {
         List<NetworkVm> networkVms = new ArrayList<>();
         for (int i = 0; i < VMS; i++) {
             NetworkVm networkVm = new NetworkVm(i, VMS_MIPS, VMS_PES);
@@ -332,23 +381,25 @@ public abstract class MyDatacenterAbstract {
      * This function will cloudlet execution results recorded at each clock interval along with average RAM and BW usages
      */
     public void printSimulationResults() {
-        System.out.printf("Cloudlets Actual Execution Results in %s%n:", this.getDatacenter().getName());
+
         List<Cloudlet> finishedCloudletList = this.getDatacenterBroker().getCloudletFinishedList();
+        finishedCloudletList.forEach(this::printSimulationResults);
+    }
 
-        finishedCloudletList
-                .forEach(cloudlet -> {
-                    System.out.printf("-------------------------------Cloudlet %d--------------------------%n", cloudlet.getId());
-                    System.out.printf("Total Execution time:%10.2f seconds%n", cloudlet.getActualCpuTime());
+    /**
+     * Helper Function for printing actual execution results for a cloudlet
+     */
+    public void printSimulationResults(Cloudlet cloudlet) {
+        System.out.printf("%nActual costs for executing cloudlet %d in %s%n", cloudlet.getId(), this.getDatacenter().getName());
+        System.out.printf("Total Execution time:%10.2f seconds%n", cloudlet.getUtilizationModelCpu().getUtilization(this.getCloudSim().clock()));
 
-                    System.out.printf("Average RAM usage:\t%10.2f MB%n",
-                            (this.getCloudletRamMap().get(cloudlet.getId()).values().stream().reduce(0.0, Double::sum))/(this.getCloudletRamMap().get(cloudlet.getId()).size()));
+        System.out.printf("Average RAM usage:\t%10.2f MB%n",
+                (this.getCloudletRamMap().get(cloudlet.getId()).values().stream().reduce(0.0, Double::sum))/(this.getCloudletRamMap().get(cloudlet.getId()).size()));
 
-                    System.out.printf("Average BW usage:\t%10.2f Mb%n",
-                            (this.getCloudletBwMap().get(cloudlet.getId()).values().stream().reduce(0.0, Double::sum))/(this.getCloudletBwMap().get(cloudlet.getId()).size()));
-
-                    System.out.println("--------------------------------------------------------------------------------");
-                    System.out.println();
-                });
+        System.out.printf("Average BW usage:\t%10.2f Mb%n",
+                (this.getCloudletBwMap().get(cloudlet.getId()).values().stream().reduce(0.0, Double::sum))/(this.getCloudletBwMap().get(cloudlet.getId()).size()));
+        System.out.printf("Cloudlet total execution cost = $%.4f%n", cloudlet.getTotalCost());
+        System.out.println();
     }
 
     /**
