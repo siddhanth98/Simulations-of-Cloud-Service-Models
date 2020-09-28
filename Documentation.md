@@ -101,7 +101,7 @@ You can also combine arguments to get all results together in the output.**
 * In simulation 3 and 4, different cloudlet scheduling policies are used for execution in order to observe
     differences in cloudlet start and execution times.
 
-    ###Simulation 3 (Space shared Cloudlet Scheduling Policy)
+###Simulation 3 (Space shared Cloudlet Scheduling Policy)
 * For this simulation, 10 VMs are allocated to the 1st 5 hosts using the best fit allocation policy.
 * Each VM uses 5 PEs and a space shared policy for scheduling its cloudlets, indicating that only 1 cloudlet
 		can use a given PE at any time and any other cloudlet can use the same PE once the first one completely

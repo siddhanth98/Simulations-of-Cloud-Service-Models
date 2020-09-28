@@ -1,0 +1,396 @@
+119  [run-main-d] INFO  CloudSim - 
+================== Starting CloudSim Plus 5.4.3 ==================
+
+120  [run-main-d] INFO  DatacenterBroker - broker1 is starting...
+121  [run-main-d] INFO  Datacenter - Datacenter1 is starting...
+121  [run-main-d] INFO  AbstractSwitch - EdgeSwitch3 is starting...
+121  [run-main-d] INFO  AbstractSwitch - EdgeSwitch4 is starting...
+121  [run-main-d] INFO  AbstractSwitch - EdgeSwitch5 is starting...
+121  [run-main-d] INFO  AbstractSwitch - EdgeSwitch6 is starting...
+121  [run-main-d] INFO  AbstractSwitch - EdgeSwitch7 is starting...
+121  [run-main-d] INFO  AbstractSwitch - EdgeSwitch8 is starting...
+122  [run-main-d] INFO  AbstractSwitch - EdgeSwitch9 is starting...
+122  [run-main-d] INFO  AbstractSwitch - EdgeSwitch10 is starting...
+122  [run-main-d] INFO  AbstractSwitch - EdgeSwitch11 is starting...
+122  [run-main-d] INFO  AbstractSwitch - EdgeSwitch12 is starting...
+122  [run-main-d] INFO  AbstractSwitch - AggregateSwitch13 is starting...
+122  [run-main-d] INFO  CloudSim - Entities started.
+123  [run-main-d] INFO  DatacenterBroker - 0.00: broker1: List of 1 datacenters(s) received.
+123  [run-main-d] INFO  DatacenterBroker - 0.00: broker1: Trying to create Vm 0 in Datacenter1
+127  [run-main-d] INFO  VmAllocationPolicy - 0.00: VmAllocationPolicySimple: Vm 0 has been allocated to Host 0/DC 2
+128  [run-main-d] INFO  DatacenterBroker - 0.10: broker1: Sending Cloudlet 0 to Vm 0 in Host 0/DC 2.
+128  [run-main-d] INFO  DatacenterBroker - 0.10: broker1: Sending Cloudlet 1 to Vm 0 in Host 0/DC 2.
+128  [run-main-d] INFO  DatacenterBroker - 0.10: broker1: Sending Cloudlet 2 to Vm 0 in Host 0/DC 2.
+128  [run-main-d] INFO  DatacenterBroker - 0.10: broker1: Sending Cloudlet 3 to Vm 0 in Host 0/DC 2.
+128  [run-main-d] INFO  DatacenterBroker - 0.10: broker1: Sending Cloudlet 4 to Vm 0 in Host 0/DC 2.
+128  [run-main-d] INFO  DatacenterBroker - 0.10: broker1: Sending Cloudlet 5 to Vm 0 in Host 0/DC 2.
+128  [run-main-d] INFO  DatacenterBroker - 0.10: broker1: Sending Cloudlet 6 to Vm 0 in Host 0/DC 2.
+128  [run-main-d] INFO  DatacenterBroker - 0.10: broker1: Sending Cloudlet 7 to Vm 0 in Host 0/DC 2.
+128  [run-main-d] INFO  DatacenterBroker - 0.10: broker1: Sending Cloudlet 8 to Vm 0 in Host 0/DC 2.
+128  [run-main-d] INFO  DatacenterBroker - 0.10: broker1: Sending Cloudlet 9 to Vm 0 in Host 0/DC 2.
+128  [run-main-d] INFO  DatacenterBroker - 0.10: broker1: Sending Cloudlet 10 to Vm 0 in Host 0/DC 2.
+128  [run-main-d] INFO  DatacenterBroker - 0.10: broker1: Sending Cloudlet 11 to Vm 0 in Host 0/DC 2.
+128  [run-main-d] INFO  DatacenterBroker - 0.10: broker1: Sending Cloudlet 12 to Vm 0 in Host 0/DC 2.
+128  [run-main-d] INFO  DatacenterBroker - 0.10: broker1: Sending Cloudlet 13 to Vm 0 in Host 0/DC 2.
+128  [run-main-d] INFO  DatacenterBroker - 0.10: broker1: Sending Cloudlet 14 to Vm 0 in Host 0/DC 2.
+128  [run-main-d] INFO  DatacenterBroker - 0.10: broker1: Sending Cloudlet 15 to Vm 0 in Host 0/DC 2.
+128  [run-main-d] INFO  DatacenterBroker - 0.10: broker1: Sending Cloudlet 16 to Vm 0 in Host 0/DC 2.
+128  [run-main-d] INFO  DatacenterBroker - 0.10: broker1: Sending Cloudlet 17 to Vm 0 in Host 0/DC 2.
+128  [run-main-d] INFO  DatacenterBroker - 0.10: broker1: Sending Cloudlet 18 to Vm 0 in Host 0/DC 2.
+129  [run-main-d] INFO  DatacenterBroker - 0.10: broker1: Sending Cloudlet 19 to Vm 0 in Host 0/DC 2.
+129  [run-main-d] INFO  DatacenterBroker - 0.10: broker1: Sending Cloudlet 20 to Vm 0 in Host 0/DC 2.
+129  [run-main-d] INFO  DatacenterBroker - 0.10: broker1: Sending Cloudlet 21 to Vm 0 in Host 0/DC 2.
+129  [run-main-d] INFO  DatacenterBroker - 0.10: broker1: All waiting Cloudlets submitted to some VM.
+140  [run-main-d] INFO  DatacenterBroker - 200.10: broker1: Cloudlet 0 finished in Vm 0 and returned to broker.
+167  [run-main-d] INFO  DatacenterBroker - 4540.50: broker1: Cloudlet 1 finished in Vm 0 and returned to broker.
+186  [run-main-d] INFO  DatacenterBroker - 6766.17: broker1: Cloudlet 2 finished in Vm 0 and returned to broker.
+196  [run-main-d] INFO  DatacenterBroker - 7568.84: broker1: Cloudlet 10 finished in Vm 0 and returned to broker.
+236  [run-main-d] INFO  DatacenterBroker - 7607.39: broker1: Cloudlet 12 finished in Vm 0 and returned to broker.
+239  [run-main-d] INFO  DatacenterBroker - 7787.40: broker1: Cloudlet 13 finished in Vm 0 and returned to broker.
+243  [run-main-d] INFO  DatacenterBroker - 7920.62: broker1: Cloudlet 18 finished in Vm 0 and returned to broker.
+265  [run-main-d] INFO  DatacenterBroker - 10421.67: broker1: Cloudlet 7 finished in Vm 0 and returned to broker.
+271  [run-main-d] INFO  DatacenterBroker - 11800.65: broker1: Cloudlet 20 finished in Vm 0 and returned to broker.
+310  [run-main-d] INFO  DatacenterBroker - 11819.96: broker1: Cloudlet 3 finished in Vm 0 and returned to broker.
+314  [run-main-d] INFO  DatacenterBroker - 12072.48: broker1: Cloudlet 4 finished in Vm 0 and returned to broker.
+317  [run-main-d] INFO  DatacenterBroker - 12100.59: broker1: Cloudlet 5 finished in Vm 0 and returned to broker.
+365  [run-main-d] INFO  DatacenterBroker - 18600.70: broker1: Cloudlet 6 finished in Vm 0 and returned to broker.
+377  [run-main-d] INFO  DatacenterBroker - 19625.67: broker1: Cloudlet 9 finished in Vm 0 and returned to broker.
+381  [run-main-d] INFO  DatacenterBroker - 19734.14: broker1: Cloudlet 11 finished in Vm 0 and returned to broker.
+435  [run-main-d] INFO  DatacenterBroker - 26175.58: broker1: Cloudlet 15 finished in Vm 0 and returned to broker.
+440  [run-main-d] INFO  DatacenterBroker - 27300.10: broker1: Cloudlet 16 finished in Vm 0 and returned to broker.
+457  [run-main-d] INFO  DatacenterBroker - 34272.56: broker1: Cloudlet 17 finished in Vm 0 and returned to broker.
+460  [run-main-d] INFO  DatacenterBroker - 34285.96: broker1: Cloudlet 19 finished in Vm 0 and returned to broker.
+463  [run-main-d] INFO  DatacenterBroker - 34287.11: broker1: Cloudlet 21 finished in Vm 0 and returned to broker.
+464  [run-main-d] INFO  CloudSim - 34287.22: Processing last events before simulation shutdown.
+464  [run-main-d] INFO  DatacenterBroker - 34287.22: broker1 is shutting down...
+464  [run-main-d] INFO  DatacenterBroker - 34287.22: broker1: Requesting Vm 0 destruction.
+466  [run-main-d] WARN  Datacenter - 34287.22: NetworkDatacenter: Vm 0 destroyed on Host 0/DC 2. It had a total of 2 cloudlets (running + waiting). Some events may have been missed. You can try: (a) decreasing CloudSim's minTimeBetweenEvents and/or Datacenter's schedulingInterval attribute; (b) increasing broker's Vm destruction delay for idle VMs if you set it to zero; (c) defining Cloudlets with smaller length (your Datacenter's scheduling interval may be smaller than the time to finish some Cloudlets).
+466  [run-main-d] INFO  CloudSim - Simulation: No more future events
+
+466  [run-main-d] INFO  CloudInformationService - CloudInformationService0: Notify all CloudSim Plus entities to shutdown.
+
+467  [run-main-d] INFO  Datacenter - 34287.22: Datacenter1 is shutting down...
+467  [run-main-d] INFO  AbstractSwitch - EdgeSwitch3 is shutting down...
+467  [run-main-d] INFO  AbstractSwitch - EdgeSwitch4 is shutting down...
+467  [run-main-d] INFO  AbstractSwitch - EdgeSwitch5 is shutting down...
+467  [run-main-d] INFO  AbstractSwitch - EdgeSwitch6 is shutting down...
+467  [run-main-d] INFO  AbstractSwitch - EdgeSwitch7 is shutting down...
+467  [run-main-d] INFO  AbstractSwitch - EdgeSwitch8 is shutting down...
+467  [run-main-d] INFO  AbstractSwitch - EdgeSwitch9 is shutting down...
+467  [run-main-d] INFO  AbstractSwitch - EdgeSwitch10 is shutting down...
+467  [run-main-d] INFO  AbstractSwitch - EdgeSwitch11 is shutting down...
+467  [run-main-d] INFO  AbstractSwitch - EdgeSwitch12 is shutting down...
+467  [run-main-d] INFO  AbstractSwitch - AggregateSwitch13 is shutting down...
+467  [run-main-d] INFO  CloudSim - 
+================== Simulation finished at time 34287.22 ==================
+
+467  [run-main-d] DEBUG CloudSim - DeferredQueue >> max size: 21 added to middle: 0 added to tail: 1014
+467  [run-main-d] INFO  CloudSim - 
+================== Starting CloudSim Plus 5.4.3 ==================
+
+467  [run-main-d] INFO  DatacenterBroker - broker2 is starting...
+467  [run-main-d] INFO  Datacenter - Datacenter2 is starting...
+467  [run-main-d] INFO  AbstractSwitch - EdgeSwitch3 is starting...
+467  [run-main-d] INFO  AbstractSwitch - EdgeSwitch4 is starting...
+467  [run-main-d] INFO  AbstractSwitch - EdgeSwitch5 is starting...
+467  [run-main-d] INFO  AbstractSwitch - EdgeSwitch6 is starting...
+467  [run-main-d] INFO  AbstractSwitch - EdgeSwitch7 is starting...
+467  [run-main-d] INFO  AbstractSwitch - EdgeSwitch8 is starting...
+467  [run-main-d] INFO  AbstractSwitch - EdgeSwitch9 is starting...
+467  [run-main-d] INFO  AbstractSwitch - EdgeSwitch10 is starting...
+467  [run-main-d] INFO  AbstractSwitch - EdgeSwitch11 is starting...
+467  [run-main-d] INFO  AbstractSwitch - EdgeSwitch12 is starting...
+467  [run-main-d] INFO  AbstractSwitch - AggregateSwitch13 is starting...
+467  [run-main-d] INFO  CloudSim - Entities started.
+467  [run-main-d] INFO  DatacenterBroker - 0.00: broker2: List of 1 datacenters(s) received.
+467  [run-main-d] INFO  DatacenterBroker - 0.00: broker2: Trying to create Vm 0 in Datacenter2
+467  [run-main-d] INFO  DatacenterBroker - 0.00: broker2: Trying to create Vm 1 in Datacenter2
+467  [run-main-d] INFO  DatacenterBroker - 0.00: broker2: Trying to create Vm 2 in Datacenter2
+467  [run-main-d] INFO  DatacenterBroker - 0.00: broker2: Trying to create Vm 3 in Datacenter2
+467  [run-main-d] INFO  DatacenterBroker - 0.00: broker2: Trying to create Vm 4 in Datacenter2
+467  [run-main-d] INFO  DatacenterBroker - 0.00: broker2: Trying to create Vm 5 in Datacenter2
+468  [run-main-d] INFO  DatacenterBroker - 0.00: broker2: Trying to create Vm 6 in Datacenter2
+468  [run-main-d] INFO  DatacenterBroker - 0.00: broker2: Trying to create Vm 7 in Datacenter2
+468  [run-main-d] INFO  DatacenterBroker - 0.00: broker2: Trying to create Vm 8 in Datacenter2
+468  [run-main-d] INFO  DatacenterBroker - 0.00: broker2: Trying to create Vm 9 in Datacenter2
+468  [run-main-d] INFO  DatacenterBroker - 0.00: broker2: Trying to create Vm 10 in Datacenter2
+468  [run-main-d] INFO  DatacenterBroker - 0.00: broker2: Trying to create Vm 11 in Datacenter2
+468  [run-main-d] INFO  DatacenterBroker - 0.00: broker2: Trying to create Vm 12 in Datacenter2
+468  [run-main-d] INFO  DatacenterBroker - 0.00: broker2: Trying to create Vm 13 in Datacenter2
+468  [run-main-d] INFO  DatacenterBroker - 0.00: broker2: Trying to create Vm 14 in Datacenter2
+468  [run-main-d] INFO  DatacenterBroker - 0.00: broker2: Trying to create Vm 15 in Datacenter2
+468  [run-main-d] INFO  DatacenterBroker - 0.00: broker2: Trying to create Vm 16 in Datacenter2
+468  [run-main-d] INFO  DatacenterBroker - 0.00: broker2: Trying to create Vm 17 in Datacenter2
+468  [run-main-d] INFO  DatacenterBroker - 0.00: broker2: Trying to create Vm 18 in Datacenter2
+468  [run-main-d] INFO  DatacenterBroker - 0.00: broker2: Trying to create Vm 19 in Datacenter2
+468  [run-main-d] INFO  DatacenterBroker - 0.00: broker2: Trying to create Vm 20 in Datacenter2
+468  [run-main-d] INFO  DatacenterBroker - 0.00: broker2: Trying to create Vm 21 in Datacenter2
+468  [run-main-d] INFO  DatacenterBroker - 0.00: broker2: Trying to create Vm 22 in Datacenter2
+468  [run-main-d] INFO  DatacenterBroker - 0.00: broker2: Trying to create Vm 23 in Datacenter2
+468  [run-main-d] INFO  DatacenterBroker - 0.00: broker2: Trying to create Vm 24 in Datacenter2
+468  [run-main-d] INFO  DatacenterBroker - 0.00: broker2: Trying to create Vm 25 in Datacenter2
+468  [run-main-d] INFO  DatacenterBroker - 0.00: broker2: Trying to create Vm 26 in Datacenter2
+468  [run-main-d] INFO  DatacenterBroker - 0.00: broker2: Trying to create Vm 27 in Datacenter2
+468  [run-main-d] INFO  DatacenterBroker - 0.00: broker2: Trying to create Vm 28 in Datacenter2
+468  [run-main-d] INFO  DatacenterBroker - 0.00: broker2: Trying to create Vm 29 in Datacenter2
+468  [run-main-d] INFO  DatacenterBroker - 0.00: broker2: Trying to create Vm 30 in Datacenter2
+468  [run-main-d] INFO  DatacenterBroker - 0.00: broker2: Trying to create Vm 31 in Datacenter2
+468  [run-main-d] INFO  DatacenterBroker - 0.00: broker2: Trying to create Vm 32 in Datacenter2
+468  [run-main-d] INFO  DatacenterBroker - 0.00: broker2: Trying to create Vm 33 in Datacenter2
+468  [run-main-d] INFO  DatacenterBroker - 0.00: broker2: Trying to create Vm 34 in Datacenter2
+468  [run-main-d] INFO  DatacenterBroker - 0.00: broker2: Trying to create Vm 35 in Datacenter2
+468  [run-main-d] INFO  DatacenterBroker - 0.00: broker2: Trying to create Vm 36 in Datacenter2
+468  [run-main-d] INFO  DatacenterBroker - 0.00: broker2: Trying to create Vm 37 in Datacenter2
+468  [run-main-d] INFO  DatacenterBroker - 0.00: broker2: Trying to create Vm 38 in Datacenter2
+468  [run-main-d] INFO  DatacenterBroker - 0.00: broker2: Trying to create Vm 39 in Datacenter2
+468  [run-main-d] INFO  DatacenterBroker - 0.00: broker2: Trying to create Vm 40 in Datacenter2
+469  [run-main-d] INFO  DatacenterBroker - 0.00: broker2: Trying to create Vm 41 in Datacenter2
+469  [run-main-d] INFO  DatacenterBroker - 0.00: broker2: Trying to create Vm 42 in Datacenter2
+469  [run-main-d] INFO  DatacenterBroker - 0.00: broker2: Trying to create Vm 43 in Datacenter2
+469  [run-main-d] INFO  DatacenterBroker - 0.00: broker2: Trying to create Vm 44 in Datacenter2
+469  [run-main-d] INFO  DatacenterBroker - 0.00: broker2: Trying to create Vm 45 in Datacenter2
+469  [run-main-d] INFO  DatacenterBroker - 0.00: broker2: Trying to create Vm 46 in Datacenter2
+469  [run-main-d] INFO  DatacenterBroker - 0.00: broker2: Trying to create Vm 47 in Datacenter2
+470  [run-main-d] INFO  VmAllocationPolicy - 0.00: VmAllocationPolicySimple: Vm 0 has been allocated to Host 0/DC 2
+471  [run-main-d] INFO  VmAllocationPolicy - 0.00: VmAllocationPolicySimple: Vm 1 has been allocated to Host 1/DC 2
+471  [run-main-d] INFO  VmAllocationPolicy - 0.00: VmAllocationPolicySimple: Vm 2 has been allocated to Host 2/DC 2
+472  [run-main-d] INFO  VmAllocationPolicy - 0.00: VmAllocationPolicySimple: Vm 3 has been allocated to Host 3/DC 2
+472  [run-main-d] INFO  VmAllocationPolicy - 0.00: VmAllocationPolicySimple: Vm 4 has been allocated to Host 4/DC 2
+473  [run-main-d] INFO  VmAllocationPolicy - 0.00: VmAllocationPolicySimple: Vm 5 has been allocated to Host 5/DC 2
+473  [run-main-d] INFO  VmAllocationPolicy - 0.00: VmAllocationPolicySimple: Vm 6 has been allocated to Host 6/DC 2
+474  [run-main-d] INFO  VmAllocationPolicy - 0.00: VmAllocationPolicySimple: Vm 7 has been allocated to Host 7/DC 2
+474  [run-main-d] INFO  VmAllocationPolicy - 0.00: VmAllocationPolicySimple: Vm 8 has been allocated to Host 8/DC 2
+474  [run-main-d] INFO  VmAllocationPolicy - 0.00: VmAllocationPolicySimple: Vm 9 has been allocated to Host 9/DC 2
+475  [run-main-d] INFO  VmAllocationPolicy - 0.00: VmAllocationPolicySimple: Vm 10 has been allocated to Host 10/DC 2
+475  [run-main-d] INFO  VmAllocationPolicy - 0.00: VmAllocationPolicySimple: Vm 11 has been allocated to Host 11/DC 2
+475  [run-main-d] INFO  VmAllocationPolicy - 0.00: VmAllocationPolicySimple: Vm 12 has been allocated to Host 12/DC 2
+476  [run-main-d] INFO  VmAllocationPolicy - 0.00: VmAllocationPolicySimple: Vm 13 has been allocated to Host 13/DC 2
+476  [run-main-d] INFO  VmAllocationPolicy - 0.00: VmAllocationPolicySimple: Vm 14 has been allocated to Host 14/DC 2
+476  [run-main-d] INFO  VmAllocationPolicy - 0.00: VmAllocationPolicySimple: Vm 15 has been allocated to Host 15/DC 2
+477  [run-main-d] INFO  VmAllocationPolicy - 0.00: VmAllocationPolicySimple: Vm 16 has been allocated to Host 16/DC 2
+477  [run-main-d] INFO  VmAllocationPolicy - 0.00: VmAllocationPolicySimple: Vm 17 has been allocated to Host 17/DC 2
+477  [run-main-d] INFO  VmAllocationPolicy - 0.00: VmAllocationPolicySimple: Vm 18 has been allocated to Host 18/DC 2
+478  [run-main-d] INFO  VmAllocationPolicy - 0.00: VmAllocationPolicySimple: Vm 19 has been allocated to Host 19/DC 2
+478  [run-main-d] INFO  VmAllocationPolicy - 0.00: VmAllocationPolicySimple: Vm 20 has been allocated to Host 20/DC 2
+479  [run-main-d] INFO  VmAllocationPolicy - 0.00: VmAllocationPolicySimple: Vm 21 has been allocated to Host 21/DC 2
+479  [run-main-d] INFO  VmAllocationPolicy - 0.00: VmAllocationPolicySimple: Vm 22 has been allocated to Host 22/DC 2
+479  [run-main-d] INFO  VmAllocationPolicy - 0.00: VmAllocationPolicySimple: Vm 23 has been allocated to Host 23/DC 2
+480  [run-main-d] INFO  VmAllocationPolicy - 0.00: VmAllocationPolicySimple: Vm 24 has been allocated to Host 24/DC 2
+480  [run-main-d] INFO  VmAllocationPolicy - 0.00: VmAllocationPolicySimple: Vm 25 has been allocated to Host 25/DC 2
+480  [run-main-d] INFO  VmAllocationPolicy - 0.00: VmAllocationPolicySimple: Vm 26 has been allocated to Host 26/DC 2
+481  [run-main-d] INFO  VmAllocationPolicy - 0.00: VmAllocationPolicySimple: Vm 27 has been allocated to Host 27/DC 2
+481  [run-main-d] INFO  VmAllocationPolicy - 0.00: VmAllocationPolicySimple: Vm 28 has been allocated to Host 28/DC 2
+481  [run-main-d] INFO  VmAllocationPolicy - 0.00: VmAllocationPolicySimple: Vm 29 has been allocated to Host 29/DC 2
+482  [run-main-d] INFO  VmAllocationPolicy - 0.00: VmAllocationPolicySimple: Vm 30 has been allocated to Host 30/DC 2
+482  [run-main-d] INFO  VmAllocationPolicy - 0.00: VmAllocationPolicySimple: Vm 31 has been allocated to Host 31/DC 2
+483  [run-main-d] INFO  VmAllocationPolicy - 0.00: VmAllocationPolicySimple: Vm 32 has been allocated to Host 32/DC 2
+483  [run-main-d] INFO  VmAllocationPolicy - 0.00: VmAllocationPolicySimple: Vm 33 has been allocated to Host 33/DC 2
+484  [run-main-d] INFO  VmAllocationPolicy - 0.00: VmAllocationPolicySimple: Vm 34 has been allocated to Host 34/DC 2
+484  [run-main-d] INFO  VmAllocationPolicy - 0.00: VmAllocationPolicySimple: Vm 35 has been allocated to Host 35/DC 2
+485  [run-main-d] INFO  VmAllocationPolicy - 0.00: VmAllocationPolicySimple: Vm 36 has been allocated to Host 36/DC 2
+486  [run-main-d] INFO  VmAllocationPolicy - 0.00: VmAllocationPolicySimple: Vm 37 has been allocated to Host 37/DC 2
+487  [run-main-d] INFO  VmAllocationPolicy - 0.00: VmAllocationPolicySimple: Vm 38 has been allocated to Host 38/DC 2
+487  [run-main-d] INFO  VmAllocationPolicy - 0.00: VmAllocationPolicySimple: Vm 39 has been allocated to Host 39/DC 2
+488  [run-main-d] INFO  VmAllocationPolicy - 0.00: VmAllocationPolicySimple: Vm 40 has been allocated to Host 40/DC 2
+488  [run-main-d] INFO  VmAllocationPolicy - 0.00: VmAllocationPolicySimple: Vm 41 has been allocated to Host 41/DC 2
+488  [run-main-d] INFO  VmAllocationPolicy - 0.00: VmAllocationPolicySimple: Vm 42 has been allocated to Host 42/DC 2
+489  [run-main-d] INFO  VmAllocationPolicy - 0.00: VmAllocationPolicySimple: Vm 43 has been allocated to Host 43/DC 2
+489  [run-main-d] INFO  VmAllocationPolicy - 0.00: VmAllocationPolicySimple: Vm 44 has been allocated to Host 44/DC 2
+489  [run-main-d] INFO  VmAllocationPolicy - 0.00: VmAllocationPolicySimple: Vm 45 has been allocated to Host 45/DC 2
+489  [run-main-d] INFO  VmAllocationPolicy - 0.00: VmAllocationPolicySimple: Vm 46 has been allocated to Host 46/DC 2
+490  [run-main-d] INFO  VmAllocationPolicy - 0.00: VmAllocationPolicySimple: Vm 47 has been allocated to Host 47/DC 2
+490  [run-main-d] INFO  DatacenterBroker - 0.10: broker2: Sending Cloudlet 0 to Vm 0 in Host 0/DC 2.
+490  [run-main-d] INFO  DatacenterBroker - 0.10: broker2: Sending Cloudlet 1 to Vm 1 in Host 1/DC 2.
+490  [run-main-d] INFO  DatacenterBroker - 0.10: broker2: Sending Cloudlet 2 to Vm 2 in Host 2/DC 2.
+490  [run-main-d] INFO  DatacenterBroker - 0.10: broker2: Sending Cloudlet 3 to Vm 3 in Host 3/DC 2.
+491  [run-main-d] INFO  DatacenterBroker - 0.10: broker2: Sending Cloudlet 4 to Vm 4 in Host 4/DC 2.
+491  [run-main-d] INFO  DatacenterBroker - 0.10: broker2: Sending Cloudlet 5 to Vm 5 in Host 5/DC 2.
+491  [run-main-d] INFO  DatacenterBroker - 0.10: broker2: Sending Cloudlet 6 to Vm 6 in Host 6/DC 2.
+491  [run-main-d] INFO  DatacenterBroker - 0.10: broker2: Sending Cloudlet 7 to Vm 7 in Host 7/DC 2.
+491  [run-main-d] INFO  DatacenterBroker - 0.10: broker2: Sending Cloudlet 8 to Vm 8 in Host 8/DC 2.
+491  [run-main-d] INFO  DatacenterBroker - 0.10: broker2: Sending Cloudlet 9 to Vm 9 in Host 9/DC 2.
+491  [run-main-d] INFO  DatacenterBroker - 0.10: broker2: Sending Cloudlet 10 to Vm 10 in Host 10/DC 2.
+491  [run-main-d] INFO  DatacenterBroker - 0.10: broker2: Sending Cloudlet 11 to Vm 11 in Host 11/DC 2.
+491  [run-main-d] INFO  DatacenterBroker - 0.10: broker2: Sending Cloudlet 12 to Vm 12 in Host 12/DC 2.
+491  [run-main-d] INFO  DatacenterBroker - 0.10: broker2: Sending Cloudlet 13 to Vm 13 in Host 13/DC 2.
+491  [run-main-d] INFO  DatacenterBroker - 0.10: broker2: Sending Cloudlet 14 to Vm 14 in Host 14/DC 2.
+491  [run-main-d] INFO  DatacenterBroker - 0.10: broker2: Sending Cloudlet 15 to Vm 15 in Host 15/DC 2.
+491  [run-main-d] INFO  DatacenterBroker - 0.10: broker2: Sending Cloudlet 16 to Vm 16 in Host 16/DC 2.
+491  [run-main-d] INFO  DatacenterBroker - 0.10: broker2: Sending Cloudlet 17 to Vm 17 in Host 17/DC 2.
+491  [run-main-d] INFO  DatacenterBroker - 0.10: broker2: Sending Cloudlet 18 to Vm 18 in Host 18/DC 2.
+491  [run-main-d] INFO  DatacenterBroker - 0.10: broker2: Sending Cloudlet 19 to Vm 19 in Host 19/DC 2.
+491  [run-main-d] INFO  DatacenterBroker - 0.10: broker2: Sending Cloudlet 20 to Vm 20 in Host 20/DC 2.
+491  [run-main-d] INFO  DatacenterBroker - 0.10: broker2: Sending Cloudlet 21 to Vm 21 in Host 21/DC 2.
+491  [run-main-d] INFO  DatacenterBroker - 0.10: broker2: Sending Cloudlet 22 to Vm 22 in Host 22/DC 2.
+491  [run-main-d] INFO  DatacenterBroker - 0.10: broker2: Sending Cloudlet 23 to Vm 23 in Host 23/DC 2.
+491  [run-main-d] INFO  DatacenterBroker - 0.10: broker2: All waiting Cloudlets submitted to some VM.
+537  [run-main-d] INFO  DatacenterBroker - 0.22: broker2: Cloudlet 0 finished in Vm 0 and returned to broker.
+537  [run-main-d] INFO  DatacenterBroker - 0.22: broker2: Cloudlet 4 finished in Vm 4 and returned to broker.
+537  [run-main-d] INFO  DatacenterBroker - 0.22: broker2: Cloudlet 5 finished in Vm 5 and returned to broker.
+537  [run-main-d] INFO  DatacenterBroker - 0.22: broker2: Cloudlet 8 finished in Vm 8 and returned to broker.
+537  [run-main-d] INFO  DatacenterBroker - 0.22: broker2: Cloudlet 9 finished in Vm 9 and returned to broker.
+537  [run-main-d] INFO  DatacenterBroker - 0.22: broker2: Cloudlet 11 finished in Vm 11 and returned to broker.
+537  [run-main-d] INFO  DatacenterBroker - 0.22: broker2: Cloudlet 12 finished in Vm 12 and returned to broker.
+537  [run-main-d] INFO  DatacenterBroker - 0.22: broker2: Cloudlet 13 finished in Vm 13 and returned to broker.
+537  [run-main-d] INFO  DatacenterBroker - 0.22: broker2: Cloudlet 16 finished in Vm 16 and returned to broker.
+537  [run-main-d] INFO  DatacenterBroker - 0.22: broker2: Cloudlet 17 finished in Vm 17 and returned to broker.
+537  [run-main-d] INFO  DatacenterBroker - 0.22: broker2: Cloudlet 20 finished in Vm 20 and returned to broker.
+537  [run-main-d] INFO  DatacenterBroker - 0.22: broker2: Cloudlet 21 finished in Vm 21 and returned to broker.
+588  [run-main-d] INFO  DatacenterBroker - 1.21: broker2: Cloudlet 3 finished in Vm 3 and returned to broker.
+588  [run-main-d] INFO  DatacenterBroker - 1.21: broker2: Cloudlet 10 finished in Vm 10 and returned to broker.
+588  [run-main-d] INFO  DatacenterBroker - 1.21: broker2: Cloudlet 14 finished in Vm 14 and returned to broker.
+588  [run-main-d] INFO  DatacenterBroker - 1.21: broker2: Cloudlet 15 finished in Vm 15 and returned to broker.
+588  [run-main-d] INFO  CloudSim - 1.32: Processing last events before simulation shutdown.
+588  [run-main-d] INFO  DatacenterBroker - 1.32: broker2 is shutting down...
+588  [run-main-d] INFO  DatacenterBroker - 1.32: broker2: Requesting Vm 47 destruction.
+588  [run-main-d] INFO  DatacenterBroker - 1.32: broker2: Requesting Vm 46 destruction.
+588  [run-main-d] INFO  DatacenterBroker - 1.32: broker2: Requesting Vm 45 destruction.
+588  [run-main-d] INFO  DatacenterBroker - 1.32: broker2: Requesting Vm 44 destruction.
+588  [run-main-d] INFO  DatacenterBroker - 1.32: broker2: Requesting Vm 43 destruction.
+589  [run-main-d] INFO  DatacenterBroker - 1.32: broker2: Requesting Vm 42 destruction.
+589  [run-main-d] INFO  DatacenterBroker - 1.32: broker2: Requesting Vm 41 destruction.
+589  [run-main-d] INFO  DatacenterBroker - 1.32: broker2: Requesting Vm 40 destruction.
+589  [run-main-d] INFO  DatacenterBroker - 1.32: broker2: Requesting Vm 39 destruction.
+589  [run-main-d] INFO  DatacenterBroker - 1.32: broker2: Requesting Vm 38 destruction.
+589  [run-main-d] INFO  DatacenterBroker - 1.32: broker2: Requesting Vm 37 destruction.
+589  [run-main-d] INFO  DatacenterBroker - 1.32: broker2: Requesting Vm 36 destruction.
+589  [run-main-d] INFO  DatacenterBroker - 1.32: broker2: Requesting Vm 35 destruction.
+589  [run-main-d] INFO  DatacenterBroker - 1.32: broker2: Requesting Vm 34 destruction.
+589  [run-main-d] INFO  DatacenterBroker - 1.32: broker2: Requesting Vm 33 destruction.
+589  [run-main-d] INFO  DatacenterBroker - 1.32: broker2: Requesting Vm 32 destruction.
+589  [run-main-d] INFO  DatacenterBroker - 1.32: broker2: Requesting Vm 31 destruction.
+589  [run-main-d] INFO  DatacenterBroker - 1.32: broker2: Requesting Vm 30 destruction.
+589  [run-main-d] INFO  DatacenterBroker - 1.32: broker2: Requesting Vm 29 destruction.
+589  [run-main-d] INFO  DatacenterBroker - 1.32: broker2: Requesting Vm 28 destruction.
+589  [run-main-d] INFO  DatacenterBroker - 1.32: broker2: Requesting Vm 27 destruction.
+589  [run-main-d] INFO  DatacenterBroker - 1.32: broker2: Requesting Vm 26 destruction.
+589  [run-main-d] INFO  DatacenterBroker - 1.32: broker2: Requesting Vm 25 destruction.
+589  [run-main-d] INFO  DatacenterBroker - 1.32: broker2: Requesting Vm 24 destruction.
+589  [run-main-d] INFO  DatacenterBroker - 1.32: broker2: Requesting Vm 23 destruction.
+589  [run-main-d] INFO  DatacenterBroker - 1.32: broker2: Requesting Vm 22 destruction.
+589  [run-main-d] INFO  DatacenterBroker - 1.32: broker2: Requesting Vm 21 destruction.
+589  [run-main-d] INFO  DatacenterBroker - 1.32: broker2: Requesting Vm 20 destruction.
+589  [run-main-d] INFO  DatacenterBroker - 1.32: broker2: Requesting Vm 19 destruction.
+589  [run-main-d] INFO  DatacenterBroker - 1.32: broker2: Requesting Vm 18 destruction.
+589  [run-main-d] INFO  DatacenterBroker - 1.32: broker2: Requesting Vm 17 destruction.
+589  [run-main-d] INFO  DatacenterBroker - 1.32: broker2: Requesting Vm 16 destruction.
+589  [run-main-d] INFO  DatacenterBroker - 1.32: broker2: Requesting Vm 15 destruction.
+589  [run-main-d] INFO  DatacenterBroker - 1.32: broker2: Requesting Vm 14 destruction.
+589  [run-main-d] INFO  DatacenterBroker - 1.32: broker2: Requesting Vm 13 destruction.
+589  [run-main-d] INFO  DatacenterBroker - 1.32: broker2: Requesting Vm 12 destruction.
+589  [run-main-d] INFO  DatacenterBroker - 1.32: broker2: Requesting Vm 11 destruction.
+589  [run-main-d] INFO  DatacenterBroker - 1.32: broker2: Requesting Vm 10 destruction.
+589  [run-main-d] INFO  DatacenterBroker - 1.32: broker2: Requesting Vm 9 destruction.
+589  [run-main-d] INFO  DatacenterBroker - 1.32: broker2: Requesting Vm 8 destruction.
+589  [run-main-d] INFO  DatacenterBroker - 1.32: broker2: Requesting Vm 7 destruction.
+589  [run-main-d] INFO  DatacenterBroker - 1.32: broker2: Requesting Vm 6 destruction.
+589  [run-main-d] INFO  DatacenterBroker - 1.32: broker2: Requesting Vm 5 destruction.
+589  [run-main-d] INFO  DatacenterBroker - 1.32: broker2: Requesting Vm 4 destruction.
+589  [run-main-d] INFO  DatacenterBroker - 1.32: broker2: Requesting Vm 3 destruction.
+589  [run-main-d] INFO  DatacenterBroker - 1.32: broker2: Requesting Vm 2 destruction.
+589  [run-main-d] INFO  DatacenterBroker - 1.32: broker2: Requesting Vm 1 destruction.
+589  [run-main-d] INFO  DatacenterBroker - 1.32: broker2: Requesting Vm 0 destruction.
+589  [run-main-d] INFO  Datacenter - 1.32: NetworkDatacenter: Vm 47 destroyed on Host 47/DC 2. 
+589  [run-main-d] INFO  Datacenter - 1.32: NetworkDatacenter: Vm 46 destroyed on Host 46/DC 2. 
+589  [run-main-d] INFO  Datacenter - 1.32: NetworkDatacenter: Vm 45 destroyed on Host 45/DC 2. 
+589  [run-main-d] INFO  Datacenter - 1.32: NetworkDatacenter: Vm 44 destroyed on Host 44/DC 2. 
+589  [run-main-d] INFO  Datacenter - 1.32: NetworkDatacenter: Vm 43 destroyed on Host 43/DC 2. 
+589  [run-main-d] INFO  Datacenter - 1.32: NetworkDatacenter: Vm 42 destroyed on Host 42/DC 2. 
+589  [run-main-d] INFO  Datacenter - 1.32: NetworkDatacenter: Vm 41 destroyed on Host 41/DC 2. 
+589  [run-main-d] INFO  Datacenter - 1.32: NetworkDatacenter: Vm 40 destroyed on Host 40/DC 2. 
+589  [run-main-d] INFO  Datacenter - 1.32: NetworkDatacenter: Vm 39 destroyed on Host 39/DC 2. 
+590  [run-main-d] INFO  Datacenter - 1.32: NetworkDatacenter: Vm 38 destroyed on Host 38/DC 2. 
+590  [run-main-d] INFO  Datacenter - 1.32: NetworkDatacenter: Vm 37 destroyed on Host 37/DC 2. 
+590  [run-main-d] INFO  Datacenter - 1.32: NetworkDatacenter: Vm 36 destroyed on Host 36/DC 2. 
+590  [run-main-d] INFO  Datacenter - 1.32: NetworkDatacenter: Vm 35 destroyed on Host 35/DC 2. 
+590  [run-main-d] INFO  Datacenter - 1.32: NetworkDatacenter: Vm 34 destroyed on Host 34/DC 2. 
+590  [run-main-d] INFO  Datacenter - 1.32: NetworkDatacenter: Vm 33 destroyed on Host 33/DC 2. 
+590  [run-main-d] INFO  Datacenter - 1.32: NetworkDatacenter: Vm 32 destroyed on Host 32/DC 2. 
+591  [run-main-d] INFO  Datacenter - 1.32: NetworkDatacenter: Vm 31 destroyed on Host 31/DC 2. 
+591  [run-main-d] INFO  Datacenter - 1.32: NetworkDatacenter: Vm 30 destroyed on Host 30/DC 2. 
+591  [run-main-d] INFO  Datacenter - 1.32: NetworkDatacenter: Vm 29 destroyed on Host 29/DC 2. 
+591  [run-main-d] INFO  Datacenter - 1.32: NetworkDatacenter: Vm 28 destroyed on Host 28/DC 2. 
+591  [run-main-d] INFO  Datacenter - 1.32: NetworkDatacenter: Vm 27 destroyed on Host 27/DC 2. 
+591  [run-main-d] INFO  Datacenter - 1.32: NetworkDatacenter: Vm 26 destroyed on Host 26/DC 2. 
+591  [run-main-d] INFO  Datacenter - 1.32: NetworkDatacenter: Vm 25 destroyed on Host 25/DC 2. 
+591  [run-main-d] INFO  Datacenter - 1.32: NetworkDatacenter: Vm 24 destroyed on Host 24/DC 2. 
+592  [run-main-d] WARN  Datacenter - 1.32: NetworkDatacenter: Vm 23 destroyed on Host 23/DC 2. It had a total of 1 cloudlets (running + waiting). Some events may have been missed. You can try: (a) decreasing CloudSim's minTimeBetweenEvents and/or Datacenter's schedulingInterval attribute; (b) increasing broker's Vm destruction delay for idle VMs if you set it to zero; (c) defining Cloudlets with smaller length (your Datacenter's scheduling interval may be smaller than the time to finish some Cloudlets).
+592  [run-main-d] WARN  Datacenter - 1.32: NetworkDatacenter: Vm 22 destroyed on Host 22/DC 2. It had a total of 1 cloudlets (running + waiting). Some events may have been missed. You can try: (a) decreasing CloudSim's minTimeBetweenEvents and/or Datacenter's schedulingInterval attribute; (b) increasing broker's Vm destruction delay for idle VMs if you set it to zero; (c) defining Cloudlets with smaller length (your Datacenter's scheduling interval may be smaller than the time to finish some Cloudlets).
+592  [run-main-d] INFO  Datacenter - 1.32: NetworkDatacenter: Vm 21 destroyed on Host 21/DC 2. 
+592  [run-main-d] INFO  Datacenter - 1.32: NetworkDatacenter: Vm 20 destroyed on Host 20/DC 2. 
+592  [run-main-d] WARN  Datacenter - 1.32: NetworkDatacenter: Vm 19 destroyed on Host 19/DC 2. It had a total of 1 cloudlets (running + waiting). Some events may have been missed. You can try: (a) decreasing CloudSim's minTimeBetweenEvents and/or Datacenter's schedulingInterval attribute; (b) increasing broker's Vm destruction delay for idle VMs if you set it to zero; (c) defining Cloudlets with smaller length (your Datacenter's scheduling interval may be smaller than the time to finish some Cloudlets).
+592  [run-main-d] WARN  Datacenter - 1.32: NetworkDatacenter: Vm 18 destroyed on Host 18/DC 2. It had a total of 1 cloudlets (running + waiting). Some events may have been missed. You can try: (a) decreasing CloudSim's minTimeBetweenEvents and/or Datacenter's schedulingInterval attribute; (b) increasing broker's Vm destruction delay for idle VMs if you set it to zero; (c) defining Cloudlets with smaller length (your Datacenter's scheduling interval may be smaller than the time to finish some Cloudlets).
+592  [run-main-d] INFO  Datacenter - 1.32: NetworkDatacenter: Vm 17 destroyed on Host 17/DC 2. 
+592  [run-main-d] INFO  Datacenter - 1.32: NetworkDatacenter: Vm 16 destroyed on Host 16/DC 2. 
+593  [run-main-d] INFO  Datacenter - 1.32: NetworkDatacenter: Vm 15 destroyed on Host 15/DC 2. 
+593  [run-main-d] INFO  Datacenter - 1.32: NetworkDatacenter: Vm 14 destroyed on Host 14/DC 2. 
+593  [run-main-d] INFO  Datacenter - 1.32: NetworkDatacenter: Vm 13 destroyed on Host 13/DC 2. 
+593  [run-main-d] INFO  Datacenter - 1.32: NetworkDatacenter: Vm 12 destroyed on Host 12/DC 2. 
+593  [run-main-d] INFO  Datacenter - 1.32: NetworkDatacenter: Vm 11 destroyed on Host 11/DC 2. 
+593  [run-main-d] INFO  Datacenter - 1.32: NetworkDatacenter: Vm 10 destroyed on Host 10/DC 2. 
+593  [run-main-d] INFO  Datacenter - 1.32: NetworkDatacenter: Vm 9 destroyed on Host 9/DC 2. 
+593  [run-main-d] INFO  Datacenter - 1.32: NetworkDatacenter: Vm 8 destroyed on Host 8/DC 2. 
+594  [run-main-d] WARN  Datacenter - 1.32: NetworkDatacenter: Vm 7 destroyed on Host 7/DC 2. It had a total of 1 cloudlets (running + waiting). Some events may have been missed. You can try: (a) decreasing CloudSim's minTimeBetweenEvents and/or Datacenter's schedulingInterval attribute; (b) increasing broker's Vm destruction delay for idle VMs if you set it to zero; (c) defining Cloudlets with smaller length (your Datacenter's scheduling interval may be smaller than the time to finish some Cloudlets).
+594  [run-main-d] WARN  Datacenter - 1.32: NetworkDatacenter: Vm 6 destroyed on Host 6/DC 2. It had a total of 1 cloudlets (running + waiting). Some events may have been missed. You can try: (a) decreasing CloudSim's minTimeBetweenEvents and/or Datacenter's schedulingInterval attribute; (b) increasing broker's Vm destruction delay for idle VMs if you set it to zero; (c) defining Cloudlets with smaller length (your Datacenter's scheduling interval may be smaller than the time to finish some Cloudlets).
+594  [run-main-d] INFO  Datacenter - 1.32: NetworkDatacenter: Vm 5 destroyed on Host 5/DC 2. 
+594  [run-main-d] INFO  Datacenter - 1.32: NetworkDatacenter: Vm 4 destroyed on Host 4/DC 2. 
+594  [run-main-d] INFO  Datacenter - 1.32: NetworkDatacenter: Vm 3 destroyed on Host 3/DC 2. 
+594  [run-main-d] WARN  Datacenter - 1.32: NetworkDatacenter: Vm 2 destroyed on Host 2/DC 2. It had a total of 1 cloudlets (running + waiting). Some events may have been missed. You can try: (a) decreasing CloudSim's minTimeBetweenEvents and/or Datacenter's schedulingInterval attribute; (b) increasing broker's Vm destruction delay for idle VMs if you set it to zero; (c) defining Cloudlets with smaller length (your Datacenter's scheduling interval may be smaller than the time to finish some Cloudlets).
+594  [run-main-d] WARN  Datacenter - 1.32: NetworkDatacenter: Vm 1 destroyed on Host 1/DC 2. It had a total of 1 cloudlets (running + waiting). Some events may have been missed. You can try: (a) decreasing CloudSim's minTimeBetweenEvents and/or Datacenter's schedulingInterval attribute; (b) increasing broker's Vm destruction delay for idle VMs if you set it to zero; (c) defining Cloudlets with smaller length (your Datacenter's scheduling interval may be smaller than the time to finish some Cloudlets).
+594  [run-main-d] INFO  Datacenter - 1.32: NetworkDatacenter: Vm 0 destroyed on Host 0/DC 2. 
+594  [run-main-d] INFO  CloudSim - Simulation: No more future events
+
+594  [run-main-d] INFO  CloudInformationService - CloudInformationService0: Notify all CloudSim Plus entities to shutdown.
+
+594  [run-main-d] INFO  Datacenter - 1.32: Datacenter2 is shutting down...
+594  [run-main-d] INFO  AbstractSwitch - EdgeSwitch3 is shutting down...
+595  [run-main-d] INFO  AbstractSwitch - EdgeSwitch4 is shutting down...
+595  [run-main-d] INFO  AbstractSwitch - EdgeSwitch5 is shutting down...
+595  [run-main-d] INFO  AbstractSwitch - EdgeSwitch6 is shutting down...
+595  [run-main-d] INFO  AbstractSwitch - EdgeSwitch7 is shutting down...
+595  [run-main-d] INFO  AbstractSwitch - EdgeSwitch8 is shutting down...
+595  [run-main-d] INFO  AbstractSwitch - EdgeSwitch9 is shutting down...
+595  [run-main-d] INFO  AbstractSwitch - EdgeSwitch10 is shutting down...
+595  [run-main-d] INFO  AbstractSwitch - EdgeSwitch11 is shutting down...
+595  [run-main-d] INFO  AbstractSwitch - EdgeSwitch12 is shutting down...
+595  [run-main-d] INFO  AbstractSwitch - AggregateSwitch13 is shutting down...
+595  [run-main-d] INFO  CloudSim - 
+================== Simulation finished at time 1.32 ==================
+
+595  [run-main-d] DEBUG CloudSim - DeferredQueue >> max size: 47 added to middle: 0 added to tail: 239
+595  [run-main-d] INFO  CloudSim - 
+================== Starting CloudSim Plus 5.4.3 ==================
+
+595  [run-main-d] INFO  DatacenterBroker - broker3 is starting...
+595  [run-main-d] INFO  Datacenter - Datacenter3 is starting...
+595  [run-main-d] INFO  AbstractSwitch - EdgeSwitch3 is starting...
+595  [run-main-d] INFO  AbstractSwitch - EdgeSwitch4 is starting...
+595  [run-main-d] INFO  AbstractSwitch - EdgeSwitch5 is starting...
+595  [run-main-d] INFO  AbstractSwitch - EdgeSwitch6 is starting...
+595  [run-main-d] INFO  AbstractSwitch - EdgeSwitch7 is starting...
+595  [run-main-d] INFO  AbstractSwitch - EdgeSwitch8 is starting...
+595  [run-main-d] INFO  AbstractSwitch - EdgeSwitch9 is starting...
+595  [run-main-d] INFO  AbstractSwitch - EdgeSwitch10 is starting...
+595  [run-main-d] INFO  AbstractSwitch - AggregateSwitch11 is starting...
+595  [run-main-d] INFO  CloudSim - Entities started.
+595  [run-main-d] INFO  DatacenterBroker - 0.00: broker3: List of 1 datacenters(s) received.
+595  [run-main-d] INFO  CloudSim - 0.00: Processing last events before simulation shutdown.
+595  [run-main-d] INFO  DatacenterBroker - 0.00: broker3 is shutting down...
+595  [run-main-d] INFO  CloudSim - Simulation: No more future events
+
+595  [run-main-d] INFO  CloudInformationService - CloudInformationService0: Notify all CloudSim Plus entities to shutdown.
+
+595  [run-main-d] INFO  Datacenter - 0.00: Datacenter3 is shutting down...
+595  [run-main-d] INFO  AbstractSwitch - EdgeSwitch3 is shutting down...
+595  [run-main-d] INFO  AbstractSwitch - EdgeSwitch4 is shutting down...
+595  [run-main-d] INFO  AbstractSwitch - EdgeSwitch5 is shutting down...
+595  [run-main-d] INFO  AbstractSwitch - EdgeSwitch6 is shutting down...
+595  [run-main-d] INFO  AbstractSwitch - EdgeSwitch7 is shutting down...
+595  [run-main-d] INFO  AbstractSwitch - EdgeSwitch8 is shutting down...
+595  [run-main-d] INFO  AbstractSwitch - EdgeSwitch9 is shutting down...
+595  [run-main-d] INFO  AbstractSwitch - EdgeSwitch10 is shutting down...
+595  [run-main-d] INFO  AbstractSwitch - AggregateSwitch11 is shutting down...
+596  [run-main-d] INFO  CloudSim - 
+================== Simulation finished at time 0.00 ==================
+
+596  [run-main-d] DEBUG CloudSim - DeferredQueue >> max size: 11 added to middle: 0 added to tail: 24

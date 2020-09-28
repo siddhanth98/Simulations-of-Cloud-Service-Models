@@ -1,0 +1,1087 @@
+136  [run-main-9] INFO  CloudSim - 
+================== Starting CloudSim Plus 5.4.3 ==================
+
+138  [run-main-9] INFO  Datacenter - NetworkDatacenter1 is starting...
+139  [run-main-9] INFO  AbstractSwitch - EdgeSwitch2 is starting...
+139  [run-main-9] INFO  AbstractSwitch - EdgeSwitch3 is starting...
+139  [run-main-9] INFO  AbstractSwitch - EdgeSwitch4 is starting...
+139  [run-main-9] INFO  AbstractSwitch - EdgeSwitch5 is starting...
+139  [run-main-9] INFO  AbstractSwitch - EdgeSwitch6 is starting...
+139  [run-main-9] INFO  AbstractSwitch - AggregateSwitch7 is starting...
+139  [run-main-9] INFO  DatacenterBroker - DatacenterBrokerSimple8 is starting...
+139  [run-main-9] INFO  CloudSim - Entities started.
+171  [run-main-9] INFO  DatacenterBroker - 0.00: DatacenterBrokerSimple8: List of 1 datacenters(s) received.
+172  [run-main-9] INFO  DatacenterBroker - 0.00: DatacenterBrokerSimple8: Trying to create Vm 0 in NetworkDatacenter1
+176  [run-main-9] INFO  DatacenterBroker - 0.00: DatacenterBrokerSimple8: Trying to create Vm 1 in NetworkDatacenter1
+176  [run-main-9] INFO  DatacenterBroker - 0.00: DatacenterBrokerSimple8: Trying to create Vm 2 in NetworkDatacenter1
+176  [run-main-9] INFO  DatacenterBroker - 0.00: DatacenterBrokerSimple8: Trying to create Vm 3 in NetworkDatacenter1
+176  [run-main-9] INFO  DatacenterBroker - 0.00: DatacenterBrokerSimple8: Trying to create Vm 4 in NetworkDatacenter1
+176  [run-main-9] INFO  DatacenterBroker - 0.00: DatacenterBrokerSimple8: Trying to create Vm 5 in NetworkDatacenter1
+176  [run-main-9] INFO  DatacenterBroker - 0.00: DatacenterBrokerSimple8: Trying to create Vm 6 in NetworkDatacenter1
+176  [run-main-9] INFO  DatacenterBroker - 0.00: DatacenterBrokerSimple8: Trying to create Vm 7 in NetworkDatacenter1
+176  [run-main-9] INFO  DatacenterBroker - 0.00: DatacenterBrokerSimple8: Trying to create Vm 8 in NetworkDatacenter1
+176  [run-main-9] INFO  DatacenterBroker - 0.00: DatacenterBrokerSimple8: Trying to create Vm 9 in NetworkDatacenter1
+183  [run-main-9] INFO  VmAllocationPolicy - 0.00: VmAllocationPolicyBestFit: Vm 0 has been allocated to Host 0/DC 1
+184  [run-main-9] INFO  VmAllocationPolicy - 0.00: VmAllocationPolicyBestFit: Vm 1 has been allocated to Host 1/DC 1
+185  [run-main-9] INFO  VmAllocationPolicy - 0.00: VmAllocationPolicyBestFit: Vm 2 has been allocated to Host 2/DC 1
+185  [run-main-9] INFO  VmAllocationPolicy - 0.00: VmAllocationPolicyBestFit: Vm 3 has been allocated to Host 3/DC 1
+186  [run-main-9] INFO  VmAllocationPolicy - 0.00: VmAllocationPolicyBestFit: Vm 4 has been allocated to Host 4/DC 1
+186  [run-main-9] INFO  VmAllocationPolicy - 0.00: VmAllocationPolicyBestFit: Vm 5 has been allocated to Host 5/DC 1
+187  [run-main-9] INFO  VmAllocationPolicy - 0.00: VmAllocationPolicyBestFit: Vm 6 has been allocated to Host 6/DC 1
+187  [run-main-9] INFO  VmAllocationPolicy - 0.00: VmAllocationPolicyBestFit: Vm 7 has been allocated to Host 7/DC 1
+188  [run-main-9] INFO  VmAllocationPolicy - 0.00: VmAllocationPolicyBestFit: Vm 8 has been allocated to Host 8/DC 1
+188  [run-main-9] INFO  VmAllocationPolicy - 0.00: VmAllocationPolicyBestFit: Vm 9 has been allocated to Host 9/DC 1
+189  [run-main-9] INFO  DatacenterBroker - 0.10: DatacenterBrokerSimple8: Sending Cloudlet 0 to Vm 0 in Host 0/DC 1.
+189  [run-main-9] INFO  DatacenterBroker - 0.10: DatacenterBrokerSimple8: Sending Cloudlet 1 to Vm 1 in Host 1/DC 1.
+189  [run-main-9] INFO  DatacenterBroker - 0.10: DatacenterBrokerSimple8: Sending Cloudlet 2 to Vm 2 in Host 2/DC 1.
+189  [run-main-9] INFO  DatacenterBroker - 0.10: DatacenterBrokerSimple8: Sending Cloudlet 3 to Vm 3 in Host 3/DC 1.
+189  [run-main-9] INFO  DatacenterBroker - 0.10: DatacenterBrokerSimple8: Sending Cloudlet 4 to Vm 4 in Host 4/DC 1.
+189  [run-main-9] INFO  DatacenterBroker - 0.10: DatacenterBrokerSimple8: Sending Cloudlet 5 to Vm 5 in Host 5/DC 1.
+189  [run-main-9] INFO  DatacenterBroker - 0.10: DatacenterBrokerSimple8: Sending Cloudlet 6 to Vm 6 in Host 6/DC 1.
+189  [run-main-9] INFO  DatacenterBroker - 0.10: DatacenterBrokerSimple8: Sending Cloudlet 7 to Vm 7 in Host 7/DC 1.
+189  [run-main-9] INFO  DatacenterBroker - 0.10: DatacenterBrokerSimple8: Sending Cloudlet 8 to Vm 8 in Host 8/DC 1.
+190  [run-main-9] INFO  DatacenterBroker - 0.10: DatacenterBrokerSimple8: Sending Cloudlet 9 to Vm 9 in Host 9/DC 1.
+190  [run-main-9] INFO  DatacenterBroker - 0.10: DatacenterBrokerSimple8: All waiting Cloudlets submitted to some VM.
+197  [run-main-9] INFO  DatacenterBroker - 20.10: DatacenterBrokerSimple8: List of 25 Cloudlets submitted to the broker during simulation execution.
+197  [run-main-9] INFO  DatacenterBroker - Cloudlets creation request sent to Datacenter.
+197  [run-main-9] INFO  DatacenterBroker - 20.10: DatacenterBrokerSimple8: Sending Cloudlet 10 to Vm 0 in Host 0/DC 1.
+197  [run-main-9] INFO  DatacenterBroker - 20.10: DatacenterBrokerSimple8: Sending Cloudlet 11 to Vm 1 in Host 1/DC 1.
+197  [run-main-9] INFO  DatacenterBroker - 20.10: DatacenterBrokerSimple8: Sending Cloudlet 12 to Vm 2 in Host 2/DC 1.
+197  [run-main-9] INFO  DatacenterBroker - 20.10: DatacenterBrokerSimple8: Sending Cloudlet 13 to Vm 3 in Host 3/DC 1.
+197  [run-main-9] INFO  DatacenterBroker - 20.10: DatacenterBrokerSimple8: Sending Cloudlet 14 to Vm 4 in Host 4/DC 1.
+197  [run-main-9] INFO  DatacenterBroker - 20.10: DatacenterBrokerSimple8: Sending Cloudlet 15 to Vm 5 in Host 5/DC 1.
+197  [run-main-9] INFO  DatacenterBroker - 20.10: DatacenterBrokerSimple8: Sending Cloudlet 16 to Vm 6 in Host 6/DC 1.
+197  [run-main-9] INFO  DatacenterBroker - 20.10: DatacenterBrokerSimple8: Sending Cloudlet 17 to Vm 7 in Host 7/DC 1.
+197  [run-main-9] INFO  DatacenterBroker - 20.10: DatacenterBrokerSimple8: Sending Cloudlet 18 to Vm 8 in Host 8/DC 1.
+197  [run-main-9] INFO  DatacenterBroker - 20.10: DatacenterBrokerSimple8: Sending Cloudlet 19 to Vm 9 in Host 9/DC 1.
+198  [run-main-9] INFO  DatacenterBroker - 20.10: DatacenterBrokerSimple8: Sending Cloudlet 20 to Vm 0 in Host 0/DC 1.
+198  [run-main-9] INFO  DatacenterBroker - 20.10: DatacenterBrokerSimple8: Sending Cloudlet 21 to Vm 1 in Host 1/DC 1.
+198  [run-main-9] INFO  DatacenterBroker - 20.10: DatacenterBrokerSimple8: Sending Cloudlet 22 to Vm 2 in Host 2/DC 1.
+198  [run-main-9] INFO  DatacenterBroker - 20.10: DatacenterBrokerSimple8: Sending Cloudlet 23 to Vm 3 in Host 3/DC 1.
+198  [run-main-9] INFO  DatacenterBroker - 20.10: DatacenterBrokerSimple8: Sending Cloudlet 24 to Vm 4 in Host 4/DC 1.
+198  [run-main-9] INFO  DatacenterBroker - 20.10: DatacenterBrokerSimple8: Sending Cloudlet 25 to Vm 5 in Host 5/DC 1.
+198  [run-main-9] INFO  DatacenterBroker - 20.10: DatacenterBrokerSimple8: Sending Cloudlet 26 to Vm 6 in Host 6/DC 1.
+198  [run-main-9] INFO  DatacenterBroker - 20.10: DatacenterBrokerSimple8: Sending Cloudlet 27 to Vm 7 in Host 7/DC 1.
+198  [run-main-9] INFO  DatacenterBroker - 20.10: DatacenterBrokerSimple8: Sending Cloudlet 28 to Vm 8 in Host 8/DC 1.
+198  [run-main-9] INFO  DatacenterBroker - 20.10: DatacenterBrokerSimple8: Sending Cloudlet 29 to Vm 9 in Host 9/DC 1.
+198  [run-main-9] INFO  DatacenterBroker - 20.10: DatacenterBrokerSimple8: Sending Cloudlet 30 to Vm 0 in Host 0/DC 1.
+198  [run-main-9] INFO  DatacenterBroker - 20.10: DatacenterBrokerSimple8: Sending Cloudlet 31 to Vm 1 in Host 1/DC 1.
+198  [run-main-9] INFO  DatacenterBroker - 20.10: DatacenterBrokerSimple8: Sending Cloudlet 32 to Vm 2 in Host 2/DC 1.
+198  [run-main-9] INFO  DatacenterBroker - 20.10: DatacenterBrokerSimple8: Sending Cloudlet 33 to Vm 3 in Host 3/DC 1.
+198  [run-main-9] INFO  DatacenterBroker - 20.10: DatacenterBrokerSimple8: Sending Cloudlet 34 to Vm 4 in Host 4/DC 1.
+198  [run-main-9] INFO  DatacenterBroker - 20.10: DatacenterBrokerSimple8: All waiting Cloudlets submitted to some VM.
+201  [run-main-9] INFO  HorizontalVmScalingSimple - 20.10: HorizontalVmScalingSimpleVm 2: Requesting creation of Vm -1 to receive new Cloudlets in order to balance load of Vm 2. 2 CPU usage is 80.64513859810667%
+201  [run-main-9] INFO  DatacenterBroker - 20.10: DatacenterBrokerSimple8: List of 1 VMs submitted to the broker during simulation execution. VMs creation request sent to Datacenter.
+201  [run-main-9] INFO  DatacenterBroker - 20.10: DatacenterBrokerSimple8: Trying to create Vm 10 in NetworkDatacenter1
+202  [run-main-9] INFO  HorizontalVmScalingSimple - 20.10: HorizontalVmScalingSimpleVm 3: Requesting creation of Vm -1 to receive new Cloudlets in order to balance load of Vm 3. 3 CPU usage is 91.82681660710449%
+202  [run-main-9] INFO  DatacenterBroker - 20.10: DatacenterBrokerSimple8: List of 1 VMs submitted to the broker during simulation execution. VMs creation request sent to Datacenter.
+202  [run-main-9] INFO  DatacenterBroker - 20.10: DatacenterBrokerSimple8: Trying to create Vm 11 in NetworkDatacenter1
+203  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - 20.10:		New VM 10 allocated to host 10
+203  [run-main-9] INFO  VmAllocationPolicy - 20.10: VmAllocationPolicyBestFit: Vm 10 has been allocated to Host 10/DC 1
+204  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - 20.10:		New VM 11 allocated to host 11
+204  [run-main-9] INFO  VmAllocationPolicy - 20.10: VmAllocationPolicyBestFit: Vm 11 has been allocated to Host 11/DC 1
+206  [run-main-9] INFO  HorizontalVmScalingSimple - 20.20: HorizontalVmScalingSimpleVm 1: Requesting creation of Vm -1 to receive new Cloudlets in order to balance load of Vm 1. 1 CPU usage is 78.76043034182625%
+206  [run-main-9] INFO  DatacenterBroker - 20.20: DatacenterBrokerSimple8: List of 1 VMs submitted to the broker during simulation execution. VMs creation request sent to Datacenter.
+206  [run-main-9] INFO  DatacenterBroker - 20.20: DatacenterBrokerSimple8: Trying to create Vm 12 in NetworkDatacenter1
+207  [run-main-9] INFO  HorizontalVmScalingSimple - 20.20: HorizontalVmScalingSimpleVm 7: Requesting creation of Vm -1 to receive new Cloudlets in order to balance load of Vm 7. 7 CPU usage is 97.8646344422844%
+207  [run-main-9] INFO  DatacenterBroker - 20.20: DatacenterBrokerSimple8: List of 1 VMs submitted to the broker during simulation execution. VMs creation request sent to Datacenter.
+208  [run-main-9] INFO  DatacenterBroker - 20.20: DatacenterBrokerSimple8: Trying to create Vm 13 in NetworkDatacenter1
+209  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - 20.20:		New VM 12 allocated to host 12
+209  [run-main-9] INFO  VmAllocationPolicy - 20.20: VmAllocationPolicyBestFit: Vm 12 has been allocated to Host 12/DC 1
+209  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - 20.20:		New VM 13 allocated to host 13
+209  [run-main-9] INFO  VmAllocationPolicy - 20.20: VmAllocationPolicyBestFit: Vm 13 has been allocated to Host 13/DC 1
+209  [run-main-9] INFO  HorizontalVmScalingSimple - 40.10: HorizontalVmScalingSimpleVm 0: Requesting creation of Vm -1 to receive new Cloudlets in order to balance load of Vm 0. 0 CPU usage is 96.50633535133773%
+209  [run-main-9] INFO  DatacenterBroker - 40.10: DatacenterBrokerSimple8: List of 1 VMs submitted to the broker during simulation execution. VMs creation request sent to Datacenter.
+209  [run-main-9] INFO  DatacenterBroker - 40.10: DatacenterBrokerSimple8: Trying to create Vm 14 in NetworkDatacenter1
+210  [run-main-9] INFO  HorizontalVmScalingSimple - 40.10: HorizontalVmScalingSimpleVm 4: Requesting creation of Vm -1 to receive new Cloudlets in order to balance load of Vm 4. 4 CPU usage is 81.88878660336894%
+210  [run-main-9] INFO  DatacenterBroker - 40.10: DatacenterBrokerSimple8: List of 1 VMs submitted to the broker during simulation execution. VMs creation request sent to Datacenter.
+210  [run-main-9] INFO  DatacenterBroker - 40.10: DatacenterBrokerSimple8: Trying to create Vm 15 in NetworkDatacenter1
+210  [run-main-9] INFO  HorizontalVmScalingSimple - 40.10: HorizontalVmScalingSimpleVm 9: Requesting creation of Vm -1 to receive new Cloudlets in order to balance load of Vm 9. 9 CPU usage is 93.59421136120758%
+211  [run-main-9] INFO  DatacenterBroker - 40.10: DatacenterBrokerSimple8: List of 1 VMs submitted to the broker during simulation execution. VMs creation request sent to Datacenter.
+211  [run-main-9] INFO  DatacenterBroker - 40.10: DatacenterBrokerSimple8: Trying to create Vm 16 in NetworkDatacenter1
+211  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - 40.10:		New VM 14 allocated to host 14
+211  [run-main-9] INFO  VmAllocationPolicy - 40.10: VmAllocationPolicyBestFit: Vm 14 has been allocated to Host 14/DC 1
+211  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - 40.10:		New VM 15 allocated to host 15
+211  [run-main-9] INFO  VmAllocationPolicy - 40.10: VmAllocationPolicyBestFit: Vm 15 has been allocated to Host 15/DC 1
+212  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - 40.10:		New VM 16 allocated to host 16
+212  [run-main-9] INFO  VmAllocationPolicy - 40.10: VmAllocationPolicyBestFit: Vm 16 has been allocated to Host 16/DC 1
+213  [run-main-9] INFO  DatacenterBroker - 40.20: DatacenterBrokerSimple8: List of 25 Cloudlets submitted to the broker during simulation execution.
+213  [run-main-9] INFO  DatacenterBroker - Waiting creation of 3 VMs to send Cloudlets creation request to Datacenter.
+214  [run-main-9] INFO  HorizontalVmScalingSimple - 40.20: HorizontalVmScalingSimpleVm 8: Requesting creation of Vm -1 to receive new Cloudlets in order to balance load of Vm 8. 8 CPU usage is 90.7028463936297%
+214  [run-main-9] INFO  DatacenterBroker - 40.20: DatacenterBrokerSimple8: List of 1 VMs submitted to the broker during simulation execution. VMs creation request sent to Datacenter.
+214  [run-main-9] INFO  DatacenterBroker - 40.20: DatacenterBrokerSimple8: Trying to create Vm 17 in NetworkDatacenter1
+215  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - 40.20:		New VM 17 allocated to host 17
+215  [run-main-9] INFO  VmAllocationPolicy - 40.20: VmAllocationPolicyBestFit: Vm 17 has been allocated to Host 17/DC 1
+216  [run-main-9] INFO  DatacenterBroker - 40.30: DatacenterBrokerSimple8: List of 25 Cloudlets submitted to the broker during simulation execution.
+216  [run-main-9] INFO  DatacenterBroker - Waiting creation of 1 VMs to send Cloudlets creation request to Datacenter.
+216  [run-main-9] INFO  DatacenterBroker - 40.30: DatacenterBrokerSimple8: Sending Cloudlet 35 to Vm 5 in Host 5/DC 1.
+216  [run-main-9] INFO  DatacenterBroker - 40.30: DatacenterBrokerSimple8: Sending Cloudlet 36 to Vm 6 in Host 6/DC 1.
+217  [run-main-9] INFO  DatacenterBroker - 40.30: DatacenterBrokerSimple8: Sending Cloudlet 37 to Vm 7 in Host 7/DC 1.
+217  [run-main-9] INFO  DatacenterBroker - 40.30: DatacenterBrokerSimple8: Sending Cloudlet 38 to Vm 8 in Host 8/DC 1.
+217  [run-main-9] INFO  DatacenterBroker - 40.30: DatacenterBrokerSimple8: Sending Cloudlet 39 to Vm 9 in Host 9/DC 1.
+217  [run-main-9] INFO  DatacenterBroker - 40.30: DatacenterBrokerSimple8: Sending Cloudlet 40 to Vm 10 in Host 10/DC 1.
+217  [run-main-9] INFO  DatacenterBroker - 40.30: DatacenterBrokerSimple8: Sending Cloudlet 41 to Vm 11 in Host 11/DC 1.
+217  [run-main-9] INFO  DatacenterBroker - 40.30: DatacenterBrokerSimple8: Sending Cloudlet 42 to Vm 12 in Host 12/DC 1.
+219  [run-main-9] INFO  DatacenterBroker - 40.30: DatacenterBrokerSimple8: Sending Cloudlet 43 to Vm 13 in Host 13/DC 1.
+219  [run-main-9] INFO  DatacenterBroker - 40.30: DatacenterBrokerSimple8: Sending Cloudlet 44 to Vm 14 in Host 14/DC 1.
+219  [run-main-9] INFO  DatacenterBroker - 40.30: DatacenterBrokerSimple8: Sending Cloudlet 45 to Vm 15 in Host 15/DC 1.
+219  [run-main-9] INFO  DatacenterBroker - 40.30: DatacenterBrokerSimple8: Sending Cloudlet 46 to Vm 16 in Host 16/DC 1.
+220  [run-main-9] INFO  DatacenterBroker - 40.30: DatacenterBrokerSimple8: Sending Cloudlet 47 to Vm 17 in Host 17/DC 1.
+220  [run-main-9] INFO  DatacenterBroker - 40.30: DatacenterBrokerSimple8: Sending Cloudlet 48 to Vm 0 in Host 0/DC 1.
+221  [run-main-9] INFO  DatacenterBroker - 40.30: DatacenterBrokerSimple8: Sending Cloudlet 49 to Vm 1 in Host 1/DC 1.
+221  [run-main-9] INFO  DatacenterBroker - 40.30: DatacenterBrokerSimple8: Sending Cloudlet 50 to Vm 2 in Host 2/DC 1.
+221  [run-main-9] INFO  DatacenterBroker - 40.30: DatacenterBrokerSimple8: Sending Cloudlet 51 to Vm 3 in Host 3/DC 1.
+221  [run-main-9] INFO  DatacenterBroker - 40.30: DatacenterBrokerSimple8: Sending Cloudlet 52 to Vm 4 in Host 4/DC 1.
+221  [run-main-9] INFO  DatacenterBroker - 40.30: DatacenterBrokerSimple8: Sending Cloudlet 53 to Vm 5 in Host 5/DC 1.
+221  [run-main-9] INFO  DatacenterBroker - 40.30: DatacenterBrokerSimple8: Sending Cloudlet 54 to Vm 6 in Host 6/DC 1.
+221  [run-main-9] INFO  DatacenterBroker - 40.30: DatacenterBrokerSimple8: Sending Cloudlet 55 to Vm 7 in Host 7/DC 1.
+221  [run-main-9] INFO  DatacenterBroker - 40.30: DatacenterBrokerSimple8: Sending Cloudlet 56 to Vm 8 in Host 8/DC 1.
+221  [run-main-9] INFO  DatacenterBroker - 40.30: DatacenterBrokerSimple8: Sending Cloudlet 57 to Vm 9 in Host 9/DC 1.
+221  [run-main-9] INFO  DatacenterBroker - 40.30: DatacenterBrokerSimple8: Sending Cloudlet 58 to Vm 10 in Host 10/DC 1.
+221  [run-main-9] INFO  DatacenterBroker - 40.30: DatacenterBrokerSimple8: Sending Cloudlet 59 to Vm 11 in Host 11/DC 1.
+221  [run-main-9] INFO  DatacenterBroker - 40.30: DatacenterBrokerSimple8: Sending Cloudlet 60 to Vm 12 in Host 12/DC 1.
+221  [run-main-9] INFO  DatacenterBroker - 40.30: DatacenterBrokerSimple8: Sending Cloudlet 61 to Vm 13 in Host 13/DC 1.
+221  [run-main-9] INFO  DatacenterBroker - 40.30: DatacenterBrokerSimple8: Sending Cloudlet 62 to Vm 14 in Host 14/DC 1.
+221  [run-main-9] INFO  DatacenterBroker - 40.30: DatacenterBrokerSimple8: Sending Cloudlet 63 to Vm 15 in Host 15/DC 1.
+221  [run-main-9] INFO  DatacenterBroker - 40.30: DatacenterBrokerSimple8: Sending Cloudlet 64 to Vm 16 in Host 16/DC 1.
+222  [run-main-9] INFO  DatacenterBroker - 40.30: DatacenterBrokerSimple8: Sending Cloudlet 65 to Vm 17 in Host 17/DC 1.
+222  [run-main-9] INFO  DatacenterBroker - 40.30: DatacenterBrokerSimple8: Sending Cloudlet 66 to Vm 0 in Host 0/DC 1.
+222  [run-main-9] INFO  DatacenterBroker - 40.30: DatacenterBrokerSimple8: Sending Cloudlet 67 to Vm 1 in Host 1/DC 1.
+222  [run-main-9] INFO  DatacenterBroker - 40.30: DatacenterBrokerSimple8: Sending Cloudlet 68 to Vm 2 in Host 2/DC 1.
+222  [run-main-9] INFO  DatacenterBroker - 40.30: DatacenterBrokerSimple8: Sending Cloudlet 69 to Vm 3 in Host 3/DC 1.
+222  [run-main-9] INFO  DatacenterBroker - 40.30: DatacenterBrokerSimple8: Sending Cloudlet 70 to Vm 4 in Host 4/DC 1.
+222  [run-main-9] INFO  DatacenterBroker - 40.30: DatacenterBrokerSimple8: Sending Cloudlet 71 to Vm 5 in Host 5/DC 1.
+222  [run-main-9] INFO  DatacenterBroker - 40.30: DatacenterBrokerSimple8: Sending Cloudlet 72 to Vm 6 in Host 6/DC 1.
+222  [run-main-9] INFO  DatacenterBroker - 40.30: DatacenterBrokerSimple8: Sending Cloudlet 73 to Vm 7 in Host 7/DC 1.
+222  [run-main-9] INFO  DatacenterBroker - 40.30: DatacenterBrokerSimple8: Sending Cloudlet 74 to Vm 8 in Host 8/DC 1.
+222  [run-main-9] INFO  DatacenterBroker - 40.30: DatacenterBrokerSimple8: Sending Cloudlet 75 to Vm 9 in Host 9/DC 1.
+222  [run-main-9] INFO  DatacenterBroker - 40.30: DatacenterBrokerSimple8: Sending Cloudlet 76 to Vm 10 in Host 10/DC 1.
+222  [run-main-9] INFO  DatacenterBroker - 40.30: DatacenterBrokerSimple8: Sending Cloudlet 77 to Vm 11 in Host 11/DC 1.
+222  [run-main-9] INFO  DatacenterBroker - 40.30: DatacenterBrokerSimple8: Sending Cloudlet 78 to Vm 12 in Host 12/DC 1.
+222  [run-main-9] INFO  DatacenterBroker - 40.30: DatacenterBrokerSimple8: Sending Cloudlet 79 to Vm 13 in Host 13/DC 1.
+222  [run-main-9] INFO  DatacenterBroker - 40.30: DatacenterBrokerSimple8: Sending Cloudlet 80 to Vm 14 in Host 14/DC 1.
+222  [run-main-9] INFO  DatacenterBroker - 40.30: DatacenterBrokerSimple8: Sending Cloudlet 81 to Vm 15 in Host 15/DC 1.
+222  [run-main-9] INFO  DatacenterBroker - 40.30: DatacenterBrokerSimple8: Sending Cloudlet 82 to Vm 16 in Host 16/DC 1.
+222  [run-main-9] INFO  DatacenterBroker - 40.30: DatacenterBrokerSimple8: Sending Cloudlet 83 to Vm 17 in Host 17/DC 1.
+222  [run-main-9] INFO  DatacenterBroker - 40.30: DatacenterBrokerSimple8: Sending Cloudlet 84 to Vm 0 in Host 0/DC 1.
+222  [run-main-9] INFO  DatacenterBroker - 40.30: DatacenterBrokerSimple8: All waiting Cloudlets submitted to some VM.
+222  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 40 started execution
+222  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 41 started execution
+222  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 42 started execution
+222  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 43 started execution
+222  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 44 started execution
+222  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 45 started execution
+222  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 46 started execution
+222  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 47 started execution
+224  [run-main-9] INFO  DatacenterBroker - 60.10: DatacenterBrokerSimple8: List of 25 Cloudlets submitted to the broker during simulation execution.
+224  [run-main-9] INFO  DatacenterBroker - Cloudlets creation request sent to Datacenter.
+224  [run-main-9] INFO  DatacenterBroker - 60.10: DatacenterBrokerSimple8: Sending Cloudlet 85 to Vm 1 in Host 1/DC 1.
+224  [run-main-9] INFO  DatacenterBroker - 60.10: DatacenterBrokerSimple8: Sending Cloudlet 86 to Vm 2 in Host 2/DC 1.
+224  [run-main-9] INFO  DatacenterBroker - 60.10: DatacenterBrokerSimple8: Sending Cloudlet 87 to Vm 3 in Host 3/DC 1.
+224  [run-main-9] INFO  DatacenterBroker - 60.10: DatacenterBrokerSimple8: Sending Cloudlet 88 to Vm 4 in Host 4/DC 1.
+224  [run-main-9] INFO  DatacenterBroker - 60.10: DatacenterBrokerSimple8: Sending Cloudlet 89 to Vm 5 in Host 5/DC 1.
+224  [run-main-9] INFO  DatacenterBroker - 60.10: DatacenterBrokerSimple8: Sending Cloudlet 90 to Vm 6 in Host 6/DC 1.
+224  [run-main-9] INFO  DatacenterBroker - 60.10: DatacenterBrokerSimple8: Sending Cloudlet 91 to Vm 7 in Host 7/DC 1.
+224  [run-main-9] INFO  DatacenterBroker - 60.10: DatacenterBrokerSimple8: Sending Cloudlet 92 to Vm 8 in Host 8/DC 1.
+224  [run-main-9] INFO  DatacenterBroker - 60.10: DatacenterBrokerSimple8: Sending Cloudlet 93 to Vm 9 in Host 9/DC 1.
+224  [run-main-9] INFO  DatacenterBroker - 60.10: DatacenterBrokerSimple8: Sending Cloudlet 94 to Vm 10 in Host 10/DC 1.
+224  [run-main-9] INFO  DatacenterBroker - 60.10: DatacenterBrokerSimple8: Sending Cloudlet 95 to Vm 11 in Host 11/DC 1.
+224  [run-main-9] INFO  DatacenterBroker - 60.10: DatacenterBrokerSimple8: Sending Cloudlet 96 to Vm 12 in Host 12/DC 1.
+224  [run-main-9] INFO  DatacenterBroker - 60.10: DatacenterBrokerSimple8: Sending Cloudlet 97 to Vm 13 in Host 13/DC 1.
+224  [run-main-9] INFO  DatacenterBroker - 60.10: DatacenterBrokerSimple8: Sending Cloudlet 98 to Vm 14 in Host 14/DC 1.
+224  [run-main-9] INFO  DatacenterBroker - 60.10: DatacenterBrokerSimple8: Sending Cloudlet 99 to Vm 15 in Host 15/DC 1.
+224  [run-main-9] INFO  DatacenterBroker - 60.10: DatacenterBrokerSimple8: Sending Cloudlet 100 to Vm 16 in Host 16/DC 1.
+224  [run-main-9] INFO  DatacenterBroker - 60.10: DatacenterBrokerSimple8: Sending Cloudlet 101 to Vm 17 in Host 17/DC 1.
+225  [run-main-9] INFO  DatacenterBroker - 60.10: DatacenterBrokerSimple8: Sending Cloudlet 102 to Vm 0 in Host 0/DC 1.
+225  [run-main-9] INFO  DatacenterBroker - 60.10: DatacenterBrokerSimple8: Sending Cloudlet 103 to Vm 1 in Host 1/DC 1.
+225  [run-main-9] INFO  DatacenterBroker - 60.10: DatacenterBrokerSimple8: Sending Cloudlet 104 to Vm 2 in Host 2/DC 1.
+225  [run-main-9] INFO  DatacenterBroker - 60.10: DatacenterBrokerSimple8: Sending Cloudlet 105 to Vm 3 in Host 3/DC 1.
+225  [run-main-9] INFO  DatacenterBroker - 60.10: DatacenterBrokerSimple8: Sending Cloudlet 106 to Vm 4 in Host 4/DC 1.
+225  [run-main-9] INFO  DatacenterBroker - 60.10: DatacenterBrokerSimple8: Sending Cloudlet 107 to Vm 5 in Host 5/DC 1.
+225  [run-main-9] INFO  DatacenterBroker - 60.10: DatacenterBrokerSimple8: Sending Cloudlet 108 to Vm 6 in Host 6/DC 1.
+225  [run-main-9] INFO  DatacenterBroker - 60.10: DatacenterBrokerSimple8: Sending Cloudlet 109 to Vm 7 in Host 7/DC 1.
+225  [run-main-9] INFO  DatacenterBroker - 60.10: DatacenterBrokerSimple8: All waiting Cloudlets submitted to some VM.
+225  [run-main-9] INFO  HorizontalVmScalingSimple - 60.10: HorizontalVmScalingSimpleVm 3: Requesting creation of Vm -1 to receive new Cloudlets in order to balance load of Vm 3. 3 CPU usage is 76.65847789820022%
+225  [run-main-9] INFO  DatacenterBroker - 60.10: DatacenterBrokerSimple8: List of 1 VMs submitted to the broker during simulation execution. VMs creation request sent to Datacenter.
+225  [run-main-9] INFO  DatacenterBroker - 60.10: DatacenterBrokerSimple8: Trying to create Vm 18 in NetworkDatacenter1
+226  [run-main-9] INFO  HorizontalVmScalingSimple - 60.10: HorizontalVmScalingSimpleVm 7: Requesting creation of Vm -1 to receive new Cloudlets in order to balance load of Vm 7. 7 CPU usage is 81.24269265101078%
+226  [run-main-9] INFO  DatacenterBroker - 60.10: DatacenterBrokerSimple8: List of 1 VMs submitted to the broker during simulation execution. VMs creation request sent to Datacenter.
+226  [run-main-9] INFO  DatacenterBroker - 60.10: DatacenterBrokerSimple8: Trying to create Vm 19 in NetworkDatacenter1
+226  [run-main-9] INFO  HorizontalVmScalingSimple - 60.10: HorizontalVmScalingSimpleVm 8: Requesting creation of Vm -1 to receive new Cloudlets in order to balance load of Vm 8. 8 CPU usage is 87.28829026403734%
+226  [run-main-9] INFO  DatacenterBroker - 60.10: DatacenterBrokerSimple8: List of 1 VMs submitted to the broker during simulation execution. VMs creation request sent to Datacenter.
+226  [run-main-9] INFO  DatacenterBroker - 60.10: DatacenterBrokerSimple8: Trying to create Vm 20 in NetworkDatacenter1
+228  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - 60.10:		New VM 18 allocated to host 18
+228  [run-main-9] INFO  VmAllocationPolicy - 60.10: VmAllocationPolicyBestFit: Vm 18 has been allocated to Host 18/DC 1
+228  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - 60.10:		New VM 19 allocated to host 19
+228  [run-main-9] INFO  VmAllocationPolicy - 60.10: VmAllocationPolicyBestFit: Vm 19 has been allocated to Host 19/DC 1
+228  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - 60.10:		New VM 20 allocated to host 20
+228  [run-main-9] INFO  VmAllocationPolicy - 60.10: VmAllocationPolicyBestFit: Vm 20 has been allocated to Host 20/DC 1
+230  [run-main-9] INFO  HorizontalVmScalingSimple - 60.20: HorizontalVmScalingSimpleVm 4: Requesting creation of Vm -1 to receive new Cloudlets in order to balance load of Vm 4. 4 CPU usage is 90.73581346616668%
+230  [run-main-9] INFO  DatacenterBroker - 60.20: DatacenterBrokerSimple8: List of 1 VMs submitted to the broker during simulation execution. VMs creation request sent to Datacenter.
+230  [run-main-9] INFO  DatacenterBroker - 60.20: DatacenterBrokerSimple8: Trying to create Vm 21 in NetworkDatacenter1
+231  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - 60.20:		New VM 21 allocated to host 21
+231  [run-main-9] INFO  VmAllocationPolicy - 60.20: VmAllocationPolicyBestFit: Vm 21 has been allocated to Host 21/DC 1
+232  [run-main-9] INFO  HorizontalVmScalingSimple - 60.30: HorizontalVmScalingSimpleVm 2: Requesting creation of Vm -1 to receive new Cloudlets in order to balance load of Vm 2. 2 CPU usage is 76.69212115101938%
+232  [run-main-9] INFO  DatacenterBroker - 60.30: DatacenterBrokerSimple8: List of 1 VMs submitted to the broker during simulation execution. VMs creation request sent to Datacenter.
+232  [run-main-9] INFO  DatacenterBroker - 60.30: DatacenterBrokerSimple8: Trying to create Vm 22 in NetworkDatacenter1
+233  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - 60.30:		New VM 22 allocated to host 22
+233  [run-main-9] INFO  VmAllocationPolicy - 60.30: VmAllocationPolicyBestFit: Vm 22 has been allocated to Host 22/DC 1
+235  [run-main-9] INFO  HorizontalVmScalingSimple - 80.10: HorizontalVmScalingSimpleVm 5: Requesting creation of Vm -1 to receive new Cloudlets in order to balance load of Vm 5. 5 CPU usage is 72.2193023112006%
+235  [run-main-9] INFO  DatacenterBroker - 80.10: DatacenterBrokerSimple8: List of 1 VMs submitted to the broker during simulation execution. VMs creation request sent to Datacenter.
+235  [run-main-9] INFO  DatacenterBroker - 80.10: DatacenterBrokerSimple8: Trying to create Vm 23 in NetworkDatacenter1
+236  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - 80.10:		New VM 23 allocated to host 23
+236  [run-main-9] INFO  VmAllocationPolicy - 80.10: VmAllocationPolicyBestFit: Vm 23 has been allocated to Host 23/DC 1
+236  [run-main-9] INFO  DatacenterBroker - 80.20: DatacenterBrokerSimple8: List of 25 Cloudlets submitted to the broker during simulation execution.
+236  [run-main-9] INFO  DatacenterBroker - Waiting creation of 1 VMs to send Cloudlets creation request to Datacenter.
+237  [run-main-9] INFO  DatacenterBroker - 80.20: DatacenterBrokerSimple8: Sending Cloudlet 110 to Vm 8 in Host 8/DC 1.
+237  [run-main-9] INFO  DatacenterBroker - 80.20: DatacenterBrokerSimple8: Sending Cloudlet 111 to Vm 9 in Host 9/DC 1.
+237  [run-main-9] INFO  DatacenterBroker - 80.20: DatacenterBrokerSimple8: Sending Cloudlet 112 to Vm 10 in Host 10/DC 1.
+237  [run-main-9] INFO  DatacenterBroker - 80.20: DatacenterBrokerSimple8: Sending Cloudlet 113 to Vm 11 in Host 11/DC 1.
+237  [run-main-9] INFO  DatacenterBroker - 80.20: DatacenterBrokerSimple8: Sending Cloudlet 114 to Vm 12 in Host 12/DC 1.
+237  [run-main-9] INFO  DatacenterBroker - 80.20: DatacenterBrokerSimple8: Sending Cloudlet 115 to Vm 13 in Host 13/DC 1.
+237  [run-main-9] INFO  DatacenterBroker - 80.20: DatacenterBrokerSimple8: Sending Cloudlet 116 to Vm 14 in Host 14/DC 1.
+237  [run-main-9] INFO  DatacenterBroker - 80.20: DatacenterBrokerSimple8: Sending Cloudlet 117 to Vm 15 in Host 15/DC 1.
+237  [run-main-9] INFO  DatacenterBroker - 80.20: DatacenterBrokerSimple8: Sending Cloudlet 118 to Vm 16 in Host 16/DC 1.
+237  [run-main-9] INFO  DatacenterBroker - 80.20: DatacenterBrokerSimple8: Sending Cloudlet 119 to Vm 17 in Host 17/DC 1.
+237  [run-main-9] INFO  DatacenterBroker - 80.20: DatacenterBrokerSimple8: Sending Cloudlet 120 to Vm 18 in Host 18/DC 1.
+237  [run-main-9] INFO  DatacenterBroker - 80.20: DatacenterBrokerSimple8: Sending Cloudlet 121 to Vm 19 in Host 19/DC 1.
+237  [run-main-9] INFO  DatacenterBroker - 80.20: DatacenterBrokerSimple8: Sending Cloudlet 122 to Vm 20 in Host 20/DC 1.
+237  [run-main-9] INFO  DatacenterBroker - 80.20: DatacenterBrokerSimple8: Sending Cloudlet 123 to Vm 21 in Host 21/DC 1.
+237  [run-main-9] INFO  DatacenterBroker - 80.20: DatacenterBrokerSimple8: Sending Cloudlet 124 to Vm 22 in Host 22/DC 1.
+237  [run-main-9] INFO  DatacenterBroker - 80.20: DatacenterBrokerSimple8: Sending Cloudlet 125 to Vm 23 in Host 23/DC 1.
+237  [run-main-9] INFO  DatacenterBroker - 80.20: DatacenterBrokerSimple8: Sending Cloudlet 126 to Vm 0 in Host 0/DC 1.
+237  [run-main-9] INFO  DatacenterBroker - 80.20: DatacenterBrokerSimple8: Sending Cloudlet 127 to Vm 1 in Host 1/DC 1.
+237  [run-main-9] INFO  DatacenterBroker - 80.20: DatacenterBrokerSimple8: Sending Cloudlet 128 to Vm 2 in Host 2/DC 1.
+237  [run-main-9] INFO  DatacenterBroker - 80.20: DatacenterBrokerSimple8: Sending Cloudlet 129 to Vm 3 in Host 3/DC 1.
+237  [run-main-9] INFO  DatacenterBroker - 80.20: DatacenterBrokerSimple8: Sending Cloudlet 130 to Vm 4 in Host 4/DC 1.
+237  [run-main-9] INFO  DatacenterBroker - 80.20: DatacenterBrokerSimple8: Sending Cloudlet 131 to Vm 5 in Host 5/DC 1.
+237  [run-main-9] INFO  DatacenterBroker - 80.20: DatacenterBrokerSimple8: Sending Cloudlet 132 to Vm 6 in Host 6/DC 1.
+237  [run-main-9] INFO  DatacenterBroker - 80.20: DatacenterBrokerSimple8: Sending Cloudlet 133 to Vm 7 in Host 7/DC 1.
+237  [run-main-9] INFO  DatacenterBroker - 80.20: DatacenterBrokerSimple8: Sending Cloudlet 134 to Vm 8 in Host 8/DC 1.
+237  [run-main-9] INFO  DatacenterBroker - 80.20: DatacenterBrokerSimple8: All waiting Cloudlets submitted to some VM.
+237  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 120 started execution
+237  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 121 started execution
+237  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 122 started execution
+237  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 123 started execution
+237  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 124 started execution
+238  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 125 started execution
+238  [run-main-9] INFO  DatacenterBroker - 80.20: DatacenterBrokerSimple8: List of 25 Cloudlets submitted to the broker during simulation execution.
+238  [run-main-9] INFO  DatacenterBroker - Cloudlets creation request sent to Datacenter.
+238  [run-main-9] INFO  DatacenterBroker - 80.20: DatacenterBrokerSimple8: Sending Cloudlet 135 to Vm 9 in Host 9/DC 1.
+238  [run-main-9] INFO  DatacenterBroker - 80.20: DatacenterBrokerSimple8: Sending Cloudlet 136 to Vm 10 in Host 10/DC 1.
+238  [run-main-9] INFO  DatacenterBroker - 80.20: DatacenterBrokerSimple8: Sending Cloudlet 137 to Vm 11 in Host 11/DC 1.
+238  [run-main-9] INFO  DatacenterBroker - 80.20: DatacenterBrokerSimple8: Sending Cloudlet 138 to Vm 12 in Host 12/DC 1.
+238  [run-main-9] INFO  DatacenterBroker - 80.20: DatacenterBrokerSimple8: Sending Cloudlet 139 to Vm 13 in Host 13/DC 1.
+238  [run-main-9] INFO  DatacenterBroker - 80.20: DatacenterBrokerSimple8: Sending Cloudlet 140 to Vm 14 in Host 14/DC 1.
+238  [run-main-9] INFO  DatacenterBroker - 80.20: DatacenterBrokerSimple8: Sending Cloudlet 141 to Vm 15 in Host 15/DC 1.
+238  [run-main-9] INFO  DatacenterBroker - 80.20: DatacenterBrokerSimple8: Sending Cloudlet 142 to Vm 16 in Host 16/DC 1.
+238  [run-main-9] INFO  DatacenterBroker - 80.20: DatacenterBrokerSimple8: Sending Cloudlet 143 to Vm 17 in Host 17/DC 1.
+238  [run-main-9] INFO  DatacenterBroker - 80.20: DatacenterBrokerSimple8: Sending Cloudlet 144 to Vm 18 in Host 18/DC 1.
+238  [run-main-9] INFO  DatacenterBroker - 80.20: DatacenterBrokerSimple8: Sending Cloudlet 145 to Vm 19 in Host 19/DC 1.
+238  [run-main-9] INFO  DatacenterBroker - 80.20: DatacenterBrokerSimple8: Sending Cloudlet 146 to Vm 20 in Host 20/DC 1.
+238  [run-main-9] INFO  DatacenterBroker - 80.20: DatacenterBrokerSimple8: Sending Cloudlet 147 to Vm 21 in Host 21/DC 1.
+238  [run-main-9] INFO  DatacenterBroker - 80.20: DatacenterBrokerSimple8: Sending Cloudlet 148 to Vm 22 in Host 22/DC 1.
+238  [run-main-9] INFO  DatacenterBroker - 80.20: DatacenterBrokerSimple8: Sending Cloudlet 149 to Vm 23 in Host 23/DC 1.
+238  [run-main-9] INFO  DatacenterBroker - 80.20: DatacenterBrokerSimple8: Sending Cloudlet 150 to Vm 0 in Host 0/DC 1.
+238  [run-main-9] INFO  DatacenterBroker - 80.20: DatacenterBrokerSimple8: Sending Cloudlet 151 to Vm 1 in Host 1/DC 1.
+239  [run-main-9] INFO  DatacenterBroker - 80.20: DatacenterBrokerSimple8: Sending Cloudlet 152 to Vm 2 in Host 2/DC 1.
+239  [run-main-9] INFO  DatacenterBroker - 80.20: DatacenterBrokerSimple8: Sending Cloudlet 153 to Vm 3 in Host 3/DC 1.
+239  [run-main-9] INFO  DatacenterBroker - 80.20: DatacenterBrokerSimple8: Sending Cloudlet 154 to Vm 4 in Host 4/DC 1.
+239  [run-main-9] INFO  DatacenterBroker - 80.20: DatacenterBrokerSimple8: Sending Cloudlet 155 to Vm 5 in Host 5/DC 1.
+239  [run-main-9] INFO  DatacenterBroker - 80.20: DatacenterBrokerSimple8: Sending Cloudlet 156 to Vm 6 in Host 6/DC 1.
+239  [run-main-9] INFO  DatacenterBroker - 80.20: DatacenterBrokerSimple8: Sending Cloudlet 157 to Vm 7 in Host 7/DC 1.
+239  [run-main-9] INFO  DatacenterBroker - 80.20: DatacenterBrokerSimple8: Sending Cloudlet 158 to Vm 8 in Host 8/DC 1.
+239  [run-main-9] INFO  DatacenterBroker - 80.20: DatacenterBrokerSimple8: Sending Cloudlet 159 to Vm 9 in Host 9/DC 1.
+239  [run-main-9] INFO  DatacenterBroker - 80.20: DatacenterBrokerSimple8: All waiting Cloudlets submitted to some VM.
+239  [run-main-9] INFO  HorizontalVmScalingSimple - 80.20: HorizontalVmScalingSimpleVm 0: Requesting creation of Vm -1 to receive new Cloudlets in order to balance load of Vm 0. 0 CPU usage is 86.23735924700324%
+239  [run-main-9] INFO  DatacenterBroker - 80.20: DatacenterBrokerSimple8: List of 1 VMs submitted to the broker during simulation execution. VMs creation request sent to Datacenter.
+239  [run-main-9] INFO  DatacenterBroker - 80.20: DatacenterBrokerSimple8: Trying to create Vm 24 in NetworkDatacenter1
+239  [run-main-9] INFO  HorizontalVmScalingSimple - 80.20: HorizontalVmScalingSimpleVm 2: Requesting creation of Vm -1 to receive new Cloudlets in order to balance load of Vm 2. 2 CPU usage is 81.12822824646535%
+239  [run-main-9] INFO  DatacenterBroker - 80.20: DatacenterBrokerSimple8: List of 1 VMs submitted to the broker during simulation execution. VMs creation request sent to Datacenter.
+239  [run-main-9] INFO  DatacenterBroker - 80.20: DatacenterBrokerSimple8: Trying to create Vm 25 in NetworkDatacenter1
+239  [run-main-9] INFO  HorizontalVmScalingSimple - 80.20: HorizontalVmScalingSimpleVm 5: Requesting creation of Vm -1 to receive new Cloudlets in order to balance load of Vm 5. 5 CPU usage is 74.0067425285644%
+240  [run-main-9] INFO  DatacenterBroker - 80.20: DatacenterBrokerSimple8: List of 1 VMs submitted to the broker during simulation execution. VMs creation request sent to Datacenter.
+240  [run-main-9] INFO  DatacenterBroker - 80.20: DatacenterBrokerSimple8: Trying to create Vm 26 in NetworkDatacenter1
+240  [run-main-9] INFO  HorizontalVmScalingSimple - 80.20: HorizontalVmScalingSimpleVm 7: Requesting creation of Vm -1 to receive new Cloudlets in order to balance load of Vm 7. 7 CPU usage is 90.43234096405035%
+240  [run-main-9] INFO  DatacenterBroker - 80.20: DatacenterBrokerSimple8: List of 1 VMs submitted to the broker during simulation execution. VMs creation request sent to Datacenter.
+240  [run-main-9] INFO  DatacenterBroker - 80.20: DatacenterBrokerSimple8: Trying to create Vm 27 in NetworkDatacenter1
+240  [run-main-9] INFO  HorizontalVmScalingSimple - 80.20: HorizontalVmScalingSimpleVm 8: Requesting creation of Vm -1 to receive new Cloudlets in order to balance load of Vm 8. 8 CPU usage is 75.63961259410044%
+240  [run-main-9] INFO  DatacenterBroker - 80.20: DatacenterBrokerSimple8: List of 1 VMs submitted to the broker during simulation execution. VMs creation request sent to Datacenter.
+240  [run-main-9] INFO  DatacenterBroker - 80.20: DatacenterBrokerSimple8: Trying to create Vm 28 in NetworkDatacenter1
+241  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - 80.20:		New VM 24 allocated to host 24
+241  [run-main-9] INFO  VmAllocationPolicy - 80.20: VmAllocationPolicyBestFit: Vm 24 has been allocated to Host 24/DC 1
+242  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - 80.20:		New VM 25 allocated to host 25
+242  [run-main-9] INFO  VmAllocationPolicy - 80.20: VmAllocationPolicyBestFit: Vm 25 has been allocated to Host 25/DC 1
+242  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - 80.20:		New VM 26 allocated to host 26
+242  [run-main-9] INFO  VmAllocationPolicy - 80.20: VmAllocationPolicyBestFit: Vm 26 has been allocated to Host 26/DC 1
+243  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - 80.20:		New VM 27 allocated to host 27
+243  [run-main-9] INFO  VmAllocationPolicy - 80.20: VmAllocationPolicyBestFit: Vm 27 has been allocated to Host 27/DC 1
+243  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - 80.20:		New VM 28 allocated to host 28
+243  [run-main-9] INFO  VmAllocationPolicy - 80.20: VmAllocationPolicyBestFit: Vm 28 has been allocated to Host 28/DC 1
+244  [run-main-9] INFO  DatacenterBroker - 80.30: DatacenterBrokerSimple8: List of 25 Cloudlets submitted to the broker during simulation execution.
+244  [run-main-9] INFO  DatacenterBroker - Waiting creation of 5 VMs to send Cloudlets creation request to Datacenter.
+244  [run-main-9] INFO  DatacenterBroker - 80.30: DatacenterBrokerSimple8: Sending Cloudlet 160 to Vm 10 in Host 10/DC 1.
+244  [run-main-9] INFO  DatacenterBroker - 80.30: DatacenterBrokerSimple8: Sending Cloudlet 161 to Vm 11 in Host 11/DC 1.
+244  [run-main-9] INFO  DatacenterBroker - 80.30: DatacenterBrokerSimple8: Sending Cloudlet 162 to Vm 12 in Host 12/DC 1.
+244  [run-main-9] INFO  DatacenterBroker - 80.30: DatacenterBrokerSimple8: Sending Cloudlet 163 to Vm 13 in Host 13/DC 1.
+244  [run-main-9] INFO  DatacenterBroker - 80.30: DatacenterBrokerSimple8: Sending Cloudlet 164 to Vm 14 in Host 14/DC 1.
+244  [run-main-9] INFO  DatacenterBroker - 80.30: DatacenterBrokerSimple8: Sending Cloudlet 165 to Vm 15 in Host 15/DC 1.
+244  [run-main-9] INFO  DatacenterBroker - 80.30: DatacenterBrokerSimple8: Sending Cloudlet 166 to Vm 16 in Host 16/DC 1.
+244  [run-main-9] INFO  DatacenterBroker - 80.30: DatacenterBrokerSimple8: Sending Cloudlet 167 to Vm 17 in Host 17/DC 1.
+244  [run-main-9] INFO  DatacenterBroker - 80.30: DatacenterBrokerSimple8: Sending Cloudlet 168 to Vm 18 in Host 18/DC 1.
+244  [run-main-9] INFO  DatacenterBroker - 80.30: DatacenterBrokerSimple8: Sending Cloudlet 169 to Vm 19 in Host 19/DC 1.
+244  [run-main-9] INFO  DatacenterBroker - 80.30: DatacenterBrokerSimple8: Sending Cloudlet 170 to Vm 20 in Host 20/DC 1.
+244  [run-main-9] INFO  DatacenterBroker - 80.30: DatacenterBrokerSimple8: Sending Cloudlet 171 to Vm 21 in Host 21/DC 1.
+244  [run-main-9] INFO  DatacenterBroker - 80.30: DatacenterBrokerSimple8: Sending Cloudlet 172 to Vm 22 in Host 22/DC 1.
+244  [run-main-9] INFO  DatacenterBroker - 80.30: DatacenterBrokerSimple8: Sending Cloudlet 173 to Vm 23 in Host 23/DC 1.
+245  [run-main-9] INFO  DatacenterBroker - 80.30: DatacenterBrokerSimple8: Sending Cloudlet 174 to Vm 24 in Host 24/DC 1.
+245  [run-main-9] INFO  DatacenterBroker - 80.30: DatacenterBrokerSimple8: Sending Cloudlet 175 to Vm 25 in Host 25/DC 1.
+245  [run-main-9] INFO  DatacenterBroker - 80.30: DatacenterBrokerSimple8: Sending Cloudlet 176 to Vm 26 in Host 26/DC 1.
+245  [run-main-9] INFO  DatacenterBroker - 80.30: DatacenterBrokerSimple8: Sending Cloudlet 177 to Vm 27 in Host 27/DC 1.
+245  [run-main-9] INFO  DatacenterBroker - 80.30: DatacenterBrokerSimple8: Sending Cloudlet 178 to Vm 28 in Host 28/DC 1.
+245  [run-main-9] INFO  DatacenterBroker - 80.30: DatacenterBrokerSimple8: Sending Cloudlet 179 to Vm 0 in Host 0/DC 1.
+245  [run-main-9] INFO  DatacenterBroker - 80.30: DatacenterBrokerSimple8: Sending Cloudlet 180 to Vm 1 in Host 1/DC 1.
+245  [run-main-9] INFO  DatacenterBroker - 80.30: DatacenterBrokerSimple8: Sending Cloudlet 181 to Vm 2 in Host 2/DC 1.
+245  [run-main-9] INFO  DatacenterBroker - 80.30: DatacenterBrokerSimple8: Sending Cloudlet 182 to Vm 3 in Host 3/DC 1.
+245  [run-main-9] INFO  DatacenterBroker - 80.30: DatacenterBrokerSimple8: Sending Cloudlet 183 to Vm 4 in Host 4/DC 1.
+245  [run-main-9] INFO  DatacenterBroker - 80.30: DatacenterBrokerSimple8: Sending Cloudlet 184 to Vm 5 in Host 5/DC 1.
+245  [run-main-9] INFO  DatacenterBroker - 80.30: DatacenterBrokerSimple8: All waiting Cloudlets submitted to some VM.
+245  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 174 started execution
+245  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 175 started execution
+245  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 176 started execution
+245  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 177 started execution
+245  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 178 started execution
+246  [run-main-9] INFO  DatacenterBroker - 80.30: DatacenterBrokerSimple8: List of 25 Cloudlets submitted to the broker during simulation execution.
+246  [run-main-9] INFO  DatacenterBroker - Cloudlets creation request sent to Datacenter.
+246  [run-main-9] INFO  DatacenterBroker - 80.30: DatacenterBrokerSimple8: Sending Cloudlet 185 to Vm 6 in Host 6/DC 1.
+246  [run-main-9] INFO  DatacenterBroker - 80.30: DatacenterBrokerSimple8: Sending Cloudlet 186 to Vm 7 in Host 7/DC 1.
+246  [run-main-9] INFO  DatacenterBroker - 80.30: DatacenterBrokerSimple8: Sending Cloudlet 187 to Vm 8 in Host 8/DC 1.
+246  [run-main-9] INFO  DatacenterBroker - 80.30: DatacenterBrokerSimple8: Sending Cloudlet 188 to Vm 9 in Host 9/DC 1.
+246  [run-main-9] INFO  DatacenterBroker - 80.30: DatacenterBrokerSimple8: Sending Cloudlet 189 to Vm 10 in Host 10/DC 1.
+246  [run-main-9] INFO  DatacenterBroker - 80.30: DatacenterBrokerSimple8: Sending Cloudlet 190 to Vm 11 in Host 11/DC 1.
+246  [run-main-9] INFO  DatacenterBroker - 80.30: DatacenterBrokerSimple8: Sending Cloudlet 191 to Vm 12 in Host 12/DC 1.
+246  [run-main-9] INFO  DatacenterBroker - 80.30: DatacenterBrokerSimple8: Sending Cloudlet 192 to Vm 13 in Host 13/DC 1.
+246  [run-main-9] INFO  DatacenterBroker - 80.30: DatacenterBrokerSimple8: Sending Cloudlet 193 to Vm 14 in Host 14/DC 1.
+246  [run-main-9] INFO  DatacenterBroker - 80.30: DatacenterBrokerSimple8: Sending Cloudlet 194 to Vm 15 in Host 15/DC 1.
+246  [run-main-9] INFO  DatacenterBroker - 80.30: DatacenterBrokerSimple8: Sending Cloudlet 195 to Vm 16 in Host 16/DC 1.
+247  [run-main-9] INFO  DatacenterBroker - 80.30: DatacenterBrokerSimple8: Sending Cloudlet 196 to Vm 17 in Host 17/DC 1.
+247  [run-main-9] INFO  DatacenterBroker - 80.30: DatacenterBrokerSimple8: Sending Cloudlet 197 to Vm 18 in Host 18/DC 1.
+247  [run-main-9] INFO  DatacenterBroker - 80.30: DatacenterBrokerSimple8: Sending Cloudlet 198 to Vm 19 in Host 19/DC 1.
+247  [run-main-9] INFO  DatacenterBroker - 80.30: DatacenterBrokerSimple8: Sending Cloudlet 199 to Vm 20 in Host 20/DC 1.
+247  [run-main-9] INFO  DatacenterBroker - 80.30: DatacenterBrokerSimple8: Sending Cloudlet 200 to Vm 21 in Host 21/DC 1.
+247  [run-main-9] INFO  DatacenterBroker - 80.30: DatacenterBrokerSimple8: Sending Cloudlet 201 to Vm 22 in Host 22/DC 1.
+247  [run-main-9] INFO  DatacenterBroker - 80.30: DatacenterBrokerSimple8: Sending Cloudlet 202 to Vm 23 in Host 23/DC 1.
+247  [run-main-9] INFO  DatacenterBroker - 80.30: DatacenterBrokerSimple8: Sending Cloudlet 203 to Vm 24 in Host 24/DC 1.
+247  [run-main-9] INFO  DatacenterBroker - 80.30: DatacenterBrokerSimple8: Sending Cloudlet 204 to Vm 25 in Host 25/DC 1.
+247  [run-main-9] INFO  DatacenterBroker - 80.30: DatacenterBrokerSimple8: Sending Cloudlet 205 to Vm 26 in Host 26/DC 1.
+247  [run-main-9] INFO  DatacenterBroker - 80.30: DatacenterBrokerSimple8: Sending Cloudlet 206 to Vm 27 in Host 27/DC 1.
+247  [run-main-9] INFO  DatacenterBroker - 80.30: DatacenterBrokerSimple8: Sending Cloudlet 207 to Vm 28 in Host 28/DC 1.
+247  [run-main-9] INFO  DatacenterBroker - 80.30: DatacenterBrokerSimple8: Sending Cloudlet 208 to Vm 0 in Host 0/DC 1.
+247  [run-main-9] INFO  DatacenterBroker - 80.30: DatacenterBrokerSimple8: Sending Cloudlet 209 to Vm 1 in Host 1/DC 1.
+247  [run-main-9] INFO  DatacenterBroker - 80.30: DatacenterBrokerSimple8: All waiting Cloudlets submitted to some VM.
+247  [run-main-9] INFO  HorizontalVmScalingSimple - 80.30: HorizontalVmScalingSimpleVm 0: Requesting creation of Vm -1 to receive new Cloudlets in order to balance load of Vm 0. 0 CPU usage is 79.3235076275483%
+247  [run-main-9] INFO  DatacenterBroker - 80.30: DatacenterBrokerSimple8: List of 1 VMs submitted to the broker during simulation execution. VMs creation request sent to Datacenter.
+247  [run-main-9] INFO  DatacenterBroker - 80.30: DatacenterBrokerSimple8: Trying to create Vm 29 in NetworkDatacenter1
+247  [run-main-9] INFO  HorizontalVmScalingSimple - 80.30: HorizontalVmScalingSimpleVm 1: Requesting creation of Vm -1 to receive new Cloudlets in order to balance load of Vm 1. 1 CPU usage is 83.59425516234536%
+248  [run-main-9] INFO  DatacenterBroker - 80.30: DatacenterBrokerSimple8: List of 1 VMs submitted to the broker during simulation execution. VMs creation request sent to Datacenter.
+248  [run-main-9] INFO  DatacenterBroker - 80.30: DatacenterBrokerSimple8: Trying to create Vm 30 in NetworkDatacenter1
+249  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - 80.30:		New VM 29 allocated to host 29
+249  [run-main-9] INFO  VmAllocationPolicy - 80.30: VmAllocationPolicyBestFit: Vm 29 has been allocated to Host 29/DC 1
+250  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - 80.30:		New VM 30 allocated to host 30
+250  [run-main-9] INFO  VmAllocationPolicy - 80.30: VmAllocationPolicyBestFit: Vm 30 has been allocated to Host 30/DC 1
+250  [run-main-9] INFO  DatacenterBroker - 80.40: DatacenterBrokerSimple8: List of 25 Cloudlets submitted to the broker during simulation execution.
+250  [run-main-9] INFO  DatacenterBroker - Waiting creation of 2 VMs to send Cloudlets creation request to Datacenter.
+250  [run-main-9] INFO  DatacenterBroker - 80.40: DatacenterBrokerSimple8: Sending Cloudlet 210 to Vm 2 in Host 2/DC 1.
+250  [run-main-9] INFO  DatacenterBroker - 80.40: DatacenterBrokerSimple8: Sending Cloudlet 211 to Vm 3 in Host 3/DC 1.
+250  [run-main-9] INFO  DatacenterBroker - 80.40: DatacenterBrokerSimple8: Sending Cloudlet 212 to Vm 4 in Host 4/DC 1.
+250  [run-main-9] INFO  DatacenterBroker - 80.40: DatacenterBrokerSimple8: Sending Cloudlet 213 to Vm 5 in Host 5/DC 1.
+250  [run-main-9] INFO  DatacenterBroker - 80.40: DatacenterBrokerSimple8: Sending Cloudlet 214 to Vm 6 in Host 6/DC 1.
+250  [run-main-9] INFO  DatacenterBroker - 80.40: DatacenterBrokerSimple8: Sending Cloudlet 215 to Vm 7 in Host 7/DC 1.
+250  [run-main-9] INFO  DatacenterBroker - 80.40: DatacenterBrokerSimple8: Sending Cloudlet 216 to Vm 8 in Host 8/DC 1.
+250  [run-main-9] INFO  DatacenterBroker - 80.40: DatacenterBrokerSimple8: Sending Cloudlet 217 to Vm 9 in Host 9/DC 1.
+250  [run-main-9] INFO  DatacenterBroker - 80.40: DatacenterBrokerSimple8: Sending Cloudlet 218 to Vm 10 in Host 10/DC 1.
+250  [run-main-9] INFO  DatacenterBroker - 80.40: DatacenterBrokerSimple8: Sending Cloudlet 219 to Vm 11 in Host 11/DC 1.
+250  [run-main-9] INFO  DatacenterBroker - 80.40: DatacenterBrokerSimple8: Sending Cloudlet 220 to Vm 12 in Host 12/DC 1.
+250  [run-main-9] INFO  DatacenterBroker - 80.40: DatacenterBrokerSimple8: Sending Cloudlet 221 to Vm 13 in Host 13/DC 1.
+251  [run-main-9] INFO  DatacenterBroker - 80.40: DatacenterBrokerSimple8: Sending Cloudlet 222 to Vm 14 in Host 14/DC 1.
+251  [run-main-9] INFO  DatacenterBroker - 80.40: DatacenterBrokerSimple8: Sending Cloudlet 223 to Vm 15 in Host 15/DC 1.
+251  [run-main-9] INFO  DatacenterBroker - 80.40: DatacenterBrokerSimple8: Sending Cloudlet 224 to Vm 16 in Host 16/DC 1.
+251  [run-main-9] INFO  DatacenterBroker - 80.40: DatacenterBrokerSimple8: Sending Cloudlet 225 to Vm 17 in Host 17/DC 1.
+251  [run-main-9] INFO  DatacenterBroker - 80.40: DatacenterBrokerSimple8: Sending Cloudlet 226 to Vm 18 in Host 18/DC 1.
+251  [run-main-9] INFO  DatacenterBroker - 80.40: DatacenterBrokerSimple8: Sending Cloudlet 227 to Vm 19 in Host 19/DC 1.
+251  [run-main-9] INFO  DatacenterBroker - 80.40: DatacenterBrokerSimple8: Sending Cloudlet 228 to Vm 20 in Host 20/DC 1.
+251  [run-main-9] INFO  DatacenterBroker - 80.40: DatacenterBrokerSimple8: Sending Cloudlet 229 to Vm 21 in Host 21/DC 1.
+251  [run-main-9] INFO  DatacenterBroker - 80.40: DatacenterBrokerSimple8: Sending Cloudlet 230 to Vm 22 in Host 22/DC 1.
+251  [run-main-9] INFO  DatacenterBroker - 80.40: DatacenterBrokerSimple8: Sending Cloudlet 231 to Vm 23 in Host 23/DC 1.
+251  [run-main-9] INFO  DatacenterBroker - 80.40: DatacenterBrokerSimple8: Sending Cloudlet 232 to Vm 24 in Host 24/DC 1.
+251  [run-main-9] INFO  DatacenterBroker - 80.40: DatacenterBrokerSimple8: Sending Cloudlet 233 to Vm 25 in Host 25/DC 1.
+251  [run-main-9] INFO  DatacenterBroker - 80.40: DatacenterBrokerSimple8: Sending Cloudlet 234 to Vm 26 in Host 26/DC 1.
+251  [run-main-9] INFO  DatacenterBroker - 80.40: DatacenterBrokerSimple8: All waiting Cloudlets submitted to some VM.
+252  [run-main-9] INFO  DatacenterBroker - 100.10: DatacenterBrokerSimple8: List of 25 Cloudlets submitted to the broker during simulation execution.
+252  [run-main-9] INFO  DatacenterBroker - Cloudlets creation request sent to Datacenter.
+252  [run-main-9] INFO  DatacenterBroker - 100.10: DatacenterBrokerSimple8: Sending Cloudlet 235 to Vm 27 in Host 27/DC 1.
+252  [run-main-9] INFO  DatacenterBroker - 100.10: DatacenterBrokerSimple8: Sending Cloudlet 236 to Vm 28 in Host 28/DC 1.
+252  [run-main-9] INFO  DatacenterBroker - 100.10: DatacenterBrokerSimple8: Sending Cloudlet 237 to Vm 29 in Host 29/DC 1.
+252  [run-main-9] INFO  DatacenterBroker - 100.10: DatacenterBrokerSimple8: Sending Cloudlet 238 to Vm 30 in Host 30/DC 1.
+252  [run-main-9] INFO  DatacenterBroker - 100.10: DatacenterBrokerSimple8: Sending Cloudlet 239 to Vm 0 in Host 0/DC 1.
+252  [run-main-9] INFO  DatacenterBroker - 100.10: DatacenterBrokerSimple8: Sending Cloudlet 240 to Vm 1 in Host 1/DC 1.
+252  [run-main-9] INFO  DatacenterBroker - 100.10: DatacenterBrokerSimple8: Sending Cloudlet 241 to Vm 2 in Host 2/DC 1.
+252  [run-main-9] INFO  DatacenterBroker - 100.10: DatacenterBrokerSimple8: Sending Cloudlet 242 to Vm 3 in Host 3/DC 1.
+252  [run-main-9] INFO  DatacenterBroker - 100.10: DatacenterBrokerSimple8: Sending Cloudlet 243 to Vm 4 in Host 4/DC 1.
+252  [run-main-9] INFO  DatacenterBroker - 100.10: DatacenterBrokerSimple8: Sending Cloudlet 244 to Vm 5 in Host 5/DC 1.
+252  [run-main-9] INFO  DatacenterBroker - 100.10: DatacenterBrokerSimple8: Sending Cloudlet 245 to Vm 6 in Host 6/DC 1.
+252  [run-main-9] INFO  DatacenterBroker - 100.10: DatacenterBrokerSimple8: Sending Cloudlet 246 to Vm 7 in Host 7/DC 1.
+252  [run-main-9] INFO  DatacenterBroker - 100.10: DatacenterBrokerSimple8: Sending Cloudlet 247 to Vm 8 in Host 8/DC 1.
+252  [run-main-9] INFO  DatacenterBroker - 100.10: DatacenterBrokerSimple8: Sending Cloudlet 248 to Vm 9 in Host 9/DC 1.
+252  [run-main-9] INFO  DatacenterBroker - 100.10: DatacenterBrokerSimple8: Sending Cloudlet 249 to Vm 10 in Host 10/DC 1.
+252  [run-main-9] INFO  DatacenterBroker - 100.10: DatacenterBrokerSimple8: Sending Cloudlet 250 to Vm 11 in Host 11/DC 1.
+252  [run-main-9] INFO  DatacenterBroker - 100.10: DatacenterBrokerSimple8: Sending Cloudlet 251 to Vm 12 in Host 12/DC 1.
+252  [run-main-9] INFO  DatacenterBroker - 100.10: DatacenterBrokerSimple8: Sending Cloudlet 252 to Vm 13 in Host 13/DC 1.
+252  [run-main-9] INFO  DatacenterBroker - 100.10: DatacenterBrokerSimple8: Sending Cloudlet 253 to Vm 14 in Host 14/DC 1.
+252  [run-main-9] INFO  DatacenterBroker - 100.10: DatacenterBrokerSimple8: Sending Cloudlet 254 to Vm 15 in Host 15/DC 1.
+252  [run-main-9] INFO  DatacenterBroker - 100.10: DatacenterBrokerSimple8: Sending Cloudlet 255 to Vm 16 in Host 16/DC 1.
+252  [run-main-9] INFO  DatacenterBroker - 100.10: DatacenterBrokerSimple8: Sending Cloudlet 256 to Vm 17 in Host 17/DC 1.
+252  [run-main-9] INFO  DatacenterBroker - 100.10: DatacenterBrokerSimple8: Sending Cloudlet 257 to Vm 18 in Host 18/DC 1.
+252  [run-main-9] INFO  DatacenterBroker - 100.10: DatacenterBrokerSimple8: Sending Cloudlet 258 to Vm 19 in Host 19/DC 1.
+252  [run-main-9] INFO  DatacenterBroker - 100.10: DatacenterBrokerSimple8: Sending Cloudlet 259 to Vm 20 in Host 20/DC 1.
+252  [run-main-9] INFO  DatacenterBroker - 100.10: DatacenterBrokerSimple8: All waiting Cloudlets submitted to some VM.
+252  [run-main-9] INFO  HorizontalVmScalingSimple - 100.10: HorizontalVmScalingSimpleVm 0: Requesting creation of Vm -1 to receive new Cloudlets in order to balance load of Vm 0. 0 CPU usage is 99.42425068265757%
+252  [run-main-9] INFO  DatacenterBroker - 100.10: DatacenterBrokerSimple8: List of 1 VMs submitted to the broker during simulation execution. VMs creation request sent to Datacenter.
+252  [run-main-9] INFO  DatacenterBroker - 100.10: DatacenterBrokerSimple8: Trying to create Vm 31 in NetworkDatacenter1
+253  [run-main-9] INFO  HorizontalVmScalingSimple - 100.10: HorizontalVmScalingSimpleVm 2: Requesting creation of Vm -1 to receive new Cloudlets in order to balance load of Vm 2. 2 CPU usage is 72.49799730691495%
+253  [run-main-9] INFO  DatacenterBroker - 100.10: DatacenterBrokerSimple8: List of 1 VMs submitted to the broker during simulation execution. VMs creation request sent to Datacenter.
+253  [run-main-9] INFO  DatacenterBroker - 100.10: DatacenterBrokerSimple8: Trying to create Vm 32 in NetworkDatacenter1
+253  [run-main-9] INFO  HorizontalVmScalingSimple - 100.10: HorizontalVmScalingSimpleVm 4: Requesting creation of Vm -1 to receive new Cloudlets in order to balance load of Vm 4. 4 CPU usage is 83.64322116354978%
+253  [run-main-9] INFO  DatacenterBroker - 100.10: DatacenterBrokerSimple8: List of 1 VMs submitted to the broker during simulation execution. VMs creation request sent to Datacenter.
+253  [run-main-9] INFO  DatacenterBroker - 100.10: DatacenterBrokerSimple8: Trying to create Vm 33 in NetworkDatacenter1
+253  [run-main-9] INFO  HorizontalVmScalingSimple - 100.10: HorizontalVmScalingSimpleVm 8: Requesting creation of Vm -1 to receive new Cloudlets in order to balance load of Vm 8. 8 CPU usage is 73.26109942580695%
+253  [run-main-9] INFO  DatacenterBroker - 100.10: DatacenterBrokerSimple8: List of 1 VMs submitted to the broker during simulation execution. VMs creation request sent to Datacenter.
+253  [run-main-9] INFO  DatacenterBroker - 100.10: DatacenterBrokerSimple8: Trying to create Vm 34 in NetworkDatacenter1
+254  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 237 started execution
+254  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 238 started execution
+255  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - 100.10:		New VM 31 allocated to host 31
+255  [run-main-9] INFO  VmAllocationPolicy - 100.10: VmAllocationPolicyBestFit: Vm 31 has been allocated to Host 31/DC 1
+255  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - 100.10:		New VM 32 allocated to host 32
+255  [run-main-9] INFO  VmAllocationPolicy - 100.10: VmAllocationPolicyBestFit: Vm 32 has been allocated to Host 32/DC 1
+255  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - 100.10:		New VM 33 allocated to host 33
+255  [run-main-9] INFO  VmAllocationPolicy - 100.10: VmAllocationPolicyBestFit: Vm 33 has been allocated to Host 33/DC 1
+255  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - 100.10:		New VM 34 allocated to host 34
+255  [run-main-9] INFO  VmAllocationPolicy - 100.10: VmAllocationPolicyBestFit: Vm 34 has been allocated to Host 34/DC 1
+256  [run-main-9] INFO  HorizontalVmScalingSimple - 100.20: HorizontalVmScalingSimpleVm 3: Requesting creation of Vm -1 to receive new Cloudlets in order to balance load of Vm 3. 3 CPU usage is 77.43680619909823%
+256  [run-main-9] INFO  DatacenterBroker - 100.20: DatacenterBrokerSimple8: List of 1 VMs submitted to the broker during simulation execution. VMs creation request sent to Datacenter.
+256  [run-main-9] INFO  DatacenterBroker - 100.20: DatacenterBrokerSimple8: Trying to create Vm 35 in NetworkDatacenter1
+256  [run-main-9] INFO  HorizontalVmScalingSimple - 100.20: HorizontalVmScalingSimpleVm 7: Requesting creation of Vm -1 to receive new Cloudlets in order to balance load of Vm 7. 7 CPU usage is 78.54719040340571%
+256  [run-main-9] INFO  DatacenterBroker - 100.20: DatacenterBrokerSimple8: List of 1 VMs submitted to the broker during simulation execution. VMs creation request sent to Datacenter.
+256  [run-main-9] INFO  DatacenterBroker - 100.20: DatacenterBrokerSimple8: Trying to create Vm 36 in NetworkDatacenter1
+257  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - 100.20:		New VM 35 allocated to host 35
+257  [run-main-9] INFO  VmAllocationPolicy - 100.20: VmAllocationPolicyBestFit: Vm 35 has been allocated to Host 35/DC 1
+258  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - 100.20:		New VM 36 allocated to host 36
+258  [run-main-9] INFO  VmAllocationPolicy - 100.20: VmAllocationPolicyBestFit: Vm 36 has been allocated to Host 36/DC 1
+258  [run-main-9] INFO  HorizontalVmScalingSimple - 100.30: HorizontalVmScalingSimpleVm 9: Requesting creation of Vm -1 to receive new Cloudlets in order to balance load of Vm 9. 9 CPU usage is 83.07678316595825%
+258  [run-main-9] INFO  DatacenterBroker - 100.30: DatacenterBrokerSimple8: List of 1 VMs submitted to the broker during simulation execution. VMs creation request sent to Datacenter.
+259  [run-main-9] INFO  DatacenterBroker - 100.30: DatacenterBrokerSimple8: Trying to create Vm 37 in NetworkDatacenter1
+260  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - 100.30:		New VM 37 allocated to host 37
+260  [run-main-9] INFO  VmAllocationPolicy - 100.30: VmAllocationPolicyBestFit: Vm 37 has been allocated to Host 37/DC 1
+263  [run-main-9] INFO  HorizontalVmScalingSimple - 120.30: HorizontalVmScalingSimpleVm 5: Requesting creation of Vm -1 to receive new Cloudlets in order to balance load of Vm 5. 5 CPU usage is 95.91994943695279%
+263  [run-main-9] INFO  DatacenterBroker - 120.30: DatacenterBrokerSimple8: List of 1 VMs submitted to the broker during simulation execution. VMs creation request sent to Datacenter.
+263  [run-main-9] INFO  DatacenterBroker - 120.30: DatacenterBrokerSimple8: Trying to create Vm 38 in NetworkDatacenter1
+264  [run-main-9] INFO  HorizontalVmScalingSimple - 120.30: HorizontalVmScalingSimpleVm 6: Requesting creation of Vm -1 to receive new Cloudlets in order to balance load of Vm 6. 6 CPU usage is 94.81413115437245%
+264  [run-main-9] INFO  DatacenterBroker - 120.30: DatacenterBrokerSimple8: List of 1 VMs submitted to the broker during simulation execution. VMs creation request sent to Datacenter.
+264  [run-main-9] INFO  DatacenterBroker - 120.30: DatacenterBrokerSimple8: Trying to create Vm 39 in NetworkDatacenter1
+265  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - 120.30:		New VM 38 allocated to host 38
+265  [run-main-9] INFO  VmAllocationPolicy - 120.30: VmAllocationPolicyBestFit: Vm 38 has been allocated to Host 38/DC 1
+265  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - 120.30:		New VM 39 allocated to host 39
+265  [run-main-9] INFO  VmAllocationPolicy - 120.30: VmAllocationPolicyBestFit: Vm 39 has been allocated to Host 39/DC 1
+267  [run-main-9] INFO  HorizontalVmScalingSimple - 140.16: HorizontalVmScalingSimpleVm 1: Requesting creation of Vm -1 to receive new Cloudlets in order to balance load of Vm 1. 1 CPU usage is 89.78793881268854%
+267  [run-main-9] INFO  DatacenterBroker - 140.16: DatacenterBrokerSimple8: List of 1 VMs submitted to the broker during simulation execution. VMs creation request sent to Datacenter.
+267  [run-main-9] INFO  DatacenterBroker - 140.16: DatacenterBrokerSimple8: Trying to create Vm 40 in NetworkDatacenter1
+269  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - 140.16:		New VM 40 allocated to host 40
+269  [run-main-9] INFO  VmAllocationPolicy - 140.16: VmAllocationPolicyBestFit: Vm 40 has been allocated to Host 40/DC 1
+269  [run-main-9] INFO  DatacenterBroker - 140.16: DatacenterBrokerSimple8: Cloudlet 3 finished in Vm 3 and returned to broker.
+272  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 13 started execution
+281  [run-main-9] INFO  DatacenterBroker - 175.41: DatacenterBrokerSimple8: Cloudlet 40 finished in Vm 10 and returned to broker.
+281  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 58 started execution
+283  [run-main-9] INFO  DatacenterBroker - 179.82: DatacenterBrokerSimple8: Cloudlet 44 finished in Vm 14 and returned to broker.
+284  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 62 started execution
+284  [run-main-9] INFO  DatacenterBroker - 179.92: DatacenterBrokerSimple8: Cloudlet 4 finished in Vm 4 and returned to broker.
+286  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 14 started execution
+289  [run-main-9] INFO  DatacenterBroker - 180.31: DatacenterBrokerSimple8: Cloudlet 9 finished in Vm 9 and returned to broker.
+290  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 19 started execution
+293  [run-main-9] INFO  DatacenterBroker - 186.55: DatacenterBrokerSimple8: Cloudlet 0 finished in Vm 0 and returned to broker.
+293  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 10 started execution
+297  [run-main-9] INFO  DatacenterBroker - 191.87: DatacenterBrokerSimple8: Cloudlet 5 finished in Vm 5 and returned to broker.
+297  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 15 started execution
+302  [run-main-9] INFO  DatacenterBroker - 205.49: DatacenterBrokerSimple8: Cloudlet 41 finished in Vm 11 and returned to broker.
+303  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 59 started execution
+309  [run-main-9] INFO  DatacenterBroker - 207.40: DatacenterBrokerSimple8: Cloudlet 1 finished in Vm 1 and returned to broker.
+310  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 11 started execution
+312  [run-main-9] INFO  DatacenterBroker - 207.61: DatacenterBrokerSimple8: Cloudlet 2 finished in Vm 2 and returned to broker.
+313  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 12 started execution
+313  [run-main-9] INFO  DatacenterBroker - 207.71: DatacenterBrokerSimple8: Cloudlet 6 finished in Vm 6 and returned to broker.
+314  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 16 started execution
+315  [run-main-9] INFO  DatacenterBroker - 207.92: DatacenterBrokerSimple8: Cloudlet 7 finished in Vm 7 and returned to broker.
+315  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 17 started execution
+319  [run-main-9] INFO  DatacenterBroker - 226.91: DatacenterBrokerSimple8: Cloudlet 45 finished in Vm 15 and returned to broker.
+319  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 63 started execution
+320  [run-main-9] INFO  DatacenterBroker - 240.78: DatacenterBrokerSimple8: Cloudlet 47 finished in Vm 17 and returned to broker.
+321  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 65 started execution
+322  [run-main-9] INFO  DatacenterBroker - 242.98: DatacenterBrokerSimple8: Cloudlet 176 finished in Vm 26 and returned to broker.
+323  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 205 started execution
+324  [run-main-9] INFO  DatacenterBroker - 259.25: DatacenterBrokerSimple8: Cloudlet 42 finished in Vm 12 and returned to broker.
+324  [run-main-9] INFO  DatacenterBroker - 259.25: DatacenterBrokerSimple8: Cloudlet 43 finished in Vm 13 and returned to broker.
+324  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 60 started execution
+324  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 61 started execution
+326  [run-main-9] INFO  DatacenterBroker - 262.67: DatacenterBrokerSimple8: Cloudlet 46 finished in Vm 16 and returned to broker.
+327  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 64 started execution
+329  [run-main-9] INFO  DatacenterBroker - 265.60: DatacenterBrokerSimple8: Cloudlet 8 finished in Vm 8 and returned to broker.
+329  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 18 started execution
+331  [run-main-9] INFO  DatacenterBroker - 267.11: DatacenterBrokerSimple8: Cloudlet 125 finished in Vm 23 and returned to broker.
+331  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 149 started execution
+333  [run-main-9] INFO  DatacenterBroker - 271.95: DatacenterBrokerSimple8: Cloudlet 122 finished in Vm 20 and returned to broker.
+334  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 146 started execution
+336  [run-main-9] INFO  DatacenterBroker - 274.53: DatacenterBrokerSimple8: Cloudlet 178 finished in Vm 28 and returned to broker.
+336  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 207 started execution
+336  [run-main-9] INFO  DatacenterBroker - 274.64: DatacenterBrokerSimple8: Cloudlet 124 finished in Vm 22 and returned to broker.
+337  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 148 started execution
+338  [run-main-9] INFO  DatacenterBroker - 276.02: DatacenterBrokerSimple8: Cloudlet 120 finished in Vm 18 and returned to broker.
+339  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 144 started execution
+340  [run-main-9] INFO  DatacenterBroker - 286.06: DatacenterBrokerSimple8: Cloudlet 175 finished in Vm 25 and returned to broker.
+340  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 204 started execution
+340  [run-main-9] INFO  DatacenterBroker - 288.52: DatacenterBrokerSimple8: Cloudlet 237 finished in Vm 29 and returned to broker.
+341  [run-main-9] INFO  DatacenterBroker - 293.12: DatacenterBrokerSimple8: Cloudlet 177 finished in Vm 27 and returned to broker.
+342  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 206 started execution
+342  [run-main-9] INFO  DatacenterBroker - 298.52: DatacenterBrokerSimple8: Requesting Vm 29 destruction.
+343  [run-main-9] INFO  Datacenter - 298.52: NetworkDatacenter: Vm 29 destroyed on Host 29/DC 1. 
+357  [run-main-9] INFO  DatacenterBroker - 306.73: DatacenterBrokerSimple8: Cloudlet 121 finished in Vm 19 and returned to broker.
+357  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 145 started execution
+358  [run-main-9] INFO  DatacenterBroker - 308.04: DatacenterBrokerSimple8: Cloudlet 123 finished in Vm 21 and returned to broker.
+358  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 147 started execution
+375  [run-main-9] INFO  DatacenterBroker - 319.63: DatacenterBrokerSimple8: Cloudlet 174 finished in Vm 24 and returned to broker.
+375  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 203 started execution
+381  [run-main-9] INFO  DatacenterBroker - 326.06: DatacenterBrokerSimple8: Cloudlet 238 finished in Vm 30 and returned to broker.
+383  [run-main-9] INFO  DatacenterBroker - 336.06: DatacenterBrokerSimple8: Requesting Vm 30 destruction.
+383  [run-main-9] INFO  Datacenter - 336.06: NetworkDatacenter: Vm 30 destroyed on Host 30/DC 1. 
+393  [run-main-9] INFO  DatacenterBroker - 363.54: DatacenterBrokerSimple8: Cloudlet 13 finished in Vm 3 and returned to broker.
+393  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 23 started execution
+397  [run-main-9] INFO  DatacenterBroker - 369.01: DatacenterBrokerSimple8: Cloudlet 19 finished in Vm 9 and returned to broker.
+397  [run-main-9] INFO  DatacenterBroker - 369.01: DatacenterBrokerSimple8: Cloudlet 58 finished in Vm 10 and returned to broker.
+397  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 29 started execution
+397  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 76 started execution
+401  [run-main-9] INFO  DatacenterBroker - 382.07: DatacenterBrokerSimple8: Cloudlet 62 finished in Vm 14 and returned to broker.
+402  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 80 started execution
+404  [run-main-9] INFO  DatacenterBroker - 389.30: DatacenterBrokerSimple8: Cloudlet 15 finished in Vm 5 and returned to broker.
+404  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 25 started execution
+406  [run-main-9] INFO  DatacenterBroker - 391.24: DatacenterBrokerSimple8: Cloudlet 14 finished in Vm 4 and returned to broker.
+406  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 24 started execution
+409  [run-main-9] INFO  DatacenterBroker - 400.89: DatacenterBrokerSimple8: Cloudlet 17 finished in Vm 7 and returned to broker.
+409  [run-main-9] INFO  DatacenterBroker - 400.89: DatacenterBrokerSimple8: Cloudlet 63 finished in Vm 15 and returned to broker.
+409  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 27 started execution
+409  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 81 started execution
+410  [run-main-9] INFO  DatacenterBroker - 413.85: DatacenterBrokerSimple8: Cloudlet 59 finished in Vm 11 and returned to broker.
+410  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 77 started execution
+413  [run-main-9] INFO  DatacenterBroker - 418.05: DatacenterBrokerSimple8: Cloudlet 11 finished in Vm 1 and returned to broker.
+413  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 21 started execution
+415  [run-main-9] INFO  DatacenterBroker - 440.20: DatacenterBrokerSimple8: Cloudlet 10 finished in Vm 0 and returned to broker.
+415  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 20 started execution
+418  [run-main-9] INFO  DatacenterBroker - 442.10: DatacenterBrokerSimple8: Cloudlet 12 finished in Vm 2 and returned to broker.
+418  [run-main-9] INFO  DatacenterBroker - 442.10: DatacenterBrokerSimple8: Cloudlet 61 finished in Vm 13 and returned to broker.
+418  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 22 started execution
+419  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 79 started execution
+420  [run-main-9] INFO  DatacenterBroker - 448.44: DatacenterBrokerSimple8: Cloudlet 16 finished in Vm 6 and returned to broker.
+420  [run-main-9] INFO  DatacenterBroker - 448.44: DatacenterBrokerSimple8: Cloudlet 205 finished in Vm 26 and returned to broker.
+420  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 26 started execution
+420  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 234 started execution
+421  [run-main-9] INFO  DatacenterBroker - 458.55: DatacenterBrokerSimple8: Cloudlet 64 finished in Vm 16 and returned to broker.
+421  [run-main-9] INFO  DatacenterBroker - 458.55: DatacenterBrokerSimple8: Cloudlet 149 finished in Vm 23 and returned to broker.
+422  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 82 started execution
+422  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 173 started execution
+423  [run-main-9] INFO  DatacenterBroker - 466.23: DatacenterBrokerSimple8: Cloudlet 60 finished in Vm 12 and returned to broker.
+424  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 78 started execution
+424  [run-main-9] INFO  DatacenterBroker - 468.03: DatacenterBrokerSimple8: Cloudlet 144 finished in Vm 18 and returned to broker.
+425  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 168 started execution
+430  [run-main-9] INFO  DatacenterBroker - 477.85: DatacenterBrokerSimple8: Cloudlet 148 finished in Vm 22 and returned to broker.
+430  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 172 started execution
+432  [run-main-9] INFO  DatacenterBroker - 481.45: DatacenterBrokerSimple8: Cloudlet 65 finished in Vm 17 and returned to broker.
+432  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 83 started execution
+433  [run-main-9] INFO  DatacenterBroker - 481.56: DatacenterBrokerSimple8: Cloudlet 204 finished in Vm 25 and returned to broker.
+433  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 233 started execution
+434  [run-main-9] INFO  DatacenterBroker - 489.35: DatacenterBrokerSimple8: Cloudlet 146 finished in Vm 20 and returned to broker.
+434  [run-main-9] INFO  DatacenterBroker - 489.35: DatacenterBrokerSimple8: Cloudlet 207 finished in Vm 28 and returned to broker.
+434  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 170 started execution
+434  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 236 started execution
+434  [run-main-9] INFO  DatacenterBroker - 496.46: DatacenterBrokerSimple8: Cloudlet 206 finished in Vm 27 and returned to broker.
+435  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 235 started execution
+437  [run-main-9] INFO  DatacenterBroker - 502.76: DatacenterBrokerSimple8: Cloudlet 18 finished in Vm 8 and returned to broker.
+437  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 28 started execution
+438  [run-main-9] INFO  DatacenterBroker - 520.18: DatacenterBrokerSimple8: Cloudlet 147 finished in Vm 21 and returned to broker.
+438  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 171 started execution
+439  [run-main-9] INFO  DatacenterBroker - 523.64: DatacenterBrokerSimple8: Cloudlet 145 finished in Vm 19 and returned to broker.
+439  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 169 started execution
+441  [run-main-9] INFO  DatacenterBroker - 547.63: DatacenterBrokerSimple8: Cloudlet 23 finished in Vm 3 and returned to broker.
+442  [run-main-9] INFO  DatacenterBroker - 547.63: DatacenterBrokerSimple8: Cloudlet 203 finished in Vm 24 and returned to broker.
+442  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 33 started execution
+442  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 232 started execution
+442  [run-main-9] INFO  DatacenterBroker - 550.87: DatacenterBrokerSimple8: Cloudlet 76 finished in Vm 10 and returned to broker.
+443  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 94 started execution
+445  [run-main-9] INFO  DatacenterBroker - 558.54: DatacenterBrokerSimple8: Cloudlet 80 finished in Vm 14 and returned to broker.
+445  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 98 started execution
+445  [run-main-9] INFO  DatacenterBroker - 559.65: DatacenterBrokerSimple8: Cloudlet 27 finished in Vm 7 and returned to broker.
+446  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 37 started execution
+447  [run-main-9] INFO  DatacenterBroker - 578.68: DatacenterBrokerSimple8: Cloudlet 25 finished in Vm 5 and returned to broker.
+447  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 35 started execution
+449  [run-main-9] INFO  DatacenterBroker - 593.94: DatacenterBrokerSimple8: Cloudlet 81 finished in Vm 15 and returned to broker.
+449  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 99 started execution
+451  [run-main-9] INFO  DatacenterBroker - 603.15: DatacenterBrokerSimple8: Cloudlet 24 finished in Vm 4 and returned to broker.
+451  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 34 started execution
+452  [run-main-9] INFO  DatacenterBroker - 613.02: DatacenterBrokerSimple8: Cloudlet 77 finished in Vm 11 and returned to broker.
+452  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 95 started execution
+453  [run-main-9] INFO  DatacenterBroker - 616.84: DatacenterBrokerSimple8: Cloudlet 21 finished in Vm 1 and returned to broker.
+453  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 31 started execution
+455  [run-main-9] INFO  DatacenterBroker - 624.03: DatacenterBrokerSimple8: Cloudlet 79 finished in Vm 13 and returned to broker.
+455  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 97 started execution
+456  [run-main-9] INFO  DatacenterBroker - 627.36: DatacenterBrokerSimple8: Cloudlet 20 finished in Vm 0 and returned to broker.
+456  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 30 started execution
+458  [run-main-9] INFO  DatacenterBroker - 630.01: DatacenterBrokerSimple8: Cloudlet 29 finished in Vm 9 and returned to broker.
+458  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 39 started execution
+460  [run-main-9] INFO  DatacenterBroker - 640.55: DatacenterBrokerSimple8: Cloudlet 234 finished in Vm 26 and returned to broker.
+462  [run-main-9] INFO  DatacenterBroker - 643.99: DatacenterBrokerSimple8: Cloudlet 173 finished in Vm 23 and returned to broker.
+462  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 202 started execution
+463  [run-main-9] INFO  DatacenterBroker - 644.21: DatacenterBrokerSimple8: Cloudlet 78 finished in Vm 12 and returned to broker.
+463  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 96 started execution
+464  [run-main-9] INFO  DatacenterBroker - 650.55: DatacenterBrokerSimple8: Requesting Vm 26 destruction.
+464  [run-main-9] INFO  Datacenter - 650.55: NetworkDatacenter: Vm 26 destroyed on Host 26/DC 1. 
+469  [run-main-9] INFO  DatacenterBroker - 654.88: DatacenterBrokerSimple8: Cloudlet 172 finished in Vm 22 and returned to broker.
+469  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 201 started execution
+470  [run-main-9] INFO  DatacenterBroker - 655.26: DatacenterBrokerSimple8: Cloudlet 82 finished in Vm 16 and returned to broker.
+470  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 100 started execution
+477  [run-main-9] INFO  DatacenterBroker - 665.21: DatacenterBrokerSimple8: Cloudlet 26 finished in Vm 6 and returned to broker.
+477  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 36 started execution
+479  [run-main-9] INFO  DatacenterBroker - 666.88: DatacenterBrokerSimple8: Cloudlet 22 finished in Vm 2 and returned to broker.
+479  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 32 started execution
+480  [run-main-9] INFO  DatacenterBroker - 674.23: DatacenterBrokerSimple8: Cloudlet 236 finished in Vm 28 and returned to broker.
+483  [run-main-9] INFO  DatacenterBroker - 676.89: DatacenterBrokerSimple8: Cloudlet 170 finished in Vm 20 and returned to broker.
+484  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 199 started execution
+485  [run-main-9] INFO  DatacenterBroker - 684.23: DatacenterBrokerSimple8: Requesting Vm 28 destruction.
+485  [run-main-9] INFO  Datacenter - 684.23: NetworkDatacenter: Vm 28 destroyed on Host 28/DC 1. 
+491  [run-main-9] INFO  DatacenterBroker - 689.63: DatacenterBrokerSimple8: Cloudlet 83 finished in Vm 17 and returned to broker.
+491  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 101 started execution
+496  [run-main-9] INFO  DatacenterBroker - 697.41: DatacenterBrokerSimple8: Cloudlet 168 finished in Vm 18 and returned to broker.
+496  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 197 started execution
+506  [run-main-9] INFO  DatacenterBroker - 708.97: DatacenterBrokerSimple8: Cloudlet 232 finished in Vm 24 and returned to broker.
+508  [run-main-9] INFO  DatacenterBroker - 717.18: DatacenterBrokerSimple8: Cloudlet 169 finished in Vm 19 and returned to broker.
+508  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 198 started execution
+509  [run-main-9] INFO  DatacenterBroker - 718.97: DatacenterBrokerSimple8: Requesting Vm 24 destruction.
+510  [run-main-9] INFO  Datacenter - 718.97: NetworkDatacenter: Vm 24 destroyed on Host 24/DC 1. 
+514  [run-main-9] INFO  DatacenterBroker - 720.49: DatacenterBrokerSimple8: Cloudlet 94 finished in Vm 10 and returned to broker.
+515  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 112 started execution
+520  [run-main-9] INFO  DatacenterBroker - 724.14: DatacenterBrokerSimple8: Cloudlet 28 finished in Vm 8 and returned to broker.
+521  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 38 started execution
+526  [run-main-9] INFO  DatacenterBroker - 733.85: DatacenterBrokerSimple8: Cloudlet 171 finished in Vm 21 and returned to broker.
+527  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 200 started execution
+528  [run-main-9] INFO  DatacenterBroker - 736.08: DatacenterBrokerSimple8: Cloudlet 98 finished in Vm 14 and returned to broker.
+529  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 116 started execution
+533  [run-main-9] INFO  DatacenterBroker - 740.87: DatacenterBrokerSimple8: Cloudlet 235 finished in Vm 27 and returned to broker.
+534  [run-main-9] INFO  DatacenterBroker - 748.89: DatacenterBrokerSimple8: Cloudlet 233 finished in Vm 25 and returned to broker.
+535  [run-main-9] INFO  DatacenterBroker - 750.87: DatacenterBrokerSimple8: Requesting Vm 27 destruction.
+535  [run-main-9] INFO  Datacenter - 750.87: NetworkDatacenter: Vm 27 destroyed on Host 27/DC 1. 
+537  [run-main-9] INFO  DatacenterBroker - 756.11: DatacenterBrokerSimple8: Cloudlet 33 finished in Vm 3 and returned to broker.
+537  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 51 started execution
+538  [run-main-9] INFO  DatacenterBroker - 758.89: DatacenterBrokerSimple8: Requesting Vm 25 destruction.
+538  [run-main-9] INFO  Datacenter - 758.89: NetworkDatacenter: Vm 25 destroyed on Host 25/DC 1. 
+546  [run-main-9] INFO  DatacenterBroker - 771.05: DatacenterBrokerSimple8: Cloudlet 37 finished in Vm 7 and returned to broker.
+546  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 55 started execution
+552  [run-main-9] INFO  DatacenterBroker - 775.65: DatacenterBrokerSimple8: Cloudlet 35 finished in Vm 5 and returned to broker.
+553  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 53 started execution
+557  [run-main-9] INFO  DatacenterBroker - 786.07: DatacenterBrokerSimple8: Cloudlet 34 finished in Vm 4 and returned to broker.
+557  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 52 started execution
+560  [run-main-9] INFO  DatacenterBroker - 795.77: DatacenterBrokerSimple8: Cloudlet 99 finished in Vm 15 and returned to broker.
+560  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 117 started execution
+564  [run-main-9] INFO  DatacenterBroker - 820.39: DatacenterBrokerSimple8: Cloudlet 95 finished in Vm 11 and returned to broker.
+565  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 113 started execution
+566  [run-main-9] INFO  DatacenterBroker - 826.85: DatacenterBrokerSimple8: Cloudlet 30 finished in Vm 0 and returned to broker.
+566  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 48 started execution
+568  [run-main-9] INFO  DatacenterBroker - 830.69: DatacenterBrokerSimple8: Cloudlet 96 finished in Vm 12 and returned to broker.
+569  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 114 started execution
+570  [run-main-9] INFO  DatacenterBroker - 831.12: DatacenterBrokerSimple8: Cloudlet 39 finished in Vm 9 and returned to broker.
+570  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 57 started execution
+571  [run-main-9] INFO  DatacenterBroker - 833.13: DatacenterBrokerSimple8: Cloudlet 97 finished in Vm 13 and returned to broker.
+571  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 115 started execution
+588  [run-main-9] INFO  DatacenterBroker - 840.23: DatacenterBrokerSimple8: Cloudlet 31 finished in Vm 1 and returned to broker.
+588  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 49 started execution
+591  [run-main-9] INFO  DatacenterBroker - 847.24: DatacenterBrokerSimple8: Cloudlet 100 finished in Vm 16 and returned to broker.
+591  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 118 started execution
+592  [run-main-9] INFO  DatacenterBroker - 848.69: DatacenterBrokerSimple8: Cloudlet 202 finished in Vm 23 and returned to broker.
+592  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 231 started execution
+593  [run-main-9] INFO  DatacenterBroker - 851.05: DatacenterBrokerSimple8: Cloudlet 32 finished in Vm 2 and returned to broker.
+593  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 50 started execution
+595  [run-main-9] INFO  DatacenterBroker - 852.49: DatacenterBrokerSimple8: Cloudlet 201 finished in Vm 22 and returned to broker.
+596  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 230 started execution
+597  [run-main-9] INFO  DatacenterBroker - 858.52: DatacenterBrokerSimple8: Cloudlet 199 finished in Vm 20 and returned to broker.
+597  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 228 started execution
+598  [run-main-9] INFO  DatacenterBroker - 865.42: DatacenterBrokerSimple8: Cloudlet 101 finished in Vm 17 and returned to broker.
+598  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 119 started execution
+599  [run-main-9] INFO  DatacenterBroker - 891.54: DatacenterBrokerSimple8: Cloudlet 36 finished in Vm 6 and returned to broker.
+599  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 54 started execution
+602  [run-main-9] INFO  DatacenterBroker - 901.22: DatacenterBrokerSimple8: Cloudlet 198 finished in Vm 19 and returned to broker.
+602  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 227 started execution
+603  [run-main-9] INFO  DatacenterBroker - 903.23: DatacenterBrokerSimple8: Cloudlet 197 finished in Vm 18 and returned to broker.
+604  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 226 started execution
+605  [run-main-9] INFO  DatacenterBroker - 917.99: DatacenterBrokerSimple8: Cloudlet 112 finished in Vm 10 and returned to broker.
+606  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 136 started execution
+607  [run-main-9] INFO  DatacenterBroker - 925.97: DatacenterBrokerSimple8: Cloudlet 38 finished in Vm 8 and returned to broker.
+607  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 56 started execution
+609  [run-main-9] INFO  DatacenterBroker - 940.08: DatacenterBrokerSimple8: Cloudlet 200 finished in Vm 21 and returned to broker.
+609  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 229 started execution
+610  [run-main-9] INFO  DatacenterBroker - 945.00: DatacenterBrokerSimple8: Cloudlet 116 finished in Vm 14 and returned to broker.
+610  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 140 started execution
+611  [run-main-9] INFO  DatacenterBroker - 959.53: DatacenterBrokerSimple8: Cloudlet 117 finished in Vm 15 and returned to broker.
+612  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 141 started execution
+613  [run-main-9] INFO  DatacenterBroker - 978.59: DatacenterBrokerSimple8: Cloudlet 51 finished in Vm 3 and returned to broker.
+613  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 69 started execution
+614  [run-main-9] INFO  DatacenterBroker - 979.01: DatacenterBrokerSimple8: Cloudlet 53 finished in Vm 5 and returned to broker.
+614  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 71 started execution
+616  [run-main-9] INFO  DatacenterBroker - 997.09: DatacenterBrokerSimple8: Cloudlet 52 finished in Vm 4 and returned to broker.
+616  [run-main-9] INFO  DatacenterBroker - 997.09: DatacenterBrokerSimple8: Cloudlet 55 finished in Vm 7 and returned to broker.
+616  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 70 started execution
+616  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 73 started execution
+618  [run-main-9] INFO  DatacenterBroker - 1006.64: DatacenterBrokerSimple8: Cloudlet 114 finished in Vm 12 and returned to broker.
+618  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 138 started execution
+619  [run-main-9] INFO  DatacenterBroker - 1028.81: DatacenterBrokerSimple8: Cloudlet 48 finished in Vm 0 and returned to broker.
+619  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 66 started execution
+620  [run-main-9] INFO  DatacenterBroker - 1030.99: DatacenterBrokerSimple8: Cloudlet 57 finished in Vm 9 and returned to broker.
+620  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 75 started execution
+622  [run-main-9] INFO  DatacenterBroker - 1046.63: DatacenterBrokerSimple8: Cloudlet 50 finished in Vm 2 and returned to broker.
+622  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 68 started execution
+623  [run-main-9] INFO  DatacenterBroker - 1049.57: DatacenterBrokerSimple8: Cloudlet 230 finished in Vm 22 and returned to broker.
+624  [run-main-9] INFO  DatacenterBroker - 1052.54: DatacenterBrokerSimple8: Cloudlet 113 finished in Vm 11 and returned to broker.
+624  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 137 started execution
+624  [run-main-9] INFO  DatacenterBroker - 1055.09: DatacenterBrokerSimple8: Cloudlet 49 finished in Vm 1 and returned to broker.
+624  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 67 started execution
+625  [run-main-9] INFO  DatacenterBroker - 1059.57: DatacenterBrokerSimple8: Requesting Vm 22 destruction.
+625  [run-main-9] INFO  Datacenter - 1059.57: NetworkDatacenter: Vm 22 destroyed on Host 22/DC 1. 
+629  [run-main-9] INFO  DatacenterBroker - 1069.50: DatacenterBrokerSimple8: Cloudlet 119 finished in Vm 17 and returned to broker.
+629  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 143 started execution
+631  [run-main-9] INFO  DatacenterBroker - 1072.99: DatacenterBrokerSimple8: Cloudlet 228 finished in Vm 20 and returned to broker.
+632  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 259 started execution
+632  [run-main-9] INFO  DatacenterBroker - 1073.49: DatacenterBrokerSimple8: Cloudlet 231 finished in Vm 23 and returned to broker.
+633  [run-main-9] INFO  DatacenterBroker - 1073.94: DatacenterBrokerSimple8: Cloudlet 115 finished in Vm 13 and returned to broker.
+633  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 139 started execution
+633  [run-main-9] INFO  DatacenterBroker - 1076.09: DatacenterBrokerSimple8: Cloudlet 226 finished in Vm 18 and returned to broker.
+634  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 257 started execution
+636  [run-main-9] INFO  DatacenterBroker - 1082.03: DatacenterBrokerSimple8: Cloudlet 118 finished in Vm 16 and returned to broker.
+636  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 142 started execution
+636  [run-main-9] INFO  DatacenterBroker - 1083.49: DatacenterBrokerSimple8: Requesting Vm 23 destruction.
+636  [run-main-9] INFO  Datacenter - 1083.49: NetworkDatacenter: Vm 23 destroyed on Host 23/DC 1. 
+640  [run-main-9] INFO  DatacenterBroker - 1090.98: DatacenterBrokerSimple8: Cloudlet 54 finished in Vm 6 and returned to broker.
+640  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 72 started execution
+658  [run-main-9] INFO  DatacenterBroker - 1100.20: DatacenterBrokerSimple8: Cloudlet 227 finished in Vm 19 and returned to broker.
+658  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 258 started execution
+659  [run-main-9] INFO  DatacenterBroker - 1100.42: DatacenterBrokerSimple8: Cloudlet 136 finished in Vm 10 and returned to broker.
+659  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 160 started execution
+662  [run-main-9] INFO  DatacenterBroker - 1125.27: DatacenterBrokerSimple8: Cloudlet 56 finished in Vm 8 and returned to broker.
+663  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 74 started execution
+666  [run-main-9] INFO  DatacenterBroker - 1150.40: DatacenterBrokerSimple8: Cloudlet 141 finished in Vm 15 and returned to broker.
+666  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 165 started execution
+667  [run-main-9] INFO  DatacenterBroker - 1154.71: DatacenterBrokerSimple8: Cloudlet 71 finished in Vm 5 and returned to broker.
+667  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 89 started execution
+667  [run-main-9] INFO  DatacenterBroker - 1157.81: DatacenterBrokerSimple8: Cloudlet 229 finished in Vm 21 and returned to broker.
+668  [run-main-9] INFO  DatacenterBroker - 1158.78: DatacenterBrokerSimple8: Cloudlet 70 finished in Vm 4 and returned to broker.
+668  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 88 started execution
+670  [run-main-9] INFO  DatacenterBroker - 1166.59: DatacenterBrokerSimple8: Cloudlet 140 finished in Vm 14 and returned to broker.
+670  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 164 started execution
+670  [run-main-9] INFO  DatacenterBroker - 1167.81: DatacenterBrokerSimple8: Requesting Vm 21 destruction.
+671  [run-main-9] INFO  Datacenter - 1167.81: NetworkDatacenter: Vm 21 destroyed on Host 21/DC 1. 
+675  [run-main-9] INFO  DatacenterBroker - 1176.51: DatacenterBrokerSimple8: Cloudlet 69 finished in Vm 3 and returned to broker.
+675  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 87 started execution
+680  [run-main-9] INFO  DatacenterBroker - 1208.09: DatacenterBrokerSimple8: Cloudlet 138 finished in Vm 12 and returned to broker.
+680  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 162 started execution
+682  [run-main-9] INFO  DatacenterBroker - 1214.32: DatacenterBrokerSimple8: Cloudlet 73 finished in Vm 7 and returned to broker.
+682  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 91 started execution
+683  [run-main-9] INFO  DatacenterBroker - 1230.09: DatacenterBrokerSimple8: Cloudlet 137 finished in Vm 11 and returned to broker.
+683  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 161 started execution
+684  [run-main-9] INFO  DatacenterBroker - 1237.16: DatacenterBrokerSimple8: Cloudlet 68 finished in Vm 2 and returned to broker.
+684  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 86 started execution
+685  [run-main-9] INFO  DatacenterBroker - 1240.27: DatacenterBrokerSimple8: Cloudlet 66 finished in Vm 0 and returned to broker.
+685  [run-main-9] INFO  DatacenterBroker - 1240.27: DatacenterBrokerSimple8: Cloudlet 139 finished in Vm 13 and returned to broker.
+685  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 84 started execution
+685  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 163 started execution
+686  [run-main-9] INFO  DatacenterBroker - 1253.37: DatacenterBrokerSimple8: Cloudlet 75 finished in Vm 9 and returned to broker.
+686  [run-main-9] INFO  DatacenterBroker - 1253.37: DatacenterBrokerSimple8: Cloudlet 143 finished in Vm 17 and returned to broker.
+686  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 93 started execution
+686  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 167 started execution
+687  [run-main-9] INFO  DatacenterBroker - 1267.97: DatacenterBrokerSimple8: Cloudlet 142 finished in Vm 16 and returned to broker.
+687  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 166 started execution
+688  [run-main-9] INFO  DatacenterBroker - 1272.96: DatacenterBrokerSimple8: Cloudlet 67 finished in Vm 1 and returned to broker.
+688  [run-main-9] INFO  DatacenterBroker - 1272.96: DatacenterBrokerSimple8: Cloudlet 160 finished in Vm 10 and returned to broker.
+688  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 85 started execution
+688  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 189 started execution
+689  [run-main-9] INFO  DatacenterBroker - 1276.12: DatacenterBrokerSimple8: Cloudlet 72 finished in Vm 6 and returned to broker.
+689  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 90 started execution
+690  [run-main-9] INFO  DatacenterBroker - 1284.24: DatacenterBrokerSimple8: Cloudlet 259 finished in Vm 20 and returned to broker.
+691  [run-main-9] INFO  DatacenterBroker - 1292.22: DatacenterBrokerSimple8: Cloudlet 257 finished in Vm 18 and returned to broker.
+691  [run-main-9] INFO  DatacenterBroker - 1292.22: DatacenterBrokerSimple8: Cloudlet 258 finished in Vm 19 and returned to broker.
+691  [run-main-9] INFO  DatacenterBroker - 1294.24: DatacenterBrokerSimple8: Requesting Vm 20 destruction.
+691  [run-main-9] INFO  Datacenter - 1294.24: NetworkDatacenter: Vm 20 destroyed on Host 20/DC 1. 
+692  [run-main-9] INFO  DatacenterBroker - 1302.22: DatacenterBrokerSimple8: Requesting Vm 18 destruction.
+692  [run-main-9] INFO  DatacenterBroker - 1302.22: DatacenterBrokerSimple8: Requesting Vm 19 destruction.
+692  [run-main-9] INFO  Datacenter - 1302.22: NetworkDatacenter: Vm 18 destroyed on Host 18/DC 1. 
+692  [run-main-9] INFO  Datacenter - 1302.22: NetworkDatacenter: Vm 19 destroyed on Host 19/DC 1. 
+698  [run-main-9] INFO  DatacenterBroker - 1320.35: DatacenterBrokerSimple8: Cloudlet 74 finished in Vm 8 and returned to broker.
+698  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 92 started execution
+701  [run-main-9] INFO  DatacenterBroker - 1354.47: DatacenterBrokerSimple8: Cloudlet 89 finished in Vm 5 and returned to broker.
+702  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 107 started execution
+703  [run-main-9] INFO  DatacenterBroker - 1355.94: DatacenterBrokerSimple8: Cloudlet 165 finished in Vm 15 and returned to broker.
+703  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 194 started execution
+703  [run-main-9] INFO  DatacenterBroker - 1378.74: DatacenterBrokerSimple8: Cloudlet 88 finished in Vm 4 and returned to broker.
+704  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 106 started execution
+706  [run-main-9] INFO  DatacenterBroker - 1398.42: DatacenterBrokerSimple8: Cloudlet 87 finished in Vm 3 and returned to broker.
+706  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 105 started execution
+707  [run-main-9] INFO  DatacenterBroker - 1402.51: DatacenterBrokerSimple8: Cloudlet 164 finished in Vm 14 and returned to broker.
+707  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 193 started execution
+709  [run-main-9] INFO  DatacenterBroker - 1414.90: DatacenterBrokerSimple8: Cloudlet 161 finished in Vm 11 and returned to broker.
+709  [run-main-9] INFO  DatacenterBroker - 1414.90: DatacenterBrokerSimple8: Cloudlet 162 finished in Vm 12 and returned to broker.
+709  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 190 started execution
+709  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 191 started execution
+709  [run-main-9] INFO  DatacenterBroker - 1420.01: DatacenterBrokerSimple8: Cloudlet 84 finished in Vm 0 and returned to broker.
+709  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 102 started execution
+710  [run-main-9] INFO  DatacenterBroker - 1424.91: DatacenterBrokerSimple8: Cloudlet 85 finished in Vm 1 and returned to broker.
+710  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 103 started execution
+711  [run-main-9] INFO  DatacenterBroker - 1431.42: DatacenterBrokerSimple8: Cloudlet 163 finished in Vm 13 and returned to broker.
+711  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 192 started execution
+712  [run-main-9] INFO  DatacenterBroker - 1434.89: DatacenterBrokerSimple8: Cloudlet 189 finished in Vm 10 and returned to broker.
+712  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 218 started execution
+712  [run-main-9] INFO  DatacenterBroker - 1435.00: DatacenterBrokerSimple8: Cloudlet 91 finished in Vm 7 and returned to broker.
+712  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 109 started execution
+713  [run-main-9] INFO  DatacenterBroker - 1441.87: DatacenterBrokerSimple8: Cloudlet 166 finished in Vm 16 and returned to broker.
+713  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 195 started execution
+714  [run-main-9] INFO  DatacenterBroker - 1443.58: DatacenterBrokerSimple8: Cloudlet 93 finished in Vm 9 and returned to broker.
+714  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 111 started execution
+714  [run-main-9] INFO  DatacenterBroker - 1449.00: DatacenterBrokerSimple8: Cloudlet 167 finished in Vm 17 and returned to broker.
+714  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 196 started execution
+715  [run-main-9] INFO  DatacenterBroker - 1449.94: DatacenterBrokerSimple8: Cloudlet 86 finished in Vm 2 and returned to broker.
+715  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 104 started execution
+716  [run-main-9] INFO  DatacenterBroker - 1500.98: DatacenterBrokerSimple8: Cloudlet 90 finished in Vm 6 and returned to broker.
+716  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 108 started execution
+717  [run-main-9] INFO  DatacenterBroker - 1545.20: DatacenterBrokerSimple8: Cloudlet 107 finished in Vm 5 and returned to broker.
+717  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 131 started execution
+718  [run-main-9] INFO  DatacenterBroker - 1555.88: DatacenterBrokerSimple8: Cloudlet 194 finished in Vm 15 and returned to broker.
+718  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 223 started execution
+720  [run-main-9] INFO  DatacenterBroker - 1565.59: DatacenterBrokerSimple8: Cloudlet 92 finished in Vm 8 and returned to broker.
+720  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 110 started execution
+721  [run-main-9] INFO  DatacenterBroker - 1567.28: DatacenterBrokerSimple8: Cloudlet 106 finished in Vm 4 and returned to broker.
+721  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 130 started execution
+721  [run-main-9] INFO  DatacenterBroker - 1598.29: DatacenterBrokerSimple8: Cloudlet 111 finished in Vm 9 and returned to broker.
+721  [run-main-9] INFO  DatacenterBroker - 1598.29: DatacenterBrokerSimple8: Cloudlet 193 finished in Vm 14 and returned to broker.
+722  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 135 started execution
+722  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 222 started execution
+722  [run-main-9] INFO  DatacenterBroker - 1604.23: DatacenterBrokerSimple8: Cloudlet 102 finished in Vm 0 and returned to broker.
+722  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 126 started execution
+723  [run-main-9] INFO  DatacenterBroker - 1606.11: DatacenterBrokerSimple8: Cloudlet 190 finished in Vm 11 and returned to broker.
+723  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 219 started execution
+725  [run-main-9] INFO  DatacenterBroker - 1618.82: DatacenterBrokerSimple8: Cloudlet 192 finished in Vm 13 and returned to broker.
+725  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 221 started execution
+726  [run-main-9] INFO  DatacenterBroker - 1620.29: DatacenterBrokerSimple8: Cloudlet 103 finished in Vm 1 and returned to broker.
+727  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 127 started execution
+730  [run-main-9] INFO  DatacenterBroker - 1630.28: DatacenterBrokerSimple8: Cloudlet 105 finished in Vm 3 and returned to broker.
+730  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 129 started execution
+731  [run-main-9] INFO  DatacenterBroker - 1640.39: DatacenterBrokerSimple8: Cloudlet 195 finished in Vm 16 and returned to broker.
+731  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 224 started execution
+731  [run-main-9] INFO  DatacenterBroker - 1643.91: DatacenterBrokerSimple8: Cloudlet 104 finished in Vm 2 and returned to broker.
+731  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 128 started execution
+732  [run-main-9] INFO  DatacenterBroker - 1647.41: DatacenterBrokerSimple8: Cloudlet 196 finished in Vm 17 and returned to broker.
+733  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 225 started execution
+733  [run-main-9] INFO  DatacenterBroker - 1668.31: DatacenterBrokerSimple8: Cloudlet 218 finished in Vm 10 and returned to broker.
+733  [run-main-9] INFO  DatacenterBroker - 1668.31: DatacenterBrokerSimple8: Cloudlet 191 finished in Vm 12 and returned to broker.
+734  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 249 started execution
+734  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 220 started execution
+734  [run-main-9] INFO  DatacenterBroker - 1680.12: DatacenterBrokerSimple8: Cloudlet 109 finished in Vm 7 and returned to broker.
+735  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 133 started execution
+736  [run-main-9] INFO  DatacenterBroker - 1702.91: DatacenterBrokerSimple8: Cloudlet 108 finished in Vm 6 and returned to broker.
+736  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 132 started execution
+737  [run-main-9] INFO  DatacenterBroker - 1729.82: DatacenterBrokerSimple8: Cloudlet 223 finished in Vm 15 and returned to broker.
+737  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 254 started execution
+739  [run-main-9] INFO  DatacenterBroker - 1766.61: DatacenterBrokerSimple8: Cloudlet 131 finished in Vm 5 and returned to broker.
+739  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 155 started execution
+740  [run-main-9] INFO  DatacenterBroker - 1768.41: DatacenterBrokerSimple8: Cloudlet 130 finished in Vm 4 and returned to broker.
+740  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 154 started execution
+740  [run-main-9] INFO  DatacenterBroker - 1768.98: DatacenterBrokerSimple8: Cloudlet 135 finished in Vm 9 and returned to broker.
+741  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 159 started execution
+742  [run-main-9] INFO  DatacenterBroker - 1784.93: DatacenterBrokerSimple8: Cloudlet 222 finished in Vm 14 and returned to broker.
+742  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 253 started execution
+744  [run-main-9] INFO  DatacenterBroker - 1789.27: DatacenterBrokerSimple8: Cloudlet 127 finished in Vm 1 and returned to broker.
+744  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 151 started execution
+745  [run-main-9] INFO  DatacenterBroker - 1790.79: DatacenterBrokerSimple8: Cloudlet 126 finished in Vm 0 and returned to broker.
+745  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 150 started execution
+746  [run-main-9] INFO  DatacenterBroker - 1795.73: DatacenterBrokerSimple8: Cloudlet 110 finished in Vm 8 and returned to broker.
+746  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 134 started execution
+747  [run-main-9] INFO  DatacenterBroker - 1797.99: DatacenterBrokerSimple8: Cloudlet 221 finished in Vm 13 and returned to broker.
+747  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 252 started execution
+748  [run-main-9] INFO  DatacenterBroker - 1809.16: DatacenterBrokerSimple8: Cloudlet 224 finished in Vm 16 and returned to broker.
+748  [run-main-9] INFO  DatacenterBroker - 1809.16: DatacenterBrokerSimple8: Cloudlet 225 finished in Vm 17 and returned to broker.
+748  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 255 started execution
+749  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 256 started execution
+749  [run-main-9] INFO  DatacenterBroker - 1826.41: DatacenterBrokerSimple8: Cloudlet 128 finished in Vm 2 and returned to broker.
+749  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 152 started execution
+750  [run-main-9] INFO  DatacenterBroker - 1842.10: DatacenterBrokerSimple8: Cloudlet 249 finished in Vm 10 and returned to broker.
+751  [run-main-9] INFO  DatacenterBroker - 1845.57: DatacenterBrokerSimple8: Cloudlet 219 finished in Vm 11 and returned to broker.
+752  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 250 started execution
+752  [run-main-9] INFO  DatacenterBroker - 1845.68: DatacenterBrokerSimple8: Cloudlet 220 finished in Vm 12 and returned to broker.
+752  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 251 started execution
+752  [run-main-9] INFO  DatacenterBroker - 1847.41: DatacenterBrokerSimple8: Cloudlet 129 finished in Vm 3 and returned to broker.
+752  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 153 started execution
+753  [run-main-9] INFO  DatacenterBroker - 1852.10: DatacenterBrokerSimple8: Requesting Vm 10 destruction.
+753  [run-main-9] INFO  Datacenter - 1852.10: NetworkDatacenter: Vm 10 destroyed on Host 10/DC 1. 
+769  [run-main-9] INFO  DatacenterBroker - 1919.41: DatacenterBrokerSimple8: Cloudlet 254 finished in Vm 15 and returned to broker.
+774  [run-main-9] INFO  DatacenterBroker - 1922.76: DatacenterBrokerSimple8: Cloudlet 133 finished in Vm 7 and returned to broker.
+775  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 157 started execution
+776  [run-main-9] INFO  DatacenterBroker - 1927.55: DatacenterBrokerSimple8: Cloudlet 132 finished in Vm 6 and returned to broker.
+776  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 156 started execution
+776  [run-main-9] INFO  DatacenterBroker - 1929.41: DatacenterBrokerSimple8: Requesting Vm 15 destruction.
+776  [run-main-9] INFO  Datacenter - 1929.41: NetworkDatacenter: Vm 15 destroyed on Host 15/DC 1. 
+784  [run-main-9] INFO  DatacenterBroker - 1944.25: DatacenterBrokerSimple8: Cloudlet 154 finished in Vm 4 and returned to broker.
+784  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 183 started execution
+787  [run-main-9] INFO  DatacenterBroker - 1960.68: DatacenterBrokerSimple8: Cloudlet 155 finished in Vm 5 and returned to broker.
+787  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 184 started execution
+787  [run-main-9] INFO  DatacenterBroker - 1961.58: DatacenterBrokerSimple8: Cloudlet 150 finished in Vm 0 and returned to broker.
+787  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 179 started execution
+789  [run-main-9] INFO  DatacenterBroker - 1987.05: DatacenterBrokerSimple8: Cloudlet 159 finished in Vm 9 and returned to broker.
+789  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 188 started execution
+789  [run-main-9] INFO  DatacenterBroker - 1999.46: DatacenterBrokerSimple8: Cloudlet 134 finished in Vm 8 and returned to broker.
+789  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 158 started execution
+790  [run-main-9] INFO  DatacenterBroker - 2007.72: DatacenterBrokerSimple8: Cloudlet 252 finished in Vm 13 and returned to broker.
+791  [run-main-9] INFO  DatacenterBroker - 2007.94: DatacenterBrokerSimple8: Cloudlet 256 finished in Vm 17 and returned to broker.
+791  [run-main-9] INFO  DatacenterBroker - 2013.17: DatacenterBrokerSimple8: Cloudlet 255 finished in Vm 16 and returned to broker.
+792  [run-main-9] INFO  DatacenterBroker - 2017.40: DatacenterBrokerSimple8: Cloudlet 152 finished in Vm 2 and returned to broker.
+792  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 181 started execution
+792  [run-main-9] INFO  DatacenterBroker - 2017.72: DatacenterBrokerSimple8: Requesting Vm 13 destruction.
+792  [run-main-9] INFO  Datacenter - 2017.72: NetworkDatacenter: Vm 13 destroyed on Host 13/DC 1. 
+792  [run-main-9] INFO  DatacenterBroker - 2017.94: DatacenterBrokerSimple8: Requesting Vm 17 destruction.
+792  [run-main-9] INFO  Datacenter - 2017.94: NetworkDatacenter: Vm 17 destroyed on Host 17/DC 1. 
+793  [run-main-9] INFO  DatacenterBroker - 2023.17: DatacenterBrokerSimple8: Requesting Vm 16 destruction.
+793  [run-main-9] INFO  Datacenter - 2023.17: NetworkDatacenter: Vm 16 destroyed on Host 16/DC 1. 
+796  [run-main-9] INFO  DatacenterBroker - 2033.57: DatacenterBrokerSimple8: Cloudlet 251 finished in Vm 12 and returned to broker.
+805  [run-main-9] INFO  DatacenterBroker - 2041.12: DatacenterBrokerSimple8: Cloudlet 253 finished in Vm 14 and returned to broker.
+806  [run-main-9] INFO  DatacenterBroker - 2042.12: DatacenterBrokerSimple8: Cloudlet 151 finished in Vm 1 and returned to broker.
+806  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 180 started execution
+807  [run-main-9] INFO  DatacenterBroker - 2043.57: DatacenterBrokerSimple8: Requesting Vm 12 destruction.
+807  [run-main-9] INFO  Datacenter - 2043.57: NetworkDatacenter: Vm 12 destroyed on Host 12/DC 1. 
+812  [run-main-9] INFO  DatacenterBroker - 2051.12: DatacenterBrokerSimple8: Requesting Vm 14 destruction.
+813  [run-main-9] INFO  Datacenter - 2051.12: NetworkDatacenter: Vm 14 destroyed on Host 14/DC 1. 
+831  [run-main-9] INFO  DatacenterBroker - 2066.27: DatacenterBrokerSimple8: Cloudlet 153 finished in Vm 3 and returned to broker.
+831  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 182 started execution
+834  [run-main-9] INFO  DatacenterBroker - 2071.05: DatacenterBrokerSimple8: Cloudlet 250 finished in Vm 11 and returned to broker.
+837  [run-main-9] INFO  DatacenterBroker - 2081.05: DatacenterBrokerSimple8: Requesting Vm 11 destruction.
+837  [run-main-9] INFO  Datacenter - 2081.05: NetworkDatacenter: Vm 11 destroyed on Host 11/DC 1. 
+852  [run-main-9] INFO  DatacenterBroker - 2101.31: DatacenterBrokerSimple8: Cloudlet 156 finished in Vm 6 and returned to broker.
+852  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 185 started execution
+853  [run-main-9] INFO  DatacenterBroker - 2110.28: DatacenterBrokerSimple8: Cloudlet 157 finished in Vm 7 and returned to broker.
+854  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 186 started execution
+857  [run-main-9] INFO  DatacenterBroker - 2149.31: DatacenterBrokerSimple8: Cloudlet 179 finished in Vm 0 and returned to broker.
+857  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 208 started execution
+860  [run-main-9] INFO  DatacenterBroker - 2174.23: DatacenterBrokerSimple8: Cloudlet 183 finished in Vm 4 and returned to broker.
+860  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 212 started execution
+863  [run-main-9] INFO  DatacenterBroker - 2184.47: DatacenterBrokerSimple8: Cloudlet 158 finished in Vm 8 and returned to broker.
+864  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 187 started execution
+864  [run-main-9] INFO  DatacenterBroker - 2188.01: DatacenterBrokerSimple8: Cloudlet 184 finished in Vm 5 and returned to broker.
+865  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 213 started execution
+865  [run-main-9] INFO  DatacenterBroker - 2199.55: DatacenterBrokerSimple8: Cloudlet 188 finished in Vm 9 and returned to broker.
+865  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 217 started execution
+870  [run-main-9] INFO  DatacenterBroker - 2247.05: DatacenterBrokerSimple8: Cloudlet 180 finished in Vm 1 and returned to broker.
+870  [run-main-9] INFO  DatacenterBroker - 2247.05: DatacenterBrokerSimple8: Cloudlet 182 finished in Vm 3 and returned to broker.
+870  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 209 started execution
+870  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 211 started execution
+872  [run-main-9] INFO  DatacenterBroker - 2263.07: DatacenterBrokerSimple8: Cloudlet 186 finished in Vm 7 and returned to broker.
+872  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 215 started execution
+873  [run-main-9] INFO  DatacenterBroker - 2265.74: DatacenterBrokerSimple8: Cloudlet 181 finished in Vm 2 and returned to broker.
+873  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 210 started execution
+877  [run-main-9] INFO  DatacenterBroker - 2333.96: DatacenterBrokerSimple8: Cloudlet 185 finished in Vm 6 and returned to broker.
+878  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 214 started execution
+879  [run-main-9] INFO  DatacenterBroker - 2338.69: DatacenterBrokerSimple8: Cloudlet 187 finished in Vm 8 and returned to broker.
+879  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 216 started execution
+881  [run-main-9] INFO  DatacenterBroker - 2360.20: DatacenterBrokerSimple8: Cloudlet 208 finished in Vm 0 and returned to broker.
+881  [run-main-9] INFO  DatacenterBroker - 2360.20: DatacenterBrokerSimple8: Cloudlet 212 finished in Vm 4 and returned to broker.
+881  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 239 started execution
+882  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 243 started execution
+883  [run-main-9] INFO  DatacenterBroker - 2364.18: DatacenterBrokerSimple8: Cloudlet 213 finished in Vm 5 and returned to broker.
+883  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 244 started execution
+885  [run-main-9] INFO  DatacenterBroker - 2418.71: DatacenterBrokerSimple8: Cloudlet 209 finished in Vm 1 and returned to broker.
+885  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 240 started execution
+886  [run-main-9] INFO  DatacenterBroker - 2421.17: DatacenterBrokerSimple8: Cloudlet 215 finished in Vm 7 and returned to broker.
+886  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 246 started execution
+888  [run-main-9] INFO  DatacenterBroker - 2452.56: DatacenterBrokerSimple8: Cloudlet 217 finished in Vm 9 and returned to broker.
+888  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 248 started execution
+890  [run-main-9] INFO  DatacenterBroker - 2496.40: DatacenterBrokerSimple8: Cloudlet 211 finished in Vm 3 and returned to broker.
+890  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 242 started execution
+893  [run-main-9] INFO  DatacenterBroker - 2530.77: DatacenterBrokerSimple8: Cloudlet 210 finished in Vm 2 and returned to broker.
+893  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 241 started execution
+894  [run-main-9] INFO  DatacenterBroker - 2537.06: DatacenterBrokerSimple8: Cloudlet 216 finished in Vm 8 and returned to broker.
+895  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 247 started execution
+895  [run-main-9] INFO  DatacenterBroker - 2540.17: DatacenterBrokerSimple8: Cloudlet 243 finished in Vm 4 and returned to broker.
+895  [run-main-9] INFO  DatacenterBroker - 2550.17: DatacenterBrokerSimple8: Requesting Vm 4 destruction.
+896  [run-main-9] INFO  Datacenter - 2550.17: NetworkDatacenter: Vm 4 destroyed on Host 4/DC 1. 
+896  [run-main-9] INFO  DatacenterBroker - 2551.91: DatacenterBrokerSimple8: Cloudlet 244 finished in Vm 5 and returned to broker.
+897  [run-main-9] INFO  DatacenterBroker - 2555.06: DatacenterBrokerSimple8: Cloudlet 214 finished in Vm 6 and returned to broker.
+897  [run-main-9] INFO  c.d.s.Siddhanth_Venkateshwaran_Datacenter2 - New CLOUDLET 245 started execution
+898  [run-main-9] INFO  DatacenterBroker - 2561.91: DatacenterBrokerSimple8: Requesting Vm 5 destruction.
+899  [run-main-9] INFO  Datacenter - 2561.91: NetworkDatacenter: Vm 5 destroyed on Host 5/DC 1. 
+906  [run-main-9] INFO  DatacenterBroker - 2610.17: DatacenterBrokerSimple8: Cloudlet 239 finished in Vm 0 and returned to broker.
+907  [run-main-9] INFO  DatacenterBroker - 2620.17: DatacenterBrokerSimple8: Requesting Vm 0 destruction.
+907  [run-main-9] INFO  Datacenter - 2620.17: NetworkDatacenter: Vm 0 destroyed on Host 0/DC 1. 
+907  [run-main-9] INFO  DatacenterBroker - 2620.17: DatacenterBrokerSimple8: Cloudlet 248 finished in Vm 9 and returned to broker.
+908  [run-main-9] INFO  DatacenterBroker - 2630.17: DatacenterBrokerSimple8: Requesting Vm 9 destruction.
+908  [run-main-9] INFO  Datacenter - 2630.17: NetworkDatacenter: Vm 9 destroyed on Host 9/DC 1. 
+913  [run-main-9] INFO  DatacenterBroker - 2648.24: DatacenterBrokerSimple8: Cloudlet 246 finished in Vm 7 and returned to broker.
+914  [run-main-9] INFO  DatacenterBroker - 2658.24: DatacenterBrokerSimple8: Requesting Vm 7 destruction.
+914  [run-main-9] INFO  Datacenter - 2658.24: NetworkDatacenter: Vm 7 destroyed on Host 7/DC 1. 
+916  [run-main-9] INFO  DatacenterBroker - 2663.35: DatacenterBrokerSimple8: Cloudlet 240 finished in Vm 1 and returned to broker.
+917  [run-main-9] INFO  DatacenterBroker - 2673.35: DatacenterBrokerSimple8: Requesting Vm 1 destruction.
+923  [run-main-9] INFO  Datacenter - 2673.35: NetworkDatacenter: Vm 1 destroyed on Host 1/DC 1. 
+930  [run-main-9] INFO  DatacenterBroker - 2703.49: DatacenterBrokerSimple8: Cloudlet 242 finished in Vm 3 and returned to broker.
+931  [run-main-9] INFO  DatacenterBroker - 2713.49: DatacenterBrokerSimple8: Requesting Vm 3 destruction.
+931  [run-main-9] INFO  Datacenter - 2713.49: NetworkDatacenter: Vm 3 destroyed on Host 3/DC 1. 
+933  [run-main-9] INFO  DatacenterBroker - 2737.69: DatacenterBrokerSimple8: Cloudlet 241 finished in Vm 2 and returned to broker.
+934  [run-main-9] INFO  DatacenterBroker - 2747.69: DatacenterBrokerSimple8: Requesting Vm 2 destruction.
+934  [run-main-9] INFO  Datacenter - 2747.69: NetworkDatacenter: Vm 2 destroyed on Host 2/DC 1. 
+935  [run-main-9] INFO  DatacenterBroker - 2748.62: DatacenterBrokerSimple8: Cloudlet 247 finished in Vm 8 and returned to broker.
+936  [run-main-9] INFO  DatacenterBroker - 2753.58: DatacenterBrokerSimple8: Cloudlet 245 finished in Vm 6 and returned to broker.
+937  [run-main-9] INFO  DatacenterBroker - 2758.62: DatacenterBrokerSimple8: Requesting Vm 8 destruction.
+937  [run-main-9] INFO  Datacenter - 2758.62: NetworkDatacenter: Vm 8 destroyed on Host 8/DC 1. 
+939  [run-main-9] INFO  DatacenterBroker - 2763.58: DatacenterBrokerSimple8: Requesting Vm 6 destruction.
+940  [run-main-9] INFO  Datacenter - 2763.58: NetworkDatacenter: Vm 6 destroyed on Host 6/DC 1. 
+943  [run-main-9] INFO  CloudSim - 2773.58: Processing last events before simulation shutdown.
+943  [run-main-9] INFO  DatacenterBroker - 2773.58: DatacenterBrokerSimple8 is shutting down...
+943  [run-main-9] INFO  DatacenterBroker - 2773.58: DatacenterBrokerSimple8: Requesting Vm 40 destruction.
+943  [run-main-9] INFO  DatacenterBroker - 2773.58: DatacenterBrokerSimple8: Requesting Vm 39 destruction.
+943  [run-main-9] INFO  DatacenterBroker - 2773.58: DatacenterBrokerSimple8: Requesting Vm 38 destruction.
+943  [run-main-9] INFO  DatacenterBroker - 2773.58: DatacenterBrokerSimple8: Requesting Vm 37 destruction.
+943  [run-main-9] INFO  DatacenterBroker - 2773.58: DatacenterBrokerSimple8: Requesting Vm 36 destruction.
+943  [run-main-9] INFO  DatacenterBroker - 2773.58: DatacenterBrokerSimple8: Requesting Vm 35 destruction.
+943  [run-main-9] INFO  DatacenterBroker - 2773.58: DatacenterBrokerSimple8: Requesting Vm 34 destruction.
+943  [run-main-9] INFO  DatacenterBroker - 2773.58: DatacenterBrokerSimple8: Requesting Vm 33 destruction.
+943  [run-main-9] INFO  DatacenterBroker - 2773.58: DatacenterBrokerSimple8: Requesting Vm 32 destruction.
+943  [run-main-9] INFO  DatacenterBroker - 2773.58: DatacenterBrokerSimple8: Requesting Vm 31 destruction.
+943  [run-main-9] INFO  Datacenter - 2773.58: NetworkDatacenter: Vm 40 destroyed on Host 40/DC 1. 
+944  [run-main-9] INFO  Datacenter - 2773.58: NetworkDatacenter: Vm 39 destroyed on Host 39/DC 1. 
+944  [run-main-9] INFO  Datacenter - 2773.58: NetworkDatacenter: Vm 38 destroyed on Host 38/DC 1. 
+944  [run-main-9] INFO  Datacenter - 2773.58: NetworkDatacenter: Vm 37 destroyed on Host 37/DC 1. 
+945  [run-main-9] INFO  Datacenter - 2773.58: NetworkDatacenter: Vm 36 destroyed on Host 36/DC 1. 
+945  [run-main-9] INFO  Datacenter - 2773.58: NetworkDatacenter: Vm 35 destroyed on Host 35/DC 1. 
+946  [run-main-9] INFO  Datacenter - 2773.58: NetworkDatacenter: Vm 34 destroyed on Host 34/DC 1. 
+946  [run-main-9] INFO  Datacenter - 2773.58: NetworkDatacenter: Vm 33 destroyed on Host 33/DC 1. 
+946  [run-main-9] INFO  Datacenter - 2773.58: NetworkDatacenter: Vm 32 destroyed on Host 32/DC 1. 
+946  [run-main-9] INFO  Datacenter - 2773.58: NetworkDatacenter: Vm 31 destroyed on Host 31/DC 1. 
+946  [run-main-9] INFO  CloudSim - Simulation: No more future events
+
+947  [run-main-9] INFO  CloudInformationService - CloudInformationService0: Notify all CloudSim Plus entities to shutdown.
+
+948  [run-main-9] INFO  Datacenter - 2773.58: NetworkDatacenter1 is shutting down...
+948  [run-main-9] INFO  AbstractSwitch - EdgeSwitch2 is shutting down...
+948  [run-main-9] INFO  AbstractSwitch - EdgeSwitch3 is shutting down...
+948  [run-main-9] INFO  AbstractSwitch - EdgeSwitch4 is shutting down...
+948  [run-main-9] INFO  AbstractSwitch - EdgeSwitch5 is shutting down...
+948  [run-main-9] INFO  AbstractSwitch - EdgeSwitch6 is shutting down...
+948  [run-main-9] INFO  AbstractSwitch - AggregateSwitch7 is shutting down...
+948  [run-main-9] INFO  CloudSim - 
+================== Simulation finished at time 2773.58 ==================
+
+948  [run-main-9] DEBUG CloudSim - DeferredQueue >> max size: 99 added to middle: 0 added to tail: 3806

@@ -1,0 +1,416 @@
+93   [run-main-7] INFO  DatacenterBrokerSimple - 0.00:		VM 0 allocated to host 0
+95   [run-main-7] INFO  DatacenterBrokerSimple - 0.00:		VM 1 allocated to host 0
+95   [run-main-7] INFO  DatacenterBrokerSimple - 0.00:		VM 2 allocated to host 1
+95   [run-main-7] INFO  DatacenterBrokerSimple - 0.00:		VM 3 allocated to host 1
+95   [run-main-7] INFO  DatacenterBrokerSimple - 0.00:		VM 4 allocated to host 2
+96   [run-main-7] INFO  DatacenterBrokerSimple - 0.00:		VM 5 allocated to host 2
+96   [run-main-7] INFO  DatacenterBrokerSimple - 0.00:		VM 6 allocated to host 3
+97   [run-main-7] INFO  DatacenterBrokerSimple - 0.00:		VM 7 allocated to host 3
+97   [run-main-7] INFO  DatacenterBrokerSimple - 0.00:		VM 8 allocated to host 4
+99   [run-main-7] INFO  DatacenterBrokerSimple - 0.00:		VM 9 allocated to host 4
+100  [run-main-7] INFO  DatacenterBrokerSimple - 0.10:		Cloudlet 0 started executing on VM 0 on host 0
+101  [run-main-7] INFO  DatacenterBrokerSimple - 0.10:		Cloudlet 1 started executing on VM 1 on host 0
+101  [run-main-7] INFO  DatacenterBrokerSimple - 0.10:		Cloudlet 2 started executing on VM 2 on host 1
+101  [run-main-7] INFO  DatacenterBrokerSimple - 0.10:		Cloudlet 3 started executing on VM 3 on host 1
+101  [run-main-7] INFO  DatacenterBrokerSimple - 0.10:		Cloudlet 4 started executing on VM 4 on host 2
+101  [run-main-7] INFO  DatacenterBrokerSimple - 0.10:		Cloudlet 5 started executing on VM 5 on host 2
+101  [run-main-7] INFO  DatacenterBrokerSimple - 0.10:		Cloudlet 6 started executing on VM 6 on host 3
+101  [run-main-7] INFO  DatacenterBrokerSimple - 0.10:		Cloudlet 7 started executing on VM 7 on host 3
+101  [run-main-7] INFO  DatacenterBrokerSimple - 0.10:		Cloudlet 8 started executing on VM 8 on host 4
+101  [run-main-7] INFO  DatacenterBrokerSimple - 0.10:		Cloudlet 9 started executing on VM 9 on host 4
+101  [run-main-7] INFO  DatacenterBrokerSimple - 0.10:		Cloudlet 10 started executing on VM 0 on host 0
+101  [run-main-7] INFO  DatacenterBrokerSimple - 0.10:		Cloudlet 11 started executing on VM 1 on host 0
+101  [run-main-7] INFO  DatacenterBrokerSimple - 0.10:		Cloudlet 12 started executing on VM 2 on host 1
+101  [run-main-7] INFO  DatacenterBrokerSimple - 0.10:		Cloudlet 13 started executing on VM 3 on host 1
+101  [run-main-7] INFO  DatacenterBrokerSimple - 0.10:		Cloudlet 14 started executing on VM 4 on host 2
+101  [run-main-7] INFO  DatacenterBrokerSimple - 0.10:		Cloudlet 15 started executing on VM 5 on host 2
+102  [run-main-7] INFO  DatacenterBrokerSimple - 0.10:		Cloudlet 16 started executing on VM 6 on host 3
+102  [run-main-7] INFO  DatacenterBrokerSimple - 0.10:		Cloudlet 17 started executing on VM 7 on host 3
+102  [run-main-7] INFO  DatacenterBrokerSimple - 0.10:		Cloudlet 18 started executing on VM 8 on host 4
+102  [run-main-7] INFO  DatacenterBrokerSimple - 0.10:		Cloudlet 19 started executing on VM 9 on host 4
+104  [run-main-7] WARN  CloudletScheduler - 50.10: CloudletSchedulerTimeShared: Cloudlet 10 requested 7232 MB of Ram but just 7103 was available and allocated to it.
+105  [run-main-7] WARN  CloudletScheduler - 50.10: CloudletSchedulerTimeShared: Cloudlet 10 requested 441 MB of Bandwidth but just 434 was available and allocated to it.
+105  [run-main-7] WARN  CloudletScheduler - 50.10: CloudletSchedulerTimeShared: Cloudlet 11 requested 10472 MB of Ram but just 4656 was available and allocated to it.
+105  [run-main-7] WARN  CloudletScheduler - 50.10: CloudletSchedulerTimeShared: Cloudlet 11 requested 639 MB of Bandwidth but just 285 was available and allocated to it.
+106  [run-main-7] WARN  CloudletScheduler - 50.10: CloudletSchedulerTimeShared: Cloudlet 12 requested 313 MB of Ram but just 39 was available and allocated to it.
+106  [run-main-7] WARN  CloudletScheduler - 50.10: CloudletSchedulerTimeShared: Cloudlet 12 requested 19 MB of Bandwidth but just 3 was available and allocated to it.
+106  [run-main-7] WARN  CloudletScheduler - 50.10: CloudletSchedulerTimeShared: Cloudlet 15 requested 16320 MB of Ram but just 3807 was available and allocated to it.
+106  [run-main-7] WARN  CloudletScheduler - 50.10: CloudletSchedulerTimeShared: Cloudlet 15 requested 996 MB of Bandwidth but just 233 was available and allocated to it.
+107  [run-main-7] WARN  CloudletScheduler - 50.10: CloudletSchedulerTimeShared: Cloudlet 19 requested 6761 MB of Ram but just 4519 was available and allocated to it.
+107  [run-main-7] WARN  CloudletScheduler - 50.10: CloudletSchedulerTimeShared: Cloudlet 19 requested 412 MB of Bandwidth but just 276 was available and allocated to it.
+107  [run-main-7] WARN  CloudletScheduler - 100.10: CloudletSchedulerTimeShared: Cloudlet 10 requested 10406 MB of Ram but just 321 was available and allocated to it.
+107  [run-main-7] WARN  CloudletScheduler - 100.10: CloudletSchedulerTimeShared: Cloudlet 10 requested 635 MB of Bandwidth but just 20 was available and allocated to it.
+107  [run-main-7] WARN  CloudletScheduler - 100.10: CloudletSchedulerTimeShared: Cloudlet 13 requested 10588 MB of Ram but just 7651 was available and allocated to it.
+107  [run-main-7] WARN  CloudletScheduler - 100.10: CloudletSchedulerTimeShared: Cloudlet 13 requested 646 MB of Bandwidth but just 467 was available and allocated to it.
+108  [run-main-7] WARN  CloudletScheduler - 100.10: CloudletSchedulerTimeShared: Cloudlet 14 requested 12914 MB of Ram but just 7968 was available and allocated to it.
+108  [run-main-7] WARN  CloudletScheduler - 100.10: CloudletSchedulerTimeShared: Cloudlet 14 requested 788 MB of Bandwidth but just 487 was available and allocated to it.
+108  [run-main-7] WARN  CloudletScheduler - 100.10: CloudletSchedulerTimeShared: Cloudlet 15 requested 7264 MB of Ram but just 5742 was available and allocated to it.
+108  [run-main-7] WARN  CloudletScheduler - 100.10: CloudletSchedulerTimeShared: Cloudlet 15 requested 443 MB of Bandwidth but just 351 was available and allocated to it.
+108  [run-main-7] WARN  CloudletScheduler - 100.10: CloudletSchedulerTimeShared: Cloudlet 19 requested 16127 MB of Ram but just 8900 was available and allocated to it.
+108  [run-main-7] WARN  CloudletScheduler - 100.10: CloudletSchedulerTimeShared: Cloudlet 19 requested 984 MB of Bandwidth but just 544 was available and allocated to it.
+108  [run-main-7] WARN  CloudletScheduler - 150.10: CloudletSchedulerTimeShared: Cloudlet 11 requested 3040 MB of Ram but just 2643 was available and allocated to it.
+109  [run-main-7] WARN  CloudletScheduler - 150.10: CloudletSchedulerTimeShared: Cloudlet 11 requested 185 MB of Bandwidth but just 162 was available and allocated to it.
+109  [run-main-7] WARN  CloudletScheduler - 150.10: CloudletSchedulerTimeShared: Cloudlet 12 requested 12882 MB of Ram but just 7782 was available and allocated to it.
+109  [run-main-7] WARN  CloudletScheduler - 150.10: CloudletSchedulerTimeShared: Cloudlet 12 requested 786 MB of Bandwidth but just 475 was available and allocated to it.
+109  [run-main-7] WARN  CloudletScheduler - 150.10: CloudletSchedulerTimeShared: Cloudlet 15 requested 13222 MB of Ram but just 3225 was available and allocated to it.
+109  [run-main-7] WARN  CloudletScheduler - 150.10: CloudletSchedulerTimeShared: Cloudlet 15 requested 807 MB of Bandwidth but just 197 was available and allocated to it.
+109  [run-main-7] WARN  CloudletScheduler - 200.10: CloudletSchedulerTimeShared: Cloudlet 10 requested 12980 MB of Ram but just 3447 was available and allocated to it.
+109  [run-main-7] WARN  CloudletScheduler - 200.10: CloudletSchedulerTimeShared: Cloudlet 10 requested 792 MB of Bandwidth but just 211 was available and allocated to it.
+110  [run-main-7] WARN  CloudletScheduler - 200.10: CloudletSchedulerTimeShared: Cloudlet 11 requested 15053 MB of Ram but just 8649 was available and allocated to it.
+110  [run-main-7] WARN  CloudletScheduler - 200.10: CloudletSchedulerTimeShared: Cloudlet 11 requested 918 MB of Bandwidth but just 528 was available and allocated to it.
+110  [run-main-7] WARN  CloudletScheduler - 200.10: CloudletSchedulerTimeShared: Cloudlet 12 requested 11421 MB of Ram but just 2563 was available and allocated to it.
+110  [run-main-7] WARN  CloudletScheduler - 200.10: CloudletSchedulerTimeShared: Cloudlet 12 requested 697 MB of Bandwidth but just 157 was available and allocated to it.
+110  [run-main-7] WARN  CloudletScheduler - 200.10: CloudletSchedulerTimeShared: Cloudlet 14 requested 15031 MB of Ram but just 3934 was available and allocated to it.
+110  [run-main-7] WARN  CloudletScheduler - 200.10: CloudletSchedulerTimeShared: Cloudlet 14 requested 917 MB of Bandwidth but just 241 was available and allocated to it.
+110  [run-main-7] WARN  CloudletScheduler - 200.10: CloudletSchedulerTimeShared: Cloudlet 17 requested 14047 MB of Ram but just 9953 was available and allocated to it.
+110  [run-main-7] WARN  CloudletScheduler - 200.10: CloudletSchedulerTimeShared: Cloudlet 17 requested 857 MB of Bandwidth but just 608 was available and allocated to it.
+110  [run-main-7] WARN  CloudletScheduler - 200.10: CloudletSchedulerTimeShared: Cloudlet 18 requested 12979 MB of Ram but just 10113 was available and allocated to it.
+110  [run-main-7] WARN  CloudletScheduler - 200.10: CloudletSchedulerTimeShared: Cloudlet 18 requested 792 MB of Bandwidth but just 618 was available and allocated to it.
+111  [run-main-7] WARN  CloudletScheduler - 250.10: CloudletSchedulerTimeShared: Cloudlet 10 requested 11611 MB of Ram but just 3125 was available and allocated to it.
+111  [run-main-7] WARN  CloudletScheduler - 250.10: CloudletSchedulerTimeShared: Cloudlet 10 requested 708 MB of Bandwidth but just 191 was available and allocated to it.
+111  [run-main-7] WARN  CloudletScheduler - 250.10: CloudletSchedulerTimeShared: Cloudlet 11 requested 14020 MB of Ram but just 248 was available and allocated to it.
+111  [run-main-7] WARN  CloudletScheduler - 250.10: CloudletSchedulerTimeShared: Cloudlet 11 requested 855 MB of Bandwidth but just 16 was available and allocated to it.
+112  [run-main-7] WARN  CloudletScheduler - 250.10: CloudletSchedulerTimeShared: Cloudlet 13 requested 4846 MB of Ram but just 581 was available and allocated to it.
+112  [run-main-7] WARN  CloudletScheduler - 250.10: CloudletSchedulerTimeShared: Cloudlet 13 requested 295 MB of Bandwidth but just 36 was available and allocated to it.
+113  [run-main-7] WARN  CloudletScheduler - 250.10: CloudletSchedulerTimeShared: Cloudlet 14 requested 12659 MB of Ram but just 571 was available and allocated to it.
+113  [run-main-7] WARN  CloudletScheduler - 250.10: CloudletSchedulerTimeShared: Cloudlet 14 requested 772 MB of Bandwidth but just 35 was available and allocated to it.
+113  [run-main-7] WARN  CloudletScheduler - 250.10: CloudletSchedulerTimeShared: Cloudlet 15 requested 14316 MB of Ram but just 4828 was available and allocated to it.
+113  [run-main-7] WARN  CloudletScheduler - 250.10: CloudletSchedulerTimeShared: Cloudlet 15 requested 873 MB of Bandwidth but just 295 was available and allocated to it.
+113  [run-main-7] WARN  CloudletScheduler - 250.10: CloudletSchedulerTimeShared: Cloudlet 16 requested 14074 MB of Ram but just 6251 was available and allocated to it.
+113  [run-main-7] WARN  CloudletScheduler - 250.10: CloudletSchedulerTimeShared: Cloudlet 16 requested 859 MB of Bandwidth but just 382 was available and allocated to it.
+114  [run-main-7] WARN  CloudletScheduler - 250.10: CloudletSchedulerTimeShared: Cloudlet 17 requested 15603 MB of Ram but just 12183 was available and allocated to it.
+114  [run-main-7] WARN  CloudletScheduler - 250.10: CloudletSchedulerTimeShared: Cloudlet 17 requested 952 MB of Bandwidth but just 744 was available and allocated to it.
+114  [run-main-7] WARN  CloudletScheduler - 250.10: CloudletSchedulerTimeShared: Cloudlet 18 requested 3516 MB of Ram but just 813 was available and allocated to it.
+114  [run-main-7] WARN  CloudletScheduler - 250.10: CloudletSchedulerTimeShared: Cloudlet 18 requested 214 MB of Bandwidth but just 50 was available and allocated to it.
+114  [run-main-7] WARN  CloudletScheduler - 250.10: CloudletSchedulerTimeShared: Cloudlet 19 requested 8394 MB of Ram but just 6573 was available and allocated to it.
+114  [run-main-7] WARN  CloudletScheduler - 250.10: CloudletSchedulerTimeShared: Cloudlet 19 requested 512 MB of Bandwidth but just 402 was available and allocated to it.
+115  [run-main-7] WARN  CloudletScheduler - 268.09: CloudletSchedulerTimeShared: Cloudlet 10 requested 13758 MB of Ram but just 9583 was available and allocated to it.
+115  [run-main-7] WARN  CloudletScheduler - 268.09: CloudletSchedulerTimeShared: Cloudlet 10 requested 839 MB of Bandwidth but just 585 was available and allocated to it.
+115  [run-main-7] WARN  CloudletScheduler - 268.09: CloudletSchedulerTimeShared: Cloudlet 12 requested 11751 MB of Ram but just 9426 was available and allocated to it.
+115  [run-main-7] WARN  CloudletScheduler - 268.09: CloudletSchedulerTimeShared: Cloudlet 12 requested 717 MB of Bandwidth but just 576 was available and allocated to it.
+115  [run-main-7] WARN  CloudletScheduler - 268.09: CloudletSchedulerTimeShared: Cloudlet 13 requested 15717 MB of Ram but just 5505 was available and allocated to it.
+115  [run-main-7] WARN  CloudletScheduler - 268.09: CloudletSchedulerTimeShared: Cloudlet 13 requested 959 MB of Bandwidth but just 336 was available and allocated to it.
+115  [run-main-7] WARN  CloudletScheduler - 268.09: CloudletSchedulerTimeShared: Cloudlet 15 requested 7124 MB of Ram but just 4288 was available and allocated to it.
+115  [run-main-7] WARN  CloudletScheduler - 268.09: CloudletSchedulerTimeShared: Cloudlet 15 requested 434 MB of Bandwidth but just 262 was available and allocated to it.
+116  [run-main-7] WARN  CloudletScheduler - 268.09: CloudletSchedulerTimeShared: Cloudlet 18 requested 12684 MB of Ram but just 10024 was available and allocated to it.
+116  [run-main-7] WARN  CloudletScheduler - 268.09: CloudletSchedulerTimeShared: Cloudlet 18 requested 774 MB of Bandwidth but just 612 was available and allocated to it.
+117  [run-main-7] WARN  CloudletScheduler - 300.09: CloudletSchedulerTimeShared: Cloudlet 13 requested 15675 MB of Ram but just 8386 was available and allocated to it.
+117  [run-main-7] WARN  CloudletScheduler - 300.09: CloudletSchedulerTimeShared: Cloudlet 13 requested 956 MB of Bandwidth but just 512 was available and allocated to it.
+117  [run-main-7] WARN  CloudletScheduler - 300.09: CloudletSchedulerTimeShared: Cloudlet 14 requested 10209 MB of Ram but just 2811 was available and allocated to it.
+117  [run-main-7] WARN  CloudletScheduler - 300.09: CloudletSchedulerTimeShared: Cloudlet 14 requested 623 MB of Bandwidth but just 172 was available and allocated to it.
+117  [run-main-7] WARN  CloudletScheduler - 300.09: CloudletSchedulerTimeShared: Cloudlet 16 requested 14308 MB of Ram but just 14127 was available and allocated to it.
+117  [run-main-7] WARN  CloudletScheduler - 300.09: CloudletSchedulerTimeShared: Cloudlet 16 requested 873 MB of Bandwidth but just 863 was available and allocated to it.
+117  [run-main-7] WARN  CloudletScheduler - 300.09: CloudletSchedulerTimeShared: Cloudlet 19 requested 14585 MB of Ram but just 3001 was available and allocated to it.
+117  [run-main-7] WARN  CloudletScheduler - 300.09: CloudletSchedulerTimeShared: Cloudlet 19 requested 890 MB of Bandwidth but just 184 was available and allocated to it.
+118  [run-main-7] WARN  CloudletScheduler - 309.67: CloudletSchedulerTimeShared: Cloudlet 11 requested 14601 MB of Ram but just 9242 was available and allocated to it.
+118  [run-main-7] WARN  CloudletScheduler - 309.67: CloudletSchedulerTimeShared: Cloudlet 11 requested 891 MB of Bandwidth but just 565 was available and allocated to it.
+118  [run-main-7] WARN  CloudletScheduler - 309.67: CloudletSchedulerTimeShared: Cloudlet 13 requested 7487 MB of Ram but just 2905 was available and allocated to it.
+118  [run-main-7] WARN  CloudletScheduler - 309.67: CloudletSchedulerTimeShared: Cloudlet 13 requested 457 MB of Bandwidth but just 178 was available and allocated to it.
+118  [run-main-7] WARN  CloudletScheduler - 309.67: CloudletSchedulerTimeShared: Cloudlet 14 requested 13410 MB of Ram but just 4149 was available and allocated to it.
+118  [run-main-7] WARN  CloudletScheduler - 309.67: CloudletSchedulerTimeShared: Cloudlet 14 requested 818 MB of Bandwidth but just 254 was available and allocated to it.
+119  [run-main-7] WARN  CloudletScheduler - 309.67: CloudletSchedulerTimeShared: Cloudlet 16 requested 10255 MB of Ram but just 10028 was available and allocated to it.
+119  [run-main-7] WARN  CloudletScheduler - 309.67: CloudletSchedulerTimeShared: Cloudlet 16 requested 625 MB of Bandwidth but just 613 was available and allocated to it.
+119  [run-main-7] WARN  CloudletScheduler - 309.67: CloudletSchedulerTimeShared: Cloudlet 17 requested 13696 MB of Ram but just 12970 was available and allocated to it.
+119  [run-main-7] WARN  CloudletScheduler - 309.67: CloudletSchedulerTimeShared: Cloudlet 17 requested 835 MB of Bandwidth but just 792 was available and allocated to it.
+119  [run-main-7] WARN  CloudletScheduler - 309.67: CloudletSchedulerTimeShared: Cloudlet 18 requested 12855 MB of Ram but just 12812 was available and allocated to it.
+119  [run-main-7] WARN  CloudletScheduler - 309.67: CloudletSchedulerTimeShared: Cloudlet 18 requested 784 MB of Bandwidth but just 782 was available and allocated to it.
+119  [run-main-7] WARN  CloudletScheduler - 310.14: CloudletSchedulerTimeShared: Cloudlet 10 requested 12306 MB of Ram but just 4512 was available and allocated to it.
+119  [run-main-7] WARN  CloudletScheduler - 310.14: CloudletSchedulerTimeShared: Cloudlet 10 requested 751 MB of Bandwidth but just 276 was available and allocated to it.
+120  [run-main-7] WARN  CloudletScheduler - 310.14: CloudletSchedulerTimeShared: Cloudlet 11 requested 10254 MB of Ram but just 9825 was available and allocated to it.
+120  [run-main-7] WARN  CloudletScheduler - 310.14: CloudletSchedulerTimeShared: Cloudlet 11 requested 625 MB of Bandwidth but just 600 was available and allocated to it.
+120  [run-main-7] WARN  CloudletScheduler - 310.14: CloudletSchedulerTimeShared: Cloudlet 12 requested 9315 MB of Ram but just 3713 was available and allocated to it.
+120  [run-main-7] WARN  CloudletScheduler - 310.14: CloudletSchedulerTimeShared: Cloudlet 12 requested 568 MB of Bandwidth but just 227 was available and allocated to it.
+120  [run-main-7] WARN  CloudletScheduler - 310.14: CloudletSchedulerTimeShared: Cloudlet 14 requested 14543 MB of Ram but just 9669 was available and allocated to it.
+120  [run-main-7] WARN  CloudletScheduler - 310.14: CloudletSchedulerTimeShared: Cloudlet 14 requested 887 MB of Bandwidth but just 591 was available and allocated to it.
+120  [run-main-7] WARN  CloudletScheduler - 310.14: CloudletSchedulerTimeShared: Cloudlet 15 requested 7739 MB of Ram but just 1969 was available and allocated to it.
+120  [run-main-7] WARN  CloudletScheduler - 310.14: CloudletSchedulerTimeShared: Cloudlet 15 requested 472 MB of Bandwidth but just 121 was available and allocated to it.
+120  [run-main-7] WARN  CloudletScheduler - 310.14: CloudletSchedulerTimeShared: Cloudlet 16 requested 6985 MB of Ram but just 6124 was available and allocated to it.
+120  [run-main-7] WARN  CloudletScheduler - 310.14: CloudletSchedulerTimeShared: Cloudlet 16 requested 426 MB of Bandwidth but just 374 was available and allocated to it.
+121  [run-main-7] WARN  CloudletScheduler - 310.14: CloudletSchedulerTimeShared: Cloudlet 19 requested 7065 MB of Ram but just 779 was available and allocated to it.
+121  [run-main-7] WARN  CloudletScheduler - 310.14: CloudletSchedulerTimeShared: Cloudlet 19 requested 431 MB of Bandwidth but just 48 was available and allocated to it.
+121  [run-main-7] WARN  CloudletScheduler - 311.61: CloudletSchedulerTimeShared: Cloudlet 11 requested 7932 MB of Ram but just 3263 was available and allocated to it.
+121  [run-main-7] WARN  CloudletScheduler - 311.61: CloudletSchedulerTimeShared: Cloudlet 11 requested 484 MB of Bandwidth but just 200 was available and allocated to it.
+121  [run-main-7] WARN  CloudletScheduler - 311.61: CloudletSchedulerTimeShared: Cloudlet 13 requested 5514 MB of Ram but just 1671 was available and allocated to it.
+121  [run-main-7] WARN  CloudletScheduler - 311.61: CloudletSchedulerTimeShared: Cloudlet 13 requested 336 MB of Bandwidth but just 102 was available and allocated to it.
+122  [run-main-7] WARN  CloudletScheduler - 311.61: CloudletSchedulerTimeShared: Cloudlet 18 requested 11167 MB of Ram but just 3033 was available and allocated to it.
+122  [run-main-7] WARN  CloudletScheduler - 311.61: CloudletSchedulerTimeShared: Cloudlet 18 requested 681 MB of Bandwidth but just 186 was available and allocated to it.
+122  [run-main-7] WARN  CloudletScheduler - 311.61: CloudletSchedulerTimeShared: Cloudlet 19 requested 12191 MB of Ram but just 6997 was available and allocated to it.
+122  [run-main-7] WARN  CloudletScheduler - 311.61: CloudletSchedulerTimeShared: Cloudlet 19 requested 744 MB of Bandwidth but just 428 was available and allocated to it.
+122  [run-main-7] WARN  CloudletScheduler - 311.95: CloudletSchedulerTimeShared: Cloudlet 11 requested 10703 MB of Ram but just 4316 was available and allocated to it.
+122  [run-main-7] WARN  CloudletScheduler - 311.95: CloudletSchedulerTimeShared: Cloudlet 11 requested 653 MB of Bandwidth but just 264 was available and allocated to it.
+122  [run-main-7] WARN  CloudletScheduler - 311.95: CloudletSchedulerTimeShared: Cloudlet 12 requested 12872 MB of Ram but just 834 was available and allocated to it.
+122  [run-main-7] WARN  CloudletScheduler - 311.95: CloudletSchedulerTimeShared: Cloudlet 12 requested 785 MB of Bandwidth but just 51 was available and allocated to it.
+122  [run-main-7] WARN  CloudletScheduler - 311.95: CloudletSchedulerTimeShared: Cloudlet 13 requested 15327 MB of Ram but just 2376 was available and allocated to it.
+122  [run-main-7] WARN  CloudletScheduler - 311.95: CloudletSchedulerTimeShared: Cloudlet 13 requested 935 MB of Bandwidth but just 145 was available and allocated to it.
+123  [run-main-7] WARN  CloudletScheduler - 311.95: CloudletSchedulerTimeShared: Cloudlet 15 requested 15936 MB of Ram but just 11390 was available and allocated to it.
+123  [run-main-7] WARN  CloudletScheduler - 311.95: CloudletSchedulerTimeShared: Cloudlet 15 requested 972 MB of Bandwidth but just 696 was available and allocated to it.
+123  [run-main-7] WARN  CloudletScheduler - 311.95: CloudletSchedulerTimeShared: Cloudlet 16 requested 13010 MB of Ram but just 7256 was available and allocated to it.
+123  [run-main-7] WARN  CloudletScheduler - 311.95: CloudletSchedulerTimeShared: Cloudlet 16 requested 794 MB of Bandwidth but just 443 was available and allocated to it.
+123  [run-main-7] WARN  CloudletScheduler - 312.06: CloudletSchedulerTimeShared: Cloudlet 10 requested 7650 MB of Ram but just 6886 was available and allocated to it.
+123  [run-main-7] WARN  CloudletScheduler - 312.06: CloudletSchedulerTimeShared: Cloudlet 10 requested 466 MB of Bandwidth but just 421 was available and allocated to it.
+123  [run-main-7] WARN  CloudletScheduler - 312.06: CloudletSchedulerTimeShared: Cloudlet 13 requested 14083 MB of Ram but just 5491 was available and allocated to it.
+123  [run-main-7] WARN  CloudletScheduler - 312.06: CloudletSchedulerTimeShared: Cloudlet 13 requested 859 MB of Bandwidth but just 336 was available and allocated to it.
+123  [run-main-7] INFO  DatacenterBrokerSimple - 312.06:		Cloudlet 4 finished executing on VM 4 on host 2
+124  [run-main-7] WARN  CloudletScheduler - 312.06: CloudletSchedulerTimeShared: Cloudlet 18 requested 11476 MB of Ram but just 2455 was available and allocated to it.
+124  [run-main-7] WARN  CloudletScheduler - 312.06: CloudletSchedulerTimeShared: Cloudlet 18 requested 700 MB of Bandwidth but just 150 was available and allocated to it.
+124  [run-main-7] WARN  CloudletScheduler - 312.06: CloudletSchedulerTimeShared: Cloudlet 19 requested 13983 MB of Ram but just 5677 was available and allocated to it.
+124  [run-main-7] WARN  CloudletScheduler - 312.06: CloudletSchedulerTimeShared: Cloudlet 19 requested 853 MB of Bandwidth but just 347 was available and allocated to it.
+124  [run-main-7] WARN  CloudletScheduler - 312.17: CloudletSchedulerTimeShared: Cloudlet 10 requested 9260 MB of Ram but just 308 was available and allocated to it.
+124  [run-main-7] WARN  CloudletScheduler - 312.17: CloudletSchedulerTimeShared: Cloudlet 10 requested 565 MB of Bandwidth but just 19 was available and allocated to it.
+124  [run-main-7] WARN  CloudletScheduler - 312.17: CloudletSchedulerTimeShared: Cloudlet 12 requested 12393 MB of Ram but just 8573 was available and allocated to it.
+124  [run-main-7] WARN  CloudletScheduler - 312.17: CloudletSchedulerTimeShared: Cloudlet 12 requested 756 MB of Bandwidth but just 524 was available and allocated to it.
+124  [run-main-7] WARN  CloudletScheduler - 312.17: CloudletSchedulerTimeShared: Cloudlet 13 requested 10711 MB of Ram but just 6251 was available and allocated to it.
+124  [run-main-7] WARN  CloudletScheduler - 312.17: CloudletSchedulerTimeShared: Cloudlet 13 requested 653 MB of Bandwidth but just 382 was available and allocated to it.
+124  [run-main-7] WARN  CloudletScheduler - 312.17: CloudletSchedulerTimeShared: Cloudlet 15 requested 10541 MB of Ram but just 7716 was available and allocated to it.
+125  [run-main-7] WARN  CloudletScheduler - 312.17: CloudletSchedulerTimeShared: Cloudlet 15 requested 643 MB of Bandwidth but just 471 was available and allocated to it.
+125  [run-main-7] WARN  CloudletScheduler - 312.17: CloudletSchedulerTimeShared: Cloudlet 16 requested 12052 MB of Ram but just 3943 was available and allocated to it.
+125  [run-main-7] WARN  CloudletScheduler - 312.17: CloudletSchedulerTimeShared: Cloudlet 16 requested 735 MB of Bandwidth but just 241 was available and allocated to it.
+125  [run-main-7] WARN  CloudletScheduler - 312.17: CloudletSchedulerTimeShared: Cloudlet 18 requested 7324 MB of Ram but just 2160 was available and allocated to it.
+125  [run-main-7] WARN  CloudletScheduler - 312.17: CloudletSchedulerTimeShared: Cloudlet 18 requested 447 MB of Bandwidth but just 132 was available and allocated to it.
+125  [run-main-7] WARN  CloudletScheduler - 315.07: CloudletSchedulerTimeShared: Cloudlet 10 requested 14426 MB of Ram but just 13536 was available and allocated to it.
+125  [run-main-7] WARN  CloudletScheduler - 315.07: CloudletSchedulerTimeShared: Cloudlet 10 requested 880 MB of Bandwidth but just 827 was available and allocated to it.
+125  [run-main-7] WARN  CloudletScheduler - 315.07: CloudletSchedulerTimeShared: Cloudlet 12 requested 8703 MB of Ram but just 5893 was available and allocated to it.
+125  [run-main-7] WARN  CloudletScheduler - 315.07: CloudletSchedulerTimeShared: Cloudlet 12 requested 531 MB of Bandwidth but just 360 was available and allocated to it.
+126  [run-main-7] WARN  CloudletScheduler - 315.07: CloudletSchedulerTimeShared: Cloudlet 15 requested 7369 MB of Ram but just 3596 was available and allocated to it.
+126  [run-main-7] WARN  CloudletScheduler - 315.07: CloudletSchedulerTimeShared: Cloudlet 15 requested 449 MB of Bandwidth but just 220 was available and allocated to it.
+126  [run-main-7] WARN  CloudletScheduler - 315.07: CloudletSchedulerTimeShared: Cloudlet 16 requested 12597 MB of Ram but just 1140 was available and allocated to it.
+126  [run-main-7] WARN  CloudletScheduler - 315.07: CloudletSchedulerTimeShared: Cloudlet 16 requested 768 MB of Bandwidth but just 70 was available and allocated to it.
+126  [run-main-7] WARN  CloudletScheduler - 315.07: CloudletSchedulerTimeShared: Cloudlet 18 requested 14874 MB of Ram but just 8783 was available and allocated to it.
+126  [run-main-7] WARN  CloudletScheduler - 315.07: CloudletSchedulerTimeShared: Cloudlet 18 requested 907 MB of Bandwidth but just 537 was available and allocated to it.
+126  [run-main-7] INFO  DatacenterBrokerSimple - 321.07:		Cloudlet 0 finished executing on VM 0 on host 0
+126  [run-main-7] WARN  CloudletScheduler - 321.07: CloudletSchedulerTimeShared: Cloudlet 10 requested 9373 MB of Ram but just 1266 was available and allocated to it.
+126  [run-main-7] WARN  CloudletScheduler - 321.07: CloudletSchedulerTimeShared: Cloudlet 10 requested 572 MB of Bandwidth but just 78 was available and allocated to it.
+126  [run-main-7] WARN  CloudletScheduler - 321.07: CloudletSchedulerTimeShared: Cloudlet 11 requested 10090 MB of Ram but just 8470 was available and allocated to it.
+126  [run-main-7] WARN  CloudletScheduler - 321.07: CloudletSchedulerTimeShared: Cloudlet 11 requested 615 MB of Bandwidth but just 517 was available and allocated to it.
+126  [run-main-7] WARN  CloudletScheduler - 321.07: CloudletSchedulerTimeShared: Cloudlet 13 requested 2845 MB of Ram but just 2228 was available and allocated to it.
+126  [run-main-7] WARN  CloudletScheduler - 321.07: CloudletSchedulerTimeShared: Cloudlet 13 requested 173 MB of Bandwidth but just 136 was available and allocated to it.
+127  [run-main-7] WARN  CloudletScheduler - 321.07: CloudletSchedulerTimeShared: Cloudlet 15 requested 11125 MB of Ram but just 3302 was available and allocated to it.
+127  [run-main-7] WARN  CloudletScheduler - 321.07: CloudletSchedulerTimeShared: Cloudlet 15 requested 679 MB of Bandwidth but just 202 was available and allocated to it.
+127  [run-main-7] WARN  CloudletScheduler - 321.07: CloudletSchedulerTimeShared: Cloudlet 16 requested 6252 MB of Ram but just 4669 was available and allocated to it.
+127  [run-main-7] WARN  CloudletScheduler - 321.07: CloudletSchedulerTimeShared: Cloudlet 16 requested 381 MB of Bandwidth but just 285 was available and allocated to it.
+128  [run-main-7] WARN  CloudletScheduler - 321.18: CloudletSchedulerTimeShared: Cloudlet 11 requested 10317 MB of Ram but just 1573 was available and allocated to it.
+128  [run-main-7] WARN  CloudletScheduler - 321.18: CloudletSchedulerTimeShared: Cloudlet 11 requested 629 MB of Bandwidth but just 97 was available and allocated to it.
+128  [run-main-7] WARN  CloudletScheduler - 321.18: CloudletSchedulerTimeShared: Cloudlet 12 requested 10170 MB of Ram but just 7724 was available and allocated to it.
+128  [run-main-7] WARN  CloudletScheduler - 321.18: CloudletSchedulerTimeShared: Cloudlet 12 requested 620 MB of Bandwidth but just 472 was available and allocated to it.
+128  [run-main-7] WARN  CloudletScheduler - 321.18: CloudletSchedulerTimeShared: Cloudlet 16 requested 15562 MB of Ram but just 12329 was available and allocated to it.
+128  [run-main-7] WARN  CloudletScheduler - 321.18: CloudletSchedulerTimeShared: Cloudlet 16 requested 949 MB of Bandwidth but just 753 was available and allocated to it.
+128  [run-main-7] WARN  CloudletScheduler - 321.18: CloudletSchedulerTimeShared: Cloudlet 17 requested 12900 MB of Ram but just 6842 was available and allocated to it.
+128  [run-main-7] WARN  CloudletScheduler - 321.18: CloudletSchedulerTimeShared: Cloudlet 17 requested 787 MB of Bandwidth but just 418 was available and allocated to it.
+128  [run-main-7] WARN  CloudletScheduler - 321.18: CloudletSchedulerTimeShared: Cloudlet 19 requested 16191 MB of Ram but just 12915 was available and allocated to it.
+128  [run-main-7] WARN  CloudletScheduler - 321.18: CloudletSchedulerTimeShared: Cloudlet 19 requested 988 MB of Bandwidth but just 789 was available and allocated to it.
+128  [run-main-7] WARN  CloudletScheduler - 322.64: CloudletSchedulerTimeShared: Cloudlet 11 requested 12041 MB of Ram but just 3938 was available and allocated to it.
+128  [run-main-7] WARN  CloudletScheduler - 322.64: CloudletSchedulerTimeShared: Cloudlet 11 requested 734 MB of Bandwidth but just 241 was available and allocated to it.
+129  [run-main-7] WARN  CloudletScheduler - 322.64: CloudletSchedulerTimeShared: Cloudlet 12 requested 4504 MB of Ram but just 3178 was available and allocated to it.
+129  [run-main-7] WARN  CloudletScheduler - 322.64: CloudletSchedulerTimeShared: Cloudlet 12 requested 274 MB of Bandwidth but just 194 was available and allocated to it.
+129  [run-main-7] WARN  CloudletScheduler - 322.64: CloudletSchedulerTimeShared: Cloudlet 15 requested 8494 MB of Ram but just 6538 was available and allocated to it.
+129  [run-main-7] WARN  CloudletScheduler - 322.64: CloudletSchedulerTimeShared: Cloudlet 15 requested 518 MB of Bandwidth but just 399 was available and allocated to it.
+129  [run-main-7] WARN  CloudletScheduler - 322.64: CloudletSchedulerTimeShared: Cloudlet 16 requested 15249 MB of Ram but just 1231 was available and allocated to it.
+129  [run-main-7] WARN  CloudletScheduler - 322.64: CloudletSchedulerTimeShared: Cloudlet 16 requested 930 MB of Bandwidth but just 76 was available and allocated to it.
+129  [run-main-7] WARN  CloudletScheduler - 322.64: CloudletSchedulerTimeShared: Cloudlet 17 requested 15407 MB of Ram but just 4912 was available and allocated to it.
+129  [run-main-7] WARN  CloudletScheduler - 322.64: CloudletSchedulerTimeShared: Cloudlet 17 requested 940 MB of Bandwidth but just 300 was available and allocated to it.
+129  [run-main-7] WARN  CloudletScheduler - 322.64: CloudletSchedulerTimeShared: Cloudlet 19 requested 5509 MB of Ram but just 4487 was available and allocated to it.
+129  [run-main-7] WARN  CloudletScheduler - 322.64: CloudletSchedulerTimeShared: Cloudlet 19 requested 336 MB of Bandwidth but just 274 was available and allocated to it.
+129  [run-main-7] WARN  CloudletScheduler - 323.13: CloudletSchedulerTimeShared: Cloudlet 12 requested 6861 MB of Ram but just 265 was available and allocated to it.
+129  [run-main-7] WARN  CloudletScheduler - 323.13: CloudletSchedulerTimeShared: Cloudlet 12 requested 418 MB of Bandwidth but just 17 was available and allocated to it.
+130  [run-main-7] WARN  CloudletScheduler - 323.13: CloudletSchedulerTimeShared: Cloudlet 13 requested 9212 MB of Ram but just 7907 was available and allocated to it.
+130  [run-main-7] WARN  CloudletScheduler - 323.13: CloudletSchedulerTimeShared: Cloudlet 13 requested 562 MB of Bandwidth but just 483 was available and allocated to it.
+130  [run-main-7] WARN  CloudletScheduler - 323.13: CloudletSchedulerTimeShared: Cloudlet 18 requested 580 MB of Ram but just 351 was available and allocated to it.
+130  [run-main-7] WARN  CloudletScheduler - 323.13: CloudletSchedulerTimeShared: Cloudlet 18 requested 35 MB of Bandwidth but just 22 was available and allocated to it.
+130  [run-main-7] WARN  CloudletScheduler - 323.13: CloudletSchedulerTimeShared: Cloudlet 19 requested 14900 MB of Ram but just 2336 was available and allocated to it.
+130  [run-main-7] WARN  CloudletScheduler - 323.13: CloudletSchedulerTimeShared: Cloudlet 19 requested 909 MB of Bandwidth but just 143 was available and allocated to it.
+130  [run-main-7] INFO  DatacenterBrokerSimple - 323.76:		Cloudlet 1 finished executing on VM 1 on host 0
+130  [run-main-7] WARN  CloudletScheduler - 323.76: CloudletSchedulerTimeShared: Cloudlet 11 requested 8617 MB of Ram but just 2351 was available and allocated to it.
+130  [run-main-7] WARN  CloudletScheduler - 323.76: CloudletSchedulerTimeShared: Cloudlet 11 requested 525 MB of Bandwidth but just 144 was available and allocated to it.
+130  [run-main-7] WARN  CloudletScheduler - 323.76: CloudletSchedulerTimeShared: Cloudlet 12 requested 15039 MB of Ram but just 1644 was available and allocated to it.
+130  [run-main-7] WARN  CloudletScheduler - 323.76: CloudletSchedulerTimeShared: Cloudlet 12 requested 917 MB of Bandwidth but just 101 was available and allocated to it.
+130  [run-main-7] WARN  CloudletScheduler - 323.76: CloudletSchedulerTimeShared: Cloudlet 16 requested 8435 MB of Ram but just 4470 was available and allocated to it.
+130  [run-main-7] WARN  CloudletScheduler - 323.76: CloudletSchedulerTimeShared: Cloudlet 16 requested 514 MB of Bandwidth but just 273 was available and allocated to it.
+131  [run-main-7] WARN  CloudletScheduler - 323.76: CloudletSchedulerTimeShared: Cloudlet 18 requested 13565 MB of Ram but just 2112 was available and allocated to it.
+131  [run-main-7] WARN  CloudletScheduler - 323.76: CloudletSchedulerTimeShared: Cloudlet 18 requested 827 MB of Bandwidth but just 129 was available and allocated to it.
+131  [run-main-7] WARN  CloudletScheduler - 323.76: CloudletSchedulerTimeShared: Cloudlet 19 requested 6512 MB of Ram but just 3994 was available and allocated to it.
+131  [run-main-7] WARN  CloudletScheduler - 323.76: CloudletSchedulerTimeShared: Cloudlet 19 requested 397 MB of Bandwidth but just 244 was available and allocated to it.
+131  [run-main-7] WARN  CloudletScheduler - 323.87: CloudletSchedulerTimeShared: Cloudlet 13 requested 7512 MB of Ram but just 2036 was available and allocated to it.
+131  [run-main-7] WARN  CloudletScheduler - 323.87: CloudletSchedulerTimeShared: Cloudlet 13 requested 458 MB of Bandwidth but just 125 was available and allocated to it.
+131  [run-main-7] WARN  CloudletScheduler - 323.87: CloudletSchedulerTimeShared: Cloudlet 16 requested 8549 MB of Ram but just 5725 was available and allocated to it.
+131  [run-main-7] WARN  CloudletScheduler - 323.87: CloudletSchedulerTimeShared: Cloudlet 16 requested 521 MB of Bandwidth but just 350 was available and allocated to it.
+131  [run-main-7] WARN  CloudletScheduler - 323.87: CloudletSchedulerTimeShared: Cloudlet 17 requested 12355 MB of Ram but just 8665 was available and allocated to it.
+131  [run-main-7] WARN  CloudletScheduler - 323.87: CloudletSchedulerTimeShared: Cloudlet 17 requested 754 MB of Bandwidth but just 529 was available and allocated to it.
+131  [run-main-7] WARN  CloudletScheduler - 323.87: CloudletSchedulerTimeShared: Cloudlet 18 requested 13017 MB of Ram but just 11620 was available and allocated to it.
+131  [run-main-7] WARN  CloudletScheduler - 323.87: CloudletSchedulerTimeShared: Cloudlet 18 requested 794 MB of Bandwidth but just 710 was available and allocated to it.
+132  [run-main-7] WARN  CloudletScheduler - 324.63: CloudletSchedulerTimeShared: Cloudlet 13 requested 13567 MB of Ram but just 8100 was available and allocated to it.
+132  [run-main-7] WARN  CloudletScheduler - 324.63: CloudletSchedulerTimeShared: Cloudlet 13 requested 828 MB of Bandwidth but just 495 was available and allocated to it.
+132  [run-main-7] WARN  CloudletScheduler - 324.63: CloudletSchedulerTimeShared: Cloudlet 16 requested 14034 MB of Ram but just 5697 was available and allocated to it.
+132  [run-main-7] WARN  CloudletScheduler - 324.63: CloudletSchedulerTimeShared: Cloudlet 16 requested 856 MB of Bandwidth but just 348 was available and allocated to it.
+132  [run-main-7] WARN  CloudletScheduler - 324.63: CloudletSchedulerTimeShared: Cloudlet 18 requested 13172 MB of Ram but just 4106 was available and allocated to it.
+132  [run-main-7] WARN  CloudletScheduler - 324.63: CloudletSchedulerTimeShared: Cloudlet 18 requested 804 MB of Bandwidth but just 251 was available and allocated to it.
+132  [run-main-7] WARN  CloudletScheduler - 324.63: CloudletSchedulerTimeShared: Cloudlet 19 requested 6503 MB of Ram but just 4711 was available and allocated to it.
+132  [run-main-7] WARN  CloudletScheduler - 324.63: CloudletSchedulerTimeShared: Cloudlet 19 requested 396 MB of Bandwidth but just 288 was available and allocated to it.
+132  [run-main-7] WARN  CloudletScheduler - 324.76: CloudletSchedulerTimeShared: Cloudlet 12 requested 16218 MB of Ram but just 7699 was available and allocated to it.
+132  [run-main-7] WARN  CloudletScheduler - 324.76: CloudletSchedulerTimeShared: Cloudlet 12 requested 989 MB of Bandwidth but just 470 was available and allocated to it.
+132  [run-main-7] WARN  CloudletScheduler - 324.76: CloudletSchedulerTimeShared: Cloudlet 16 requested 9867 MB of Ram but just 2659 was available and allocated to it.
+132  [run-main-7] WARN  CloudletScheduler - 324.76: CloudletSchedulerTimeShared: Cloudlet 16 requested 602 MB of Bandwidth but just 163 was available and allocated to it.
+133  [run-main-7] WARN  CloudletScheduler - 324.76: CloudletSchedulerTimeShared: Cloudlet 17 requested 9368 MB of Ram but just 588 was available and allocated to it.
+133  [run-main-7] WARN  CloudletScheduler - 324.76: CloudletSchedulerTimeShared: Cloudlet 17 requested 571 MB of Bandwidth but just 36 was available and allocated to it.
+133  [run-main-7] WARN  CloudletScheduler - 324.76: CloudletSchedulerTimeShared: Cloudlet 19 requested 15599 MB of Ram but just 3588 was available and allocated to it.
+133  [run-main-7] WARN  CloudletScheduler - 324.76: CloudletSchedulerTimeShared: Cloudlet 19 requested 952 MB of Bandwidth but just 219 was available and allocated to it.
+133  [run-main-7] WARN  CloudletScheduler - 325.00: CloudletSchedulerTimeShared: Cloudlet 12 requested 11248 MB of Ram but just 7638 was available and allocated to it.
+133  [run-main-7] WARN  CloudletScheduler - 325.00: CloudletSchedulerTimeShared: Cloudlet 12 requested 686 MB of Bandwidth but just 467 was available and allocated to it.
+133  [run-main-7] WARN  CloudletScheduler - 325.00: CloudletSchedulerTimeShared: Cloudlet 13 requested 6255 MB of Ram but just 2291 was available and allocated to it.
+133  [run-main-7] WARN  CloudletScheduler - 325.00: CloudletSchedulerTimeShared: Cloudlet 13 requested 381 MB of Bandwidth but just 140 was available and allocated to it.
+133  [run-main-7] WARN  CloudletScheduler - 325.00: CloudletSchedulerTimeShared: Cloudlet 16 requested 16103 MB of Ram but just 15335 was available and allocated to it.
+133  [run-main-7] WARN  CloudletScheduler - 325.00: CloudletSchedulerTimeShared: Cloudlet 16 requested 982 MB of Bandwidth but just 936 was available and allocated to it.
+134  [run-main-7] WARN  CloudletScheduler - 325.11: CloudletSchedulerTimeShared: Cloudlet 13 requested 14769 MB of Ram but just 4724 was available and allocated to it.
+134  [run-main-7] WARN  CloudletScheduler - 325.11: CloudletSchedulerTimeShared: Cloudlet 13 requested 901 MB of Bandwidth but just 289 was available and allocated to it.
+134  [run-main-7] WARN  CloudletScheduler - 325.11: CloudletSchedulerTimeShared: Cloudlet 15 requested 13874 MB of Ram but just 94 was available and allocated to it.
+134  [run-main-7] WARN  CloudletScheduler - 325.11: CloudletSchedulerTimeShared: Cloudlet 15 requested 846 MB of Bandwidth but just 6 was available and allocated to it.
+134  [run-main-7] INFO  DatacenterBrokerSimple - 325.11:		Cloudlet 17 finished executing on VM 7 on host 3
+134  [run-main-7] WARN  CloudletScheduler - 325.11: CloudletSchedulerTimeShared: Cloudlet 18 requested 6142 MB of Ram but just 5204 was available and allocated to it.
+134  [run-main-7] WARN  CloudletScheduler - 325.11: CloudletSchedulerTimeShared: Cloudlet 18 requested 374 MB of Bandwidth but just 318 was available and allocated to it.
+134  [run-main-7] WARN  CloudletScheduler - 325.11: CloudletSchedulerTimeShared: Cloudlet 19 requested 14796 MB of Ram but just 2079 was available and allocated to it.
+134  [run-main-7] WARN  CloudletScheduler - 325.11: CloudletSchedulerTimeShared: Cloudlet 19 requested 903 MB of Bandwidth but just 127 was available and allocated to it.
+134  [run-main-7] WARN  CloudletScheduler - 325.22: CloudletSchedulerTimeShared: Cloudlet 12 requested 10656 MB of Ram but just 2012 was available and allocated to it.
+134  [run-main-7] WARN  CloudletScheduler - 325.22: CloudletSchedulerTimeShared: Cloudlet 12 requested 650 MB of Bandwidth but just 123 was available and allocated to it.
+134  [run-main-7] WARN  CloudletScheduler - 325.22: CloudletSchedulerTimeShared: Cloudlet 13 requested 10380 MB of Ram but just 6390 was available and allocated to it.
+134  [run-main-7] WARN  CloudletScheduler - 325.22: CloudletSchedulerTimeShared: Cloudlet 13 requested 633 MB of Bandwidth but just 390 was available and allocated to it.
+134  [run-main-7] WARN  CloudletScheduler - 325.22: CloudletSchedulerTimeShared: Cloudlet 15 requested 8663 MB of Ram but just 679 was available and allocated to it.
+134  [run-main-7] WARN  CloudletScheduler - 325.22: CloudletSchedulerTimeShared: Cloudlet 15 requested 528 MB of Bandwidth but just 42 was available and allocated to it.
+135  [run-main-7] WARN  CloudletScheduler - 325.22: CloudletSchedulerTimeShared: Cloudlet 16 requested 7844 MB of Ram but just 2599 was available and allocated to it.
+135  [run-main-7] WARN  CloudletScheduler - 325.22: CloudletSchedulerTimeShared: Cloudlet 16 requested 478 MB of Bandwidth but just 159 was available and allocated to it.
+135  [run-main-7] WARN  CloudletScheduler - 325.22: CloudletSchedulerTimeShared: Cloudlet 18 requested 10709 MB of Ram but just 228 was available and allocated to it.
+135  [run-main-7] WARN  CloudletScheduler - 325.22: CloudletSchedulerTimeShared: Cloudlet 18 requested 653 MB of Bandwidth but just 14 was available and allocated to it.
+135  [run-main-7] WARN  CloudletScheduler - 325.22: CloudletSchedulerTimeShared: Cloudlet 19 requested 12387 MB of Ram but just 943 was available and allocated to it.
+135  [run-main-7] WARN  CloudletScheduler - 325.22: CloudletSchedulerTimeShared: Cloudlet 19 requested 756 MB of Bandwidth but just 58 was available and allocated to it.
+135  [run-main-7] WARN  CloudletScheduler - 325.60: CloudletSchedulerTimeShared: Cloudlet 12 requested 14917 MB of Ram but just 275 was available and allocated to it.
+135  [run-main-7] WARN  CloudletScheduler - 325.60: CloudletSchedulerTimeShared: Cloudlet 12 requested 910 MB of Bandwidth but just 17 was available and allocated to it.
+135  [run-main-7] WARN  CloudletScheduler - 325.60: CloudletSchedulerTimeShared: Cloudlet 15 requested 7938 MB of Ram but just 2422 was available and allocated to it.
+135  [run-main-7] WARN  CloudletScheduler - 325.60: CloudletSchedulerTimeShared: Cloudlet 15 requested 484 MB of Bandwidth but just 148 was available and allocated to it.
+135  [run-main-7] WARN  CloudletScheduler - 325.60: CloudletSchedulerTimeShared: Cloudlet 16 requested 14025 MB of Ram but just 1064 was available and allocated to it.
+135  [run-main-7] WARN  CloudletScheduler - 325.60: CloudletSchedulerTimeShared: Cloudlet 16 requested 856 MB of Bandwidth but just 65 was available and allocated to it.
+135  [run-main-7] WARN  CloudletScheduler - 325.60: CloudletSchedulerTimeShared: Cloudlet 19 requested 15774 MB of Ram but just 11615 was available and allocated to it.
+135  [run-main-7] WARN  CloudletScheduler - 325.60: CloudletSchedulerTimeShared: Cloudlet 19 requested 962 MB of Bandwidth but just 709 was available and allocated to it.
+136  [run-main-7] WARN  CloudletScheduler - 325.87: CloudletSchedulerTimeShared: Cloudlet 16 requested 10707 MB of Ram but just 9944 was available and allocated to it.
+136  [run-main-7] WARN  CloudletScheduler - 325.87: CloudletSchedulerTimeShared: Cloudlet 16 requested 653 MB of Bandwidth but just 607 was available and allocated to it.
+136  [run-main-7] WARN  CloudletScheduler - 325.87: CloudletSchedulerTimeShared: Cloudlet 18 requested 9517 MB of Ram but just 7488 was available and allocated to it.
+136  [run-main-7] WARN  CloudletScheduler - 325.87: CloudletSchedulerTimeShared: Cloudlet 18 requested 580 MB of Bandwidth but just 458 was available and allocated to it.
+136  [run-main-7] WARN  CloudletScheduler - 325.87: CloudletSchedulerTimeShared: Cloudlet 19 requested 13106 MB of Ram but just 7756 was available and allocated to it.
+136  [run-main-7] WARN  CloudletScheduler - 325.87: CloudletSchedulerTimeShared: Cloudlet 19 requested 799 MB of Bandwidth but just 474 was available and allocated to it.
+137  [run-main-7] WARN  CloudletScheduler - 326.06: CloudletSchedulerTimeShared: Cloudlet 13 requested 13759 MB of Ram but just 636 was available and allocated to it.
+137  [run-main-7] WARN  CloudletScheduler - 326.06: CloudletSchedulerTimeShared: Cloudlet 13 requested 839 MB of Bandwidth but just 39 was available and allocated to it.
+137  [run-main-7] INFO  DatacenterBrokerSimple - 326.06:		Cloudlet 15 finished executing on VM 5 on host 2
+137  [run-main-7] WARN  CloudletScheduler - 326.06: CloudletSchedulerTimeShared: Cloudlet 16 requested 14336 MB of Ram but just 7430 was available and allocated to it.
+137  [run-main-7] WARN  CloudletScheduler - 326.06: CloudletSchedulerTimeShared: Cloudlet 16 requested 875 MB of Bandwidth but just 454 was available and allocated to it.
+137  [run-main-7] WARN  CloudletScheduler - 326.06: CloudletSchedulerTimeShared: Cloudlet 19 requested 5238 MB of Ram but just 3417 was available and allocated to it.
+137  [run-main-7] WARN  CloudletScheduler - 326.06: CloudletSchedulerTimeShared: Cloudlet 19 requested 319 MB of Bandwidth but just 209 was available and allocated to it.
+137  [run-main-7] WARN  CloudletScheduler - 326.17: CloudletSchedulerTimeShared: Cloudlet 13 requested 8989 MB of Ram but just 8267 was available and allocated to it.
+137  [run-main-7] WARN  CloudletScheduler - 326.17: CloudletSchedulerTimeShared: Cloudlet 13 requested 548 MB of Bandwidth but just 505 was available and allocated to it.
+137  [run-main-7] WARN  CloudletScheduler - 326.17: CloudletSchedulerTimeShared: Cloudlet 16 requested 4368 MB of Ram but just 3948 was available and allocated to it.
+137  [run-main-7] WARN  CloudletScheduler - 326.17: CloudletSchedulerTimeShared: Cloudlet 16 requested 266 MB of Bandwidth but just 241 was available and allocated to it.
+138  [run-main-7] WARN  CloudletScheduler - 328.07: CloudletSchedulerTimeShared: Cloudlet 12 requested 13085 MB of Ram but just 5946 was available and allocated to it.
+138  [run-main-7] WARN  CloudletScheduler - 328.07: CloudletSchedulerTimeShared: Cloudlet 12 requested 798 MB of Bandwidth but just 363 was available and allocated to it.
+138  [run-main-7] WARN  CloudletScheduler - 328.07: CloudletSchedulerTimeShared: Cloudlet 13 requested 14228 MB of Ram but just 8874 was available and allocated to it.
+138  [run-main-7] WARN  CloudletScheduler - 328.07: CloudletSchedulerTimeShared: Cloudlet 13 requested 868 MB of Bandwidth but just 542 was available and allocated to it.
+138  [run-main-7] INFO  DatacenterBrokerSimple - 328.07:		Cloudlet 14 finished executing on VM 4 on host 2
+138  [run-main-7] WARN  CloudletScheduler - 328.07: CloudletSchedulerTimeShared: Cloudlet 19 requested 16011 MB of Ram but just 14844 was available and allocated to it.
+138  [run-main-7] WARN  CloudletScheduler - 328.07: CloudletSchedulerTimeShared: Cloudlet 19 requested 977 MB of Bandwidth but just 907 was available and allocated to it.
+138  [run-main-7] WARN  CloudletScheduler - 328.18: CloudletSchedulerTimeShared: Cloudlet 13 requested 9887 MB of Ram but just 5989 was available and allocated to it.
+138  [run-main-7] WARN  CloudletScheduler - 328.18: CloudletSchedulerTimeShared: Cloudlet 13 requested 603 MB of Bandwidth but just 366 was available and allocated to it.
+138  [run-main-7] WARN  CloudletScheduler - 328.18: CloudletSchedulerTimeShared: Cloudlet 16 requested 2031 MB of Ram but just 1891 was available and allocated to it.
+138  [run-main-7] WARN  CloudletScheduler - 328.18: CloudletSchedulerTimeShared: Cloudlet 16 requested 123 MB of Bandwidth but just 116 was available and allocated to it.
+139  [run-main-7] WARN  CloudletScheduler - 331.19: CloudletSchedulerTimeShared: Cloudlet 12 requested 13587 MB of Ram but just 3233 was available and allocated to it.
+139  [run-main-7] WARN  CloudletScheduler - 331.19: CloudletSchedulerTimeShared: Cloudlet 12 requested 829 MB of Bandwidth but just 198 was available and allocated to it.
+139  [run-main-7] WARN  CloudletScheduler - 331.19: CloudletSchedulerTimeShared: Cloudlet 13 requested 13825 MB of Ram but just 10157 was available and allocated to it.
+139  [run-main-7] WARN  CloudletScheduler - 331.19: CloudletSchedulerTimeShared: Cloudlet 13 requested 843 MB of Bandwidth but just 620 was available and allocated to it.
+139  [run-main-7] INFO  DatacenterBrokerSimple - 331.19:		Cloudlet 16 finished executing on VM 6 on host 3
+139  [run-main-7] WARN  CloudletScheduler - 331.19: CloudletSchedulerTimeShared: Cloudlet 16 requested 12762 MB of Ram but just 5511 was available and allocated to it.
+139  [run-main-7] WARN  CloudletScheduler - 331.19: CloudletSchedulerTimeShared: Cloudlet 16 requested 778 MB of Bandwidth but just 337 was available and allocated to it.
+139  [run-main-7] WARN  CloudletScheduler - 331.19: CloudletSchedulerTimeShared: Cloudlet 19 requested 6675 MB of Ram but just 3750 was available and allocated to it.
+139  [run-main-7] WARN  CloudletScheduler - 331.19: CloudletSchedulerTimeShared: Cloudlet 19 requested 407 MB of Bandwidth but just 229 was available and allocated to it.
+140  [run-main-7] WARN  CloudletScheduler - 331.30: CloudletSchedulerTimeShared: Cloudlet 18 requested 14743 MB of Ram but just 2961 was available and allocated to it.
+140  [run-main-7] WARN  CloudletScheduler - 331.30: CloudletSchedulerTimeShared: Cloudlet 18 requested 899 MB of Bandwidth but just 181 was available and allocated to it.
+140  [run-main-7] WARN  CloudletScheduler - 349.86: CloudletSchedulerTimeShared: Cloudlet 12 requested 7876 MB of Ram but just 4351 was available and allocated to it.
+140  [run-main-7] WARN  CloudletScheduler - 349.86: CloudletSchedulerTimeShared: Cloudlet 12 requested 480 MB of Bandwidth but just 266 was available and allocated to it.
+140  [run-main-7] WARN  CloudletScheduler - 349.86: CloudletSchedulerTimeShared: Cloudlet 13 requested 7453 MB of Ram but just 3291 was available and allocated to it.
+140  [run-main-7] WARN  CloudletScheduler - 349.86: CloudletSchedulerTimeShared: Cloudlet 13 requested 454 MB of Bandwidth but just 201 was available and allocated to it.
+140  [run-main-7] INFO  DatacenterBrokerSimple - 349.86:		Cloudlet 5 finished executing on VM 5 on host 2
+141  [run-main-7] WARN  CloudletScheduler - 349.86: CloudletSchedulerTimeShared: Cloudlet 19 requested 15711 MB of Ram but just 6432 was available and allocated to it.
+141  [run-main-7] WARN  CloudletScheduler - 349.86: CloudletSchedulerTimeShared: Cloudlet 19 requested 958 MB of Bandwidth but just 393 was available and allocated to it.
+141  [run-main-7] WARN  CloudletScheduler - 349.97: CloudletSchedulerTimeShared: Cloudlet 12 requested 6469 MB of Ram but just 5785 was available and allocated to it.
+141  [run-main-7] WARN  CloudletScheduler - 349.97: CloudletSchedulerTimeShared: Cloudlet 12 requested 394 MB of Bandwidth but just 354 was available and allocated to it.
+141  [run-main-7] WARN  CloudletScheduler - 349.97: CloudletSchedulerTimeShared: Cloudlet 13 requested 14357 MB of Ram but just 1915 was available and allocated to it.
+141  [run-main-7] WARN  CloudletScheduler - 349.97: CloudletSchedulerTimeShared: Cloudlet 13 requested 876 MB of Bandwidth but just 117 was available and allocated to it.
+142  [run-main-7] WARN  CloudletScheduler - 350.97: CloudletSchedulerTimeShared: Cloudlet 18 requested 8424 MB of Ram but just 3919 was available and allocated to it.
+142  [run-main-7] WARN  CloudletScheduler - 350.97: CloudletSchedulerTimeShared: Cloudlet 18 requested 514 MB of Bandwidth but just 240 was available and allocated to it.
+142  [run-main-7] WARN  CloudletScheduler - 353.92: CloudletSchedulerTimeShared: Cloudlet 12 requested 9174 MB of Ram but just 3560 was available and allocated to it.
+142  [run-main-7] WARN  CloudletScheduler - 353.92: CloudletSchedulerTimeShared: Cloudlet 12 requested 559 MB of Bandwidth but just 218 was available and allocated to it.
+142  [run-main-7] WARN  CloudletScheduler - 353.92: CloudletSchedulerTimeShared: Cloudlet 13 requested 10710 MB of Ram but just 3830 was available and allocated to it.
+142  [run-main-7] WARN  CloudletScheduler - 353.92: CloudletSchedulerTimeShared: Cloudlet 13 requested 653 MB of Bandwidth but just 234 was available and allocated to it.
+142  [run-main-7] WARN  CloudletScheduler - 353.92: CloudletSchedulerTimeShared: Cloudlet 19 requested 12272 MB of Ram but just 7949 was available and allocated to it.
+142  [run-main-7] WARN  CloudletScheduler - 353.92: CloudletSchedulerTimeShared: Cloudlet 19 requested 749 MB of Bandwidth but just 486 was available and allocated to it.
+143  [run-main-7] WARN  CloudletScheduler - 355.65: CloudletSchedulerTimeShared: Cloudlet 18 requested 1946 MB of Ram but just 1579 was available and allocated to it.
+143  [run-main-7] WARN  CloudletScheduler - 355.65: CloudletSchedulerTimeShared: Cloudlet 18 requested 118 MB of Bandwidth but just 97 was available and allocated to it.
+143  [run-main-7] WARN  CloudletScheduler - 355.65: CloudletSchedulerTimeShared: Cloudlet 19 requested 10487 MB of Ram but just 9960 was available and allocated to it.
+143  [run-main-7] WARN  CloudletScheduler - 355.65: CloudletSchedulerTimeShared: Cloudlet 19 requested 640 MB of Bandwidth but just 608 was available and allocated to it.
+143  [run-main-7] WARN  CloudletScheduler - 356.71: CloudletSchedulerTimeShared: Cloudlet 18 requested 10802 MB of Ram but just 2287 was available and allocated to it.
+143  [run-main-7] WARN  CloudletScheduler - 356.71: CloudletSchedulerTimeShared: Cloudlet 18 requested 659 MB of Bandwidth but just 140 was available and allocated to it.
+143  [run-main-7] WARN  CloudletScheduler - 357.66: CloudletSchedulerTimeShared: Cloudlet 12 requested 12962 MB of Ram but just 4015 was available and allocated to it.
+144  [run-main-7] WARN  CloudletScheduler - 357.66: CloudletSchedulerTimeShared: Cloudlet 12 requested 791 MB of Bandwidth but just 246 was available and allocated to it.
+144  [run-main-7] WARN  CloudletScheduler - 357.66: CloudletSchedulerTimeShared: Cloudlet 19 requested 12132 MB of Ram but just 4006 was available and allocated to it.
+144  [run-main-7] WARN  CloudletScheduler - 357.66: CloudletSchedulerTimeShared: Cloudlet 19 requested 740 MB of Bandwidth but just 245 was available and allocated to it.
+144  [run-main-7] WARN  CloudletScheduler - 357.81: CloudletSchedulerTimeShared: Cloudlet 13 requested 13379 MB of Ram but just 4217 was available and allocated to it.
+144  [run-main-7] WARN  CloudletScheduler - 357.81: CloudletSchedulerTimeShared: Cloudlet 13 requested 816 MB of Bandwidth but just 258 was available and allocated to it.
+144  [run-main-7] WARN  CloudletScheduler - 357.81: CloudletSchedulerTimeShared: Cloudlet 18 requested 15814 MB of Ram but just 10463 was available and allocated to it.
+144  [run-main-7] WARN  CloudletScheduler - 357.81: CloudletSchedulerTimeShared: Cloudlet 18 requested 965 MB of Bandwidth but just 639 was available and allocated to it.
+144  [run-main-7] WARN  CloudletScheduler - 357.81: CloudletSchedulerTimeShared: Cloudlet 19 requested 10105 MB of Ram but just 754 was available and allocated to it.
+144  [run-main-7] WARN  CloudletScheduler - 357.81: CloudletSchedulerTimeShared: Cloudlet 19 requested 616 MB of Bandwidth but just 47 was available and allocated to it.
+144  [run-main-7] WARN  CloudletScheduler - 358.06: CloudletSchedulerTimeShared: Cloudlet 13 requested 7647 MB of Ram but just 7000 was available and allocated to it.
+145  [run-main-7] WARN  CloudletScheduler - 358.06: CloudletSchedulerTimeShared: Cloudlet 13 requested 466 MB of Bandwidth but just 428 was available and allocated to it.
+145  [run-main-7] WARN  CloudletScheduler - 358.06: CloudletSchedulerTimeShared: Cloudlet 18 requested 15525 MB of Ram but just 9622 was available and allocated to it.
+145  [run-main-7] WARN  CloudletScheduler - 358.06: CloudletSchedulerTimeShared: Cloudlet 18 requested 947 MB of Bandwidth but just 588 was available and allocated to it.
+145  [run-main-7] WARN  CloudletScheduler - 358.06: CloudletSchedulerTimeShared: Cloudlet 19 requested 14482 MB of Ram but just 8665 was available and allocated to it.
+145  [run-main-7] WARN  CloudletScheduler - 358.06: CloudletSchedulerTimeShared: Cloudlet 19 requested 883 MB of Bandwidth but just 529 was available and allocated to it.
+145  [run-main-7] INFO  DatacenterBrokerSimple - 358.17:		Cloudlet 2 finished executing on VM 2 on host 1
+145  [run-main-7] WARN  CloudletScheduler - 358.17: CloudletSchedulerTimeShared: Cloudlet 13 requested 12491 MB of Ram but just 2128 was available and allocated to it.
+145  [run-main-7] WARN  CloudletScheduler - 358.17: CloudletSchedulerTimeShared: Cloudlet 13 requested 762 MB of Bandwidth but just 130 was available and allocated to it.
+145  [run-main-7] WARN  CloudletScheduler - 358.17: CloudletSchedulerTimeShared: Cloudlet 19 requested 5827 MB of Ram but just 74 was available and allocated to it.
+145  [run-main-7] WARN  CloudletScheduler - 358.17: CloudletSchedulerTimeShared: Cloudlet 19 requested 355 MB of Bandwidth but just 5 was available and allocated to it.
+145  [run-main-7] WARN  CloudletScheduler - 358.28: CloudletSchedulerTimeShared: Cloudlet 18 requested 15772 MB of Ram but just 1408 was available and allocated to it.
+145  [run-main-7] WARN  CloudletScheduler - 358.28: CloudletSchedulerTimeShared: Cloudlet 18 requested 962 MB of Bandwidth but just 86 was available and allocated to it.
+146  [run-main-7] WARN  CloudletScheduler - 358.52: CloudletSchedulerTimeShared: Cloudlet 18 requested 7506 MB of Ram but just 5496 was available and allocated to it.
+146  [run-main-7] WARN  CloudletScheduler - 358.52: CloudletSchedulerTimeShared: Cloudlet 18 requested 458 MB of Bandwidth but just 336 was available and allocated to it.
+146  [run-main-7] INFO  DatacenterBrokerSimple - 358.63:		Cloudlet 10 finished executing on VM 0 on host 0
+146  [run-main-7] WARN  CloudletScheduler - 358.63: CloudletSchedulerTimeShared: Cloudlet 13 requested 12911 MB of Ram but just 4383 was available and allocated to it.
+146  [run-main-7] WARN  CloudletScheduler - 358.63: CloudletSchedulerTimeShared: Cloudlet 13 requested 788 MB of Bandwidth but just 268 was available and allocated to it.
+146  [run-main-7] INFO  DatacenterBrokerSimple - 358.74:		Cloudlet 3 finished executing on VM 3 on host 1
+146  [run-main-7] WARN  CloudletScheduler - 358.74: CloudletSchedulerTimeShared: Cloudlet 13 requested 15409 MB of Ram but just 11956 was available and allocated to it.
+146  [run-main-7] WARN  CloudletScheduler - 358.74: CloudletSchedulerTimeShared: Cloudlet 13 requested 940 MB of Bandwidth but just 730 was available and allocated to it.
+147  [run-main-7] WARN  CloudletScheduler - 358.74: CloudletSchedulerTimeShared: Cloudlet 19 requested 7216 MB of Ram but just 58 was available and allocated to it.
+147  [run-main-7] WARN  CloudletScheduler - 358.74: CloudletSchedulerTimeShared: Cloudlet 19 requested 440 MB of Bandwidth but just 4 was available and allocated to it.
+147  [run-main-7] WARN  CloudletScheduler - 358.85: CloudletSchedulerTimeShared: Cloudlet 18 requested 15623 MB of Ram but just 11217 was available and allocated to it.
+147  [run-main-7] WARN  CloudletScheduler - 358.85: CloudletSchedulerTimeShared: Cloudlet 18 requested 953 MB of Bandwidth but just 685 was available and allocated to it.
+148  [run-main-7] WARN  CloudletScheduler - 363.55: CloudletSchedulerTimeShared: Cloudlet 18 requested 10200 MB of Ram but just 10171 was available and allocated to it.
+148  [run-main-7] WARN  CloudletScheduler - 363.55: CloudletSchedulerTimeShared: Cloudlet 18 requested 622 MB of Bandwidth but just 621 was available and allocated to it.
+148  [run-main-7] WARN  CloudletScheduler - 363.55: CloudletSchedulerTimeShared: Cloudlet 19 requested 13683 MB of Ram but just 3917 was available and allocated to it.
+148  [run-main-7] WARN  CloudletScheduler - 363.55: CloudletSchedulerTimeShared: Cloudlet 19 requested 835 MB of Bandwidth but just 240 was available and allocated to it.
+148  [run-main-7] INFO  DatacenterBrokerSimple - 368.88:		Cloudlet 13 finished executing on VM 3 on host 1
+149  [run-main-7] WARN  CloudletScheduler - 368.88: CloudletSchedulerTimeShared: Cloudlet 18 requested 13843 MB of Ram but just 12843 was available and allocated to it.
+149  [run-main-7] WARN  CloudletScheduler - 368.88: CloudletSchedulerTimeShared: Cloudlet 18 requested 844 MB of Bandwidth but just 784 was available and allocated to it.
+149  [run-main-7] WARN  CloudletScheduler - 368.99: CloudletSchedulerTimeShared: Cloudlet 18 requested 16205 MB of Ram but just 12504 was available and allocated to it.
+149  [run-main-7] WARN  CloudletScheduler - 368.99: CloudletSchedulerTimeShared: Cloudlet 18 requested 989 MB of Bandwidth but just 764 was available and allocated to it.
+149  [run-main-7] WARN  CloudletScheduler - 373.36: CloudletSchedulerTimeShared: Cloudlet 18 requested 14418 MB of Ram but just 96 was available and allocated to it.
+149  [run-main-7] WARN  CloudletScheduler - 373.36: CloudletSchedulerTimeShared: Cloudlet 18 requested 880 MB of Bandwidth but just 6 was available and allocated to it.
+150  [run-main-7] INFO  DatacenterBrokerSimple - 376.95:		Cloudlet 19 finished executing on VM 9 on host 4
+150  [run-main-7] WARN  CloudletScheduler - 376.95: CloudletSchedulerTimeShared: Cloudlet 19 requested 15118 MB of Ram but just 6706 was available and allocated to it.
+150  [run-main-7] WARN  CloudletScheduler - 376.95: CloudletSchedulerTimeShared: Cloudlet 19 requested 922 MB of Bandwidth but just 410 was available and allocated to it.
+150  [run-main-7] INFO  DatacenterBrokerSimple - 378.86:		Cloudlet 12 finished executing on VM 2 on host 1
+151  [run-main-7] WARN  CloudletScheduler - 378.97: CloudletSchedulerTimeShared: Cloudlet 18 requested 8313 MB of Ram but just 5303 was available and allocated to it.
+151  [run-main-7] WARN  CloudletScheduler - 378.97: CloudletSchedulerTimeShared: Cloudlet 18 requested 507 MB of Bandwidth but just 324 was available and allocated to it.
+151  [run-main-7] INFO  DatacenterBrokerSimple - 390.61:		Cloudlet 11 finished executing on VM 1 on host 0
+152  [run-main-7] INFO  DatacenterBrokerSimple - 396.87:		Cloudlet 9 finished executing on VM 9 on host 4
+152  [run-main-7] WARN  CloudletScheduler - 401.31: CloudletSchedulerTimeShared: Cloudlet 18 requested 8925 MB of Ram but just 4646 was available and allocated to it.
+152  [run-main-7] WARN  CloudletScheduler - 401.31: CloudletSchedulerTimeShared: Cloudlet 18 requested 544 MB of Bandwidth but just 284 was available and allocated to it.
+153  [run-main-7] INFO  DatacenterBrokerSimple - 403.22:		Cloudlet 6 finished executing on VM 6 on host 3
+154  [run-main-7] INFO  DatacenterBrokerSimple - 494.60:		Cloudlet 7 finished executing on VM 7 on host 3
+154  [run-main-7] INFO  DatacenterBrokerSimple - 494.60:		Cloudlet 8 finished executing on VM 8 on host 4
+154  [run-main-7] WARN  CloudletScheduler - 494.60: CloudletSchedulerTimeShared: Cloudlet 18 requested 2645 MB of Ram but just 194 was available and allocated to it.
+154  [run-main-7] WARN  CloudletScheduler - 494.60: CloudletSchedulerTimeShared: Cloudlet 18 requested 161 MB of Bandwidth but just 12 was available and allocated to it.
+154  [run-main-7] INFO  DatacenterBrokerSimple - 503.08:		Cloudlet 18 finished executing on VM 8 on host 4

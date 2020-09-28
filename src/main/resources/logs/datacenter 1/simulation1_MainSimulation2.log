@@ -1,0 +1,90 @@
+97   [run-main-2] INFO  DatacenterBrokerSimple - 0.00:		VM 0 allocated to host 0
+99   [run-main-2] INFO  DatacenterBrokerSimple - 0.00:		VM 1 allocated to host 1
+100  [run-main-2] INFO  DatacenterBrokerSimple - 0.00:		VM 2 allocated to host 2
+100  [run-main-2] INFO  DatacenterBrokerSimple - 0.00:		VM 3 allocated to host 3
+101  [run-main-2] INFO  DatacenterBrokerSimple - 0.00:		VM 4 allocated to host 4
+101  [run-main-2] INFO  DatacenterBrokerSimple - 0.00:		VM 5 allocated to host 5
+101  [run-main-2] INFO  DatacenterBrokerSimple - 0.00:		VM 6 allocated to host 6
+102  [run-main-2] INFO  DatacenterBrokerSimple - 0.00:		VM 7 allocated to host 7
+102  [run-main-2] INFO  DatacenterBrokerSimple - 0.00:		VM 8 allocated to host 8
+104  [run-main-2] INFO  DatacenterBrokerSimple - 0.00:		VM 9 allocated to host 9
+107  [run-main-2] INFO  DatacenterBrokerSimple - 0.10:		Cloudlet 0 started executing on VM 0 on host 0
+107  [run-main-2] INFO  DatacenterBrokerSimple - 0.10:		Cloudlet 1 started executing on VM 1 on host 1
+107  [run-main-2] INFO  DatacenterBrokerSimple - 0.10:		Cloudlet 2 started executing on VM 2 on host 2
+107  [run-main-2] INFO  DatacenterBrokerSimple - 0.10:		Cloudlet 3 started executing on VM 3 on host 3
+107  [run-main-2] INFO  DatacenterBrokerSimple - 0.10:		Cloudlet 4 started executing on VM 4 on host 4
+107  [run-main-2] INFO  DatacenterBrokerSimple - 0.10:		Cloudlet 5 started executing on VM 5 on host 5
+107  [run-main-2] INFO  DatacenterBrokerSimple - 0.10:		Cloudlet 6 started executing on VM 6 on host 6
+107  [run-main-2] INFO  DatacenterBrokerSimple - 0.10:		Cloudlet 7 started executing on VM 7 on host 7
+107  [run-main-2] INFO  DatacenterBrokerSimple - 0.10:		Cloudlet 8 started executing on VM 8 on host 8
+107  [run-main-2] INFO  DatacenterBrokerSimple - 0.10:		Cloudlet 9 started executing on VM 9 on host 9
+116  [run-main-2] INFO  DatacenterBrokerSimple - 133.15:		Cloudlet 5 finished executing on VM 5 on host 5
+116  [run-main-2] INFO  DatacenterBrokerSimple - 133.15:		Cloudlet 8 finished executing on VM 8 on host 8
+117  [run-main-2] INFO  DatacenterBrokerSimple - 133.26:		Cloudlet 15 started executing on VM 5 on host 5
+117  [run-main-2] INFO  DatacenterBrokerSimple - 133.26:		Cloudlet 18 started executing on VM 8 on host 8
+117  [run-main-2] INFO  DatacenterBrokerSimple - 138.83:		Cloudlet 0 finished executing on VM 0 on host 0
+118  [run-main-2] INFO  DatacenterBrokerSimple - 138.94:		Cloudlet 10 started executing on VM 0 on host 0
+119  [run-main-2] INFO  DatacenterBrokerSimple - 140.68:		Cloudlet 7 finished executing on VM 7 on host 7
+120  [run-main-2] INFO  DatacenterBrokerSimple - 140.79:		Cloudlet 17 started executing on VM 7 on host 7
+123  [run-main-2] INFO  DatacenterBrokerSimple - 154.96:		Cloudlet 9 finished executing on VM 9 on host 9
+124  [run-main-2] INFO  DatacenterBrokerSimple - 155.07:		Cloudlet 19 started executing on VM 9 on host 9
+126  [run-main-2] INFO  DatacenterBrokerSimple - 158.23:		Cloudlet 3 finished executing on VM 3 on host 3
+127  [run-main-2] INFO  DatacenterBrokerSimple - 158.34:		Cloudlet 13 started executing on VM 3 on host 3
+130  [run-main-2] INFO  DatacenterBrokerSimple - 173.65:		Cloudlet 4 finished executing on VM 4 on host 4
+131  [run-main-2] INFO  DatacenterBrokerSimple - 173.76:		Cloudlet 14 started executing on VM 4 on host 4
+132  [run-main-2] INFO  DatacenterBrokerSimple - 177.70:		Cloudlet 6 finished executing on VM 6 on host 6
+132  [run-main-2] INFO  DatacenterBrokerSimple - 177.81:		Cloudlet 16 started executing on VM 6 on host 6
+134  [run-main-2] INFO  DatacenterBrokerSimple - 198.61:		Cloudlet 2 finished executing on VM 2 on host 2
+135  [run-main-2] INFO  DatacenterBrokerSimple - 198.72:		Cloudlet 12 started executing on VM 2 on host 2
+136  [run-main-2] INFO  DatacenterBrokerSimple - 250.72:		Cloudlet 1 finished executing on VM 1 on host 1
+136  [run-main-2] INFO  DatacenterBrokerSimple - 250.83:		Cloudlet 11 started executing on VM 1 on host 1
+137  [run-main-2] INFO  DatacenterBrokerSimple - 300.83:		Cloudlet 17 finished executing on VM 7 on host 7
+137  [run-main-2] INFO  DatacenterBrokerSimple - 300.94:		Cloudlet 27 started executing on VM 7 on host 7
+138  [run-main-2] INFO  DatacenterBrokerSimple - 319.33:		Cloudlet 10 finished executing on VM 0 on host 0
+139  [run-main-2] INFO  DatacenterBrokerSimple - 319.44:		Cloudlet 20 started executing on VM 0 on host 0
+140  [run-main-2] INFO  DatacenterBrokerSimple - 322.01:		Cloudlet 15 finished executing on VM 5 on host 5
+141  [run-main-2] INFO  DatacenterBrokerSimple - 322.12:		Cloudlet 25 started executing on VM 5 on host 5
+142  [run-main-2] INFO  DatacenterBrokerSimple - 332.94:		Cloudlet 18 finished executing on VM 8 on host 8
+142  [run-main-2] INFO  DatacenterBrokerSimple - 333.05:		Cloudlet 28 started executing on VM 8 on host 8
+144  [run-main-2] INFO  DatacenterBrokerSimple - 333.57:		Cloudlet 19 finished executing on VM 9 on host 9
+145  [run-main-2] INFO  DatacenterBrokerSimple - 333.68:		Cloudlet 29 started executing on VM 9 on host 9
+146  [run-main-2] INFO  DatacenterBrokerSimple - 334.39:		Cloudlet 13 finished executing on VM 3 on host 3
+146  [run-main-2] INFO  DatacenterBrokerSimple - 334.50:		Cloudlet 23 started executing on VM 3 on host 3
+148  [run-main-2] INFO  DatacenterBrokerSimple - 335.66:		Cloudlet 14 finished executing on VM 4 on host 4
+148  [run-main-2] INFO  DatacenterBrokerSimple - 335.77:		Cloudlet 24 started executing on VM 4 on host 4
+149  [run-main-2] INFO  DatacenterBrokerSimple - 420.68:		Cloudlet 12 finished executing on VM 2 on host 2
+150  [run-main-2] INFO  DatacenterBrokerSimple - 420.79:		Cloudlet 22 started executing on VM 2 on host 2
+150  [run-main-2] INFO  DatacenterBrokerSimple - 446.50:		Cloudlet 11 finished executing on VM 1 on host 1
+150  [run-main-2] INFO  DatacenterBrokerSimple - 446.61:		Cloudlet 21 started executing on VM 1 on host 1
+151  [run-main-2] INFO  DatacenterBrokerSimple - 487.27:		Cloudlet 16 finished executing on VM 6 on host 6
+151  [run-main-2] INFO  DatacenterBrokerSimple - 487.38:		Cloudlet 26 started executing on VM 6 on host 6
+152  [run-main-2] INFO  DatacenterBrokerSimple - 494.38:		Cloudlet 23 finished executing on VM 3 on host 3
+152  [run-main-2] INFO  DatacenterBrokerSimple - 494.49:		Cloudlet 33 started executing on VM 3 on host 3
+153  [run-main-2] INFO  DatacenterBrokerSimple - 502.69:		Cloudlet 25 finished executing on VM 5 on host 5
+153  [run-main-2] INFO  DatacenterBrokerSimple - 502.80:		Cloudlet 35 started executing on VM 5 on host 5
+154  [run-main-2] INFO  DatacenterBrokerSimple - 548.00:		Cloudlet 27 finished executing on VM 7 on host 7
+154  [run-main-2] INFO  DatacenterBrokerSimple - 548.00:		Cloudlet 29 finished executing on VM 9 on host 9
+155  [run-main-2] INFO  DatacenterBrokerSimple - 548.11:		Cloudlet 37 started executing on VM 7 on host 7
+155  [run-main-2] INFO  DatacenterBrokerSimple - 548.11:		Cloudlet 39 started executing on VM 9 on host 9
+156  [run-main-2] INFO  DatacenterBrokerSimple - 561.20:		Cloudlet 24 finished executing on VM 4 on host 4
+156  [run-main-2] INFO  DatacenterBrokerSimple - 561.20:		Cloudlet 28 finished executing on VM 8 on host 8
+156  [run-main-2] INFO  DatacenterBrokerSimple - 561.31:		Cloudlet 34 started executing on VM 4 on host 4
+156  [run-main-2] INFO  DatacenterBrokerSimple - 561.31:		Cloudlet 38 started executing on VM 8 on host 8
+157  [run-main-2] INFO  DatacenterBrokerSimple - 569.01:		Cloudlet 22 finished executing on VM 2 on host 2
+158  [run-main-2] INFO  DatacenterBrokerSimple - 569.12:		Cloudlet 32 started executing on VM 2 on host 2
+159  [run-main-2] INFO  DatacenterBrokerSimple - 631.77:		Cloudlet 20 finished executing on VM 0 on host 0
+160  [run-main-2] INFO  DatacenterBrokerSimple - 631.88:		Cloudlet 30 started executing on VM 0 on host 0
+160  [run-main-2] INFO  DatacenterBrokerSimple - 648.48:		Cloudlet 21 finished executing on VM 1 on host 1
+160  [run-main-2] INFO  DatacenterBrokerSimple - 648.59:		Cloudlet 31 started executing on VM 1 on host 1
+162  [run-main-2] INFO  DatacenterBrokerSimple - 681.37:		Cloudlet 37 finished executing on VM 7 on host 7
+163  [run-main-2] INFO  DatacenterBrokerSimple - 686.95:		Cloudlet 26 finished executing on VM 6 on host 6
+163  [run-main-2] INFO  DatacenterBrokerSimple - 687.06:		Cloudlet 36 started executing on VM 6 on host 6
+163  [run-main-2] INFO  DatacenterBrokerSimple - 700.06:		Cloudlet 33 finished executing on VM 3 on host 3
+165  [run-main-2] INFO  DatacenterBrokerSimple - 719.72:		Cloudlet 39 finished executing on VM 9 on host 9
+166  [run-main-2] INFO  DatacenterBrokerSimple - 721.31:		Cloudlet 35 finished executing on VM 5 on host 5
+168  [run-main-2] INFO  DatacenterBrokerSimple - 760.07:		Cloudlet 34 finished executing on VM 4 on host 4
+168  [run-main-2] INFO  DatacenterBrokerSimple - 800.18:		Cloudlet 32 finished executing on VM 2 on host 2
+168  [run-main-2] INFO  DatacenterBrokerSimple - 800.18:		Cloudlet 38 finished executing on VM 8 on host 8
+169  [run-main-2] INFO  DatacenterBrokerSimple - 819.11:		Cloudlet 30 finished executing on VM 0 on host 0
+169  [run-main-2] INFO  DatacenterBrokerSimple - 819.11:		Cloudlet 31 finished executing on VM 1 on host 1
+169  [run-main-2] INFO  DatacenterBrokerSimple - 920.30:		Cloudlet 36 finished executing on VM 6 on host 6
