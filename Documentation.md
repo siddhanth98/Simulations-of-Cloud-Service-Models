@@ -8,7 +8,7 @@
    * All Junit Tests are located in the src/test/* packages for respective simulations.
    
    * Snippets of outputs are used in this documentation for clarity of explanation but can be verified by
-   running the appropriate programs.
+   running the appropriate programs or opening images in the resources/outputs directory using the highlighted paths. 
    
 **For all simulations of datacenters 1 and 2 (homework parts 1 to 4) passing different command line arguments while running the programs can produce different
 results. 
@@ -51,6 +51,8 @@ You can also combine arguments to get all results together in the output.**
     ### Simulation 1
     * VM Allocation Best Fit for 10 VMs and 5 PEs per VM.
     
+    src/main/resources/outputs/datacenter 1/simulation1_main_simulation1.jpg
+    
     ![Image](src/main/resources/outputs/datacenter 1/simulation1_main_simulation1.jpg)
    
    * Cloudlets 0 - 19 instantly start executing in their respective VMs without any delays.
@@ -66,8 +68,10 @@ You can also combine arguments to get all results together in the output.**
    * The above timings are for 1 run of the program. A different run may give slightly different timings but similar.
    
    
-   ### Simulation 2
+### Simulation 2
    * VM allocation best fit for 10VMs and 10 PEs per VM.
+   
+   src/main/resources/outputs/datacenter 1/simulation1_main_simulation2.jpg
    
    ![Image](src/main/resources/outputs/datacenter 1/simulation1_main_simulation2.jpg)
    
@@ -76,7 +80,7 @@ You can also combine arguments to get all results together in the output.**
    		table printed obtained the output, where the 1st 20 cloudlets start after 0 simulation seconds.
    		
   
-  ### Differences
+### Differences
   * The important differences to note in the above 2 simulations are as follows.
     * For **simulation 1**:
         As the number of PEs used per VM is less in this case(5 PEs/VM), a lot of cloudlets have to wait 
@@ -104,6 +108,8 @@ You can also combine arguments to get all results together in the output.**
 		executes. The last 20 cloudlets (cloudlet 20 to 39) are submitted with a delay of 100 seconds.
 		The configuration for this is same as that for simulation 1.
   
+  src/main/resources/outputs/datacenter 1/simulation3_main_simulation.jpg
+  
   ![Image](src/main/resources/outputs/datacenter 1/simulation3_main_simulation.jpg)
 * From the simulation results table, it can be observed that the 1st 10 cloudlets start executing immediately
   		after being submitted, while the successive cloudlets start executing later on.
@@ -114,7 +120,7 @@ only cloudlet mapped to that VM. Notice that will not be the case if our configu
 in simulation 2 where multiple cloudlets execute in the same VM in a host due to enough availability of 
 resources.
 
-    ###Simulation 4 (Time shared cloudlet scheduling policy)
+###Simulation 4 (Time shared cloudlet scheduling policy)
 * Configuration is same as in simulation 3 with the only difference being the cloudlet scheduling policy 
   		used for this one which is the time shared policy.
   		All cloudlets submitted at the same time start executing together.
@@ -122,6 +128,8 @@ resources.
 * If there are enough PEs in a VM for 2 cloudlets then this policy will allocate separate time slices for
 both cloudlets to execute. 
 
+    src/main/resources/outputs/datacenter 1/simulation4_main_simulation.jpg
+    
     ![Image](src/main/resources/outputs/datacenter 1/simulation4_main_simulation.jpg)
     
 * For instance in this simulation, initially for the 1st 100 seconds, VM 0 will keep on switching 
@@ -139,7 +147,10 @@ both cloudlets to execute.
     the number of cloudlets mapped to the same VM and that is exactly what simulation 5 shows in its result table.
     
     
-   ### Simulation 5
+### Simulation 5
+    
+   src/main/resources/outputs/datacenter 1/simulation5_main_simulation.jpg
+   
    ![Image](src/main/resources/outputs/datacenter 1/simulation5_main_simulation.jpg)
    
    * This is similar to simulation 4 except that there are no additional cloudlet being submitted to the 
@@ -166,11 +177,19 @@ both cloudlets to execute.
 * The stream of cloudlets stop when 100 simulation seconds pass.
 
     ### Simulation 1
+    src/main/resources/outputs/datacenter 2/simulation1_cloudlets_results_start.jpg
+    
     ![Image](src/main/resources/outputs/datacenter 2/simulation1_cloudlets_results_start.jpg)
+    
+    src/main/resources/outputs/datacenter 2/simulation1_cloudlets_results.jpg
     
     ![Image](src/main/resources/outputs/datacenter 2/simulation1_cloudlets_results.jpg)
     
+    src/main/resources/outputs/datacenter 2/simulation1_cloudlets_execution_start_time_sorted_results_start.jpg
+    
     ![Image](src/main/resources/outputs/datacenter 2/simulation1_cloudlets_execution_start_time_sorted_results_start.jpg)
+    
+    src/main/resources/outputs/datacenter 2/simulation1_cloudlets_execution_start_time_sorted_results.jpg
     
     ![Image](src/main/resources/outputs/datacenter 2/simulation1_cloudlets_execution_start_time_sorted_results.jpg)
     
@@ -190,6 +209,8 @@ both cloudlets to execute.
         the VM exceeds 70% of the total available MIPS. When this happens one additional VM is created and submitted
         to the broker.
         
+    src/main/resources/outputs/datacenter 2/simulation2_cloudlets_results.jpg
+    
     ![Image](src/main/resources/outputs/datacenter 2/simulation2_cloudlets_results.jpg)
     
     * For this simulation, from the cloudlet results of different runs, the total number of cloudlets created
@@ -202,7 +223,8 @@ both cloudlets to execute.
         all resource utilization becomes 0.00%.
         
     * For instance for one of the runs in both simulations as shown below: 
-    
+        src/main/resources/outputs/datacenter 2/simulation1_2_vms_results_comparison.jpg
+        
         ![Image](src/main/resources/outputs/datacenter 2/simulation1_2_vms_results_comparison.jpg)
         
         The left table is the vm utilization results for simulation 1 and the right table is the vm utilization results for simulation 2.
@@ -319,6 +341,8 @@ both cloudlets to execute.
    ### SaaS Simulation
    * For the SaaS simulation the datacenter is programmed to select its own VM specifications for incoming cloudlets
    
+        src/main/resources/outputs/part 5/saas_results_1.jpg
+        
         ![Image](src/main/resources/outputs/part 5/saas_results_1.jpg)
    
    * The above image shows results for 1 run for 2 of the cloudlets executing in datacenter 2.
