@@ -10,7 +10,7 @@ import java.io.File;
 import java.util.List;
 import java.util.Random;
 
-public class MainSimulation1 {
+public class SaaSSimulation {
     private static final Config userRequirementsConfig = ConfigFactory.parseFile(new File("src/main/resources/configuration/part5/saas_user_requirements.conf"));
     private static final List<String> filesList = userRequirementsConfig.getStringList("conf.files");
     private static final List<String> operationsList = userRequirementsConfig.getStringList("conf.operations");
@@ -26,7 +26,7 @@ public class MainSimulation1 {
         int cloudletLength, fileSize, outputSize, pes;
         MyDatacenterAbstract dc;
 
-        for (int i = 0; i < 30; i++) {
+        for (int i = 0; i < 50; i++) {
             operation = operationsList.get(randomSelector.nextInt(operationsList.size()));
             file = filesList.get(randomSelector.nextInt(filesList.size()));
             cloudletLength = cloudletLengthsList.get(randomSelector.nextInt(cloudletLengthsList.size()));
@@ -41,5 +41,6 @@ public class MainSimulation1 {
                 e.printStackTrace();
             }
         }
+        broker.finishSaaSCloudletSubmissions();
     }
 }

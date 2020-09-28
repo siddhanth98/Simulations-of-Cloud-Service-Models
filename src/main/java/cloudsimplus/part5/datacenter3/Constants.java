@@ -36,6 +36,9 @@ public class Constants {
     static final long VMS_STORAGE = specsConfig.getLong("conf.VMS.STORAGE");
     static final long VMS_PROCESSING_MIPS = specsConfig.getLong("conf.VMS.PROCESSING_MIPS");
     static final long VMS_READ_MIPS = specsConfig.getLong("conf.VMS.READ_MIPS");
+    static final double VMS_SCALING_FACTOR = specsConfig.getDouble("conf.VMS.SCALING_FACTOR");
+    static final double LOWER_THRESHOLD = specsConfig.getDouble("conf.VMS.LOWER_THRESHOLD");
+    static final double UPPER_THRESHOLD = specsConfig.getDouble("conf.VMS.UPPER_THRESHOLD");
 
     static final List<String> FILES = servicesConfig.getStringList("conf.files");
     static final List<String> FILE2_OPERATIONS = servicesConfig.getStringList("conf.services.file2.operations");

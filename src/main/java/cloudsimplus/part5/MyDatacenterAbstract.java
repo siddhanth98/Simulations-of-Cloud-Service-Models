@@ -7,11 +7,20 @@ import org.cloudbus.cloudsim.brokers.DatacenterBroker;
 import org.cloudbus.cloudsim.cloudlets.Cloudlet;
 import org.cloudbus.cloudsim.cloudlets.CloudletSimple;
 import org.cloudbus.cloudsim.core.CloudSim;
+import org.cloudbus.cloudsim.core.Identifiable;
+import org.cloudbus.cloudsim.core.events.CloudSimEvent;
 import org.cloudbus.cloudsim.datacenters.Datacenter;
 import org.cloudbus.cloudsim.hosts.Host;
 import org.cloudbus.cloudsim.resources.ResourceManageable;
+import org.cloudbus.cloudsim.schedulers.cloudlet.CloudletScheduler;
 import org.cloudbus.cloudsim.schedulers.cloudlet.CloudletSchedulerAbstract;
 import org.cloudbus.cloudsim.schedulers.cloudlet.CloudletSchedulerSpaceShared;
+import org.cloudbus.cloudsim.schedulers.cloudlet.CloudletSchedulerTimeShared;
+import org.cloudbus.cloudsim.schedulers.vm.VmScheduler;
+import org.cloudbus.cloudsim.schedulers.vm.VmSchedulerAbstract;
+import org.cloudbus.cloudsim.schedulers.vm.VmSchedulerSpaceShared;
+import org.cloudbus.cloudsim.schedulers.vm.VmSchedulerTimeShared;
+import org.cloudbus.cloudsim.utilizationmodels.UtilizationModel;
 import org.cloudbus.cloudsim.utilizationmodels.UtilizationModelStochastic;
 import org.cloudbus.cloudsim.vms.Vm;
 import org.cloudbus.cloudsim.vms.network.NetworkVm;
@@ -46,7 +55,7 @@ public abstract class MyDatacenterAbstract {
      *                     - prices[4] - MIPS of each host in the datacenter
      */
 
-    public double[] getSaaSPricing() {
+    public double[] getDatacenterPricing() {
         return new double[] {
                 (this.getDatacenter()).getCharacteristics().getCostPerSecond(),
                 this.getDatacenter().getCharacteristics().getCostPerMem(),
@@ -323,7 +332,7 @@ public abstract class MyDatacenterAbstract {
      * This will create and submit initial VMs to the broker
      */
     public void createAndSubmitInitialVms(final int VMS, final int PES, final long MIPS,
-                                                   final long RAM, final long BW, final long STORAGE) {
+                                          final long RAM, final long BW, final long STORAGE) {
         final List<Vm> vmList = new ArrayList<>(VMS);
 
         for (int i = 0; i < VMS; i++) {
@@ -354,6 +363,35 @@ public abstract class MyDatacenterAbstract {
     }
 
     /**
+     * This function submits VMs for IaaS applications to executing on.
+     * @param VMS number of VMs requested
+     * @param PES number of PEs per VM
+     * @param MIPS MIPS rating of each PE in VM
+     * @param RAM RAM to be allocated to the VM
+     * @param BW BW to be allocated to the VM
+     * @param STORAGE Storage to be allocated to the VM
+     * @param cloudletScheduler Time shared / Space shared cloudlet scheduler for the VM
+     * @param vmScheduler Time shared / Space shared vm scheduler for the host
+     */
+    public void createAndSubmitVms(final int VMS, final int PES, final long MIPS, final long RAM, final long BW,
+                                   final long STORAGE, final CloudletScheduler cloudletScheduler,
+                                   final VmScheduler vmScheduler) {
+        List<Vm> vmList = new ArrayList<>();
+        for (int i = 0; i < VMS; i++) {
+            NetworkVm vm = new NetworkVm(MIPS, PES);
+            vm.setCloudletScheduler((
+            cloudletScheduler instanceof CloudletSchedulerSpaceShared ? (new CloudletSchedulerSpaceShared()) : (new CloudletSchedulerTimeShared())));
+
+            vm.setRam(RAM).setBw(BW).setSize(STORAGE);
+            vm.addOnHostAllocationListener(evtInfo -> evtInfo.getVm().getHost().setVmScheduler((
+                    vmScheduler instanceof VmSchedulerSpaceShared ? (new VmSchedulerSpaceShared()) : (new VmSchedulerTimeShared())
+                    )));
+            vmList.add(vm);
+        }
+        this.getDatacenterBroker().submitVmList(vmList);
+    }
+
+    /**
      * This function will create VMs depending on the type of SaaS service.
      * The broker is responsible for getting the type of required service and passing in
      * relevant arguments to this function - number of VMs, number of PEs/VM, MIPS, RAM, and so on.
@@ -368,7 +406,7 @@ public abstract class MyDatacenterAbstract {
                                    final long BW, final long STORAGE) {
         List<NetworkVm> networkVms = new ArrayList<>();
         for (int i = 0; i < VMS; i++) {
-            NetworkVm networkVm = new NetworkVm(i, VMS_MIPS, VMS_PES);
+            NetworkVm networkVm = new NetworkVm(VMS_MIPS, VMS_PES);
             networkVm.setRam(RAM).setBw(BW).setSize(STORAGE);
             networkVm.setCloudletScheduler(new CloudletSchedulerSpaceShared());
             networkVm.getUtilizationHistory().enable();
@@ -378,10 +416,32 @@ public abstract class MyDatacenterAbstract {
     }
 
     /**
+     * This will create and submit cloudlets for IaaS services
+     */
+    public void createAndSubmitCloudlets(final int CLOUDLETS, final long cloudletLength, final int PES,
+                                         final int FILE_SIZE, final int OUTPUT_SIZE,
+                                         final UtilizationModel peUtilizationModel, final UtilizationModel ramUtilizationModel,
+                                         final UtilizationModel bwUtilizationModel) {
+        List<Cloudlet> cloudletList = new ArrayList<>();
+
+        for (int i = 0; i < CLOUDLETS; i++) {
+            Cloudlet cloudlet = new CloudletSimple(cloudletLength, PES);
+            cloudlet.setFileSize(FILE_SIZE);
+            cloudlet.setOutputSize(OUTPUT_SIZE);
+            cloudlet.setUtilizationModelCpu(peUtilizationModel);
+            cloudlet.setUtilizationModelRam(ramUtilizationModel);
+            cloudlet.setUtilizationModelBw(bwUtilizationModel);
+
+            this.fillCloudletMaps(cloudlet);
+            cloudletList.add(cloudlet);
+        }
+        this.getDatacenterBroker().submitCloudletList(cloudletList);
+    }
+
+    /**
      * This function will cloudlet execution results recorded at each clock interval along with average RAM and BW usages
      */
     public void printSimulationResults() {
-
         List<Cloudlet> finishedCloudletList = this.getDatacenterBroker().getCloudletFinishedList();
         finishedCloudletList.forEach(this::printSimulationResults);
     }
@@ -400,6 +460,15 @@ public abstract class MyDatacenterAbstract {
                 (this.getCloudletBwMap().get(cloudlet.getId()).values().stream().reduce(0.0, Double::sum))/(this.getCloudletBwMap().get(cloudlet.getId()).size()));
         System.out.printf("Cloudlet total execution cost = $%.4f%n", cloudlet.getTotalCost());
         System.out.println();
+    }
+
+    /**
+     * Function to print the cloudlets results table
+     */
+    public void printCloudletsResultsTable() {
+        final List<Cloudlet> finishedList = this.getDatacenterBroker().getCloudletFinishedList();
+        finishedList.sort(Comparator.comparingLong(Identifiable::getId));
+        new MyCloudletsTableBuilder(finishedList);
     }
 
     /**

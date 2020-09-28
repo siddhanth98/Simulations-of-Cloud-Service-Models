@@ -7,6 +7,18 @@ import org.cloudbus.cloudsim.brokers.DatacenterBroker;
 import org.cloudbus.cloudsim.brokers.DatacenterBrokerSimple;
 import org.cloudbus.cloudsim.cloudlets.Cloudlet;
 import org.cloudbus.cloudsim.core.CloudSim;
+import org.cloudbus.cloudsim.schedulers.cloudlet.CloudletScheduler;
+import org.cloudbus.cloudsim.schedulers.cloudlet.CloudletSchedulerSpaceShared;
+import org.cloudbus.cloudsim.schedulers.cloudlet.CloudletSchedulerTimeShared;
+import org.cloudbus.cloudsim.schedulers.vm.VmScheduler;
+import org.cloudbus.cloudsim.schedulers.vm.VmSchedulerSpaceShared;
+import org.cloudbus.cloudsim.schedulers.vm.VmSchedulerTimeShared;
+import org.cloudbus.cloudsim.utilizationmodels.UtilizationModel;
+import org.cloudbus.cloudsim.utilizationmodels.UtilizationModelDynamic;
+import org.cloudbus.cloudsim.utilizationmodels.UtilizationModelFull;
+import org.cloudbus.cloudsim.utilizationmodels.UtilizationModelStochastic;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -23,6 +35,8 @@ public class Broker {
     private final CloudSim dc2Simulation;
     private final CloudSim dc3Simulation;
     private final Map<CloudSim, Boolean> cloudSimStatus;
+    private final Map<Cloudlet, ArrayList<Double>> cloudletEstimationCostsMap;
+    private final Logger myLogger;
 
     public Broker() {
 
@@ -35,10 +49,6 @@ public class Broker {
         cloudSimStatus.put(dc2Simulation, false);
         cloudSimStatus.put(dc3Simulation, false);
 
-        /*dc1Simulation.addOnClockTickListener(this::processSimulationInstance);
-        dc2Simulation.addOnClockTickListener(this::processSimulationInstance);
-        dc3Simulation.addOnClockTickListener(this::processSimulationInstance);*/
-
         dc1Broker = new DatacenterBrokerSimple(dc1Simulation);
         dc2Broker =  new DatacenterBrokerSimple(dc2Simulation);
         dc3Broker = new DatacenterBrokerSimple(dc3Simulation);
@@ -50,6 +60,9 @@ public class Broker {
         datacenter1 = new Datacenter1(dc1Simulation, dc1Broker);
         datacenter2 = new Datacenter2(dc2Simulation, dc2Broker);
         datacenter3 = new Datacenter3(dc3Simulation, dc3Broker);
+
+        cloudletEstimationCostsMap = new HashMap<>();
+        myLogger = LoggerFactory.getLogger(Broker.class.getSimpleName());
     }
 
     /**
@@ -77,7 +90,7 @@ public class Broker {
         final boolean datacenter3Service = this.datacenter3.isServiceAvailable(fileName, cloudletOperation);
 
         if (!datacenter1Service && !datacenter2Service && !datacenter3Service) {
-            System.out.printf("None of the datacenters can provide requested services%n%n");
+            System.out.printf("None of the datacenters can provide requested services for current cloudlet%n%n");
             return null;
         }
 
@@ -112,11 +125,6 @@ public class Broker {
             estimateCheapestDatacenterCosts(cloudletOperation, fileName, datacenter, cloudletLength, PES, FILE_SIZE, OUTPUT_SIZE);
         }
 
-        if (!datacenter.getCloudSim().isRunning() && !this.getCloudSimStatus().get(datacenter.getCloudSim())) {
-            datacenter.start();
-            this.getCloudSimStatus().put(datacenter.getCloudSim(), true);
-        }
-
         return datacenter;
     }
 
@@ -137,7 +145,10 @@ public class Broker {
             saasCloudlet = ((Datacenter3) datacenter).submitCloudletsForSaaS(cloudletOperation, fileName, cloudletLength,
                     PES, FILE_SIZE, OUTPUT_SIZE);
         }
-        saasCloudlet.addOnFinishListener(evtInfo -> datacenter.printSimulationResults(saasCloudlet));
+        saasCloudlet.addOnFinishListener(evtInfo -> {
+            printEstimatedCostsAtCheapestDatacenter(evtInfo.getCloudlet(), datacenter);
+            datacenter.printSimulationResults(saasCloudlet);
+        });
         return saasCloudlet;
     }
 
@@ -159,9 +170,9 @@ public class Broker {
                                                        final int cloudletLength, final int PES,
                                                        final int FILE_SIZE, final int OUTPUT_SIZE) {
 
-        final double[] datacenter1Prices = this.datacenter1.getSaaSPricing();
-        final double[] datacenter2Prices = this.datacenter2.getSaaSPricing();
-        final double[] datacenter3Prices = this.datacenter3.getSaaSPricing();
+        final double[] datacenter1Prices = this.datacenter1.getDatacenterPricing();
+        final double[] datacenter2Prices = this.datacenter2.getDatacenterPricing();
+        final double[] datacenter3Prices = this.datacenter3.getDatacenterPricing();
 
         final Map<MyDatacenterAbstract, ArrayList<Double>> totalUsageCosts = initializeUsageCostsMap();
 
@@ -177,7 +188,7 @@ public class Broker {
         computeAndStoreResourceCosts(estimatedExecutionTime, totalUsageCosts, datacenter1Prices[0], datacenter2Prices[0], datacenter3Prices[0]);
 
         /*
-        * Maximum BW usage is assumed to occur while obtaining the input file
+        * Maximum BW usage is assumed to occur while obtaining/storing the input and output file
         * possibly from another VM or host
         * Compute and store total estimated bandwidth costs
         */
@@ -196,7 +207,7 @@ public class Broker {
                 .findFirst().orElse(null);
 
         final Cloudlet cloudlet = submitSaaSCloudlets(cheapestDatacenter, operation, fileName, cloudletLength, PES, FILE_SIZE, OUTPUT_SIZE);
-        printEstimatedCostsAtCheapestDatacenter(cloudlet, cheapestDatacenter, estimatedExecutionTime, OUTPUT_SIZE, maxBwUsage, OUTPUT_SIZE);
+        fillCloudletEstimationCosts(cloudlet, estimatedExecutionTime, OUTPUT_SIZE, maxBwUsage);
         return cheapestDatacenter;
     }
 
@@ -206,8 +217,8 @@ public class Broker {
                                                       final int PES,
                                                       final int cloudletLength,
                                                       final int FILE_SIZE, final int OUTPUT_SIZE) {
-        final double[] dc1Prices = dc1.getSaaSPricing();
-        final double[] dc2Prices = dc2.getSaaSPricing();
+        final double[] dc1Prices = dc1.getDatacenterPricing();
+        final double[] dc2Prices = dc2.getDatacenterPricing();
         final Map<MyDatacenterAbstract, ArrayList<Double>> totalUsageCosts = initializeUsageCostsMap();
 
         /*
@@ -237,17 +248,16 @@ public class Broker {
                 .findFirst().orElse(null);
 
         final Cloudlet cloudlet = submitSaaSCloudlets(cheapestDatacenter, operation, fileName, cloudletLength, PES, FILE_SIZE, OUTPUT_SIZE);
-        printEstimatedCostsAtCheapestDatacenter(cloudlet, cheapestDatacenter, estimatedExecutionTime, OUTPUT_SIZE, maxBwUsage, OUTPUT_SIZE);
+        fillCloudletEstimationCosts(cloudlet, estimatedExecutionTime, OUTPUT_SIZE, maxBwUsage);
         return cheapestDatacenter;
     }
 
     private void estimateCheapestDatacenterCosts(final String operation, final String fileName, MyDatacenterAbstract datacenter,
                                                  final int cloudletLength, final int PES,
                                                  final int FILE_SIZE, final int OUTPUT_SIZE) {
-        final double[] dcPrices = datacenter.getSaaSPricing();
+        final double[] dcPrices = datacenter.getDatacenterPricing();
         final Cloudlet cloudlet = submitSaaSCloudlets(datacenter, operation, fileName, cloudletLength, PES, FILE_SIZE, OUTPUT_SIZE);
-        printEstimatedCostsAtCheapestDatacenter(cloudlet, datacenter, (double)cloudletLength/dcPrices[4],
-                OUTPUT_SIZE*10, FILE_SIZE*10, OUTPUT_SIZE);
+        fillCloudletEstimationCosts(cloudlet, (double)cloudletLength/dcPrices[4], OUTPUT_SIZE, FILE_SIZE+OUTPUT_SIZE);
     }
 
     /**
@@ -299,20 +309,31 @@ public class Broker {
     }
 
     /**
-     * This function will print the total estimated costs/usage of executing the cloudlet
+     * This function will fill in the cloudlet estimated costs to be printed later
+     */
+    private void fillCloudletEstimationCosts(Cloudlet cloudlet,
+                                             double estimatedExecutionTime,
+                                             double estimatedRamUsage,
+                                             double estimatedBwUsage) {
+        this.getCloudletEstimationCostsMap().put(cloudlet, new ArrayList<>());
+        this.getCloudletEstimationCostsMap().get(cloudlet).add(estimatedExecutionTime);
+        this.getCloudletEstimationCostsMap().get(cloudlet).add(estimatedRamUsage);
+        this.getCloudletEstimationCostsMap().get(cloudlet).add(estimatedBwUsage);
+    }
+
+    /**
+     * This function will print the total estimated costs/usages of executing the cloudlet
      * in the cheapest datacenter.
+     * @param cloudlet The cloudlet whose estimations are to be printed
      * @param datacenter The cheapest datacenter selected by the broker
-     * @param estimatedExecutionTime The estimated total CPU execution time of cloudlet
-     * @param estimatedRamUsage The estimated total RAM which will be used by cloudlet
-     * @param estimatedBwUsage The estimated total BW which will be used by cloudlet
-     * @param estimatedStorageUsage The estimated total Storage used by cloudlet
      */
     private void printEstimatedCostsAtCheapestDatacenter(Cloudlet cloudlet,
-                                                         MyDatacenterAbstract datacenter,
-                                                         double estimatedExecutionTime,
-                                                         double estimatedRamUsage,
-                                                         double estimatedBwUsage,
-                                                         double estimatedStorageUsage) {
+                                                         MyDatacenterAbstract datacenter) {
+
+        final double estimatedExecutionTime = this.getCloudletEstimationCostsMap().get(cloudlet).get(0);
+        final double estimatedRamUsage = this.getCloudletEstimationCostsMap().get(cloudlet).get(1);
+        final double estimatedBwUsage=  this.getCloudletEstimationCostsMap().get(cloudlet).get(2);
+
         System.out.println("----------------------------------------------------------------------------------");
         System.out.printf("Cloudlet %d will be sent to %s%n", cloudlet.getId(), datacenter.getDatacenter().getName());
         System.out.printf("Pricing criteria for %s: CPU - $%.2f/second, RAM - $%.2f/MB, BW - $%.2f/Mb%n",
@@ -331,6 +352,108 @@ public class Broker {
                 +
                     estimatedBwUsage*datacenter.getDatacenter().getCharacteristics().getCostPerBw()
                 ));
+    }
+
+    /**
+    *  This function will submit the VM specs as requested by the IaaS consumer.
+    */
+    public void submitIaaSVmSpecs(final MyDatacenterAbstract datacenter, final int VMS, final int PES, final long MIPS,
+                                  final long RAM, final long BW, final long STORAGE, final String cloudletSchPolicy,
+                                  final String vmSchPolicy) {
+        final CloudletScheduler cloudletScheduler =
+                (cloudletSchPolicy.equals("time-shared") ? (new CloudletSchedulerTimeShared()) : (new CloudletSchedulerSpaceShared()));
+
+        final VmScheduler vmScheduler =
+                (vmSchPolicy.equals("time-shared") ? (new VmSchedulerTimeShared()) : (new VmSchedulerSpaceShared()));
+
+        datacenter.createAndSubmitVms(VMS, PES, MIPS, RAM, BW, STORAGE, cloudletScheduler, vmScheduler);
+    }
+
+    /**
+    * This function will submit the cloudlet specs as requested by the IaaS consumer
+    */
+    public void submitIaaSCloudletSpecs(final MyDatacenterAbstract datacenter, final int CLOUDLETS, final int PES,
+                                        final long cloudletLength, final int FILE_SIZE, final int OUTPUT_SIZE,
+                                        final String peUtilModel, final String ramUtilModel,
+                                        final String bwUtilModel) {
+        final UtilizationModel peUtilizationModel =
+                (peUtilModel.equals("random") ? (new UtilizationModelStochastic()) :
+                        (peUtilModel.equals("full") ? (new UtilizationModelFull()) : (new UtilizationModelDynamic(0.25))));
+
+        final UtilizationModel ramUtilizationModel =
+                (ramUtilModel.equals("random") ? (new UtilizationModelStochastic()) :
+                        (ramUtilModel.equals("full") ? (new UtilizationModelFull()) : (new UtilizationModelDynamic(0.25))));
+
+        final UtilizationModel bwUtilizationModel =
+                (bwUtilModel.equals("random") ? (new UtilizationModelStochastic()) :
+                        (bwUtilModel.equals("full") ? (new UtilizationModelFull()) : (new UtilizationModelDynamic(0.25))));
+
+        datacenter.createAndSubmitCloudlets(CLOUDLETS, cloudletLength, PES, FILE_SIZE, OUTPUT_SIZE, peUtilizationModel,
+                ramUtilizationModel, bwUtilizationModel);
+
+    }
+
+    public MyDatacenterAbstract selectIaaSDatacenter(final long vmMips, final int vmPes, final long cloudletLength,
+                                                     final int cloudletPes, final int fileSize, final int outputSize) {
+        final double[] dc1Prices = this.datacenter1.getDatacenterPricing();
+        final double[] dc2Prices = this.datacenter2.getDatacenterPricing();
+        final double[] dc3Prices = this.datacenter3.getDatacenterPricing();
+
+        final double dc1ExecutionPrice = getIaaSCloudletExecutionCost(dc1Prices[0], dc1Prices[2], cloudletPes, cloudletLength, vmMips, fileSize, outputSize);
+        final double dc2ExecutionPrice = getIaaSCloudletExecutionCost(dc2Prices[0], dc2Prices[2], cloudletPes, cloudletLength, vmMips, fileSize, outputSize);
+        final double dc3ExecutionPrice = getIaaSCloudletExecutionCost(dc3Prices[0], dc3Prices[2], cloudletPes, cloudletLength, vmMips, fileSize, outputSize);
+
+        myLogger.info(String.format("Datacenter1 price - $%.4f\tDatacenter2 price - $%.4f\tDatacenter3 price - $%.4f",
+                dc1ExecutionPrice, dc2ExecutionPrice, dc3ExecutionPrice));
+
+        if (dc1ExecutionPrice <= dc2ExecutionPrice && dc1ExecutionPrice <= dc3ExecutionPrice) {
+            myLogger.info(String.format("Sending cloudlet to datacenter1%n"));
+            return this.datacenter1;
+        }
+        else if (dc2ExecutionPrice <= dc3ExecutionPrice) {
+            myLogger.info(String.format("Sending cloudlet to datacenter2%n"));
+            return this.datacenter2;
+        }
+        else {
+            myLogger.info(String.format("Sending cloudlet to datacenter3%n"));
+            return this.datacenter3;
+        }
+    }
+
+
+    public void finishSaaSCloudletSubmissions() {
+        this.datacenter1.start();
+        this.datacenter2.start();
+        this.datacenter3.start();
+    }
+
+    /**
+     * This function will be notified by the simulation program once all cloudlets have been submitted.
+     * It will call each datacenter's cloudlets table results print function
+     */
+    public void finishIaaSCloudletSubmissions() {
+        this.datacenter1.start();
+        this.datacenter2.start();
+        this.datacenter3.start();
+
+        this.datacenter1.printCloudletsResultsTable();
+        this.datacenter2.printCloudletsResultsTable();
+        this.datacenter3.printCloudletsResultsTable();
+    }
+
+    /**
+     * This function will compute the IaaS cloudlet execution cost as follows:
+     * For example - dcCpuPrice(per second) = $0.25, cloudletPes(number of PEs) = 10,
+     * cloudletLength(Million Instructions) = 10000, vmMips(for each pe used by VM) = 1000.
+     * Then the consumer is paying (0.25/second/PE * 10PEs) for (10000/1000) i.e. 10 seconds => $25
+     * Thus the consumer is estimated to be paying $25 to execute in the given datacenter
+     */
+    public double getIaaSCloudletExecutionCost (final double dcCpuPrice, final double dcBwPrice, final int cloudletPes,
+                                                final long cloudletLength, final long vmMips, final int fileSize,
+                                                final int outputSize) {
+        return (
+                ((dcCpuPrice*cloudletPes) * ((double)cloudletLength / vmMips)) + (dcBwPrice*(fileSize+outputSize))
+        );
     }
 
     public Datacenter1 getDatacenter1() {
@@ -371,5 +494,9 @@ public class Broker {
 
     public Map<CloudSim, Boolean> getCloudSimStatus() {
         return cloudSimStatus;
+    }
+
+    public Map<Cloudlet, ArrayList<Double>> getCloudletEstimationCostsMap() {
+        return cloudletEstimationCostsMap;
     }
 }

@@ -1,0 +1,205 @@
+For all simulations, passing different command line arguments while running the programs can produce different
+results. You can also combine arguments to get all results together in the output.
+
+To print cloudlets execution results, run as: runMain filename cloudlets
+To print Host utilization metrics, run as: runMain filename hosts
+To print VM utilization metrics, run as: runMain filename vms
+
+Datacenter 1 (10 hosts, datacenterbroker simple, network data center, cloudlet simple):
+
+	VM Allocation best fit and worst fit policies give similar cloudlet execution results for this configuration
+	with slightly different placement of VMs.
+	For simulation 1, best fit will fill the 1st 5 hosts fully(all PEs in use) with 10 VMs in total(2 VMs per host).
+	Remaining 5 hosts will be idle. While the worst fit will partially fill(half of the PEs in use) 
+	all 10 hosts with 10 VMs in total (1 VM per host).
+	
+	For simulation 2, best fit and worst fit have the exact same placement of VMs in hosts as there is just 1 VM per
+	host using all of the host's PEs.
+
+	This can be confirmed from the logs of VmAllocationPolicy(Best/Worst)Fit which indicates VMs and corresponding
+	host they are mapped to.
+
+	Even if extra VMs need to be allocated in any case then idle hosts are selected for new VMs in best fit policy
+	and currently running 10 hosts with idle resources are selected in the worst fit policy.
+
+	Dynamic stream of cloudlets is simulated using additional 20 cloudlets with 100 seconds delays.
+	For both simulations every cloudlet uses the stochastic/random utilization model to use VM resources
+	and every VM uses the space shared scheduling policy for its cloudlets.
+
+	Simulation 1:
+		VM Allocation Best Fit for 10 VMs and 5 PEs per VM.
+
+		Results:
+		Cloudlets 0 - 19 instantly start executing in their respective VMs without any delays.
+		Every host has 2 VMs and every VM has 2 cloudlets executing in order of IDs using a space shared manner.
+		That is, in VM0 in host0 for instance, cloudlet 0 and cloudlet 10 execute. 
+		Cloudlet 0 executes fully before cloudlet 10 starts as it uses all of the 5 PEs of VM0.
+		So cloudlet 10 starts executing after 161 simulation seconds which is cloudlet 0's end simulation time.
+
+		After 100 seconds, cloudlets 20 to 39 are mapped to the respective VMs in order of IDs.
+		So cloudlet 20 and 30 will be mapped to VM0 in host0 as VM0 has enough PEs to execute.
+		But just like before cloudlet 20 waits for cloudlet 10 to execute fully and after 320 simulation seconds,
+		starts executing. Then after 20 completes 30 will start executing. This execution pattern is consistent 
+		across all VMs in all hosts for this simulation.
+
+
+	Simulation 2:
+		VM allocation best fit for 10VMs and 10 PEs per VM.
+
+		For this configuration, there is just 1 VM per host using 10 PEs and 2 cloudlets execute at the same time
+		in a given VM as there is enough PEs for both of them to execute. This is clear from the cloudlet results
+		table printed in the output, where the 1st 20 cloudlets start after 0 simulation seconds.
+
+	
+	The important differences to note in the above 2 simulations are:
+		For simulation 1:
+			As the number of PEs used per VM is less in this case(5 PEs/VM), a lot of cloudlets have to wait 
+			to even start executing after being submitted by the broker. For tasks which are time constrained,
+			this might not work well and the cloudlets will simply fail without executing.
+
+			 
+		For simulation 2:
+			The number of PEs per VM is more than that in simulation 1 (10 PEs/VM). So all the undelayed cloudlets
+			start executing at the same time without having to wait, but fight for contention of other resources. 
+			As a random/stochastic utilization model is used the RAM/BW usage by a cloudlet may vary significantly 
+			across different time intervals and the required amount may not be available immediately, as is clear 
+			from logs.
+			Notice that this was not a problem in the 1st simulation as there was just 1 cloudlet executing
+			at any given time in a VM.
+			Still the execution time per cloudlet does not vary much for both simulations as scheduling policy used
+			is the same and there are enough PEs available for all cloudlets executing in a VM.
+	
+
+	For simulation 3 and 4, different cloudlet scheduling policies are used for execution in order to observe
+	differences in cloudlet start and execution times.
+
+	Simulation 3:
+		For this simulation, 10 VMs are allocated to the 1st 5 hosts using the best fit allocation policy.
+		Each VM uses 5 PEs and a space shared policy for scheduling its cloudlets, indicating that only 1 cloudlet
+		can use a given PE at any time and any other cloudlet can use the same PE once the first one completely
+		executes. The last 20 cloudlets (cloudlet 20 to 39) are submitted with a delay of 100 seconds.
+		The configuration for this is same as that for simulation 1.
+
+		From the simulation results table, it can be observed that the 1st 10 cloudlets start executing immediately
+		after being submitted, while the successive cloudlets start executing later on.
+		This waiting time for cloudlets 10-39 is indicative of a space shared scheduling policy being used.
+		
+		However the overall execution time for each cloudlet is roughly the same as it would be had it been the
+		only cloudlet mapped to that VM. Notice that will not be the case if our configuration is something like
+		in simulation 2 where multiple cloudlets execute in the same VM in a host due to enough availability of 
+		resources.
+
+	Simulation 4:
+		Configuration is same as in simulation 3 with the only difference being the cloudlet scheduling policy 
+		used for this one which is the time shared policy.
+		All cloudlets submitted at the same time start executing together.
+
+		If there are enough PEs in a VM for 2 cloudlets then this policy will allocate separate time slices for
+		both cloudlets to execute. 
+		For instance in this simulation, initially for the 1st 100 seconds, VM 0 will keep on switching 
+		from cloudlet 0 to cloudlet 10 giving equal time slices of execution to each of them. 
+		After 100 seconds when the additional 20 cloudlets have been submitted and mapped by the broker, 
+		cloudlet 20 and 30 join VM 0. So the execution time is divided among these 4 cloudlets currently 
+		fighting for contention of VM 0 resources.
+		
+		The overall execution time per cloudlet increases significantly because of this though the waiting time
+		for each (delayed only/undelayed only) cloudlet to start execution is the same. 
+		We can compare the execution times for cloudlets from simulation 3 where the highest was about 
+		320 simulation seconds and simulation 4 where the highest execution time was around 885 simulation seconds.
+
+		In order to reduce the execution time per cloudlet in this time shared scenario, we would need to reduce
+		the number of cloudlets mapped to the same VM and that is exactly what simulation 5 shows in its result table.
+	
+	Simulation 5:
+		This is similar to simulation 4 except that there are no additional cloudlet being submitted to the 
+		broker with submission delays. 
+
+
+Datacenter 2 (50 network hosts, 2 edge switches, 1 aggregate switch, 20 seconds scheduling interval):
+
+	Simulations for this datacenter show differences in dynamic network cloudlet executions when VMs are
+	horizontally scaled using a specific overload condition and load balanced vs when load balancing is not
+	used. Both simulations use the best fit VM Allocation policy, time shared VM scheduling policy and space 
+	shared cloudlet scheduling policy and simulate a stream of cloudlets at every alternate time interval.
+
+	There are 50 network hosts each having 10 PEs, and every group of 10 hosts are connected by an edge switch.
+	A list of 10 VMs and 10 cloudlets is initially submitted to the broker and a listener is attached to the
+	simulation which creates 25 additional cloudlets on every alternate clock tick (defined by the scheduling interval)
+	to simulate a dynamic stream of cloudlets. Specifications of every cloudlet is the same.
+
+	If "cloudlets" is passed as a cmd argument then 2 result tables are created for each simulation.
+	The 1st table is sorted by cloudlet ID and the 2nd is sorted by execution start time to highlight differences 
+	between both simulation results.
+
+	If "vms" is passed as a cmd argument then the utilization metrics of all VMs which have executed are printed.
+	To reduce log size, the metrics are collected once every 3 simulation intervals.
+
+	The stream of cloudlets stop when 100 simulation seconds pass.
+
+	Simulation 1:
+		Observing different runs of this simulation for the above mentioned configuration with 25 cloudlets being
+		created every alternate simulation interval, the total number of cloudlets created and which finished execution
+		is around 134 from the 1st table, and the latest that a cloudlet started execution is approximately after
+		2770 simulation seconds from the start of the simulation.
+
+		As for the VM utilization metrics, every run will give slightly different execution results as the cloudlets
+		use a random / stochastic utilization model for VM resources.	
+
+	Simulation 2 (note that here the broker uses a delay of 10 seconds to destroy idle VMs)
+		This simulation uses a horizontal scaling policy for each VM, specifically when the cpu utilization of
+		the VM exceeds 70% of the total available MIPS. When this happens one additional VM is created and submitted
+		to the broker.
+
+		For this simulation, from the cloudlet results of different runs, the total number of cloudlets created
+		and which finished executing ranges from around 180 to 230. This variation may be because of the different
+		times at which requests for additional VMs maybe submitted as a result of the random utilization of 
+		already existing VM	resources by executing cloudlets.
+
+		However for the VM utilization results, each VM tends to execute all its cloudlets much soooner than it did
+		in simulation 1. This is apparent from each VMs utilization results close to the end of the simulation when
+		all resource utilization becomes 0.00%.
+		
+		For instance for one of the runs in both simulations: 
+			VM 0 in simulation 1 became idle after 2825.94 simulation seconds when its CPU utilization reached 0%.
+			VM 0 in simulation 2 became idle after 2358.06 simulation seconds when its CPU utilization reached 0%.
+
+			VM 2 in simulation 1 became idle after 2705.07 simulation seconds and in simulation 2 it became idle
+			after 2464.73 simulation seconds.
+
+	The above differences can be explained as follows:
+		1. Cloudlet execution
+			All cloudlets executing use all of the PEs of their respective VMs so only 1 cloudlet 
+			can execute at a time.
+
+			Initially submitted cloudlets will start executing in their VMs immediately in both simulations as
+			expected, and this is clear from the 2nd table results for the 1st 10 cloudlets of both simulations.
+			
+			However as more and more cloudlets start arriving in the 1st simulation they are inserted in a waiting
+			queue by the broker as no more VMs maybe available, so the execution start time of these new cloudlets
+			depends on the execution time of the already executing cloudlets.
+
+			For the 2nd simulation, as the initial cloudlets utilize PEs there will be a point where this will go
+			above 70% and the scaling policy will start creating additional VMs in other hosts where resources 
+			are available. As the datacenter broker used for this maps a cloudlet to the 1st VM which has 
+			enough resources it will map the newly arrived cloudlets to these new VMs (assuming these VMs exist at that time), 
+			where they will start executing immediately. If VMs are not available then they are inserted in waiting
+			queues.
+			This is clear from the execution start times of these new cloudlets which is equal to the time interval
+			at which they are created and the VM IDs in which these new cloudlets execute which correspond to the 
+			new VMs.
+			By the time the next batch of new cloudlets arrive the previous VMs may have finished executing
+			(all cloudlets in execList and waitingList) and will take in these new cloudlets.
+			
+			This explains why the number of cloudlets served in the 2nd simulation is higher than that in the 1st
+			simulation.
+		
+		2. VM utilization
+			Relating to the previous explanation every VM in the 2nd simulation will tend to have fewer cloudlets
+			in its waiting queue than it did in the 1st simulation because of load balancing and thus will tend
+			to finish executing all its cloudlets quickly, and then become idle. The broker will then destroy 
+			if these VMs stay idle for more than 10 simulation seconds.
+			This is explained by the quick to drop to 0% CPU, RAM and BW usage.
+
+
+
+	

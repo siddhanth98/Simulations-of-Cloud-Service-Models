@@ -18,6 +18,8 @@ import org.cloudbus.cloudsim.provisioners.PeProvisionerSimple;
 import org.cloudbus.cloudsim.provisioners.ResourceProvisionerSimple;
 import org.cloudbus.cloudsim.resources.Pe;
 import org.cloudbus.cloudsim.resources.PeSimple;
+import org.cloudbus.cloudsim.schedulers.cloudlet.CloudletScheduler;
+import org.cloudbus.cloudsim.schedulers.vm.VmScheduler;
 import org.cloudbus.cloudsim.schedulers.vm.VmSchedulerTimeShared;
 import org.cloudbus.cloudsim.utilizationmodels.UtilizationModel;
 import org.cloudbus.cloudsim.utilizationmodels.UtilizationModelStochastic;
@@ -74,15 +76,14 @@ public class Datacenter1 extends MyDatacenterAbstract {
         vmRamUtilizationMap = initializeVmUtilizationMaps(datacenter);
         vmBwUtilizationMap = initializeVmUtilizationMaps(datacenter);
 
-        createAndSubmitInitialVms(INITIAL_VM_COUNT, INITIAL_VM_PES, INITIAL_VM_MIPS,
+        /*createAndSubmitInitialVms(INITIAL_VM_COUNT, INITIAL_VM_PES, INITIAL_VM_MIPS,
                 VMS_RAM, VMS_BW, VMS_STORAGE);
-        createAndSubmitInitialCloudlets();
+        createAndSubmitInitialCloudlets();*/
 
         myLogger = LoggerFactory.getLogger(Datacenter1.class.getSimpleName());
         this.cloudSim.addOnClockTickListener(super::processOnClockTickListener);
-
         initializeServicesMap(FILES);
-        configureLogs();
+//        configureLogs();
     }
 
     /**
@@ -237,6 +238,20 @@ public class Datacenter1 extends MyDatacenterAbstract {
         }
 
         AggregateSwitch aggregateSwitch = new AggregateSwitch(cloudSim, datacenter);
+    }
+
+    public void createAndSubmitVms(final int VMS, final int PES, final long MIPS, final long RAM, final long BW,
+                                   final long STORAGE, final CloudletScheduler cloudletScheduler,
+                                   final VmScheduler vmScheduler) {
+        super.createAndSubmitVms(VMS, PES, MIPS, RAM, BW, STORAGE, cloudletScheduler, vmScheduler);
+    }
+
+    public void createAndSubmitCloudlets(final int CLOUDLETS, final long cloudletLength, final int PES,
+                                         final int FILE_SIZE, final int OUTPUT_SIZE,
+                                         final UtilizationModel peUtilizationModel, final UtilizationModel ramUtilizationModel,
+                                         final UtilizationModel bwUtilizationModel) {
+        super.createAndSubmitCloudlets(CLOUDLETS, cloudletLength, PES, FILE_SIZE, OUTPUT_SIZE,
+                peUtilizationModel, ramUtilizationModel, bwUtilizationModel);
     }
 
     /**

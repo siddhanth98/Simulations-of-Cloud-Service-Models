@@ -18,10 +18,19 @@ import org.cloudbus.cloudsim.provisioners.PeProvisionerSimple;
 import org.cloudbus.cloudsim.provisioners.ResourceProvisionerSimple;
 import org.cloudbus.cloudsim.resources.Pe;
 import org.cloudbus.cloudsim.resources.PeSimple;
+import org.cloudbus.cloudsim.resources.Processor;
+import org.cloudbus.cloudsim.schedulers.cloudlet.CloudletScheduler;
+import org.cloudbus.cloudsim.schedulers.cloudlet.CloudletSchedulerSpaceShared;
+import org.cloudbus.cloudsim.schedulers.cloudlet.CloudletSchedulerTimeShared;
+import org.cloudbus.cloudsim.schedulers.vm.VmScheduler;
+import org.cloudbus.cloudsim.schedulers.vm.VmSchedulerSpaceShared;
 import org.cloudbus.cloudsim.schedulers.vm.VmSchedulerTimeShared;
 import org.cloudbus.cloudsim.utilizationmodels.UtilizationModel;
 import org.cloudbus.cloudsim.utilizationmodels.UtilizationModelStochastic;
 import org.cloudbus.cloudsim.vms.Vm;
+import org.cloudbus.cloudsim.vms.network.NetworkVm;
+import org.cloudsimplus.autoscaling.VerticalVmScaling;
+import org.cloudsimplus.autoscaling.VerticalVmScalingSimple;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -66,15 +75,15 @@ public class Datacenter3 extends MyDatacenterAbstract {
         this.vmBwUtilizationMap = initializeVmUtilizationMaps(this.datacenter);
         this.vmCpuUtilizationMap = initializeVmUtilizationMaps(this.datacenter);
 
-        createAndSubmitInitialVms(INITIAL_VM_COUNT, INITIAL_VM_PES, INITIAL_VM_MIPS,
+        /*createAndSubmitInitialVms(INITIAL_VM_COUNT, INITIAL_VM_PES, INITIAL_VM_MIPS,
                 VMS_RAM, VMS_BW, VMS_STORAGE);
-        createAndSubmitInitialCloudlets();
+        createAndSubmitInitialCloudlets();*/
 
         myLogger = LoggerFactory.getLogger(Datacenter2.class.getSimpleName());
         this.cloudSim.addOnClockTickListener(super::processOnClockTickListener);
 
         initializeServicesMap(FILES);
-        configureLogs();
+//        configureLogs();
     }
 
     /**
@@ -228,6 +237,46 @@ public class Datacenter3 extends MyDatacenterAbstract {
         }
 
         AggregateSwitch aggregateSwitch = new AggregateSwitch(cloudSim, datacenter);
+    }
+
+    /**
+     * This function will create the required VMs for IaaS consumer and will attach a vertical scaling instance for PE.
+     */
+    public void createAndSubmitVms(final int VMS, final int PES, final long MIPS, final long RAM, final long BW,
+                                   final long STORAGE, final CloudletScheduler cloudletScheduler,
+                                   final VmScheduler vmScheduler) {
+        List<Vm> vmList = new ArrayList<>();
+        for (int i = 0; i < VMS; i++) {
+            NetworkVm vm = new NetworkVm(i, MIPS, PES);
+            vm.setCloudletScheduler(
+                    cloudletScheduler instanceof CloudletSchedulerSpaceShared ? (new CloudletSchedulerSpaceShared()) : (new CloudletSchedulerTimeShared())
+            );
+            vm.setRam(RAM).setBw(BW).setSize(STORAGE);
+            vm.addOnHostAllocationListener(evtInfo -> evtInfo.getVm().getHost().setVmScheduler(
+                    vmScheduler instanceof VmSchedulerSpaceShared ? (new VmSchedulerSpaceShared()) : (new VmSchedulerTimeShared())
+            ));
+            vm.setPeVerticalScaling(getVerticalScalingInstance());
+            vmList.add(vm);
+        }
+        this.getDatacenterBroker().submitVmList(vmList);
+    }
+
+    /**
+     * This function will create a vertical cpu scaling instance which downscales a VM when
+     */
+    public VerticalVmScaling getVerticalScalingInstance() {
+        VerticalVmScaling verticalVmScaling = new VerticalVmScalingSimple(Processor.class, VMS_SCALING_FACTOR);
+        verticalVmScaling.setLowerThresholdFunction(vm -> LOWER_THRESHOLD);
+        verticalVmScaling.setUpperThresholdFunction(vm -> UPPER_THRESHOLD);
+        return verticalVmScaling;
+    }
+
+    public void createAndSubmitCloudlets(final int CLOUDLETS, final long cloudletLength, final int PES,
+                                         final int FILE_SIZE, final int OUTPUT_SIZE,
+                                         final UtilizationModel peUtilizationModel, final UtilizationModel ramUtilizationModel,
+                                         final UtilizationModel bwUtilizationModel) {
+        super.createAndSubmitCloudlets(CLOUDLETS, cloudletLength, PES, FILE_SIZE, OUTPUT_SIZE,
+                peUtilizationModel, ramUtilizationModel, bwUtilizationModel);
     }
 
     /**
