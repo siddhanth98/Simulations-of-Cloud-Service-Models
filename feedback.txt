@@ -1,5 +1,5 @@
+Hi Siddhanth,
 
+Your grade for HW1 is 10%.
 
-For your simulations in Java, your grade is 12 % - ()
-
--0.5% for not simulating FaaS or PaaS
+Abhijeet
