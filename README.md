@@ -1,7 +1,7 @@
 ## Cloud Datacenter Simulations
 This project constructs different cloud datacenters having customizable configurations and 
-load balancing policies, and implements a datacenter broker which accepts user specified task configurations
-to allocate those tasks in the form of cloudlets using different VM/CPU allocation and scheduling policies.
+load balancing policies, and implements a datacenter broker to allocate user specified tasks 
+in the form of cloudlets using different VM/CPU allocation and scheduling policies.
 
 ### Running Simulations
 ***
