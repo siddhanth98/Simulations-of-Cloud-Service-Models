@@ -1,3 +1,8 @@
+## Cloud Datacenter Simulations
+This project simulates different cloud datacenters having different configurations, 
+load balancing policies, and implements a datacenter broker which accepts user specified configurations
+to allocate tasks in the form of cloudlets using different VM/CPU allocation and scheduling policies.
+
 ### Running Simulations
 ***
    * All programs are in the src/main/java/cloudsimplus/* packages.
