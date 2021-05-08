@@ -1,98 +1,379 @@
-# Homework 1
-### Description: create cloud simulators for evaluating executions of applications in cloud datacenters with different characteristics and deployment models.
-### Grade: 10% + bonus up to 5%
-#### You can obtain this Git repo using the command git clone git@bitbucket.org:cs441-fall2020/cs441_fall2020_hw1.git. Also, you can clone CloudSimPlus or ingest it directly into IntelliJ from its [website](https://cloudsimplus.org/) or the [Github repo](https://github.com/manoelcampos/cloudsim-plus).
+## Cloud Datacenter Simulations
+This project simulates different cloud datacenters having different configurations, 
+load balancing policies, and implements a datacenter broker which accepts user specified configurations
+to allocate tasks in the form of cloudlets using different VM/CPU allocation and scheduling policies.
 
-## Preliminaries
-As part of  homework assignment you will gain experience with creating and managing your Git repository, obtaining an open-source cloud simulation infrastructure Java project from a public Git repo, creating JUnit tests, and creating your SBT build and run scripts for your simulation application. Doing this homework is essential for successful completion of the rest of this course, since all other homeworks and the course project will share the same features of this homework: branching, merging, committing, pushing your code into your Git repo, creating test cases and build scripts, and using various tools for diagnosing problems with virtual machines and your applications.
+### Running Simulations
+***
+   * All programs are in the `src/main/java/cloudsimplus/*` packages.
+   * To run a program like simulation 2 of datacenter 2 use the following sbt command:
+    - sbt runMain cloudsimplus.datacenter2.simulations.simulation2.MainSimulation cloudlets
+   * All logs, outputs and configuration files are located in the src/main/resources/configuration/*
+   directories and are accessed by the programs for inputs and in this file as references to logs.
+   * All Junit Tests are located in the src/test/* packages for respective simulations.
+   
+   * Snippets of outputs are used in this documentation for clarity of explanation but can be verified by
+   running the appropriate programs or opening images in the resources/outputs directory using the highlighted paths. 
+   
+**For all simulations of datacenters 1 and 2 (homework parts 1 to 4) passing different command line arguments while running the programs can produce different
+results. 
+You can also combine arguments to get all results together in the output.**
 
-First things first, you must create your account at [BitBucket](https://bitbucket.org/), a Git repo management system. It is imperative that you use your UIC email account that has the extension @uic.edu. Once you create an account with your UIC address, BibBucket will assign you an academic status that allows you to create private repos. Bitbucket users with free accounts cannot create private repos, which are essential for submitting your homeworks and the course project. Your instructor created a team for this class named [cs441-Fall2020](https://bitbucket.org/cs441-fall2020/). Please contact your TA, [Mr. Abhijeet Mohanty](amohan31@uic.edu) using your UIC.EDU email account and he will add you to the team repo as developers, since Mr.Mohanty already has the admin privileges. Please use your emails from the class registration roster to add you to the team and you will receive an invitation from BitBucket to join the team. Since it is a large class, please use your UIC email address for communications or Piazza and avoid emails from other accounts like funnybunny1992@gmail.com. If you don't receive a response within 12 hours, please contact us via Piazza, it may be a case that your direct emails went to the spam folder.
+* To print cloudlets execution results, run as: runMain filename cloudlets
+* To print Host utilization metrics, run as: runMain filename hosts
+* To print VM utilization metrics, run as: runMain filename vms
 
-Next, if you haven't done so, you will install [IntelliJ](https://www.jetbrains.com/student/) with your academic license, the JDK, the Scala runtime and the IntelliJ Scala plugin and the [Simple Build Toolkit (SBT)](https://www.scala-sbt.org/1.x/docs/index.html) and make sure that you can create, compile, and run Java and Scala programs. Please make sure that you can run [various Java tools from your chosen JDK between versions 8 and 14](https://docs.oracle.com/en/java/javase/index.html).
+**For example** - runMain cloudsimplus.datacenter1.simulations.simulation5.MainSimulation cloudlets
 
-In this and all consecutive homeworks and in the course project you will use logging and configuration management frameworks. You will comment your code extensively and supply logging statements at different logging levels (e.g., TRACE, INFO, ERROR) to record information at some salient points in the executions of your programs. All input and configuration variables must be supplied through configuration files -- hardcoding these values in the source code is prohibited and will be punished by taking a large percentage of points from your total grade! You are expected to use [Logback](https://logback.qos.ch/) and [SLFL4J](https://www.slf4j.org/) for logging and [Typesafe Conguration Library](https://github.com/lightbend/config) for managing configuration files. These and other libraries should be imported into your project using your script [build.sbt](https://www.scala-sbt.org/1.0/docs/Basic-Def-Examples.html). These libraries and frameworks are widely used in the industry, so learning them is the time well spent to improve your resumes.
+**All logs are placed in the src/main/resources/logs/ directory**
+ 
+### Datacenter 1 (10 hosts, datacenterbroker simple, network data center, cloudlet simple):
+***
+* Simulations 1 and 2 compare results of the Best Fit and Worst Fit Allocation Policies used to map VMs to hosts.
+* VM Allocation best fit and worst fit policies give similar cloudlet execution results for this configuration
+    with slightly different placement of VMs.
 
-Even though CloudSim Plus is written in Java, you can create your simulations using Scala, for which you will receive an additional bonus of up to 3%. No matter whether you use Java or Scala you should create a fully pure functional (not imperative) implementation. Since being proficient in Java is a prerequisite for this course, you will be expected to learn Scala as you go. As you see from the StackOverflow survey, knowledge of Scala is highly paid and in great demand, and it is expected that you pick it relatively fast, especially since it is tightly integrated with Java. I recommend using the book on Programming in Scala: Updated for Scala 2.12 published on May 10, 2016 by Martin Odersky and Lex Spoon. You can obtain this book using the academic subscription on Safari Books Online. There are many other books and resources available on the Internet to learn Scala. Those who know more about functional programming can use the book on Functional Programming in Scala published on Sep 14, 2014 by Paul Chiusano and Runar Bjarnason.
+* For simulation 1, best fit will fill the 1st 5 hosts fully(all PEs in use) with 10 VMs in total(2 VMs per host).
+	Remaining 5 hosts will be idle. While the worst fit will partially fill(half of the PEs in use) 
+	all 10 hosts with 10 VMs in total (1 VM per host).
+	
+* For simulation 2, best fit and worst fit have the exact same placement of VMs in hosts as there is just 1 VM per
+	host using all of the host's PEs.
 
-To receive your bonus for writing your cloud simulation program code in Scala, you should avoid using **var**s and while/for loops that iterate over collections using [induction variables](https://en.wikipedia.org/wiki/Induction_variable). Instead, you should learn to use collection methods **map**, **flatMap**, **foreach**, **filter** and many others with lambda functions, which make your code linear and easy to understand. Also, avoid mutable variables that expose the internal states of your modules at all cost. Points will be deducted for having many **var**s and inductive variable loops without explanation why mutation is needed in your code unless it is confined to method scopes - you can always do without it.
+* For simulation 2, best fit and worst fit have the exact same placement of VMs in hosts as there is just 1 VM per
+  	host using all of the host's PEs. This can be viewed in the following log files for programs using best fit and worst fit policies:
+  	 
+  	 src/main/resources/logs/datacenter 1/simulation2_MainSimulation1.log
+  	 src/main/resources/logs/datacenter 1/simulation2_MainSimulation2.log
+  	 
+* Even if extra VMs need to be allocated in any case then idle hosts are selected for new VMs in best fit policy
+  	and all currently running 10 hosts with idle resources in the worst fit policy.
+  	
+* Dynamic stream of cloudlets is simulated using additional 20 cloudlets with 100 seconds delays.
+  	For both simulations every cloudlet uses the stochastic/random utilization model to use VM resources
+  	and every VM uses the space shared scheduling policy for its cloudlets.
+ 
+    ### Simulation 1
+    * VM Allocation Best Fit for 10 VMs and 5 PEs per VM.
+    
+    src/main/resources/outputs/datacenter 1/simulation1_main_simulation1.jpg
+    
+    ![Datacenter 1 - Simulation 1](src/main/resources/outputs/datacenter 1/simulation1_main_simulation1.jpg)
+   
+   * Cloudlets 0 - 19 instantly start executing in their respective VMs without any delays.
+        Every host has 2 VMs and every VM has 2 cloudlets executing in order of IDs using a space shared manner.
+        That is, in VM0 in host0 for instance, cloudlet 0 and cloudlet 10 execute. 
+        Cloudlet 0 executes fully before cloudlet 10 starts as it uses all of the 5 PEs of VM0.
+        So cloudlet 10 starts executing after 172 simulation seconds which is cloudlet 0's end simulation time.
+   * After 100 seconds, cloudlets 20 to 39 are mapped to the respective VMs in order of IDs.
+     		So cloudlet 20 and 30 will be mapped to VM0 in host0 as VM0 has enough PEs to execute.
+     		But just like before cloudlet 20 waits for cloudlet 10 to execute fully and after 320 simulation seconds,
+     		starts executing. Then after 20 completes 30 will start executing. This execution pattern is consistent 
+     		across all VMs in all hosts for this simulation.
+   * The above timings are for 1 run of the program. A different run may give slightly different timings but similar.
+   
+   
+### Simulation 2
+   * VM allocation best fit for 10VMs and 10 PEs per VM.
+   
+   src/main/resources/outputs/datacenter 1/simulation1_main_simulation2.jpg
+   
+   ![Datacenter 1 - Simulation 2](src/main/resources/outputs/datacenter 1/simulation1_main_simulation2.jpg)
+   
+   * For this configuration, there is just 1 VM per host using 10 PEs and 2 cloudlets execute at the same time
+   		in a given VM as there is enough PEs for both of them to execute. This is clear from the above cloudlet results
+   		table printed obtained the output, where the 1st 20 cloudlets start after 0 simulation seconds.
+   		
+  
+### Differences
+  * The important differences to note in the above 2 simulations are as follows.
+    * For **simulation 1**:
+        As the number of PEs used per VM is less in this case(5 PEs/VM), a lot of cloudlets have to wait 
+        to even start executing after being submitted by the broker. For tasks which are time constrained,
+        this might not work well and the cloudlets will simply fail without executing.
+        			 
+    * For **simulation 2**:
+        The number of PEs per VM is more than that in simulation 1 (10 PEs/VM). So all the undelayed cloudlets
+        start executing at the same time without having to wait, but fight for contention of other resources. 
+        As a random/stochastic utilization model is used the RAM/BW usage by a cloudlet may vary significantly 
+        across different time intervals and the required amount may not be available immediately, as is clear 
+        from logs.
+        Notice that this was not a problem in the 1st simulation as there was just 1 cloudlet executing
+        at any given time in a VM.
+        Still the execution time per cloudlet does not vary much for both simulations as scheduling policy used
+        is the same and there are enough PEs available for all cloudlets executing in a VM.
+       
+* In simulation 3 and 4, different cloudlet scheduling policies are used for execution in order to observe
+    differences in cloudlet start and execution times.
 
-## Overview
-In this homework, you will experiment with creading cloud computing datacenters and running jobs on them. Of course, creating real cloud computing datacenters takes hundreds of millions of dollars and acres of land and a lot of complicated equipment, and you don't want to spend your money and resources creating physical cloud datacenters for this homework ;-). Instead, we have a cloud simulator, a software package that models the cloud environments and operates different cloud models that we study in the lectures. We will use *CloudSim Plus*, a simulation framework that is available from [Sourceforge](https://github.com/manoelcampos/cloudsim-plus). It is an extension of *CloudSim*, a framework and a set of libraries for modeling and simulating cloud computing infrastructure and services. It is a [publically available project in Github](https://github.com/Cloudslab/cloudsim).
+###Simulation 3 (Space shared Cloudlet Scheduling Policy)
+* For this simulation, 10 VMs are allocated to the 1st 5 hosts using the best fit allocation policy.
+* Each VM uses 5 PEs and a space shared policy for scheduling its cloudlets, indicating that only 1 cloudlet
+		can use a given PE at any time and any other cloudlet can use the same PE once the first one completely
+		executes. The last 20 cloudlets (cloudlet 20 to 39) are submitted with a delay of 100 seconds.
+		The configuration for this is same as that for simulation 1.
+  
+  src/main/resources/outputs/datacenter 1/simulation3_main_simulation.jpg
+  
+  ![Datacenter 1 - Simulation 3](src/main/resources/outputs/datacenter 1/simulation3_main_simulation.jpg)
+* From the simulation results table, it can be observed that the 1st 10 cloudlets start executing immediately
+  		after being submitted, while the successive cloudlets start executing later on.
+  		This waiting time for cloudlets 10-39 is indicative of a space shared scheduling policy being used.
+  		
+* However the overall execution time for each cloudlet is roughly the same as it would be had it been the
+only cloudlet mapped to that VM. Notice that will not be the case if our configuration is something like
+in simulation 2 where multiple cloudlets execute in the same VM in a host due to enough availability of 
+resources.
 
-[CloudSim Plus website](http://cloudsimplus.org/) contains a wealth of information and it is your starting point. It is recommended that you learn more about *CloudSim* -- you will find an [old online course on CloudSim](https://www.superwits.com/library/cloudsim-simulation-framework) and [a new resource on CloudSim](https://www.cloudsimtutorials.online/) and your starting point is to [download and configure CloudSim Plus](https://github.com/manoelcampos/cloudsim-plus) and to run examples that are provided in the Github repo. Those examples you will find under the section Examples on the main CloudSim Plus website. Those who want to read more about modeling physical systems and creating simulations can find ample resources on the Internet - I recommend the following paper by [Any Maria on Introduction to Modeling and Simulation](http://acqnotes.com/Attachments/White%20Paper%20Introduction%20to%20Modeling%20and%20Simulation%20by%20Anu%20Maria.pdf). 
+###Simulation 4 (Time shared cloudlet scheduling policy)
+* Configuration is same as in simulation 3 with the only difference being the cloudlet scheduling policy 
+  		used for this one which is the time shared policy.
+  		All cloudlets submitted at the same time start executing together.
+  
+* If there are enough PEs in a VM for 2 cloudlets then this policy will allocate separate time slices for
+both cloudlets to execute. 
 
-This homework script is written using a retroscripting technique, in which the homework outlines are generally and loosely drawn, and the individual students improvise to create the implementation that fits their refined objectives. In doing so, students are expected to stay within the basic requirements of the homework and they are free to experiments. Asking questions is important, so please ask away at Piazza!
+    src/main/resources/outputs/datacenter 1/simulation4_main_simulation.jpg
+    
+    ![Datacenter 1 - Simulation 4](src/main/resources/outputs/datacenter 1/simulation4_main_simulation.jpg)
+    
+* For instance in this simulation, initially for the 1st 100 seconds, VM 0 will keep on switching 
+    from cloudlet 0 to cloudlet 10 giving equal time slices of execution to each of them. 
+    After 100 seconds when the additional 20 cloudlets have been submitted and mapped by the broker, 
+    cloudlet 20 and 30 join VM 0. So the execution time is divided among these 4 cloudlets currently 
+    fighting for contention of VM 0 resources.
+    
+* The overall execution time per cloudlet increases significantly because of this, though the waiting time
+    for each (delayed only/undelayed only) cloudlet to start execution is the same. 
+    We can compare the execution times for cloudlets from simulation 3 where the highest was about 
+    315 simulation seconds and simulation 4 where the highest execution time was around 905 simulation seconds.
 
-## Functionality
-Once you installed and configured CloudSim Plus, your job is to run examples supplied with the frameworks to perform two or more simulations where you will evaluate two or more datacenters with different characteristics (e.g., operating systems, costs, devices) and policies. Imagine that you are a cloud computing broker and you purchase computing time in bulk from different cloud providers and you sell this time to your customers, so that they can execute their jobs, i.e., cloudlets on the infrastructure of these cloud providers that have different policies and constraints. As a broker, your job is to buy the computing time cheaply and sell it at a good markup. One way to achieve it is to take cloudlets from your customers and estimate how long they will execute. Then you charge for executing cloudlets some fixed fee that represent your cost of resources summarily. Some cloudlets may execute longer than you expected, the other execute faster. If your revenue exceeds your expenses for buying the cloud computing time in bulk, you are in business, otherwise, you will go bankrupt!
+* In order to reduce the execution time per cloudlet in this time shared scenario, we would need to reduce
+    the number of cloudlets mapped to the same VM and that is exactly what simulation 5 shows in its result table.
+    
+    
+### Simulation 5
+    
+   src/main/resources/outputs/datacenter 1/simulation5_main_simulation.jpg
+   
+   ![Datacenter 1 - Simulation 5](src/main/resources/outputs/datacenter 1/simulation5_main_simulation.jpg)
+   
+   * This is similar to simulation 4 except that there are no additional cloudlet being submitted to the 
+     broker with submission delays.
+   * The execution time per cloudlet reduces in this simulation as there are less number of cloudlets fighting
+        for utilization of resources.
+        
+### Datacenter 2 (50 network hosts, 2 edge switches, 1 aggregate switch, 20 seconds scheduling interval):
+***
+* Simulations for this datacenter show differences in dynamic network cloudlet executions when VMs are
+    being horizontally scaled using a specific overload condition and load balanced vs when load balancing is not
+  	used. 
+  	
+* Both simulations use the best fit VM Allocation policy, time shared VM scheduling policy and space 
+  	shared cloudlet scheduling policy and simulate a stream of cloudlets at every alternate time interval.
+  	
+* If "cloudlets" is passed as a cmd argument then 2 result tables are created for each simulation.
+  	The 1st table is sorted by cloudlet ID and the 2nd is sorted by execution start time to highlight differences 
+  	between both simulation results.
+  
+* If "vms" is passed as a cmd argument then the utilization metrics of all VMs which have executed are printed.
+  	To reduce log size, the metrics are collected once every 3 simulation intervals.
+  
+* The stream of cloudlets stop when 100 simulation seconds pass.
 
-There are different policies that datacenters can use for allocating Virtual Machines (VMs) to hosts, scheduling them for executions on those hosts, determining how network bandwidth is provisioned, and for scheduling cloudlets to execute on different VMs. Randomly assigning these cloudlets to different datacenters may result in situation where the executions of these cloudlets are inefficient and they takes a long time. As a result, you exhaust your supply of the purchased cloud time and you may have to refund the money to your customers, since you cannot fulfil the agreement, and you will go bankrupt. Modeling and simulating the executions of cloudlets in your clouds may help you chose a proper model for your business.
-
-Once you installed and configured CloudSim and ran its examples, your next job will be to create simulations where you will evaluate a large cloud provider with many datacenters with different characteristics (e.g., operating systems, costs, devices) and policies. You will form a stream of jobs, dynamically, and feed them into your simulation. You will design your own datacenter with your own network switches and network links. You can organize cloudlets into tasks to accomplish the same job (e.g., a map reduce job where some cloudlets represent mappers and the other cloudlets represent reducers). There are different policies that datacenters can use for allocating Virtual Machines (VMs) to hosts, scheduling them for executions on those hosts, determining how network bandwidth is provisioned, and for scheduling cloudlets to execute on different VMs. Randomly assigning these cloudlets to different datacenters may result in situation where the execution is inefficient and takes a long time. Using a more clever algorithm like assigning tasks to specific clusters where the data is located may lead to more efficient cloud provider services.
-
-Consider a snippet of the code below from one of the examples that come from the documentation on CloudSim Plus. In it, a network cloud datacenter is created with network hardware that is used to organize hosts in a connected network. VMs can exchange packets/messages using a chosen network topology. Depending on your simulation construct, you may view different levels of performances.
-```java
-protected final NetworkDatacenter createDatacenter() {
-  final int numberOfHosts = EdgeSwitch.PORTS * AggregateSwitch.PORTS * RootSwitch.PORTS;
-  List<Host> hostList = new ArrayList<>(numberOfHosts);
-  for (int i = 0; i < numberOfHosts; i++) {
-      List<Pe> peList = createPEs(HOST_PES, HOST_MIPS);
-      Host host = new NetworkHost(HOST_RAM, HOST_BW, HOST_STORAGE, peList)
-                    .setRamProvisioner(new ResourceProvisionerSimple())
-                    .setBwProvisioner(new ResourceProvisionerSimple())
-                    .setVmScheduler(new VmSchedulerTimeShared());
-      hostList.add(host);
-  }
-
-  NetworkDatacenter dc =
-          new NetworkDatacenter(
-                  simulation, hostList, new VmAllocationPolicySimple());
-  dc.setSchedulingInterval(SCHEDULING_INTERVAL);
-  dc.getCharacteristics()
-        .setCostPerSecond(COST)
-        .setCostPerMem(COST_PER_MEM)
-        .setCostPerStorage(COST_PER_STORAGE)
-        .setCostPerBw(COST_PER_BW);
-  createNetwork(dc);
-  return dc;
-}
-```
-
-Your homework can be divided roughly into five steps. First, you learn how CloudSim Plus is organized and what your building blocks from the CloudSim framework you will use. You should import the source code of CloudSim Plus into IntelliJ and explore its classes, interfaces, and dependencies. Second, you design your own cloud provider organization down to rack/cluster organization as we will study in our lectures. You will add various policies and load balancing heuristics like randomly allocating tasks to machines or using data locality to guide the task allocation. Next, you will create an implementation of the simulation(s) of your cloud provider using CloudSim. Fourth, you will run multiple simulations with different parameters, statistically analyze the results and report them in your documentation with explanations why some cloud architectures are more efficient than the others in your simulations. 
-
-### For the students who use the main textbook, in the final fifth step is the following. You will implement three datacenters each of which offers different mixes of SaaS, PaaS, IaaS and FaaS model implementations with various pricing criteria. A broker will decide to which datacenter your tasks will be sent based on additional information provided with those tasks, e.g., accessing SaaS services of some application or deploying your own software stack that will service some tasks. You will describe your design of the implementation of your simulation and how your cloud organizations/pricing models lead to different results and explain these results.
-
-### For the students who use the alternative textbooks, in the final fifth step you will create a simulation that shows how broadcast storm is created in the cloud that is described in one of the alternative textbook. After creating two or more datacenters the implementation should result in a situation where the load is bounced between these datacenters putting a significant overhead on the network communication with little actual work done by the VMs. Understanding the process and implementing it can be done without any regard for a particular cloud service model.
-
-## Baseline
-Your absolute minimum gradeable baseline project can be based on the examples that come from the repo CloudSim Plus. To be considered for grading, your project should include at least one of your simulation programs written in functional Java, your project should be buildable using the SBT, and your documentation must specify how you create and evaluate your simulated clouds based on the cloud models that we learn in the class/textbooks. Your documentation must include the results of your simulation, the measurement of the runtime parameters of the simulator (e.g., CPU and RAM utilization) and your explanations of how these results help you with your simulation objectives (e.g., choose the right cloud model and configuration). Simply copying Java programs from examples and modifying them a bit (e.g., rename some variables) will result in desk-rejecting your submission.
-
-## Piazza collaboration
-You can post questions and replies, statements, comments, discussion, etc. on Piazza. For this homework, feel free to share your ideas, mistakes, code fragments, commands from scripts, and some of your technical solutions with the rest of the class, and you can ask and advise others using Piazza on where resources and sample programs can be found on the internet, how to resolve dependencies and configuration issues. When posting question and answers on Piazza, please select the appropriate folder, i.e., hw1 to ensure that all discussion threads can be easily located. Active participants and problem solvers will receive bonuses from the big brother :-) who is watching your exchanges on Piazza (i.e., your class instructor and your TA). However, *you must not describe your simulation or specific details related how your construct your models!*
-
-## Git logistics
-**This is an individual homework.** Separate repositories will be created for each of your homeworks and for the course project. You will find a corresponding [entry for this homework](https://bitbucket.org/cs441-fall2020/cs441_fall2020_hw1/src/master/). You will fork this repository and your fork will be private, no one else besides you, the TA and your course instructor will have access to your fork. Please remember to grant a read access to your repository to your TA and your instructor. In future, for the team homeworks and the course project, you should grant the write access to your forkmates, but NOT for this homework. You can commit and push your code as many times as you want. Your code will not be visible and it should not be visible to other students (except for your forkmates for a team project, but not for this homework). When you push the code into the remote repo, your instructor and the TAs will see your code in your separate private fork. Making your fork public or inviting other students to join your fork for an individual homework will result in losing your grade. For grading, only the latest push timed before the deadline will be considered. **If you push after the deadline, your grade for the homework will be zero**. For more information about using the Git and Bitbucket specifically, please use this [link as the starting point](https://confluence.atlassian.com/bitbucket/bitbucket-cloud-documentation-home-221448814.html). For those of you who struggle with the Git, I recommend a book by Ryan Hodson on Ry's Git Tutorial. The other book called Pro Git is written by Scott Chacon and Ben Straub and published by Apress and it is [freely available](https://git-scm.com/book/en/v2/). There are multiple videos on youtube that go into details of the Git organization and use.
-
-Please follow this naming convention while submitting your work : "Firstname_Lastname_hw1" without quotes, where you specify your first and last names **exactly as you are registered with the University system**, so that we can easily recognize your submission. I repeat, make sure that you will give both your TA and the course instructor the read/write access to your *private forked repository* so that we can leave the file feedback.txt with the explanation of the grade assigned to your homework.
-
-## Discussions and submission
-As it is mentioned above, you can post questions and replies, statements, comments, discussion, etc. on Piazza. Remember that you cannot share your code and your solutions privately, but you can ask and advise others using Piazza and StackOverflow or some other developer networks where resources and sample programs can be found on the Internet, how to resolve dependencies and configuration issues. Yet, your implementation should be your own and you cannot share it. Alternatively, you cannot copy and paste someone else's implementation and put your name on it. Your submissions will be checked for plagiarism. **Copying code from your classmates or from some sites on the Internet will result in severe academic penalties up to the termination of your enrollment in the University**. When posting question and answers on Piazza, please select the appropriate folder, i.e., hw1 to ensure that all discussion threads can be easily located.
-
-
-## Submission deadline and logistics
-Friday, September 18 at 10PM CST via the bitbucket repository. Your submission will include the code for the simulator program, your documentation with instructions and detailed explanations on how to assemble and deploy your cloud simulation along with the results of your simulation and a document that explains these results based on the characteristics and the parameters of your simulations, and what the limitations of your implementation are. Again, do not forget, please make sure that you will give both your TAs and your instructor the read access to your private forked repository. Your name should be shown in your README.md file and other documents. Your code should compile and run from the command line using the commands **sbt clean compile test** and **sbt clean compile run** or the corresponding commands for Gradle. Also, you project should be IntelliJ friendly, i.e., your graders should be able to import your code into IntelliJ and run from there. Use .gitignore to exlude files that should not be pushed into the repo.
-
-
-## Evaluation criteria
-- the maximum grade for this homework is 10% with the bonus up to 5% for fully pure functional implementation in Scala using monadic combinators. Points are subtracted from this maximum grade: for example, saying that 2% is lost if some requirement is not completed means that the resulting grade will be 10%-2% => 8%; if the core homework functionality does not work, no bonus points will be given;
-- only some basic cloud simulation examples from the cloudsim repo are given and nothing else is done: up to 10% lost;
-- having less than five unit and/or integration tests: up to 5% lost;
-- missing comments and explanations from the simulation program: up to 5% lost;
-- logging is not used in the simulation programs: up to 3% lost;
-- hardcoding the input values in the source code instead of using the suggested configuration libraries: up to 4% lost;
-- no instructions in README.md on how to install and run your simulator: up to 5% lost;
-- the program crashes without completing the core functionality: up to 3% lost;
-- the documentation exists but it is insufficient to understand how you assembled and deployed all components of the cloud: up to 5% lost;
-- the minimum grade for this homework cannot be less than zero.
-
-That's it, folks!
+    ### Simulation 1
+    `src/main/resources/outputs/datacenter 2/simulation1_cloudlets_results_start.jpg`
+    
+    ![Datacenter 2 - Simulation 1](src/main/resources/outputs/datacenter 2/simulation1_cloudlets_results_start.jpg)
+    
+    `src/main/resources/outputs/datacenter 2/simulation1_cloudlets_results.jpg`
+    
+    ![Datacenter 2 - Simulation 1](src/main/resources/outputs/datacenter 2/simulation1_cloudlets_results.jpg)
+    
+    `src/main/resources/outputs/datacenter 2/simulation1_cloudlets_execution_start_time_sorted_results_start.jpg`
+    
+    ![Datacenter 2 - Simulation 1](src/main/resources/outputs/datacenter 2/simulation1_cloudlets_execution_start_time_sorted_results_start.jpg)
+    
+    src/main/resources/outputs/datacenter 2/simulation1_cloudlets_execution_start_time_sorted_results.jpg
+    
+    ![Datacenter 2 - Simulation 1](src/main/resources/outputs/datacenter 2/simulation1_cloudlets_execution_start_time_sorted_results.jpg)
+    
+    * The above table shows the last parts of both cloudlets results table for this simulation. Note that execution/start/end/ 
+        times may slightly vary for different runs of the program.
+          
+    * Observing different runs of this simulation for the above mentioned configuration with 25 cloudlets being
+        created every alternate simulation interval, the total number of cloudlets created and which finished execution
+        is around 134 from the 1st table, and the latest that a cloudlet started execution is approximately after
+        2800 simulation seconds from the start of the simulation.
+    
+    * As for the VM utilization metrics, every run will give slightly different execution results as the cloudlets
+    use a random / stochastic utilization model for VM resources.
+      
+    ### Simulation 2 (note that here the broker uses a delay of 10 seconds to destroy idle VMs)
+    * This simulation uses a horizontal scaling policy for each VM, specifically when the cpu utilization of
+        the VM exceeds 70% of the total available MIPS. When this happens one additional VM is created and submitted
+        to the broker.
+        
+    src/main/resources/outputs/datacenter 2/simulation2_cloudlets_results.jpg
+    
+    ![Datacenter 2 - Simulation 2](src/main/resources/outputs/datacenter 2/simulation2_cloudlets_results.jpg)
+    
+    * For this simulation, from the cloudlet results of different runs, the total number of cloudlets created
+        and which finished executing ranges from around 180 to 230. This variation may be because of the different
+        times at which requests for additional VMs maybe submitted as a result of the random utilization of 
+        already existing VM	resources by executing cloudlets.
+  
+    * However for the VM utilization results, each VM tends to execute all its cloudlets much sooner than it did
+        in simulation 1. This is apparent from each VMs utilization results close to the end of the simulation when
+        all resource utilization becomes 0.00%.
+        
+    * For instance for one of the runs in both simulations as shown below: 
+        src/main/resources/outputs/datacenter 2/simulation1_2_vms_results_comparison.jpg
+        
+        ![Datacenter 2 - Simulation 2](src/main/resources/outputs/datacenter 2/simulation1_2_vms_results_comparison.jpg)
+        
+        The left table is the vm utilization results for simulation 1 and the right table is the vm utilization results for simulation 2.
+        VM 5 in simulation 1 became idle after 2886.44 simulation seconds when its CPU utilization reached 0%.
+        VM 5 in simulation 2 became idle after 2340.24 simulation seconds when its CPU utilization reached 0%.
+        
+        Similarly, VM 2 in simulation 1 became idle after 2705.07 simulation seconds and in simulation 2 it became idle
+        after 2464.73 simulation seconds.
+        
+    * Notice that in the above tables, the RAM and BW stay allocated even after VM 5 becomes idle in simulation1,
+      while for simulation 2, RAM and BW utilizations become 0.0% at around the same time the CPU utilization becomes 0.0%.
+      This is due to the fact that the broker in simulation 2 is set to destroy idle VMs after 10.0 simulation seconds, while
+      in simulation 1 the VMs stay idle till the end of the simulation. This can be hugely beneficial in some cases as the host
+      resources become free for other VM configurations to be created inside it, for instance, if another waiting cloudlet requires
+      a VM of higher specications to be created in some host.
+      
+   
+   * The above differences can be explained as follows:
+        1. **Cloudlet execution**:
+            All cloudlets executing use all of the PEs of their respective VMs so only 1 cloudlet 
+            can execute at a time.
+ 
+            Initially submitted cloudlets will start executing in their VMs immediately in both simulations as
+            expected, and this is clear from the 2nd table results for the 1st 10 cloudlets of both simulations.
+            
+            However as more and more cloudlets start arriving in the 1st simulation they are inserted in a waiting
+            queue by the broker as no more VMs maybe available, so the execution start time of these new cloudlets
+            depends on the execution time of the already executing cloudlets.
+ 
+            For the 2nd simulation, as the initial cloudlets utilize PEs there will be a point where this will go
+            above 70% and the scaling policy will start creating additional VMs in other hosts where resources 
+            are available. As the datacenter broker used for this maps a cloudlet to the 1st VM which has 
+            enough resources it will map the newly arrived cloudlets to these new VMs (assuming these VMs exist at that time), 
+            where they will start executing immediately. If VMs are not available then they are inserted in waiting
+            queues.
+            This is clear from the execution start times of these new cloudlets which is equal to the time interval
+            at which they are created and the VM IDs in which these new cloudlets execute which correspond to the 
+            new VMs.
+            By the time the next batch of new cloudlets arrive the previous VMs may have finished executing
+            (all cloudlets in execList and waitingList) and will take in these new cloudlets.
+            
+            This explains why the number of cloudlets served in the 2nd simulation is higher than that in the 1st
+            simulation.
+        
+        2. **VM utilization**:
+            Relating to the previous explanation every VM in the 2nd simulation will tend to have fewer cloudlets
+            in its waiting queue than it did in the 1st simulation because of load balancing and thus will tend
+            to finish executing all its cloudlets quickly, and then become idle. The broker will then destroy 
+            if these VMs stay idle for more than 10 simulation seconds.
+            This is explained by the quick drop to 0% CPU, RAM and BW usage in simulation 2. 
+            
+            
+### Part 5 (Comparing SaaS and IaaS execution and datacenter pricing criteria):
+***
+   * This part implements 3 datacenters with different configurations and pricing criteria to utilize their resources.
+   The configurations for each datacenter are given below.
+   
+   * The main goal of this simulation is to determine whether the broker is over/under estimating the cloudlet execution costs
+   and comparing the estimated and actual execution costs of the cloudlet in the selected datacenter.
+   (Note that the cloudlet's utilization of VM resources is random/stochastic)
+    
+   * SaaS services are simulated as file operations namely "Process File" and "Open file" on files "File1", "File2" and "File3.
+    These are specified in configurations files named services.conf in the respective datacenter directories. 
+    The process operation is considered to be compute and RAM intensive so datacenters are programmed to allocate VMs with bigger RAMs and PE 
+    configurations for cloudlets requesting these operations.
+    
+   * All datacenters support different types of operations on subsets of files. For instance, datacenter 1 supports
+   processing file1 and opening file2 and file3, datacenter 2 supports opening and processing file1 and opening file2.
+   
+   * **Configurations of datacenter 1**
+        * 100 hosts
+        * 10 edge switches
+        * $0.25 for using each PE per second
+        * $0.25 for using 1MB of Ram
+        * $0.25 for using 1Mb of Bandwidth
+        * $0.25 for using 1MB of storage
+   
+   * **Configurations of datacenter 2**
+       * 100 hosts
+       * 10 edge switches
+       * $0.5 for using each PE per second
+       * $0.3 for using 1MB of Ram
+       * $0.3 for using 1Mb of Bandwidth
+       * $0.4 for using 1MB of storage
+    
+   * **Configurations of datacenter 3**
+        * 80 hosts
+        * 8 edge switches
+        * $0.2 for using each PE per second
+        * $0.2 for using 1MB of Ram
+        * $0.5 for using 1Mb of Bandwidth
+        * $0.25 for using 1MB of storage
+        
+   * The main broker is implemented to accept cloudlet specifications, estimate cloudlet execution costs/usages for the resources
+   specifically Cpu and BW which are used to compute the total execution costs (both for estimated ones and actual ones in cloudsimplus)
+   and send the cloudlet to one of the datacenters depending on the costs.
+   
+   * The estimated costs for executing in a datacenter are computed as follows:
+        
+    Total CPU execution cost of a cloudlet = (Cost of using 1 PE per second in the datacenter x Number of PEs requested by the cloudlet) x (Length of cloudlet execution / MIPS rating offered by datacenter)
+    Total Bandwidth cost of a cloudlet = (Cost of using 1 Mb of Bandwidth in the datacenter x (Size of Input file size + Size of output file size))
+    Total execution cost of the cloudlet = Total CPU execution cost + Total Bandwidth cost
+   
+   * The broker will select the datacenter which provides the file service requested by the cloudlet and at the same time 
+   yielding the cheapest cost for executing the given cloudlet and submit it to the actual broker instance in the datacenter.
+   * If none of the datacenters provide the service requested then the cloudlet will not be sent to any of them.
+   
+   * Each datacenter uses its own cloud simulation instance to prevent the broker from sending cloudlets to another datacenter's VMs
+   as implemented by the default broker mapping policy. 
+   
+   * The simulations will start together when all cloudlets have been mapped to some datacenter.
+   The results will be output in sequence for each datacenter.
+   
+   ### SaaS Simulation
+   * For the SaaS simulation the datacenter is programmed to select its own VM specifications for incoming cloudlets
+   
+        src/main/resources/outputs/part 5/saas_results_1.jpg
+        
+        ![SaaS Simulation](src/main/resources/outputs/part 5/saas_results_1.jpg)
+   
+   * The above image shows results for 1 run for 2 of the cloudlets executing in datacenter 2.
+   * There is a significant difference in the estimated and actual CPU execution times and the RAM / Bandwidth consumption 
+   by each cloudlet.
+   * However the overall estimated and actual execution costs remain around the same because of the compensation of overall
+    resource usage. For instance, cloudlet 17 is estimated to execute for 0.1 seconds or 10 milliseconds based on its length
+    and MIPS value offered, but it actually executed for 1 second (10 times the estimated value), whereas for the bandwidth,
+    the cloudlet is estimated to use 210 Mb of bandwidth but it ends up using just around 41 Mb of bandwidth.
+    * So the total cost is compensated due to these different variations in the estimated and actual resource usages.
+    * These random variations in the utilizations are due to the following:
+        * Stochastic utilization of resources
+        * Scheduling policies and VM specs which are unknown to the broker and will be offered by the datacenter.
+        So if actual broker instance decided to place the cloudlet in the VM in the same host in which the data/file required resides 
+        then the actual bandwidth consumed will be lower as getting a file from the same host costs less than getting a file
+        from a remote host due bandwidth resources being shared among multiple cloudlets, if more than 1 cloudlet is executing in the
+        VM at the same time.
+   
+   ### IaaS simulation
+   * This simulation is similar to the SaaS simulation except that the broker accepts both cloudlet as well as VM specifications
+   from the main simulation program.
+   * The broker uses the same criteria for estimating execution costs, except that the MIPS value considered for computing 
+   CPU execution cost is the actual MIPS value which will be offered by the datacenter as it is the consumer who asks for 
+   specific VM resources to be allocated to its cloudlet.
+   * However this simulation tends to shut down the broker instance immediately after submitting the cloudlets to the VMs,
+    destroying all VMs in the process as seen in the following log:
+           `src/main/resources/logs/part 5/IaaS_Simulation.log`              
+    
+   * Thus the cloudlets are unable to finish their execution.
